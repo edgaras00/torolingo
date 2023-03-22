@@ -6,6 +6,7 @@ import PictureCard from "./PictureCard";
 import PicCardMC from "./PicCardMC";
 import ListeningCard from "./ListeningCard";
 import ListeningWritingCard from "./ListeningWritingCard";
+import VocabMatchCard from "./VocabMatchCard";
 
 const Path = () => {
   return (
@@ -15,7 +16,8 @@ const Path = () => {
       {/* <PictureCard /> */}
       {/* <PicCardMC /> */}
       {/* <ListeningCard /> */}
-      <ListeningWritingCard />
+      {/* <ListeningWritingCard /> */}
+      <VocabMatchCard />
     </div>
   );
 };

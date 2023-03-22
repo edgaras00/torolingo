@@ -1,0 +1,10 @@
+.path-container {
+  width: 76%;
+  /* height: 550px; */
+  /* border: 1px solid blue; */
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

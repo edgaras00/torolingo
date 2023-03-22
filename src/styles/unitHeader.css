@@ -1,0 +1,23 @@
+.unit-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid green;
+  border-radius: 3%;
+}
+
+.header-text {
+  margin-left: 20px;
+}
+
+.unit-lesson-btn {
+  border: 1px solid blue;
+  height: 56px;
+  width: 130px;
+  border-radius: 10%;
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

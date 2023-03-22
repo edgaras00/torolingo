@@ -1,0 +1,141 @@
+.translation-card {
+  width: 90%;
+  height: 580px;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.exit-lesson {
+  width: 100%;
+}
+
+.exit-button {
+  border: none;
+  font-size: 1.8rem;
+  background-color: white;
+  color: grey;
+  cursor: pointer;
+}
+
+.problem-header-container {
+  width: 74%;
+}
+
+.problem-header {
+  font-size: 1.8rem;
+}
+
+.problem-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 74%;
+  margin-top: 1.6rem;
+  border: 1px solid red;
+}
+
+.mascot {
+  border: 1px solid red;
+  width: 70px;
+  height: 90px;
+  margin-left: 3rem;
+}
+
+.speech-bubble {
+  position: relative;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 10px;
+  width: 150px;
+  margin: 20px;
+}
+
+.card-middle {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 0.4rem;
+}
+
+.solution-container {
+  position: relative;
+}
+
+.selected-words {
+  background-color: transparent;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.aligned-words {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.line-container {
+  display: flex;
+  justify-content: center;
+}
+
+.bubble-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bubbles {
+  width: 46%;
+  padding: 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.problem-sentence {
+  height: 70px;
+  width: 200px;
+  position: absolute;
+  border-radius: 10%;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #f1f1f1 transparent transparent;
+}
+
+.card-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.check-answer {
+  width: 8.2rem;
+  height: 2.8rem;
+  border: none;
+  border-radius: 25%;
+  text-transform: capitalize;
+  margin-right: 3rem;
+  cursor: pointer;
+}

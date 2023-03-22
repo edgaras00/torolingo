@@ -1,0 +1,38 @@
+.picture-problem {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.image-container {
+  width: fit-content;
+}
+
+.image {
+  border: 1px solid red;
+  width: 180px;
+  height: 110px;
+}
+
+.pic-sentence-container {
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+
+.pic-sentence {
+  font-size: 1.1rem;
+  margin-left: 1rem;
+}
+
+.pic-blank {
+  border-bottom: 2px solid black;
+  width: 20%;
+  height: 20px;
+  margin-left: 0.8rem;
+}
+
+.pic-middle {
+  margin-top: 6rem;
+}

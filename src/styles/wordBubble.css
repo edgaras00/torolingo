@@ -1,0 +1,12 @@
+.word-bubble {
+  border: 2px solid rgb(121, 121, 121);
+  width: fit-content;
+  padding: 6px 8px;
+  /* margin-top: 5px; */
+  /* margin-left: 20px; */
+  margin-right: 8px;
+  margin-top: 6px;
+  border-radius: 36%;
+  text-align: center;
+  cursor: pointer;
+}

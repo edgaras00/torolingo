@@ -1,0 +1,43 @@
+.mc-card-middle {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mc-pic {
+  height: 160px;
+  width: 260px;
+  border: 1px solid red;
+}
+
+.choices-container {
+  width: 90%;
+  margin-top: 3rem;
+}
+
+.mc-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pic-mc {
+  border: 1px solid grey;
+  padding: 0.5rem 3.2rem;
+  margin-bottom: 0.3rem;
+  border-radius: 8%;
+  cursor: pointer;
+}
+
+.pic-mc-selected {
+  background-color: hotpink;
+}
+
+.pic-mc-input {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}

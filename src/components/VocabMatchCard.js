@@ -1,25 +1,165 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { shuffleArray } from "../utils";
 import "../styles/vocabMatchCard.css";
 
 const VocabMatchCard = () => {
-  const data = [
-    {
-      english: "man",
-      spanish: "hombre",
-    },
-    {
-      english: "woman",
-      spanish: "mujer",
-    },
-    {
-      english: "hello",
-      spanish: "hola",
-    },
-    {
-      english: "thank you",
-      spanish: "gracias",
-    },
-  ];
+  const [match, setMatch] = useState([]);
+  const [firstSelected, setFirstSelected] = useState(null);
+  const [englishWords, setEnglishWords] = useState([]);
+  const [spanishWords, setSpanishWords] = useState([]);
+
+  useEffect(() => {
+    const data = [
+      {
+        english: "man",
+        spanish: "hombre",
+        matched: false,
+      },
+      {
+        english: "woman",
+        spanish: "mujer",
+        matched: false,
+        err: false,
+      },
+      {
+        english: "hello",
+        spanish: "hola",
+        matched: false,
+        err: false,
+      },
+      {
+        english: "thank you",
+        spanish: "gracias",
+        matched: false,
+        err: false,
+      },
+    ];
+
+    const shuffledEnglish = shuffleArray(
+      data.map((pair, index) => ({ word: pair.english, index, err: false }))
+    );
+    const shuffledSpanish = shuffleArray(
+      data.map((pair, index) => ({ word: pair.spanish, index, err: false }))
+    );
+    setMatch(data);
+    setSpanishWords(shuffledSpanish);
+    setEnglishWords(shuffledEnglish);
+  }, []);
+
+  //   Helper function
+  const resetWrongWords = (array) => {
+    const modifiedArray = array.map((word) => {
+      word.err = false;
+      return word;
+    });
+    return modifiedArray;
+  };
+
+  const setRenewedWords = () => {
+    // Resert word that are marked wrong
+    const englishWordsRenewed = resetWrongWords([...englishWords]);
+    const spanishWordsRenewed = resetWrongWords([...spanishWords]);
+    setEnglishWords(englishWordsRenewed);
+    setSpanishWords(spanishWordsRenewed);
+    return;
+  };
+
+  const matchWords = (pair) => {
+    const pairIndex = match.findIndex((item) => item === pair);
+    const matchCopy = [...match];
+    matchCopy[pairIndex].matched = true;
+    setMatch(matchCopy);
+  };
+
+  const markWrongMatch = () => {
+    const englishIndex = englishWords.findIndex(
+      (word) => word.word === firstSelected
+    );
+    const spanishIndex = spanishWords.findIndex(
+      (word) => word.word === firstSelected
+    );
+    if (englishIndex !== -1) {
+      const englishCopy = [...englishWords];
+      englishCopy[englishIndex].err = true;
+      setEnglishWords(englishCopy);
+      return;
+    }
+    if (spanishIndex !== -1) {
+      const spanishCopy = [...spanishWords];
+      spanishCopy[spanishIndex].err = true;
+      setSpanishWords(spanishCopy);
+      return;
+    }
+  };
+
+  const handleClick = (event) => {
+    const word = event.target.textContent;
+    if (!firstSelected) {
+      // Reset word that are marked wrong
+      setRenewedWords();
+      //   Select new word
+      setFirstSelected(word);
+      return;
+    }
+    if (firstSelected) {
+      match.forEach((pair) => {
+        if (
+          (pair.english === word && pair.spanish === firstSelected) ||
+          (pair.english === firstSelected && pair.spanish === word)
+        ) {
+          matchWords(pair);
+          setFirstSelected(null);
+          return;
+        }
+        if (
+          (pair.english === firstSelected && pair.spanish !== word) ||
+          (pair.english === word && pair.spanish !== firstSelected)
+        ) {
+          markWrongMatch();
+          setFirstSelected(null);
+          return;
+        }
+      });
+    }
+  };
+
+  //   English cards
+  const englishCards = englishWords.map((word, index) => {
+    const matchBool = match[word.index].matched;
+    const matchClass = matchBool ? "matched" : null;
+    const selectedClass = firstSelected === word.word ? "selected" : null;
+    // const wrong = match[word.index].err ? "wrong" : null;
+    const wrong = word.err ? "wrong" : null;
+
+    return (
+      <div
+        key={index}
+        className={`match-card ${matchClass} ${selectedClass} ${wrong}`}
+        onClick={matchBool ? null : handleClick}
+      >
+        {word.word}
+      </div>
+    );
+  });
+
+  //   Spanish cards
+  const spanishCards = spanishWords.map((word, index) => {
+    const matchBool = match[word.index].matched;
+    const matchClass = matchBool ? "matched" : null;
+    const selectedClass = firstSelected === word.word ? "selected" : null;
+    const wrong = word.err ? "wrong" : null;
+
+    return (
+      <div
+        key={index}
+        className={`match-card ${matchClass} ${selectedClass} ${wrong}`}
+        // onClick={handleClick}
+        onClick={matchBool ? null : handleClick}
+      >
+        {word.word}
+      </div>
+    );
+  });
 
   return (
     <div className="vocab-match">
@@ -32,7 +172,10 @@ const VocabMatchCard = () => {
         </div>
       </div>
       <div className="vocab-card-middle">
-        <div className="match-grid"></div>
+        <div className="match-container">
+          <div className="left-side">{englishCards}</div>
+          <div className="right-side">{spanishCards}</div>
+        </div>
       </div>
     </div>
   );

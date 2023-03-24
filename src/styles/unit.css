@@ -1,6 +1,13 @@
 .unit {
   width: 80%;
   /* border: 1px solid blue; */
-  height: 300px;
   margin-top: 50px;
+}
+
+.unit-path {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

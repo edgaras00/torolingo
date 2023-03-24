@@ -166,9 +166,9 @@ const VocabMatchCard = () => {
       <div className="card-top">
         <div className="exit-lesson">
           <button className="exit-button">X</button>
-          <div className="problem-header-container">
-            <h3 className="problem-header">Tap the matching pairs</h3>
-          </div>
+        </div>
+        <div className="problem-header-container">
+          <h3 className="problem-header">Tap the matching pairs</h3>
         </div>
       </div>
       <div className="vocab-card-middle">
@@ -176,6 +176,9 @@ const VocabMatchCard = () => {
           <div className="left-side">{englishCards}</div>
           <div className="right-side">{spanishCards}</div>
         </div>
+      </div>
+      <div className="card-bottom">
+        <button className="check-answer">CHECK</button>
       </div>
     </div>
   );

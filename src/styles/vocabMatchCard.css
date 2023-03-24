@@ -1,5 +1,5 @@
 .vocab-match {
-  width: 90%;
+  width: 94%;
   height: 580px;
   padding-left: 1rem;
   display: flex;
@@ -9,8 +9,9 @@
 
 .vocab-card-middle {
   /* border: 1px solid red; */
-  height: 60vh;
+  /* height: 60vh; */
   width: 100%;
+  margin-bottom: 1.8rem;
 }
 
 .match-container {

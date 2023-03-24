@@ -2,12 +2,13 @@
   margin-top: 30px;
   border: none;
   border-radius: 50%;
-  height: 70px;
-  width: 70px;
+  height: 68px;
+  width: 68px;
   outline: none;
   color: rgb(255, 255, 255);
   font-weight: 700;
   cursor: pointer;
+  position: relative;
 }
 .circle:active {
   box-shadow: 0 1px;

@@ -33,7 +33,7 @@
 }
 
 .problem-header {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
 }
 
 .problem-wrapper {
@@ -42,7 +42,6 @@
   justify-content: left;
   width: 74%;
   margin-top: 1.6rem;
-  border: 1px solid red;
 }
 
 .mascot {

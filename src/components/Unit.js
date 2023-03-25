@@ -17,6 +17,11 @@ const Unit = () => {
         />
       </div>
       <div className="unit-path">
+        {/* <div class="sparkles-container">
+          <div class="sparkle"></div>
+          <div class="sparkle"></div>
+          <div class="sparkle"></div>
+        </div> */}
         <Circle
           color="#4caf50"
           shadowColor="28, 124, 32"
@@ -39,7 +44,7 @@ const Unit = () => {
           color="#4caf50"
           shadowColor="28, 124, 32"
           icon={crown}
-          right={19}
+          right={48}
         />
       </div>
     </div>

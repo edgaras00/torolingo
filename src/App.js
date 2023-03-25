@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router-dom";
 import Path from "./components/Path";
 import Sidebar from "./components/Sidebar";
 import "./styles/app.css";

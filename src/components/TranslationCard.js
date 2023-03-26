@@ -3,7 +3,7 @@ import WordBubble from "./WordBubble";
 import NotebookLines from "./NotebookLines";
 import "../styles/translationCard.css";
 
-const TranslationCard = () => {
+const TranslationCard = ({ onNextQuestion }) => {
   const [wordBank, setWordBank] = useState([]);
   const [selected, setSelected] = useState([]);
   const [correctSolution, setCorrectSolution] = useState("");
@@ -110,7 +110,9 @@ const TranslationCard = () => {
         </div>
       </div>
       <div className="card-bottom">
-        <button className="check-answer">CHECK</button>
+        <button className="check-answer" onClick={onNextQuestion}>
+          CHECK
+        </button>
       </div>
     </div>
   );

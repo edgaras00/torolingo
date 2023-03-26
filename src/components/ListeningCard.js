@@ -3,7 +3,7 @@ import WordBubble from "./WordBubble";
 import NotebookLines from "./NotebookLines";
 import "../styles/listeningCard.css";
 
-const ListeningCard = () => {
+const ListeningCard = ({ onNextQuestion }) => {
   const [wordBank, setWordBank] = useState([]);
   const [selected, setSelected] = useState([]);
   const [correctSolution, setCorrectSolution] = useState("");
@@ -108,7 +108,9 @@ const ListeningCard = () => {
         </div>
       </div>
       <div className="card-bottom">
-        <button className="check-answer">CHECK</button>
+        <button className="check-answer" onClick={onNextQuestion}>
+          CHECK
+        </button>
       </div>
     </div>
   );

@@ -64,6 +64,7 @@ const PictureCard = () => {
       />
     );
   }
+  console.log(correctSolution);
 
   return (
     <div className="translation-card">

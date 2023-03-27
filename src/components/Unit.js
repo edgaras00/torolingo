@@ -31,7 +31,7 @@ const Unit = () => {
             left={50}
           />
         </Link>
-        <Link to="/u2l2">
+        <Link to="/u1l2">
           <Circle
             color="#4caf50"
             shadowColor="28, 124, 32"
@@ -39,7 +39,7 @@ const Unit = () => {
             left={16}
           />
         </Link>
-        <Link to="/u3l3">
+        <Link to="/u1l3">
           <Circle
             color="#4caf50"
             shadowColor="28, 124, 32"
@@ -47,7 +47,7 @@ const Unit = () => {
             right={21}
           />
         </Link>
-        <Link to="/u4l4">
+        <Link to="/u1l4">
           <Circle
             color="#4caf50"
             shadowColor="28, 124, 32"

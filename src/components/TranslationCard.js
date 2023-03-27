@@ -25,6 +25,7 @@ const TranslationCard = ({ onNextQuestion }) => {
     setWordBank(data);
   }, []);
 
+  console.log(correctSolution);
   const handleClick = (event) => {
     const selectedWord = event.target.cloneNode();
     const wordIndex = selectedWord.dataset.position * 1;

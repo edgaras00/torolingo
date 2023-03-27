@@ -7,6 +7,7 @@ const ListeningCard = ({ onNextQuestion }) => {
   const [wordBank, setWordBank] = useState([]);
   const [selected, setSelected] = useState([]);
   const [correctSolution, setCorrectSolution] = useState("");
+  console.log(correctSolution);
 
   useEffect(() => {
     const sol = "Hello, bye.";

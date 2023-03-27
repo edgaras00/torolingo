@@ -1,13 +1,13 @@
 import React from "react";
 import "../styles/circle.css";
 
-const Circle = ({ color, shadowColor, icon, left, right }) => {
+const Circle = ({ primaryColor, secondaryColor, icon, left, right }) => {
   return (
     <button
       className="circle"
       style={{
-        backgroundColor: color,
-        boxShadow: `0 7px rgb(${shadowColor})`,
+        backgroundColor: primaryColor,
+        boxShadow: `0 7px ${secondaryColor}`,
         left,
         right,
       }}

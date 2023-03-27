@@ -3,8 +3,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid green;
-  border-radius: 3%;
+  /* background-color: #e84943; */
+  color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .header-text {
@@ -12,7 +14,12 @@
 }
 
 .unit-lesson-btn {
-  border: 1px solid blue;
+  border: 1px solid rgb(80, 80, 80);
+  /* background-color: #c23e39; */
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  letter-spacing: 1px;
   height: 56px;
   width: 130px;
   border-radius: 10%;
@@ -20,4 +27,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+
+.unit-lesson-btn img {
+  margin-right: 6px;
 }

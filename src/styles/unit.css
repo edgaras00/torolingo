@@ -1,11 +1,10 @@
 .unit {
-  width: 80%;
-  /* border: 1px solid blue; */
-  margin-top: 50px;
+  width: 60%;
+  margin-top: 10px;
+  margin-bottom: 40px;
 }
 
 .unit-path {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;

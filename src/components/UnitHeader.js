@@ -1,15 +1,27 @@
 import React from "react";
 import "../styles/unitHeader.css";
+import notebook from "../notebook.png";
 
-const UnitHeader = ({ unitNumber, unitDescription }) => {
+const UnitHeader = ({
+  unitNumber,
+  description,
+  primaryColor,
+  secondaryColor,
+}) => {
   return (
-    <div className="unit-header">
+    <header className="unit-header" style={{ backgroundColor: primaryColor }}>
       <div className="header-text">
         <h2>Unit {unitNumber}</h2>
-        <p>{unitDescription}</p>
+        <p>{description}</p>
       </div>
-      <div className="unit-lesson-btn">GUIDEBOOK</div>
-    </div>
+      <div
+        className="unit-lesson-btn"
+        style={{ backgroundColor: secondaryColor }}
+      >
+        <img src={notebook} alt="notebook" width="38px" />
+        GUIDEBOOK
+      </div>
+    </header>
   );
 };
 

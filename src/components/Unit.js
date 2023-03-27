@@ -8,13 +8,15 @@ import star from "../star.svg";
 import crown from "../crown.svg";
 import "../styles/unit.css";
 
-const Unit = () => {
+const Unit = ({ number, description, primaryColor, secondaryColor }) => {
   return (
     <div className="unit">
       <div className="unit-top">
         <UnitHeader
-          unitNumber={1}
-          unitDescription="Form basic sentences and greet people"
+          primaryColor={primaryColor}
+          secondaryColor={secondaryColor}
+          unitNumber={number}
+          description={description}
         />
       </div>
       <div className="unit-path">
@@ -25,32 +27,48 @@ const Unit = () => {
         </div> */}
         <Link to="/u1l1">
           <Circle
-            color="#4caf50"
-            shadowColor="28, 124, 32"
-            icon={dumbbell}
-            left={50}
+            primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
+            icon={check}
+            right={21}
           />
         </Link>
         <Link to="/u1l2">
           <Circle
-            color="#4caf50"
-            shadowColor="28, 124, 32"
+            primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
             icon={star}
             left={16}
           />
         </Link>
         <Link to="/u1l3">
           <Circle
-            color="#4caf50"
-            shadowColor="28, 124, 32"
-            icon={check}
-            right={21}
+            primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
+            icon={dumbbell}
+            left={50}
           />
         </Link>
         <Link to="/u1l4">
           <Circle
-            color="#4caf50"
-            shadowColor="28, 124, 32"
+            primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
+            icon={star}
+            left={16}
+          />
+        </Link>
+        <Link to="/u1l5">
+          <Circle
+            primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
+            icon={dumbbell}
+            right={21}
+          />
+        </Link>
+        <Link to="/u1l6">
+          <Circle
+            primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
             icon={crown}
             right={48}
           />

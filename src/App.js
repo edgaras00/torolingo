@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Path from "./components/Path";
 import Lesson from "./components/Lesson";
-// import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/Sidebar";
 import "./styles/app.css";
 const App = () => {
   const unitOneLessons = [];
@@ -16,9 +16,8 @@ const App = () => {
   }
   return (
     <div id="app">
-      {/* <Path /> */}
+      <Sidebar />
       <Routes>
-        {/* <Sidebar /> */}
         <Route exact path="/" element={<Path />} />
         {unitOneLessons}
         {unitTwoLessons}

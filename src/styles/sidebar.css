@@ -1,6 +1,38 @@
 .sidebar {
-  margin-top: 40px;
   width: 20%;
   height: 550px;
+  border-right: 2px solid rgb(221, 221, 221);
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.logo {
+  width: 90%;
+  font-size: 1.7rem;
+  font-weight: 700;
+  padding: 10px 0px;
+  margin-top: 2rem;
+  margin-bottom: 1.8rem;
+  color: #e84943;
+}
+
+.sidebar-option {
+  width: 90%;
   border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px 0px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.sidebar span {
+  width: 40%;
+}
+
+.sidebar img {
+  margin-right: 15px;
 }

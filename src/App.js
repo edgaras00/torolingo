@@ -3,7 +3,8 @@ import Path from "./components/Path";
 import Lesson from "./components/Lesson";
 import Sidebar from "./components/Sidebar";
 import Guidebook from "./components/Guidebook";
-import Tip from "./components/Tip";
+import UnitOneTips from "./components/UnitOneTips";
+import UnitOnePhrases from "./components/UnitOnePhrases";
 import "./styles/app.css";
 const App = () => {
   const unitOneLessons = [];
@@ -27,7 +28,8 @@ const App = () => {
           path="guidebook1"
           element={
             <Guidebook>
-              <Tip />
+              <UnitOnePhrases />
+              <UnitOneTips />
             </Guidebook>
           }
         />

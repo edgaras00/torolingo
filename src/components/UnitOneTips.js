@@ -3,7 +3,7 @@ import boyPicture from "../boy.svg";
 import girlPicture from "../girl.svg";
 import kidsPicture from "../kids.svg";
 
-const Tip = () => {
+const UnitOneTips = () => {
   return (
     <div className="tips">
       <div className="tip-top">
@@ -106,4 +106,4 @@ const Tip = () => {
   );
 };
 
-export default Tip;
+export default UnitOneTips;

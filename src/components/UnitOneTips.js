@@ -40,8 +40,8 @@ const UnitOneTips = () => {
         <div className="tip-head">TIP</div>
         <h3>I think, therefore...</h3>
       </div>
-      <div className="tip-content">
-        <table>
+      <div className="tip-content table-container">
+        <table className="unit-one-table">
           <thead>
             <tr>
               <th>Subject</th>
@@ -51,42 +51,42 @@ const UnitOneTips = () => {
           <tbody>
             <tr>
               <td>
-                <div>yo</div>
-                <div>I</div>
+                <div className="table-spanish">yo</div>
+                <div className="table-english">I</div>
               </td>
               <td>
-                <div>soy</div>
-                <div>I am</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div>tu</div>
-                <div>you</div>
-              </td>
-              <td>
-                <div>eres</div>
-                <div>you are</div>
+                <div className="table-spanish">soy</div>
+                <div className="table-english">I am</div>
               </td>
             </tr>
             <tr>
               <td>
-                <div>el</div>
-                <div>he</div>
+                <div className="table-spanish">tu</div>
+                <div className="table-english">you</div>
               </td>
               <td>
-                <div>es</div>
-                <div>he is</div>
+                <div className="table-spanish">eres</div>
+                <div className="table-english">you are</div>
               </td>
             </tr>
             <tr>
               <td>
-                <div>ella</div>
-                <div>she</div>
+                <div className="table-spanish">el</div>
+                <div className="table-english">he</div>
               </td>
               <td>
-                <div>es</div>
-                <div>she is</div>
+                <div className="table-spanish">es</div>
+                <div className="table-english">he is</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="table-spanish">ella</div>
+                <div className="table-english">she</div>
+              </td>
+              <td>
+                <div className="table-spanish">es</div>
+                <div className="table-english">she is</div>
               </td>
             </tr>
           </tbody>

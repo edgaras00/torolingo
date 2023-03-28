@@ -50,3 +50,49 @@
   border-bottom: 2px dashed grey;
   padding-bottom: 2px;
 }
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.unit-one-table {
+  border-collapse: collapse;
+
+  margin-bottom: 2rem;
+}
+
+.unit-one-table td,
+.unit-one-table th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.unit-one-table th {
+  padding: 1rem 0;
+}
+
+.unit-one-table td {
+  padding: 0.5rem 0;
+}
+
+.table-spanish {
+  font-weight: 700;
+}
+
+.table-english {
+  color: grey;
+}
+
+.conjugation-example {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+}
+
+.example-img {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  background-color: #ffffff;
+}

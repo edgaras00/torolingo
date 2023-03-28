@@ -15,7 +15,7 @@ const UnitHeader = ({
         <h2>Unit {unitNumber}</h2>
         <p>{description}</p>
       </div>
-      <Link to="/guiebook1">
+      <Link to="/guidebook1">
         <div
           className="unit-lesson-btn"
           style={{ backgroundColor: secondaryColor }}

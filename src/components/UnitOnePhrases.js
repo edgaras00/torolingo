@@ -1,5 +1,6 @@
 import React from "react";
 import SpeechBubble from "./SpeechBubble";
+import "../styles/phrases.css";
 
 const UnitOnePhrases = () => {
   return (

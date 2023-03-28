@@ -1,0 +1,41 @@
+.guidebook {
+  width: 76%;
+  display: flex;
+  justify-content: center;
+}
+
+.guidebook-content {
+  width: 60%;
+}
+
+.guide-top {
+  margin-top: 3rem;
+  border-bottom: 4px solid rgb(184, 184, 184);
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.guide-top-image {
+  width: 140px;
+  height: 140px;
+  border: 1px solid red;
+}
+
+.guide-top-text {
+  margin-left: 1rem;
+}
+
+.key-phrases h4 {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: rgb(79, 161, 189);
+}
+
+.key-phrases h5 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.phrase-container {
+}

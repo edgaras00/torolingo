@@ -1,8 +1,7 @@
 .sidebar {
   width: 20%;
-  height: 550px;
   border-right: 2px solid rgb(221, 221, 221);
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
 }

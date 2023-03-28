@@ -1,0 +1,52 @@
+.tips {
+  border: 1px solid red;
+  padding: 15px 35px;
+}
+
+.tip-top {
+}
+
+.tip-top h3 {
+  margin-top: 10px;
+  font-size: 1.3rem;
+}
+
+.tip-head {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgb(76, 171, 202);
+}
+
+.tip-content span {
+  color: blue;
+}
+
+.boy-card,
+.girl-card {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px 0;
+}
+
+.boy-card {
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  margin-left: 30px;
+}
+
+.boy-card img,
+.girl-card img {
+  margin-right: 20px;
+}
+
+.spanish-text {
+  margin-bottom: 10px;
+  border-bottom: 2px dashed grey;
+  padding-bottom: 2px;
+}

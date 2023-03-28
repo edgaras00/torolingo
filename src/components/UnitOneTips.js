@@ -2,12 +2,13 @@ import React from "react";
 import boyPicture from "../boy.svg";
 import girlPicture from "../girl.svg";
 import kidsPicture from "../kids.svg";
+import "../styles/unitOneTips.css";
 
 const UnitOneTips = () => {
   return (
     <div className="tips">
       <div className="tip-top">
-        <div>TIP</div>
+        <div className="tip-head">TIP</div>
         <h3>Gender</h3>
       </div>
       <div className="tip-content">
@@ -36,7 +37,7 @@ const UnitOneTips = () => {
         </p>
       </div>
       <div className="tip-top">
-        <div>TIP</div>
+        <div className="tip-head">TIP</div>
         <h3>I think, therefore...</h3>
       </div>
       <div className="tip-content">

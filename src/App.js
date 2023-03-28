@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import Path from "./components/Path";
 import Lesson from "./components/Lesson";
 import Sidebar from "./components/Sidebar";
+import Guidebook from "./components/Guidebook";
+import Tip from "./components/Tip";
 import "./styles/app.css";
 const App = () => {
   const unitOneLessons = [];
@@ -21,6 +23,14 @@ const App = () => {
         <Route exact path="/" element={<Path />} />
         {unitOneLessons}
         {unitTwoLessons}
+        <Route
+          path="guidebook1"
+          element={
+            <Guidebook>
+              <Tip />
+            </Guidebook>
+          }
+        />
       </Routes>
     </div>
   );

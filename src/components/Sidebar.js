@@ -4,7 +4,7 @@ import barbell from "../barbell.png";
 import profile from "../profile.png";
 import more from "../more.png";
 import "../styles/sidebar.css";
-
+import SpeechBubble from "./SpeechBubble";
 const Sidebar = () => {
   return (
     <nav className="sidebar">
@@ -28,6 +28,11 @@ const Sidebar = () => {
           <img src={more} alt="more" width="30px" />
           <span>MORE</span>
         </div>
+        <SpeechBubble
+          spanishText="Yo como manzanas."
+          englishText="I eat apples."
+          reverse={true}
+        />
       </div>
     </nav>
   );

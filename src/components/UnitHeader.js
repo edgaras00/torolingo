@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/unitHeader.css";
 import notebook from "../notebook.png";
 
@@ -14,13 +15,15 @@ const UnitHeader = ({
         <h2>Unit {unitNumber}</h2>
         <p>{description}</p>
       </div>
-      <div
-        className="unit-lesson-btn"
-        style={{ backgroundColor: secondaryColor }}
-      >
-        <img src={notebook} alt="notebook" width="38px" />
-        GUIDEBOOK
-      </div>
+      <Link to="/guiebook1">
+        <div
+          className="unit-lesson-btn"
+          style={{ backgroundColor: secondaryColor }}
+        >
+          <img src={notebook} alt="notebook" width="38px" />
+          GUIDEBOOK
+        </div>
+      </Link>
     </header>
   );
 };

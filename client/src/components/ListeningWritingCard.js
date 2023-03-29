@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import "../styles/listeningWritingCard.css";
 
-const ListeningWritingCard = () => {
+const ListeningWritingCard = ({
+  onNextQuestion,
+  text,
+  solution,
+  audio,
+  slowAudio,
+}) => {
   const [inputText, setInputText] = useState("");
 
   console.log(inputText);
+
+  const handleAudioClick = () => {
+    audio.play();
+  };
 
   return (
     <div className="translation-card">
@@ -13,11 +23,17 @@ const ListeningWritingCard = () => {
           <button className="exit-button">X</button>
         </div>
         <div className="problem-header-container">
-          <h3 className="problem-header">Type what you hear</h3>
+          <h3 className="problem-header">{text}</h3>
         </div>
         <div className="audio-box-wrapper">
-          <div className="audio-box normal-audio"></div>
-          <div className="audio-box slow-audio"></div>
+          <div
+            className="audio-box normal-audio"
+            onClick={handleAudioClick}
+          ></div>
+          <div
+            className="audio-box slow-audio"
+            onClick={handleAudioClick}
+          ></div>
         </div>
       </div>
       <div className="form-container">
@@ -31,7 +47,9 @@ const ListeningWritingCard = () => {
         </form>
       </div>
       <div className="card-bottom">
-        <button className="check-answer">CHECK</button>
+        <button className="check-answer" onClick={onNextQuestion}>
+          CHECK
+        </button>
       </div>
     </div>
   );

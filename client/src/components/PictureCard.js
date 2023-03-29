@@ -2,19 +2,23 @@ import React, { useState, useEffect } from "react";
 import WordBubble from "./WordBubble";
 import "../styles/pictureCard.css";
 
-const PictureCard = () => {
-  const [wordBank, setWordBank] = useState([]);
+const PictureCard = ({ onQuestionChange, text, header, solution, words }) => {
+  const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState(null);
   const [correctSolution, setCorrectSolution] = useState("");
 
-  useEffect(() => {
-    const sol = "tren";
-    const modifiedSol = sol.replace(/[^\w\s\u00C0-\u00FF]/g, "").toLowerCase();
-    setCorrectSolution(modifiedSol);
+  const modifiedSolution = solution
+    .replace(/[^\w\s\u00C0-\u00FF]/g, "")
+    .toLowerCase();
 
-    const data = ["hombre", "carro", "tren", "pan"];
-    setWordBank(data);
-  }, []);
+  // useEffect(() => {
+  //   const sol = "tren";
+  //   const modifiedSol = sol.replace(/[^\w\s\u00C0-\u00FF]/g, "").toLowerCase();
+  //   setCorrectSolution(modifiedSol);
+
+  //   const data = ["hombre", "carro", "tren", "pan"];
+  //   setWordBank(data);
+  // }, []);
 
   const handleClick = (event) => {
     const selectedWord = event.target.cloneNode();
@@ -51,6 +55,7 @@ const PictureCard = () => {
       key={index}
       position={index}
       handleClick={handleClick}
+      empty={word.includes("0") ? true : false}
     />
   ));
 
@@ -73,14 +78,14 @@ const PictureCard = () => {
           <button className="exit-button">X</button>
         </div>
         <div className="problem-header-container">
-          <h3 className="problem-header">Fill in the blank</h3>
+          <h3 className="problem-header">{header}</h3>
         </div>
         <div className="picture-problem">
           <div className="image-container">
             <div className="image"></div>
           </div>
           <div className="pic-sentence-container">
-            <div className="pic-sentence">Aqui esta el</div>
+            <div className="pic-sentence">{text}</div>
             <div className="pic-blank">{selectedBubble}</div>
           </div>
         </div>
@@ -91,7 +96,9 @@ const PictureCard = () => {
         </div>
       </div>
       <div className="card-bottom">
-        <button className="check-answer">CHECK</button>
+        <button className="check-answer" onClick={onQuestionChange}>
+          CHECK
+        </button>
       </div>
     </div>
   );

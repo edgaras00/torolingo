@@ -1,50 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { shuffleArray } from "../utils";
+import React, { useState } from "react";
+// import { shuffleArray } from "../utils";
 import "../styles/vocabMatchCard.css";
 
-const VocabMatchCard = () => {
-  const [match, setMatch] = useState([]);
+const VocabMatchCard = ({
+  header,
+  onNextQuestion,
+  pairs,
+  english,
+  spanish,
+}) => {
+  const [match, setMatch] = useState([...pairs]);
   const [firstSelected, setFirstSelected] = useState(null);
-  const [englishWords, setEnglishWords] = useState([]);
-  const [spanishWords, setSpanishWords] = useState([]);
-
-  useEffect(() => {
-    const data = [
-      {
-        english: "man",
-        spanish: "hombre",
-        matched: false,
-      },
-      {
-        english: "woman",
-        spanish: "mujer",
-        matched: false,
-        err: false,
-      },
-      {
-        english: "hello",
-        spanish: "hola",
-        matched: false,
-        err: false,
-      },
-      {
-        english: "thank you",
-        spanish: "gracias",
-        matched: false,
-        err: false,
-      },
-    ];
-
-    const shuffledEnglish = shuffleArray(
-      data.map((pair, index) => ({ word: pair.english, index, err: false }))
-    );
-    const shuffledSpanish = shuffleArray(
-      data.map((pair, index) => ({ word: pair.spanish, index, err: false }))
-    );
-    setMatch(data);
-    setSpanishWords(shuffledSpanish);
-    setEnglishWords(shuffledEnglish);
-  }, []);
+  const [englishWords, setEnglishWords] = useState([...english]);
+  const [spanishWords, setSpanishWords] = useState([...spanish]);
 
   //   Helper function
   const resetWrongWords = (array) => {
@@ -168,7 +136,7 @@ const VocabMatchCard = () => {
           <button className="exit-button">X</button>
         </div>
         <div className="problem-header-container">
-          <h3 className="problem-header">Tap the matching pairs</h3>
+          <h3 className="problem-header">{header}</h3>
         </div>
       </div>
       <div className="vocab-card-middle">
@@ -178,7 +146,9 @@ const VocabMatchCard = () => {
         </div>
       </div>
       <div className="card-bottom">
-        <button className="check-answer">CHECK</button>
+        <button className="check-answer" onClick={onNextQuestion}>
+          CHECK
+        </button>
       </div>
     </div>
   );

@@ -3,29 +3,33 @@ import WordBubble from "./WordBubble";
 import NotebookLines from "./NotebookLines";
 import "../styles/translationCard.css";
 
-const TranslationCard = ({ onNextQuestion }) => {
-  const [wordBank, setWordBank] = useState([]);
+const TranslationCard = ({ onNextQuestion, text, solution, words }) => {
+  const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState([]);
-  const [correctSolution, setCorrectSolution] = useState("");
+  // const [correctSolution, setCorrectSolution] = useState("");
 
-  useEffect(() => {
-    const sol = "Hello, bye.";
-    const modifiedSol = sol.replace(/[^\w\s\u00C0-\u00FF]/g, "").toLowerCase();
-    setCorrectSolution(modifiedSol);
+  const modifiedSolution = solution
+    .replace(/[^\w\s\u00C0-\u00FF]/g, "")
+    .toLowerCase();
 
-    const data = [
-      "hello",
-      "bye",
-      "test",
-      "microphone",
-      "goodbye",
-      "school",
-      "automatic",
-    ];
-    setWordBank(data);
-  }, []);
+  console.log(modifiedSolution);
 
-  console.log(correctSolution);
+  // useEffect(() => {
+  //   const sol = "Hello, bye.";
+  //   const modifiedSol = sol.replace(/[^\w\s\u00C0-\u00FF]/g, "").toLowerCase();
+  //   setCorrectSolution(modifiedSol);
+  //   const data = [
+  //     "hello",
+  //     "bye",
+  //     "test",
+  //     "microphone",
+  //     "goodbye",
+  //     "school",
+  //     "automatic",
+  //   ];
+  //   setWordBank(data);
+  // }, []);
+
   const handleClick = (event) => {
     const selectedWord = event.target.cloneNode();
     const wordIndex = selectedWord.dataset.position * 1;
@@ -63,6 +67,7 @@ const TranslationCard = ({ onNextQuestion }) => {
       key={index}
       position={index}
       handleClick={handleClick}
+      empty={word.includes("0") ? true : false}
     />
   ));
 
@@ -93,7 +98,7 @@ const TranslationCard = ({ onNextQuestion }) => {
         <div className="problem-wrapper">
           <div className="mascot"></div>
           <div className="speech-bubble">
-            <p>Hello world!</p>
+            <p>{text}</p>
           </div>
         </div>
       </div>

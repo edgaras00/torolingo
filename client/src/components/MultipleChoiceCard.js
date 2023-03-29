@@ -1,10 +1,19 @@
 import React, { useState } from "react";
+import Choice from "./Choice";
 import "../styles/multipleChoiceCard.css";
 
-const MultipleChoiceCard = ({ onNextQuestion }) => {
-  const [choice, setChoice] = useState("");
+const MultipleChoiceCard = ({ onNextQuestion, text, solution, choices }) => {
+  const [userChoice, setUserChoice] = useState("");
 
-  const onOptionChange = (event) => setChoice(event.target.value);
+  const onOptionChange = (event) => setUserChoice(event.target.value);
+
+  const answerChoices = choices.map((choice) => (
+    <Choice
+      value={choice}
+      choiceState={userChoice}
+      onOptionChange={onOptionChange}
+    />
+  ));
 
   return (
     <div className="multiple-choice-card">
@@ -13,46 +22,12 @@ const MultipleChoiceCard = ({ onNextQuestion }) => {
           <button className="exit-button">X</button>
         </div>
         <div className="problem-header-container">
-          <h3 className="problem-header">Question</h3>
+          <h3 className="problem-header">{text}</h3>
         </div>
       </div>
       <div className="mc-card-middle">
         <div className="choices-container">
-          <form className="mc-form">
-            <label className="pic-mc">
-              Option 1
-              <input
-                type="radio"
-                name="option1"
-                value="option1"
-                className="pic-mc-input"
-                checked={choice === "option1"}
-                onChange={onOptionChange}
-              />
-            </label>
-            <label className="pic-mc">
-              Option 2
-              <input
-                type="radio"
-                name="option2"
-                value="option2"
-                className="pic-mc-input"
-                checked={choice === "option2"}
-                onChange={onOptionChange}
-              />
-            </label>
-            <label className="pic-mc">
-              Option 3
-              <input
-                type="radio"
-                name="option3"
-                value="option3"
-                className="pic-mc-input"
-                checked={choice === "option3"}
-                onChange={onOptionChange}
-              />
-            </label>
-          </form>
+          <form className="mc-form">{answerChoices}</form>
         </div>
       </div>
       <div className="card-bottom">

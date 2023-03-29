@@ -10,3 +10,8 @@
   text-align: center;
   cursor: pointer;
 }
+
+.empty-bubble {
+  background-color: grey;
+  color: grey;
+}

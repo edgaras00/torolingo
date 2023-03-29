@@ -16,11 +16,54 @@ const Lesson = () => {
   const unit = pathname.replace("/", "");
 
   useEffect(() => {
+    // setQuestions([
+    //   { type: "translation" },
+    //   { type: "mc" },
+    //   { type: "picture" },
+    //   { type: "listening" },
+    // ]);
     setQuestions([
-      { type: "translation" },
-      { type: "mc" },
-      { type: "picture" },
-      { type: "listening" },
+      {
+        type: "translation",
+        text: "Yo bebo leche",
+        solution: "I drink milk",
+        unit: 1,
+        lesson: 1,
+        wordBank: ["I", "milk", "eat", "drink", "You", "apple"],
+      },
+      {
+        type: "mc",
+        text: "How do you say `I am`?",
+        solution: "soy",
+        unit: 1,
+        lesson: 1,
+        choices: ["soy", "comer", "es"],
+      },
+      {
+        type: "picture",
+        text: "Select the correct option",
+        solution: "hombre",
+        unit: 1,
+        lesson: 1,
+        choices: ["hombre", "mujer", "pan"],
+      },
+      {
+        type: "listening",
+        text: "Tap what you hear",
+        solution: "Yo soy un hombre",
+        unit: 1,
+        lesson: 1,
+        wordBank: [
+          "hombre",
+          "Yo",
+          "eres",
+          "soy",
+          "comer",
+          "una",
+          "mujer",
+          "un",
+        ],
+      },
     ]);
     console.log(unit);
   }, []);
@@ -32,19 +75,47 @@ const Lesson = () => {
   const questionCards = questions.map((question, index) => {
     if (question.type === "translation") {
       return (
-        <TranslationCard onNextQuestion={handleNextQuestion} key={index} />
+        <TranslationCard
+          onNextQuestion={handleNextQuestion}
+          key={index}
+          text={question.text}
+          solution={question.solution}
+          words={question.wordBank}
+        />
       );
     }
     if (question.type === "mc") {
       return (
-        <MultipleChoiceCard onNextQuestion={handleNextQuestion} key={index} />
+        <MultipleChoiceCard
+          onNextQuestion={handleNextQuestion}
+          key={index}
+          text={question.text}
+          solution={question.solution}
+          choices={question.choices}
+        />
       );
     }
     if (question.type === "picture") {
-      return <PicCardMC onNextQuestion={handleNextQuestion} key={index} />;
+      return (
+        <PicCardMC
+          onNextQuestion={handleNextQuestion}
+          key={index}
+          text={question.text}
+          solution={question.solution}
+          choices={question.choices}
+        />
+      );
     }
     if (question.type === "listening") {
-      return <ListeningCard onNextQuestion={handleNextQuestion} key={index} />;
+      return (
+        <ListeningCard
+          onNextQuestion={handleNextQuestion}
+          key={index}
+          text={question.text}
+          solution={question.solution}
+          wordBank={question.wordBank}
+        />
+      );
     }
   });
 

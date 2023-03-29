@@ -1,4 +1,5 @@
 import React from "react";
+import TipCard from "./TipCard";
 import boyPicture from "../boy.svg";
 import girlPicture from "../girl.svg";
 import kidsPicture from "../kids.svg";
@@ -17,24 +18,18 @@ const UnitOneTips = () => {
           <span>feminine.</span> Often nouns end in <span>-o</span> if they're
           masculine and <span>-a</span> if they're feminine
         </p>
-        <div className="boy-card">
-          <div className="card-text">
-            <div className="spanish-text">
-              <span>El</span> nin<span>o</span>
-            </div>
-            <div className="english-text">The boy</div>
-          </div>
-          <img src={boyPicture} alt="boy" />
-        </div>
-        <div className="girl-card">
-          <div className="card-text">
-            <div className="spanish-text">
-              <span>La</span> nin<span>a</span>
-            </div>
-            <div className="english-text">The girl</div>
-          </div>
-          <img src={girlPicture} alt="boy" />
-        </div>
+        <TipCard
+          img={boyPicture}
+          type={2}
+          englishText="The Boy"
+          spanishText="El nino"
+        />
+        <TipCard
+          img={girlPicture}
+          type={2}
+          englishText="The girl"
+          spanishText="La nina"
+        />
         <p>
           Notice how you use <span>el</span> if the word is masculine and{" "}
           <span>la</span> if the word is feminine.

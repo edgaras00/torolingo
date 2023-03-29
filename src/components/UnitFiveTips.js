@@ -1,4 +1,5 @@
 import React from "react";
+import TipCard from "./TipCard";
 import dressPicture from "../dress.svg";
 import shirtPicture from "../shirt.svg";
 import watchPicture from "../watch.svg";
@@ -16,34 +17,30 @@ const UnitFiveTips = () => {
         <p>
           In Spanish, adjectives usually come after the noun they're describing.
         </p>
-        <div className="boy-card">
-          <div className="card-text">
-            <div className="spanish-text">Un vestido azul</div>
-            <div className="english-text">A blue dress</div>
-          </div>
-          <img src={dressPicture} alt="blue dress" />
-        </div>
-        <div className="boy-card">
-          <div className="card-text">
-            <div className="spanish-text">Una camisa roja</div>
-            <div className="english-text">A red shirt</div>
-          </div>
-          <img src={shirtPicture} alt="red shirt" />
-        </div>
-        <div className="boy-card">
-          <div className="card-text">
-            <div className="spanish-text">Un reloj caro</div>
-            <div className="english-text">An expensive watch</div>
-          </div>
-          <img src={watchPicture} alt="expensive watch" />
-        </div>
-        <div className="boy-card">
-          <div className="card-text">
-            <div className="spanish-text">Un abrigo barato</div>
-            <div className="english-text">A cheap coat</div>
-          </div>
-          <img src={coatPicture} alt="a coat" />
-        </div>
+        <TipCard
+          img={dressPicture}
+          type={2}
+          spanishText="Un vestido azul"
+          englishText="A blue dress"
+        />
+        <TipCard
+          img={shirtPicture}
+          type={2}
+          spanishText="Una camisa roja"
+          englishText="A red shirt"
+        />
+        <TipCard
+          img={watchPicture}
+          type={2}
+          spanishText="Un reloj caro"
+          englishText="An expensive watch"
+        />
+        <TipCard
+          img={coatPicture}
+          type={2}
+          englishText="A cheap coat"
+          spanishText="Un abrigo barato"
+        />
       </div>
     </div>
   );

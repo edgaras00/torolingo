@@ -19,14 +19,18 @@ const UnitOneTips = () => {
         </p>
         <div className="boy-card">
           <div className="card-text">
-            <div className="spanish-text">El nino</div>
+            <div className="spanish-text">
+              <span>El</span> nin<span>o</span>
+            </div>
             <div className="english-text">The boy</div>
           </div>
           <img src={boyPicture} alt="boy" />
         </div>
         <div className="girl-card">
           <div className="card-text">
-            <div className="spanish-text">La nina</div>
+            <div className="spanish-text">
+              <span>La</span> nin<span>a</span>
+            </div>
             <div className="english-text">The girl</div>
           </div>
           <img src={girlPicture} alt="boy" />
@@ -55,7 +59,9 @@ const UnitOneTips = () => {
                 <div className="table-english">I</div>
               </td>
               <td>
-                <div className="table-spanish">soy</div>
+                <div className="table-spanish">
+                  <span>soy</span>
+                </div>
                 <div className="table-english">I am</div>
               </td>
             </tr>
@@ -65,7 +71,9 @@ const UnitOneTips = () => {
                 <div className="table-english">you</div>
               </td>
               <td>
-                <div className="table-spanish">eres</div>
+                <div className="table-spanish">
+                  <span>eres</span>
+                </div>
                 <div className="table-english">you are</div>
               </td>
             </tr>
@@ -75,7 +83,9 @@ const UnitOneTips = () => {
                 <div className="table-english">he</div>
               </td>
               <td>
-                <div className="table-spanish">es</div>
+                <div className="table-spanish">
+                  <span>es</span>
+                </div>
                 <div className="table-english">he is</div>
               </td>
             </tr>
@@ -85,7 +95,9 @@ const UnitOneTips = () => {
                 <div className="table-english">she</div>
               </td>
               <td>
-                <div className="table-spanish">es</div>
+                <div className="table-spanish">
+                  <span>es</span>
+                </div>
                 <div className="table-english">she is</div>
               </td>
             </tr>

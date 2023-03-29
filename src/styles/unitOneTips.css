@@ -1,9 +1,7 @@
 .tips {
-  border: 1px solid red;
+  background-color: rgb(197, 225, 235);
   padding: 15px 35px;
-}
-
-.tip-top {
+  border-radius: 10px;
 }
 
 .tip-top h3 {
@@ -18,18 +16,18 @@
 }
 
 .tip-content span {
-  color: blue;
+  color: rgb(30, 144, 182);
 }
 
 .boy-card,
 .girl-card {
-  border: 1px solid red;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
   padding: 10px 0;
+  background-color: #ffffff;
 }
 
 .boy-card {
@@ -85,9 +83,15 @@
 }
 
 .conjugation-example {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
+}
+
+.conjugation-example-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
 }
 
 .example-img {
@@ -95,4 +99,9 @@
   justify-content: center;
   padding-top: 20px;
   background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.english-text {
+  color: rgb(136, 136, 136);
 }

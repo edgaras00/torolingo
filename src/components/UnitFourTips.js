@@ -1,5 +1,6 @@
 import React from "react";
 import TipCard from "./TipCard";
+import TipTop from "./TipTop";
 import grandmaDogPicture from "../grandma-dog.svg";
 import manQuestionPicture from "../man-question.svg";
 import womanCatPicture from "../woman-cat.svg";
@@ -9,10 +10,7 @@ import "../styles/unitFourTips.css";
 const UnitFourTips = () => {
   return (
     <div className="tips">
-      <div className="tip-top">
-        <div className="tip-head">TIP</div>
-        <h3>Questions</h3>
-      </div>
+      <TipTop header="Questions" />
       <div className="tip-content">
         <p>
           Asking questions in Spanish is easy! Just change the pronunciation of
@@ -34,10 +32,7 @@ const UnitFourTips = () => {
           Notice that all questions in Spanish begin with an upside down
           question mark (<span>¿</span>).
         </p>
-        <div className="tip-top">
-          <div className="tip-head">TIP</div>
-          <h3>Tú vs. tu</h3>
-        </div>
+        <TipTop header="Tú vs. tu" />
         <div className="tip-content">
           <p>
             Accent marks can be really useful! In Spanish, a word might have a

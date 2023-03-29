@@ -1,5 +1,6 @@
 import React from "react";
 import TipCard from "./TipCard";
+import TipTop from "./TipTop";
 import dressPicture from "../dress.svg";
 import shirtPicture from "../shirt.svg";
 import watchPicture from "../watch.svg";
@@ -9,10 +10,7 @@ import "../styles/unitFiveTips.css";
 const UnitFiveTips = () => {
   return (
     <div className="tips">
-      <div className="tip-top">
-        <div className="tip-head">TIP</div>
-        <h3>Adjectives</h3>
-      </div>
+      <TipTop header="Adjectives" />
       <div className="tip-content">
         <p>
           In Spanish, adjectives usually come after the noun they're describing.

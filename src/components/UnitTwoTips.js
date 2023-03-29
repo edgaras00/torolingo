@@ -1,5 +1,6 @@
 import React from "react";
 import TipCard from "./TipCard";
+import TipTop from "./TipTop";
 import womanTaxiPicture from "../woman_taxi.svg";
 import hotelPicture from "../hotel.svg";
 import taxiPicture from "../taxi.svg";
@@ -8,10 +9,7 @@ import "../styles/unitTwoTips.css";
 const UnitTwoTips = () => {
   return (
     <div className="tips">
-      <div className="tip-top">
-        <div className="tip-head">TIP</div>
-        <h3>Esta vs es</h3>
-      </div>
+      <TipTop header="Esta vs es" />
       <div className="tip-content">
         <p>
           <span>Está</span> and <span>es</span> both mean is. So what's the

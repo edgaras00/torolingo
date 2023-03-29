@@ -1,5 +1,6 @@
 import React from "react";
 import TipCard from "./TipCard";
+import TipTop from "./TipTop";
 import boyPicture from "../boy.svg";
 import girlPicture from "../girl.svg";
 import kidsPicture from "../kids.svg";
@@ -8,10 +9,7 @@ import "../styles/unitOneTips.css";
 const UnitOneTips = () => {
   return (
     <div className="tips">
-      <div className="tip-top">
-        <div className="tip-head">TIP</div>
-        <h3>Gender</h3>
-      </div>
+      <TipTop header="Gender" />
       <div className="tip-content">
         <p>
           In Spanish, all nouns are either <span>masculine</span> or{" "}
@@ -35,10 +33,7 @@ const UnitOneTips = () => {
           <span>la</span> if the word is feminine.
         </p>
       </div>
-      <div className="tip-top">
-        <div className="tip-head">TIP</div>
-        <h3>I think, therefore...</h3>
-      </div>
+      <TipTop header="I think, therefore..." />
       <div className="tip-content table-container">
         <table className="unit-one-table">
           <thead>

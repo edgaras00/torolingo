@@ -28,11 +28,6 @@ const Sidebar = () => {
           <img src={more} alt="more" width="30px" />
           <span>MORE</span>
         </div>
-        <SpeechBubble
-          spanishText="Yo como manzanas."
-          englishText="I eat apples."
-          reverse={true}
-        />
       </div>
     </nav>
   );

@@ -9,6 +9,11 @@
   margin-bottom: 10px;
 }
 
+.unit-header a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
 .header-text {
   margin-left: 20px;
 }

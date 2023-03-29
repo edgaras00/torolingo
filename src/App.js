@@ -34,7 +34,7 @@ const App = () => {
         {unitOneLessons}
         {unitTwoLessons}
         <Route
-          path="guidebook1"
+          path="guidebook-1"
           element={
             <Guidebook>
               <UnitOnePhrases />
@@ -43,7 +43,7 @@ const App = () => {
           }
         />
         <Route
-          path="guidebook2"
+          path="guidebook-2"
           element={
             <Guidebook>
               <UnitTwoPhrases />
@@ -52,7 +52,7 @@ const App = () => {
           }
         />
         <Route
-          path="guidebook3"
+          path="guidebook-3"
           element={
             <Guidebook>
               <UnitThreePhrases />
@@ -61,7 +61,7 @@ const App = () => {
           }
         />
         <Route
-          path="guidebook4"
+          path="guidebook-4"
           element={
             <Guidebook>
               <UnitFourPhrases />
@@ -70,7 +70,7 @@ const App = () => {
           }
         />
         <Route
-          path="guidebook5"
+          path="guidebook-5"
           element={
             <Guidebook>
               <UnitFivePhrases />

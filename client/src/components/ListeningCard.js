@@ -1,30 +1,31 @@
 import React, { useState, useEffect } from "react";
 import WordBubble from "./WordBubble";
 import NotebookLines from "./NotebookLines";
+import soundIcon from "../sound.svg";
+import turtleICon from "../turtle.svg";
 import "../styles/listeningCard.css";
 
-const ListeningCard = ({ onNextQuestion }) => {
-  const [wordBank, setWordBank] = useState([]);
+const ListeningCard = ({
+  onNextQuestion,
+  words,
+  text,
+  solution,
+  audio,
+  slowAudio,
+}) => {
+  const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState([]);
-  const [correctSolution, setCorrectSolution] = useState("");
-  console.log(correctSolution);
+  // const [correctSolution, setCorrectSolution] = useState("");
 
-  useEffect(() => {
-    const sol = "Hello, bye.";
-    const modifiedSol = sol.replace(/[^\w\s\u00C0-\u00FF]/g, "").toLowerCase();
-    setCorrectSolution(modifiedSol);
+  const modifiedSolution = solution
+    .replace(/[^\w\s\u00C0-\u00FF]/g, "")
+    .toLowerCase();
 
-    const data = [
-      "hello",
-      "bye",
-      "test",
-      "microphone",
-      "goodbye",
-      "school",
-      "automatic",
-    ];
-    setWordBank(data);
-  }, []);
+  console.log(audio);
+
+  const handleAudioClick = () => {
+    audio.play();
+  };
 
   const handleClick = (event) => {
     const selectedWord = event.target.cloneNode();
@@ -63,6 +64,7 @@ const ListeningCard = ({ onNextQuestion }) => {
       key={index}
       position={index}
       handleClick={handleClick}
+      empty={word.includes("0") ? "empty" : null}
     />
   ));
 
@@ -88,11 +90,15 @@ const ListeningCard = ({ onNextQuestion }) => {
           <button className="exit-button">X</button>
         </div>
         <div className="problem-header-container">
-          <h3 className="problem-header">Tap what you hear</h3>
+          <h3 className="problem-header">{text}</h3>
         </div>
         <div className="audio-box-wrapper">
-          <div className="audio-box normal-audio"></div>
-          <div className="audio-box slow-audio"></div>
+          <div className="audio-box normal-audio" onClick={handleAudioClick}>
+            <img src={soundIcon} alt="sound icon" width="140px" />
+          </div>
+          <div className="audio-box slow-audio" onClick={handleAudioClick}>
+            <img src={turtleICon} alt="turtle icon" width="100px" />
+          </div>
         </div>
       </div>
       <div className="card-middle">

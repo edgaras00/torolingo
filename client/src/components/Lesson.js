@@ -7,6 +7,7 @@ import MultipleChoiceCard from "./MultipleChoiceCard";
 // import VocabMatchCard from "./VocabMatchCard";
 // import PictureCard from "./PictureCard";
 import PicCardMC from "./PicCardMC";
+import audio from "../hombre.mp3";
 import "../styles/lesson.css";
 
 const Lesson = () => {
@@ -14,6 +15,8 @@ const Lesson = () => {
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const { pathname } = useLocation();
   const unit = pathname.replace("/", "");
+
+  const exampleAudio = new Audio(audio);
 
   useEffect(() => {
     // setQuestions([
@@ -51,6 +54,7 @@ const Lesson = () => {
         type: "listening",
         text: "Tap what you hear",
         solution: "Yo soy un hombre",
+        audio: audio,
         unit: 1,
         lesson: 1,
         wordBank: [
@@ -113,7 +117,9 @@ const Lesson = () => {
           key={index}
           text={question.text}
           solution={question.solution}
-          wordBank={question.wordBank}
+          words={question.wordBank}
+          audio={exampleAudio}
+          slowAudio={exampleAudio}
         />
       );
     }

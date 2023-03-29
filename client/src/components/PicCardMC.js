@@ -6,7 +6,6 @@ const PicCardMC = ({ onNextQuestion, text, solution, choices }) => {
   const [userChoice, setUserChoice] = useState("");
 
   const onOptionChange = (event) => setUserChoice(event.target.value);
-  console.log(userChoice);
 
   const answerChoices = choices.map((choice) => (
     <Choice

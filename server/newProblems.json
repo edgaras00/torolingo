@@ -746,5 +746,185 @@
     "unit": 1,
     "lesson": 5,
     "wordBank": ["thank", "she", "Yes", "No", "you", "English"]
+  },
+  {
+    "type": "multipleChoice",
+    "unit": 2,
+    "lesson": 1,
+    "text": "How do you say \"airport\"?",
+    "solution": "aeropuerto",
+    "choices": ["hotel", "aeropuerto", "tren", "hombre"]
+  },
+  {
+    "type": "pictureBlank",
+    "unit": 2,
+    "lesson": 1,
+    "text": "Aquí está el ____.",
+    "solution": "tren",
+    "translation": "Here is the train.",
+    "wordBank": ["hotel", "dinero", "aeropuerto", "tren"],
+    "picture": "train.svg"
+  },
+  {
+    "type": "multipleChoice",
+    "text": "How do you say \"my\"?",
+    "solution": "mi",
+    "choices": ["pasaporte", "mi", "teléfono"],
+    "unit": 2,
+    "lesson": 1
+  },
+  {
+    "type": "pictureBlank",
+    "text": "El hombre está en el ____.",
+    "solution": "hotel",
+    "translation": "The man is in the hotel.",
+    "wordBank": ["hotel", "taxi", "soy", "pan"],
+    "unit": 2,
+    "lesson": 1,
+    "picture": "man_hotel.svg"
+  },
+  {
+    "type": "vocabulary",
+    "pairs": [
+      { "english": "where", "spanish": "dónde" },
+      { "english": "here", "spanish": "aquí" },
+      { "spanish": "teléfono", "english": "phone" },
+      { "english": "my", "spanish": "mi" },
+      { "english": "suitcase", "spanish": "maleta" }
+    ],
+    "unit": 2,
+    "lesson": 1
+  },
+  {
+    "type": "translation",
+    "text": "Yo necesito dinero.",
+    "solution": "I need money.",
+    "wordBank": ["money", "phone", "apples", "I", "where", "need"],
+    "unit": 2,
+    "lesson": 1
+  },
+  {
+    "type": "vocabulary",
+    "pairs": [
+      { "english": "in", "spanish": "en" },
+      { "english": "here", "spanish": "aquí" },
+      { "english": "money", "spanish": "dinero" },
+      { "english": "it is", "spanish": "está" },
+      { "english": "your", "spanish": "tu" },
+      { "english": "airport", "spanish": "aeropuerto" }
+    ],
+    "unit": 2,
+    "lesson": 1
+  },
+  {
+    "type": "translation",
+    "text": "Yo tengo una reserva.",
+    "solution": "I have a reservation.",
+    "unit": 2,
+    "lesson": 1,
+    "wordBank": [
+      "ticket",
+      "passport",
+      "I",
+      "woman",
+      "have",
+      "a",
+      "money",
+      "reservation",
+      "in",
+      "hotel"
+    ]
+  },
+  {
+    "type": "multipleChoice",
+    "text": "How do you say \"suitcase\"?",
+    "solution": "maleta",
+    "unit": 2,
+    "lesson": 1,
+    "wordBank": ["pasaporte", "pan", "maleta", "reserva"]
+  },
+  {
+    "type": "listening",
+    "solution": "¿Dónde está el teléfono?",
+    "unit": 2,
+    "lesson": 1,
+    "translation": "Where is the phone?",
+    "wordBank": [
+      "es",
+      "Dónde",
+      "la",
+      "está",
+      "una",
+      "teléfono",
+      "el",
+      "boleto",
+      "hablo"
+    ]
+  },
+  {
+    "type": "translation",
+    "text": "El museo.",
+    "solution": "The museum.",
+    "unit": 2,
+    "lesson": 1,
+    "wordBank": ["A", "hotel", "ticket", "museum", "here", "the"]
+  },
+  {
+    "type": "listening",
+    "solution": "En la maleta.",
+    "wordBank": [
+      "maleta",
+      "el",
+      "la",
+      "boleto",
+      "En",
+      "aeropuerto",
+      "una",
+      "manzana"
+    ],
+    "lesson": 1,
+    "unit": 2,
+    "translation": "In the suitcase."
+  },
+  {
+    "type": "translation",
+    "solution": "A taxi, please.",
+    "text": "Un taxi, por favor.",
+    "wordBank": ["museum", "taxi", "please", "bus", "Yes", "train"],
+    "unit": 2,
+    "lesson": 1
+  },
+  {
+    "type": "listening",
+    "solution": "Un boleto a Santiago.",
+    "wordBank": [
+      "a",
+      "una",
+      "Santiago",
+      "boleto",
+      "museo",
+      "la",
+      "un",
+      "maleta"
+    ],
+    "lesson": 1,
+    "unit": 2,
+    "translation": "A ticket to Santiago."
+  },
+  {
+    "type": "translation",
+    "text": "¿Dónde está tu boleto?",
+    "solution": "Where is your ticket?",
+    "wordBank": [
+      "museum",
+      "ticket",
+      "is",
+      "suitcase",
+      "Where",
+      "your",
+      "money"
+    ],
+    "unit": 2,
+    "lesson": 1
   }
 ]

@@ -1,0 +1,333 @@
+[
+  {
+    "type": "translation",
+    "text": "La mujer bebe agua.",
+    "solution": "The woman drinks water.",
+    "unit": 1,
+    "lesson": 1,
+    "wordBank": ["woman", "milk", "eats", "The", "man", "drinks", "water"]
+  },
+  {
+    "type": "multipleChoice",
+    "text": "How do you say \"man\"?",
+    "solution": "hombre",
+    "unit": 1,
+    "lesson": 1,
+    "choices": ["mujer, soy, hombre"]
+  },
+  {
+    "type": "translation",
+    "text": "Tú eres María.",
+    "solution": "You are Maria.",
+    "unit": 1,
+    "lesson": 1,
+    "wordBank": ["You", "Maria", "water", "woman", "are"]
+  },
+  {
+    "type": "listening",
+    "solution": "Yo como pan",
+    "translation": "I eat bread.",
+    "unit": 1,
+    "lesson": 1,
+    "wordBank": ["la", "un", "como", "manzanas", "Yo", "eres", "pan"]
+  },
+  {
+    "type": "translation",
+    "text": "Yo bebo, tú bebes, él bebe.",
+    "solution": "I drink, you drink, he drinks.",
+    "unit": 1,
+    "lesson": 1,
+    "wordBank": [
+      "you",
+      "I",
+      "girl",
+      "he",
+      "drinks",
+      "apples",
+      "bread",
+      "drink",
+      "milk",
+      "drink"
+    ]
+  },
+  {
+    "type": "multipleChoice",
+    "text": "How do you say \"I am\"?",
+    "choices": ["soy", "la", "hombre"],
+    "solution": "soy",
+    "unit": 1,
+    "lesson": 1
+  },
+  {
+    "type": "listening",
+    "solution": "Ella es una niña.",
+    "translation": "She is a girl.",
+    "lesson": 1,
+    "unit": 1,
+    "wordBank": ["una", "agua", "niña", "soy", "ella", "bebe", "es"]
+  },
+  {
+    "type": "translation",
+    "text": "Yo soy un niño.",
+    "solution": "I am a boy.",
+    "unit": 1,
+    "lesson": 1,
+    "wordBank": ["I", "are", "girl", "a", "the", "am", "boy", "water"]
+  },
+  {
+    "type": "listening",
+    "solution": "Yo como, tú comes, él come.",
+    "translation": "I eat, you eat, he eats.",
+    "unit": 1,
+    "lesson": 1,
+    "wordBank": [
+      "como",
+      "pan",
+      "come",
+      "soy",
+      "tú",
+      "comes",
+      "él",
+      "la",
+      "Yo",
+      "mujer"
+    ]
+  },
+  {
+    "type": "multipleChoicePicture",
+    "text": "How do you say \"the milk\"?",
+    "solution": "la leche",
+    "unit": 1,
+    "lesson": 1,
+    "choices": ["la leche", "el agua", "el pan"],
+    "pictures": ["milk", "water", "bread"]
+  },
+  {
+    "type": "translation",
+    "text": "¿Tú comes manzanas?",
+    "solution": "Do you eat apples?",
+    "unit": 1,
+    "lesson": 1,
+    "wordBank": ["you", "water", "girl", "woman", "apples", "eat", "Do", "eats"]
+  },
+  {
+    "type": "multipleChoicePicture",
+    "text": "Which one of these is \"the woman\"?",
+    "unit": 1,
+    "lesson": 1,
+    "choices": ["la mujer", "el hombre", "el niño"],
+    "pictures": ["woman", "man", "boy"]
+  },
+  {
+    "type": "translation",
+    "text": "El niño.",
+    "solution": "The boy.",
+    "unit": 1,
+    "lesson": 1,
+    "wordBank": ["A", "girl", "The", "man", "boy", "she"]
+  },
+  {
+    "type": "multipleChoice",
+    "text": "How do you say \"the man\"?",
+    "solution": "el hombre",
+    "unit": 1,
+    "lesson": 1,
+    "choices": ["la mujer", "la niña", "el hombre"]
+  },
+  {
+    "type": "vocabulary",
+    "pairs": [
+      { "english": "he", "spanish": "él" },
+      { "english": "man", "spanish": "hombre" },
+      { "english": "girl", "spanish": "niña" },
+      { "english": "I", "spanish": "yo" },
+      { "english": "I am", "spanish": "soy" }
+    ],
+    "unit": 1,
+    "lesson": 1
+  },
+  {
+    "type": "vocabulary",
+    "pairs": [
+      { "english": "I am", "spanish": "soy" },
+      { "english": "I", "spanish": "yo" },
+      { "english": "she", "spanish": "ella" },
+      { "english": "boy", "spanish": "niño" },
+      { "english": "woman", "spanish": "mujer" }
+    ],
+    "unit": 1,
+    "lesson": 1
+  },
+  {
+    "type": "listening",
+    "solution": "Yo bebo, tú bebes, él bebe.",
+    "lesson": 1,
+    "unit": 1,
+    "translation": "I drink, you drink, he drinks.",
+    "wordBank": [
+      "Yo",
+      "bebes",
+      "ella",
+      "él",
+      "bebe",
+      "tú",
+      "bebo",
+      "como",
+      "una",
+      "la",
+      "hablo"
+    ]
+  },
+  {
+    "type": "multipleChoice",
+    "text": "How do you say \"excuse me\"?",
+    "unit": 1,
+    "lesson": 2,
+    "choices": ["manzana", "disculpe", "hola"],
+    "solution": "disculpe"
+  },
+  {
+    "type": "PictureBlank",
+    "text": "Yo ____ español.",
+    "wordBank": ["hablo", "como", "bebo", "perdón"],
+    "solution": "hablo",
+    "translation": "I speak Spanish.",
+    "picture": "man-spanish.svg",
+    "unit": 1,
+    "lesson": 2
+  },
+  {
+    "type": "vocabulary",
+    "pairs": [
+      { "english": "thanks", "spanish": "gracias" },
+      { "english": "woman", "spanish": "mujer" },
+      { "english": "she", "spanish": "ella" },
+      { "english": "I am", "spanish": "soy" },
+      { "english": "man", "spanish": "hombre" }
+    ],
+    "unit": 1,
+    "lesson": 2
+  },
+  {
+    "type": "listening",
+    "solution": "De nada, Juan.",
+    "translation": "You're welcome, Juan.",
+    "unit": 1,
+    "lesson": 2,
+    "wordBank": ["nada", "Juan", "hola", "Soy", "De", "hablas", "disculpe"]
+  },
+  {
+    "type": "vocabulary",
+    "pairs": [
+      { "english": "I am", "spanish": "soy" },
+      { "english": "bye", "spanish": "adiós" },
+      { "english": "water", "spanish": "agua" },
+      { "english": "hello", "spanish": "hola" },
+      { "english": "she", "spanish": "ella" },
+      { "english": "boy", "spanish": "niño" }
+    ],
+    "unit": 1,
+    "lesson": 2
+  },
+  {
+    "type": "listening",
+    "solution": "Discuple, por favor.",
+    "translation": "Excuse me, please.",
+    "unit": 1,
+    "lesson": 2,
+    "wordBank": [
+      "por",
+      "gracias",
+      "mujer",
+      "adiós",
+      "favor",
+      "disculpe",
+      "mucho gusto"
+    ]
+  },
+  {
+    "type": "listening",
+    "solution": "Sí, yo hablo español.",
+    "wordBank": [
+      "Sí",
+      "como",
+      "No",
+      "yo",
+      "hablo",
+      "inglés",
+      "agua",
+      "español"
+    ],
+    "unit": 1,
+    "lesson": 2,
+    "translation": "Yes, I speak Spanish."
+  },
+  {
+    "type": "PictureBlank",
+    "text": "Sí, ____ por favor.",
+    "unit": 1,
+    "lesson": 2,
+    "translation": "Yes, water please.",
+    "wordBank": ["pan", "agua", "manzana", "leche"],
+    "picture": "water.svg"
+  },
+  {
+    "type": "multipleChoice",
+    "text": "How do you say \"English\"?",
+    "solution": "Inglés",
+    "choices": ["hombre", "inglés", "hablo", "español"],
+    "unit": 1,
+    "lesson": 2
+  },
+  {
+    "type": "translation",
+    "text": "Buenos días.",
+    "solution": "Good morning.",
+    "wordBank": ["night", "morning", "Good", "bye", "apple", "hello"],
+    "unit": 1,
+    "lesson": 2
+  },
+  {
+    "type": "translation",
+    "text": "Gracias, buenas noches.",
+    "solution": "Thanks, good night.",
+    "unit": 1,
+    "lesson": 2,
+    "wordBank": ["night", "Thanks", "Bye", "good", "you", "Spanish"]
+  },
+  {
+    "type": "translation",
+    "text": "De nada, Luis.",
+    "solution": "You are welcome, Luis.",
+    "unit": 1,
+    "lesson": 2,
+    "wordBank": [
+      "welcome",
+      "man",
+      "woman",
+      "Luis",
+      "sorry",
+      "Spanish",
+      "You",
+      "eat",
+      "are"
+    ]
+  },
+  {
+    "type": "translation",
+    "text": "Gracias, adiós.",
+    "lesson": 2,
+    "unit": 1,
+    "solution": "Thank you, goodbye.",
+    "wordBank": ["Thank", "goodbye", "English", "yes", "to", "you"]
+  },
+  {
+    "type": "multipleChoice",
+    "text": "How do you say \"bread\"?",
+    "solution": "pan",
+    "unit": 1,
+    "lesson": 3,
+    "choices": ["leche", "pan", "manzana", "mujer"]
+  },
+  {}
+]

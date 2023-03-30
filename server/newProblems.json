@@ -329,5 +329,13 @@
     "lesson": 3,
     "choices": ["leche", "pan", "manzana", "mujer"]
   },
+  {
+    "type": "translation",
+    "text": "Hola, mucho gusto.",
+    "solution": "Hi, nice to meet you.",
+    "lesson": 3,
+    "unit": 1,
+    "wordBank": ["Hi", "meet", "she", "nice", "to", "bye", "you", "apple"]
+  },
   {}
 ]

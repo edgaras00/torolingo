@@ -13,6 +13,8 @@ import UnitFourPhrases from "./components/UnitFourPhrases";
 import UnitFourTips from "./components/UnitFourTips";
 import UnitFivePhrases from "./components/UnitFivePhrases";
 import UnitFiveTips from "./components/UnitFiveTips";
+import Vocabulary from "./components/Vocabulary";
+import UnitVocabulary from "./components/UnitVocabulary";
 
 import "./styles/app.css";
 const App = () => {
@@ -78,6 +80,8 @@ const App = () => {
             </Guidebook>
           }
         />
+        <Route path="/vocabulary" element={<Vocabulary />} />
+        <Route path="/vocabulary/:vocabID" element={<UnitVocabulary />} />
       </Routes>
     </div>
   );

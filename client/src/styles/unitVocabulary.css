@@ -1,0 +1,45 @@
+.unit-vocab {
+  width: 76%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.unit-vocab-header {
+  margin-top: 3rem;
+  margin-left: 4rem;
+  margin-bottom: 5rem;
+}
+
+.unit-vocab-content {
+  width: 80%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}
+
+.vocab-table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px;
+  width: 70%;
+}
+
+.vocab-table td {
+  padding: 0.9rem;
+  text-align: center;
+}
+
+.vocab-table th {
+  background-color: #a1a1a1;
+  padding: 1.2rem;
+}
+
+.row-even {
+  background-color: #f1f1f1;
+}
+
+.row-odd {
+  background-color: #dbdbdb;
+}

@@ -49,10 +49,10 @@ const Lesson = () => {
   ) => {
     if (correctSolution === userSolution) {
       successCallback();
+      setCurrentQuestion((currentQuestion) => currentQuestion + 1);
     } else {
       failureCallback();
     }
-    // setCurrentQuestion((currentQuestion) => currentQuestion + 1);
     return;
   };
 

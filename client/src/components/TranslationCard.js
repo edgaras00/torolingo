@@ -36,27 +36,27 @@ const TranslationCard = ({
     console.log(selectedWord);
     setSelected((prevState) => [...prevState, selectedWord]);
 
-    const w = [...wordBank];
-    w[wordIndex] = "0".repeat(selectedWord.textContent.length);
-    setWordBank(w);
+    const wordBankCopy = [...wordBank];
+    wordBankCopy[wordIndex] = "0".repeat(selectedWord.textContent.length);
+    setWordBank(wordBankCopy);
   };
 
   const handleSelectedClick = (event) => {
     const word = event.target.textContent;
     const wordIndex = event.target.dataset.position * 1;
-    const w = [...wordBank];
-    w[wordIndex] = word;
-    setWordBank(w);
+    const wordBankCopy = [...wordBank];
+    wordBankCopy[wordIndex] = word;
+    setWordBank(wordBankCopy);
 
-    const s = [...selected];
-    const index = s.findIndex((arrayWord) => {
+    const selectedCopy = [...selected];
+    const index = selectedCopy.findIndex((arrayWord) => {
       return (
         arrayWord.textContent === word &&
         arrayWord.dataset.position === String(wordIndex)
       );
     });
-    s.splice(index, 1);
-    setSelected(s);
+    selectedCopy.splice(index, 1);
+    setSelected(selectedCopy);
   };
 
   const bubbles = wordBank.map((word, index) => (
@@ -114,6 +114,7 @@ const TranslationCard = ({
         </div>
       </div>
       <div className="card-bottom">
+        {result}
         <button
           className="check-answer"
           onClick={() =>

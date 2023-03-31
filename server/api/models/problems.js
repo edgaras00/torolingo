@@ -7,23 +7,29 @@ const problemSchema = new mongoose.Schema({
   },
   solution: {
     type: String,
-    required: [true, "Problem must have a solution"],
+    // required: [true, "Problem must have a solution"],
     maxLength: 200,
-  },
-  difficulty: {
-    type: Number,
-    required: [true, "Problem must have a difficulty level (1-3)"],
-    min: 1,
-    max: 3,
   },
   choices: [],
   wordBank: [],
+  unit: Number,
+  lesson: Number,
+  translation: String,
   pictureURL: String,
   audioURL: String,
   problemType: {
     type: String,
     required: [true, "Problem must have a type"],
-    enum: ["listening", "translation", "picture", "fill", "choice"],
+    enum: [
+      "listening",
+      "translation",
+      "multipleChoice",
+      "multipleChoicePicture",
+      "pictureBlank",
+      "match",
+      "listeningWriting",
+      "fillBlank",
+    ],
   },
 });
 

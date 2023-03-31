@@ -1,10 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const problemRouter = require("./api/routes/problems");
 const vocabularyRouter = require("./api/routes/vocabulary");
 require("dotenv").config();
 
 const app = express();
+app.use(cors());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

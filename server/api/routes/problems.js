@@ -8,6 +8,8 @@ router
   .get(problemController.getAllProblems)
   .post(problemController.createProblem);
 
+router.route("/lessons").get(problemController.getLessonProblems);
+
 router
   .route("/:problemId")
   .get(problemController.getSingleProblem)

@@ -1,11 +1,34 @@
 const Problem = require("../models/problems");
 
 exports.getAllProblems = async (req, res) => {
-  const problems = await Problem.find().select("-__v");
-  res.status(200).json({
-    status: "success",
-    data: { problems },
-  });
+  try {
+    const problems = await Problem.find().select("-__v");
+    res.status(200).json({
+      status: "success",
+      data: { problems },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+exports.getLessonProblems = async (req, res) => {
+  try {
+    console.log(req.query);
+    const unit = req.query.unit;
+    const lesson = req.query.lesson;
+    const lessonProblems = await Problem.find({
+      $and: [{ unit: unit }, { lesson: lesson }],
+    })
+      .limit(10)
+      .select("-__v");
+    res.status(200).json({
+      status: "success",
+      data: lessonProblems,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 exports.getSingleProblem = async (req, res) => {

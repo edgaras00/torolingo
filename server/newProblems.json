@@ -1,6 +1,6 @@
 [
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "La mujer bebe agua.",
     "solution": "The woman drinks water.",
     "unit": 1,
@@ -8,15 +8,15 @@
     "wordBank": ["woman", "milk", "eats", "The", "man", "drinks", "water"]
   },
   {
-    "type": "multipleChoice",
+    "problemType": "multipleChoice",
     "text": "How do you say \"man\"?",
     "solution": "hombre",
     "unit": 1,
     "lesson": 1,
-    "choices": ["mujer, soy, hombre"]
+    "choices": ["mujer", "soy", "hombre"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Tú eres María.",
     "solution": "You are Maria.",
     "unit": 1,
@@ -24,7 +24,7 @@
     "wordBank": ["You", "Maria", "water", "woman", "are"]
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "Yo como pan",
     "translation": "I eat bread.",
     "unit": 1,
@@ -32,7 +32,7 @@
     "wordBank": ["la", "un", "como", "manzanas", "Yo", "eres", "pan"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Yo bebo, tú bebes, él bebe.",
     "solution": "I drink, you drink, he drinks.",
     "unit": 1,
@@ -51,7 +51,7 @@
     ]
   },
   {
-    "type": "multipleChoice",
+    "problemType": "multipleChoice",
     "text": "How do you say \"I am\"?",
     "choices": ["soy", "la", "hombre"],
     "solution": "soy",
@@ -59,7 +59,7 @@
     "lesson": 1
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "Ella es una niña.",
     "translation": "She is a girl.",
     "lesson": 1,
@@ -67,7 +67,7 @@
     "wordBank": ["una", "agua", "niña", "soy", "ella", "bebe", "es"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Yo soy un niño.",
     "solution": "I am a boy.",
     "unit": 1,
@@ -75,7 +75,7 @@
     "wordBank": ["I", "are", "girl", "a", "the", "am", "boy", "water"]
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "Yo como, tú comes, él come.",
     "translation": "I eat, you eat, he eats.",
     "unit": 1,
@@ -94,7 +94,7 @@
     ]
   },
   {
-    "type": "multipleChoicePicture",
+    "problemType": "multipleChoicePicture",
     "text": "How do you say \"the milk\"?",
     "solution": "la leche",
     "unit": 1,
@@ -103,7 +103,7 @@
     "pictures": ["milk", "water", "bread"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "¿Tú comes manzanas?",
     "solution": "Do you eat apples?",
     "unit": 1,
@@ -111,7 +111,7 @@
     "wordBank": ["you", "water", "girl", "woman", "apples", "eat", "Do", "eats"]
   },
   {
-    "type": "multipleChoicePicture",
+    "problemType": "multipleChoicePicture",
     "text": "Which one of these is \"the woman\"?",
     "unit": 1,
     "lesson": 1,
@@ -119,7 +119,7 @@
     "pictures": ["woman", "man", "boy"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "El niño.",
     "solution": "The boy.",
     "unit": 1,
@@ -127,7 +127,7 @@
     "wordBank": ["A", "girl", "The", "man", "boy", "she"]
   },
   {
-    "type": "multipleChoice",
+    "problemType": "multipleChoice",
     "text": "How do you say \"the man\"?",
     "solution": "el hombre",
     "unit": 1,
@@ -135,7 +135,7 @@
     "choices": ["la mujer", "la niña", "el hombre"]
   },
   {
-    "type": "vocabulary",
+    "problemType": "match",
     "pairs": [
       { "english": "he", "spanish": "él" },
       { "english": "man", "spanish": "hombre" },
@@ -147,7 +147,7 @@
     "lesson": 1
   },
   {
-    "type": "vocabulary",
+    "problemType": "match",
     "pairs": [
       { "english": "I am", "spanish": "soy" },
       { "english": "I", "spanish": "yo" },
@@ -159,7 +159,7 @@
     "lesson": 1
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "Yo bebo, tú bebes, él bebe.",
     "lesson": 1,
     "unit": 1,
@@ -179,7 +179,7 @@
     ]
   },
   {
-    "type": "multipleChoice",
+    "problemType": "multipleChoice",
     "text": "How do you say \"excuse me\"?",
     "unit": 1,
     "lesson": 2,
@@ -187,7 +187,7 @@
     "solution": "disculpe"
   },
   {
-    "type": "pictureBlank",
+    "problemType": "pictureBlank",
     "text": "Yo ____ español.",
     "wordBank": ["hablo", "como", "bebo", "perdón"],
     "solution": "hablo",
@@ -197,7 +197,7 @@
     "lesson": 2
   },
   {
-    "type": "vocabulary",
+    "problemType": "match",
     "pairs": [
       { "english": "thanks", "spanish": "gracias" },
       { "english": "woman", "spanish": "mujer" },
@@ -209,7 +209,7 @@
     "lesson": 2
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "De nada, Juan.",
     "translation": "You're welcome, Juan.",
     "unit": 1,
@@ -217,7 +217,7 @@
     "wordBank": ["nada", "Juan", "hola", "Soy", "De", "hablas", "disculpe"]
   },
   {
-    "type": "vocabulary",
+    "problemType": "match",
     "pairs": [
       { "english": "I am", "spanish": "soy" },
       { "english": "bye", "spanish": "adiós" },
@@ -230,7 +230,7 @@
     "lesson": 2
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "Discuple, por favor.",
     "translation": "Excuse me, please.",
     "unit": 1,
@@ -246,7 +246,7 @@
     ]
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "Sí, yo hablo español.",
     "wordBank": [
       "Sí",
@@ -263,7 +263,7 @@
     "translation": "Yes, I speak Spanish."
   },
   {
-    "type": "pictureBlank",
+    "problemType": "pictureBlank",
     "text": "Sí, ____ por favor.",
     "unit": 1,
     "lesson": 2,
@@ -272,7 +272,7 @@
     "picture": "water.svg"
   },
   {
-    "type": "multipleChoice",
+    "problemType": "multipleChoice",
     "text": "How do you say \"English\"?",
     "solution": "Inglés",
     "choices": ["hombre", "inglés", "hablo", "español"],
@@ -280,7 +280,7 @@
     "lesson": 2
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Buenos días.",
     "solution": "Good morning.",
     "wordBank": ["night", "morning", "Good", "bye", "apple", "hello"],
@@ -288,7 +288,7 @@
     "lesson": 2
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Gracias, buenas noches.",
     "solution": "Thanks, good night.",
     "unit": 1,
@@ -296,7 +296,7 @@
     "wordBank": ["night", "Thanks", "Bye", "good", "you", "Spanish"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "De nada, Luis.",
     "solution": "You are welcome, Luis.",
     "unit": 1,
@@ -314,7 +314,7 @@
     ]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Gracias, adiós.",
     "lesson": 2,
     "unit": 1,
@@ -322,7 +322,7 @@
     "wordBank": ["Thank", "goodbye", "English", "yes", "to", "you"]
   },
   {
-    "type": "multipleChoice",
+    "problemType": "multipleChoice",
     "text": "How do you say \"bread\"?",
     "solution": "pan",
     "unit": 1,
@@ -330,7 +330,7 @@
     "choices": ["leche", "pan", "manzana", "mujer"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Hola, mucho gusto.",
     "solution": "Hi, nice to meet you.",
     "lesson": 3,
@@ -338,7 +338,7 @@
     "wordBank": ["Hi", "meet", "she", "nice", "to", "bye", "you", "apple"]
   },
   {
-    "type": "vocabulary",
+    "problemType": "match",
     "pairs": [
       { "english": "milk", "spanish": "leche" },
       { "english": "he", "spanish": "él" },
@@ -352,7 +352,7 @@
     "lesson": 3
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "El pan.",
     "solution": "The bread.",
     "unit": 1,
@@ -360,7 +360,7 @@
     "wordBank": ["milk", "the", "an", "apple", "bread", "boy"]
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "Tú eres Luis.",
     "translation": "You are Luis.",
     "unit": 1,
@@ -368,7 +368,7 @@
     "wordBank": ["You", "Luis", "She", "is", "are", "Ana"]
   },
   {
-    "type": "fillBlank",
+    "problemType": "fillBlank",
     "text": "Yo bebo ____.",
     "translation": "I drink water.",
     "solution": "agua",
@@ -377,7 +377,7 @@
     "unit": 1
   },
   {
-    "type": "fillBlank",
+    "problemType": "fillBlank",
     "text": "Ella __ una mujer.",
     "translation": "She is a woman.",
     "solution": "es",
@@ -386,7 +386,7 @@
     "wordBank": ["eres", "soy", "es", "la"]
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "unit": 1,
     "lesson": 3,
     "solution": "Yo bebo, tú bebes, ella bebe.",
@@ -394,14 +394,14 @@
     "wordBank": ["bebes", "Yo", "tú", "como", "bebo", "ella", "bebe", "comes"]
   },
   {
-    "type": "listeningWriting",
+    "problemType": "listeningWriting",
     "unit": 1,
     "lesson": 3,
     "solution": "Yo como manzanas.",
     "translation": "I eat apples."
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "solution": "Ella es una niña.",
     "text": "She is a girl.",
     "unit": 1,
@@ -409,7 +409,7 @@
     "wordBank": ["es", "niña", "mujer", "español", "Ella", "una", "el", "hablo"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Good morning, nice to meet you.",
     "unit": 1,
     "lesson": 3,
@@ -425,7 +425,7 @@
     "solution": "Buenos días, mucho gusto."
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Do you eat apples?",
     "solution": "¿Tú comes manzanas?",
     "unit": 1,
@@ -443,7 +443,7 @@
     ]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "The milk.",
     "solution": "La leche",
     "wordBank": ["el", "la", "agua", "leche", "mujer", "hombre", "pan"],
@@ -451,7 +451,7 @@
     "lesson": 3
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "translation": "I am a boy.",
     "solution": "Yo soy un niño.",
     "lesson": 3,
@@ -459,7 +459,7 @@
     "wordBank": ["niña", "Yo", "niño", "es", "ella", "soy", "el", "un"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "The man drinks water.",
     "solution": "El hombre bebe agua.",
     "unit": 1,
@@ -467,7 +467,7 @@
     "wordBank": ["la", "hombre", "bebo", "una", "bebe", "agua", "un", "el"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Yo hablo, tú hablas, él habla",
     "solution": "I speak, you speak, he speaks.",
     "unit": 1,
@@ -485,7 +485,7 @@
     ]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Juan eats bread.",
     "solution": "Juan come pan.",
     "lesson": 4,
@@ -493,7 +493,7 @@
     "wordBank": ["Juan", "bebe", "pan", "como", "come", "comer", "Yo"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "La niña.",
     "solution": "The girl.",
     "unit": 1,
@@ -501,7 +501,7 @@
     "wordBank": ["the", "a", "boy", "girl", "woman", "bread", "bye"]
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "Disculpe, por favor",
     "wordBank": [
       "mucho",
@@ -518,7 +518,7 @@
     "translation": "Excuse me, please."
   },
   {
-    "type": "multipleChoice",
+    "problemType": "multipleChoice",
     "text": "How do you say \"good morning\"?",
     "solution": "Buenos días.",
     "unit": 1,
@@ -526,7 +526,7 @@
     "choices": ["buenos días", "gracias", "buenas noches", "hola"]
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "translation": "Hi, do you speak English?",
     "solution": "¿Hola, hablas inglés?",
     "lesson": 4,
@@ -534,7 +534,7 @@
     "wordBank": ["inglés", "adiós", "gracias", "hola", "hablas", "Yo"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Hola, buenos días.",
     "unit": 1,
     "lesson": 4,
@@ -542,7 +542,7 @@
     "wordBank": ["Bye", "good", "night", "Hello", "morning", "nice", "you"]
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "translation": "Yes, I speak English",
     "solution": "Sí, yo hablo inglés.",
     "lesson": 4,
@@ -560,7 +560,7 @@
     ]
   },
   {
-    "type": "pictureBlank",
+    "problemType": "pictureBlank",
     "unit": 1,
     "lesson": 4,
     "picture": "coffeSpill.svg",
@@ -570,7 +570,7 @@
     "wordBank": ["Agua", "Leche", "Pan", "Perdón"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "unit": 1,
     "lesson": 4,
     "text": "No, lo siento.",
@@ -578,7 +578,7 @@
     "wordBank": ["sorry", "no", "thanks", "Spanish", "are"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "unit": 1,
     "lesson": 4,
     "text": "Thank you, good night.",
@@ -586,7 +586,7 @@
     "wordBank": ["buenos", "lo", "siento", "adiós", "Gracias", "días", "noches"]
   },
   {
-    "type": "multipleChoice",
+    "problemType": "multipleChoice",
     "text": "How do you say \"you're welcome\"?",
     "unit": 1,
     "lesson": 4,
@@ -594,14 +594,14 @@
     "choices": ["gracias", "mucho gusto", "de nada", "disculpe"]
   },
   {
-    "type": "listeningWriting",
+    "problemType": "listeningWriting",
     "translation": "Thank you.",
     "lesson": 4,
     "unit": 1,
     "solution": "Gracias."
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Please, no.",
     "solution": "Por favor, no.",
     "unit": 1,
@@ -609,7 +609,7 @@
     "wordBank": ["favor", "gracias", "Sí", "Por", "no", "una", "mujer"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Ella come manzanas.",
     "solution": "She eats apples.",
     "unit": 1,
@@ -617,7 +617,7 @@
     "wordBank": ["eats", "bread", "milk", "boy", "She", "apples"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "I am a girl.",
     "solution": "Yo soy una niña.",
     "lesson": 5,
@@ -625,7 +625,7 @@
     "wordBank": ["ella", "es", "Yo soy", "una", "la", "niña", "el"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Do you drink water?",
     "solution": "¿Tú bebes Agua?",
     "lesson": 5,
@@ -642,7 +642,7 @@
     ]
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "Una niña.",
     "translation": "A girl.",
     "unit": 1,
@@ -650,7 +650,7 @@
     "wordBank": ["una", "la", "agua", "niño", "niña", "un"]
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "Ella bebe agua.",
     "translation": "She drinks water.",
     "unit": 1,
@@ -668,7 +668,7 @@
     ]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Por favor, no.",
     "solution": "Please, no.",
     "lesson": 5,
@@ -676,7 +676,7 @@
     "wordBank": ["yes", "no", "please", "thanks", "you", "the"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Juan, do you speak English?",
     "solution": "¿Juan, hablas inglés?",
     "wordBank": [
@@ -692,7 +692,7 @@
     "lesson": 5
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "Hola.",
     "translation": "Hello.",
     "wordBank": ["adiós", "días", "hola", "mucho", "gusto", "mujer"],
@@ -700,7 +700,7 @@
     "lesson": 5
   },
   {
-    "type": "multipleChoice",
+    "problemType": "multipleChoice",
     "text": "How do you say \"the woman\"?",
     "lesson": 5,
     "unit": 1,
@@ -708,7 +708,7 @@
     "choices": ["la mujer", "el hombre", "la niña", "una mujer"]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Hello, do you speak English?",
     "solution": "¿Hola, hablas inglés?",
     "wordBank": [
@@ -725,7 +725,7 @@
     "lesson": 5
   },
   {
-    "type": "vocabulary",
+    "problemType": "match",
     "pairs": [
       { "english": "water", "spanish": "agua" },
       { "english": "bread", "spanish": "pan" },
@@ -740,7 +740,7 @@
     "lesson": 5
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "No, gracias.",
     "solution": "No, thank you.",
     "unit": 1,
@@ -748,7 +748,7 @@
     "wordBank": ["thank", "she", "Yes", "No", "you", "English"]
   },
   {
-    "type": "multipleChoice",
+    "problemType": "multipleChoice",
     "unit": 2,
     "lesson": 1,
     "text": "How do you say \"airport\"?",
@@ -756,7 +756,7 @@
     "choices": ["hotel", "aeropuerto", "tren", "hombre"]
   },
   {
-    "type": "pictureBlank",
+    "problemType": "pictureBlank",
     "unit": 2,
     "lesson": 1,
     "text": "Aquí está el ____.",
@@ -766,7 +766,7 @@
     "picture": "train.svg"
   },
   {
-    "type": "multipleChoice",
+    "problemType": "multipleChoice",
     "text": "How do you say \"my\"?",
     "solution": "mi",
     "choices": ["pasaporte", "mi", "teléfono"],
@@ -774,7 +774,7 @@
     "lesson": 1
   },
   {
-    "type": "pictureBlank",
+    "problemType": "pictureBlank",
     "text": "El hombre está en el ____.",
     "solution": "hotel",
     "translation": "The man is in the hotel.",
@@ -784,7 +784,7 @@
     "picture": "man_hotel.svg"
   },
   {
-    "type": "vocabulary",
+    "problemType": "match",
     "pairs": [
       { "english": "where", "spanish": "dónde" },
       { "english": "here", "spanish": "aquí" },
@@ -796,7 +796,7 @@
     "lesson": 1
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Yo necesito dinero.",
     "solution": "I need money.",
     "wordBank": ["money", "phone", "apples", "I", "where", "need"],
@@ -804,7 +804,7 @@
     "lesson": 1
   },
   {
-    "type": "vocabulary",
+    "problemType": "match",
     "pairs": [
       { "english": "in", "spanish": "en" },
       { "english": "here", "spanish": "aquí" },
@@ -817,7 +817,7 @@
     "lesson": 1
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "Yo tengo una reserva.",
     "solution": "I have a reservation.",
     "unit": 2,
@@ -836,7 +836,7 @@
     ]
   },
   {
-    "type": "multipleChoice",
+    "problemType": "multipleChoice",
     "text": "How do you say \"suitcase\"?",
     "solution": "maleta",
     "unit": 2,
@@ -844,7 +844,7 @@
     "wordBank": ["pasaporte", "pan", "maleta", "reserva"]
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "¿Dónde está el teléfono?",
     "unit": 2,
     "lesson": 1,
@@ -862,7 +862,7 @@
     ]
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "El museo.",
     "solution": "The museum.",
     "unit": 2,
@@ -870,7 +870,7 @@
     "wordBank": ["A", "hotel", "ticket", "museum", "here", "the"]
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "En la maleta.",
     "wordBank": [
       "maleta",
@@ -887,7 +887,7 @@
     "translation": "In the suitcase."
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "solution": "A taxi, please.",
     "text": "Un taxi, por favor.",
     "wordBank": ["museum", "taxi", "please", "bus", "Yes", "train"],
@@ -895,7 +895,7 @@
     "lesson": 1
   },
   {
-    "type": "listening",
+    "problemType": "listening",
     "solution": "Un boleto a Santiago.",
     "wordBank": [
       "a",
@@ -912,7 +912,7 @@
     "translation": "A ticket to Santiago."
   },
   {
-    "type": "translation",
+    "problemType": "translation",
     "text": "¿Dónde está tu boleto?",
     "solution": "Where is your ticket?",
     "wordBank": [

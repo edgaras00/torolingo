@@ -7,8 +7,9 @@ const MultipleChoiceCard = ({ onNextQuestion, text, solution, choices }) => {
 
   const onOptionChange = (event) => setUserChoice(event.target.value);
 
-  const answerChoices = choices.map((choice) => (
+  const answerChoices = choices.map((choice, index) => (
     <Choice
+      key={index}
       value={choice}
       choiceState={userChoice}
       onOptionChange={onOptionChange}

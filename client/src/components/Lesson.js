@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useTransition } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import TranslationCard from "./TranslationCard";
 import ListeningCard from "./ListeningCard";
 import ListeningWritingCard from "./ListeningWritingCard";
 import MultipleChoiceCard from "./MultipleChoiceCard";
-// import VocabMatchCard from "./VocabMatchCard";
-// import PictureCard from "./PictureCard";
 import PicCardMC from "./PicCardMC";
 import audio from "../hombre.mp3";
 import "../styles/lesson.css";
@@ -17,202 +15,157 @@ const Lesson = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const { pathname } = useLocation();
-  const unit = pathname.replace("/", "");
 
   const exampleAudio = new Audio(audio);
 
-  useEffect(() => {
-    setQuestions([
-      {
-        type: "vocabMatch",
-        header: "Tap the matching pairs",
-        data: [
-          {
-            english: "man",
-            spanish: "hombre",
-          },
-          {
-            english: "woman",
-            spanish: "mujer",
-          },
-          {
-            english: "hello",
-            spanish: "hola",
-          },
-          {
-            english: "thank you",
-            spanish: "gracias",
-          },
-        ],
-      },
-      {
-        type: "translation",
-        text: "Yo bebo leche",
-        solution: "I drink milk",
-        header: "Translate this sentence",
-        unit: 1,
-        lesson: 1,
-        wordBank: ["I", "milk", "eat", "drink", "You", "apple"],
-      },
-      {
-        type: "mc",
-        text: "How do you say `I am`?",
-        solution: "soy",
-        unit: 1,
-        lesson: 1,
-        choices: ["soy", "comer", "es"],
-      },
-      {
-        type: "picture",
-        text: "Select the correct option",
-        solution: "hombre",
-        unit: 1,
-        lesson: 1,
-        choices: ["hombre", "mujer", "pan"],
-      },
-      {
-        type: "listening",
-        text: "Tap what you hear",
-        solution: "Yo soy un hombre",
-        audio: exampleAudio,
-        unit: 1,
-        lesson: 1,
-        wordBank: [
-          "hombre",
-          "Yo",
-          "eres",
-          "soy",
-          "comer",
-          "una",
-          "mujer",
-          "un",
-        ],
-      },
-      {
-        type: "listeningWriting",
-        text: "Type what you hear",
-        solution: "Yo soy un hombre",
-        audio: exampleAudio,
-        unit: 1,
-        lesson: 1,
-      },
-      {
-        type: "picture2",
-        header: "Fill in the blank",
-        text: "Aqui esta el",
-        solution: "carro",
-        unit: 1,
-        lesson: 1,
-        wordBank: ["carro", "tren", "pan", "hombre"],
-      },
-    ]);
-    console.log(unit);
-  }, []);
+  const normalizeSolution = (solution) => {
+    return solution.replace(/[^\w\s\u00C0-\u00FF]/g, "").toLowerCase();
+  };
 
-  const handleNextQuestion = () => {
-    setCurrentQuestion((currentQuestion) => currentQuestion + 1);
+  useEffect(() => {
+    const unitLessonArray = pathname.replace("/", "").split("l");
+    const unit = unitLessonArray[0].slice(1);
+    const lesson = unitLessonArray[1];
+
+    const fetchProblemdata = async (unit, lesson) => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/problems/lessons?unit=${unit}&lesson=${lesson}`
+        );
+        const problemData = await response.json();
+        setQuestions(problemData.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchProblemdata(unit, lesson);
+  }, [pathname]);
+
+  const handleNextQuestion = (
+    correctSolution,
+    userSolution,
+    successCallback,
+    failureCallback
+  ) => {
+    if (correctSolution === userSolution) {
+      successCallback();
+    } else {
+      failureCallback();
+    }
+    // setCurrentQuestion((currentQuestion) => currentQuestion + 1);
+    return;
   };
 
   const questionCards = questions.map((question, index) => {
-    if (question.type === "vocabMatch") {
+    if (question.problemType === "vocabMatch") {
       const modifiedPairs = question.data.map((pair) => {
         pair.matched = false;
         pair.err = false;
         return pair;
       });
-      const shuffledEnglish = shuffleArray(
-        modifiedPairs.map((pair, index) => ({
-          word: pair.english,
-          index,
-          err: false,
-        }))
-      );
-      const shuffledSpanish = shuffleArray(
-        modifiedPairs.map((pair, index) => ({
-          word: pair.spanish,
-          index,
-          err: false,
-        }))
-      );
+
+      const englishWords = modifiedPairs.map((pair, index) => ({
+        word: pair.english,
+        index,
+        err: false,
+      }));
+      const shuffledEnglish = shuffledSpanish(englishWords);
+
+      const spanishWords = modifiedPairs.map((pair, index) => ({
+        word: pair.spanish,
+        index,
+        err: false,
+      }));
+      const shuffledSpanish = shuffleArray(spanishWords);
+
       return (
         <VocabMatchCard
           onNextQuestion={handleNextQuestion}
           key={index}
-          header={question.header}
+          header="Tap the matching pairs"
           pairs={modifiedPairs}
           english={shuffledEnglish}
           spanish={shuffledSpanish}
         />
       );
     }
-    if (question.type === "translation") {
+    if (question.problemType === "translation") {
       return (
         <TranslationCard
+          header="Translate this sentence"
           onNextQuestion={handleNextQuestion}
           key={index}
           text={question.text}
           solution={question.solution}
+          normalizedSolution={normalizeSolution(question.solution)}
           words={question.wordBank}
         />
       );
     }
-    if (question.type === "mc") {
+    if (question.problemType === "multipleChoice") {
       return (
         <MultipleChoiceCard
           onNextQuestion={handleNextQuestion}
           key={index}
           text={question.text}
           solution={question.solution}
+          normalizedSolution={normalizeSolution(question.solution)}
           choices={question.choices}
         />
       );
     }
-    if (question.type === "picture") {
+    if (question.problemType === "multipleChoicePicture") {
       return (
         <PicCardMC
           onNextQuestion={handleNextQuestion}
           key={index}
           text={question.text}
           solution={question.solution}
+          normalizedSolution={normalizeSolution(question.solution)}
           choices={question.choices}
         />
       );
     }
-    if (question.type === "listening") {
+    if (question.problemType === "listening") {
       return (
         <ListeningCard
           onNextQuestion={handleNextQuestion}
           key={index}
           text={question.text}
           solution={question.solution}
+          normalizedSolution={normalizeSolution(question.solution)}
           words={question.wordBank}
           audio={exampleAudio}
           slowAudio={exampleAudio}
+          header="Tap what you hear"
         />
       );
     }
 
-    if (question.type === "listeningWriting") {
+    if (question.problemType === "listeningWriting") {
       return (
         <ListeningWritingCard
           onNextQuestion={handleNextQuestion}
           key={index}
           text={question.text}
           solution={question.solution}
+          normalizedSolution={normalizeSolution(question.solution)}
           audio={question.audio}
           slowAudio={question.audio}
+          header="Type what you hear"
         />
       );
     }
-    if (question.type === "picture2") {
+    if (question.problemType === "pictureBlank") {
       return (
         <PictureCard
           onNextQuestion={handleNextQuestion}
           key={index}
           text={question.text}
-          header={question.header}
           solution={question.solution}
+          normalizedSolution={normalizeSolution(question.solution)}
           words={question.wordBank}
+          header="Fill in the blank"
         />
       );
     }
@@ -234,6 +187,16 @@ const Lesson = () => {
         return questionCards[5];
       case 7:
         return questionCards[6];
+      case 8:
+        return questionCards[7];
+      case 9:
+        return questionCards[8];
+      case 10:
+        return questionCards[9];
+      case 11:
+        return questionCards[10];
+      case 12:
+        return questionCards[11];
       default:
         return null;
     }

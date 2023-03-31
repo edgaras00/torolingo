@@ -3,32 +3,30 @@ import WordBubble from "./WordBubble";
 import NotebookLines from "./NotebookLines";
 import "../styles/translationCard.css";
 
-const TranslationCard = ({ onNextQuestion, text, solution, words }) => {
+const TranslationCard = ({
+  onNextQuestion,
+  text,
+  solution,
+  normalizedSolution,
+  words,
+  header,
+}) => {
   const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState([]);
+  const [result, setResult] = useState("");
+  const [userSolution, setUserSolution] = useState("");
   // const [correctSolution, setCorrectSolution] = useState("");
 
-  const modifiedSolution = solution
-    .replace(/[^\w\s\u00C0-\u00FF]/g, "")
-    .toLowerCase();
+  useEffect(() => {
+    const joinedWords = selected
+      .map((word) => word.textContent)
+      .join(" ")
+      .toLowerCase();
+    setUserSolution(joinedWords);
+  }, [selected]);
 
-  console.log(modifiedSolution);
-
-  // useEffect(() => {
-  //   const sol = "Hello, bye.";
-  //   const modifiedSol = sol.replace(/[^\w\s\u00C0-\u00FF]/g, "").toLowerCase();
-  //   setCorrectSolution(modifiedSol);
-  //   const data = [
-  //     "hello",
-  //     "bye",
-  //     "test",
-  //     "microphone",
-  //     "goodbye",
-  //     "school",
-  //     "automatic",
-  //   ];
-  //   setWordBank(data);
-  // }, []);
+  const handleCorrectAnswer = () => setResult("success");
+  const handleWrongAnswer = () => setResult("failure");
 
   const handleClick = (event) => {
     const selectedWord = event.target.cloneNode();
@@ -85,7 +83,7 @@ const TranslationCard = ({ onNextQuestion, text, solution, words }) => {
       );
     });
   }
-
+  console.log(result);
   return (
     <div className="translation-card">
       <div className="card-top">
@@ -93,7 +91,7 @@ const TranslationCard = ({ onNextQuestion, text, solution, words }) => {
           <button className="exit-button">X</button>
         </div>
         <div className="problem-header-container">
-          <h3 className="problem-header">Write this in English</h3>
+          <h3 className="problem-header">{header}</h3>
         </div>
         <div className="problem-wrapper">
           <div className="mascot"></div>
@@ -116,7 +114,17 @@ const TranslationCard = ({ onNextQuestion, text, solution, words }) => {
         </div>
       </div>
       <div className="card-bottom">
-        <button className="check-answer" onClick={onNextQuestion}>
+        <button
+          className="check-answer"
+          onClick={() =>
+            onNextQuestion(
+              normalizedSolution,
+              userSolution,
+              handleCorrectAnswer,
+              handleWrongAnswer
+            )
+          }
+        >
           CHECK
         </button>
       </div>

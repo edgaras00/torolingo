@@ -19,9 +19,7 @@ exports.getLessonProblems = async (req, res) => {
     const lesson = req.query.lesson;
     const lessonProblems = await Problem.find({
       $and: [{ unit: unit }, { lesson: lesson }],
-    })
-      .limit(10)
-      .select("-__v");
+    }).select("-__v");
     res.status(200).json({
       status: "success",
       data: lessonProblems,

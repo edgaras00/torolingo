@@ -10,22 +10,29 @@ const ListeningCard = ({
   words,
   text,
   solution,
+  normalizedSolution,
   audio,
   slowAudio,
 }) => {
   const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState([]);
-  // const [correctSolution, setCorrectSolution] = useState("");
+  const [userSolution, setUserSolution] = useState(null);
+  const [result, setResult] = useState("");
 
-  const modifiedSolution = solution
-    .replace(/[^\w\s\u00C0-\u00FF]/g, "")
-    .toLowerCase();
-
-  console.log(audio);
+  const handleRightAnswer = () => setResult("success");
+  const handleWrongAnswer = () => setResult("failure");
 
   const handleAudioClick = () => {
     audio.play();
   };
+
+  useEffect(() => {
+    const joinedWords = selected
+      .map((word) => word.textContent)
+      .join(" ")
+      .toLowerCase();
+    setUserSolution(joinedWords);
+  }, [selected]);
 
   const handleClick = (event) => {
     const selectedWord = event.target.cloneNode();
@@ -35,27 +42,27 @@ const ListeningCard = ({
     console.log(selectedWord);
     setSelected((prevState) => [...prevState, selectedWord]);
 
-    const w = [...wordBank];
-    w[wordIndex] = "0".repeat(selectedWord.textContent.length);
-    setWordBank(w);
+    const wordBankCopy = [...wordBank];
+    wordBankCopy[wordIndex] = "0".repeat(selectedWord.textContent.length);
+    setWordBank(wordBankCopy);
   };
 
   const handleSelectedClick = (event) => {
     const word = event.target.textContent;
     const wordIndex = event.target.dataset.position * 1;
-    const w = [...wordBank];
-    w[wordIndex] = word;
-    setWordBank(w);
+    const wordBankCopy = [...wordBank];
+    wordBankCopy[wordIndex] = word;
+    setWordBank(wordBankCopy);
 
-    const s = [...selected];
-    const index = s.findIndex((arrayWord) => {
+    const selectedCopy = [...selected];
+    const index = selectedCopy.findIndex((arrayWord) => {
       return (
         arrayWord.textContent === word &&
         arrayWord.dataset.position === String(wordIndex)
       );
     });
-    s.splice(index, 1);
-    setSelected(s);
+    selectedCopy.splice(index, 1);
+    setSelected(selectedCopy);
   };
 
   const bubbles = wordBank.map((word, index) => (
@@ -115,7 +122,17 @@ const ListeningCard = ({
         </div>
       </div>
       <div className="card-bottom">
-        <button className="check-answer" onClick={onNextQuestion}>
+        <button
+          className="check-answer"
+          onClick={() =>
+            onNextQuestion(
+              normalizedSolution,
+              userSolution,
+              handleRightAnswer,
+              handleWrongAnswer
+            )
+          }
+        >
           CHECK
         </button>
       </div>

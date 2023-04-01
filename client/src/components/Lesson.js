@@ -47,6 +47,8 @@ const Lesson = () => {
     successCallback,
     failureCallback
   ) => {
+    console.log(correctSolution);
+    console.log(userSolution);
     if (correctSolution === userSolution) {
       successCallback();
       setCurrentQuestion((currentQuestion) => currentQuestion + 1);
@@ -56,9 +58,22 @@ const Lesson = () => {
     return;
   };
 
+  const handleNextQuestionMatch = (
+    matches,
+    successCallback,
+    failureCallback
+  ) => {
+    if (matches.every((pair) => pair.matched)) {
+      successCallback();
+      setCurrentQuestion((currentQuestion) => currentQuestion + 1);
+    } else {
+      failureCallback();
+    }
+  };
+
   const questionCards = questions.map((question, index) => {
-    if (question.problemType === "vocabMatch") {
-      const modifiedPairs = question.data.map((pair) => {
+    if (question.problemType === "match") {
+      const modifiedPairs = question.pairs.map((pair) => {
         pair.matched = false;
         pair.err = false;
         return pair;
@@ -69,7 +84,7 @@ const Lesson = () => {
         index,
         err: false,
       }));
-      const shuffledEnglish = shuffledSpanish(englishWords);
+      const shuffledEnglish = shuffleArray(englishWords);
 
       const spanishWords = modifiedPairs.map((pair, index) => ({
         word: pair.spanish,
@@ -80,7 +95,7 @@ const Lesson = () => {
 
       return (
         <VocabMatchCard
-          onNextQuestion={handleNextQuestion}
+          onNextQuestion={handleNextQuestionMatch}
           key={index}
           header="Tap the matching pairs"
           pairs={modifiedPairs}
@@ -109,7 +124,6 @@ const Lesson = () => {
           key={index}
           text={question.text}
           solution={question.solution}
-          normalizedSolution={normalizeSolution(question.solution)}
           choices={question.choices}
         />
       );
@@ -121,7 +135,6 @@ const Lesson = () => {
           key={index}
           text={question.text}
           solution={question.solution}
-          normalizedSolution={normalizeSolution(question.solution)}
           choices={question.choices}
         />
       );
@@ -197,6 +210,16 @@ const Lesson = () => {
         return questionCards[10];
       case 12:
         return questionCards[11];
+      case 13:
+        return questionCards[12];
+      case 14:
+        return questionCards[13];
+      case 15:
+        return questionCards[14];
+      case 16:
+        return questionCards[15];
+      case 17:
+        return questionCards[16];
       default:
         return null;
     }

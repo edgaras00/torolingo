@@ -4,11 +4,16 @@ import "../styles/picCardMC.css";
 
 const PicCardMC = ({ onNextQuestion, text, solution, choices }) => {
   const [userChoice, setUserChoice] = useState("");
+  const [result, setResult] = useState("");
+
+  const handleCorrectAnswer = () => setResult("success");
+  const handleWrongAnswer = () => setResult("failure");
 
   const onOptionChange = (event) => setUserChoice(event.target.value);
 
-  const answerChoices = choices.map((choice) => (
+  const answerChoices = choices.map((choice, index) => (
     <Choice
+      key={index}
       value={choice}
       choiceState={userChoice}
       onOptionChange={onOptionChange}
@@ -32,7 +37,17 @@ const PicCardMC = ({ onNextQuestion, text, solution, choices }) => {
         </div>
       </div>
       <div className="card-bottom">
-        <button className="check-answer" onClick={onNextQuestion}>
+        <button
+          className="check-answer"
+          onClick={() =>
+            onNextQuestion(
+              solution,
+              userChoice,
+              handleCorrectAnswer,
+              handleWrongAnswer
+            )
+          }
+        >
           CHECK
         </button>
       </div>

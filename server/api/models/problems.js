@@ -10,6 +10,7 @@ const problemSchema = new mongoose.Schema({
     // required: [true, "Problem must have a solution"],
     maxLength: 200,
   },
+  pairs: [],
   choices: [],
   wordBank: [],
   unit: Number,

@@ -9,6 +9,7 @@ const VocabMatchCard = ({
   pairs,
   english,
   spanish,
+  addMistake,
 }) => {
   const [match, setMatch] = useState([...pairs]);
   const [firstSelected, setFirstSelected] = useState(null);
@@ -63,6 +64,8 @@ const VocabMatchCard = ({
       setSpanishWords(spanishCopy);
       return;
     }
+
+    addMistake();
   };
 
   const handleClick = (event) => {

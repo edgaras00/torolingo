@@ -14,6 +14,7 @@ const ListeningCard = ({
   normalizedSolution,
   audio,
   slowAudio,
+  addMistake,
 }) => {
   const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState([]);
@@ -21,7 +22,10 @@ const ListeningCard = ({
   const [result, setResult] = useState("");
 
   const handleRightAnswer = () => setResult("success");
-  const handleWrongAnswer = () => setResult("failure");
+  const handleWrongAnswer = () => {
+    setResult("failure");
+    addMistake();
+  };
 
   const handleAudioClick = () => {
     audio.play();

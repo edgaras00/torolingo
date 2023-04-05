@@ -19,24 +19,24 @@ const PictureCard = ({ onQuestionChange, text, header, solution, words }) => {
     selectedWord.setAttribute("data-position", wordIndex);
     setSelected(selectedWord);
 
-    const w = [...wordBank];
+    const wordBankCopy = [...wordBank];
     if (!selected || selected.textContent !== event.target.textContent) {
-      w[wordIndex] = "0".repeat(selectedWord.textContent.length);
+      wordBankCopy[wordIndex] = "0".repeat(selectedWord.textContent.length);
     }
     if (selected && selected.textContent !== event.target.textContent) {
       const word = selected.textContent;
       const wordIndex = selected.dataset.position * 1;
-      w[wordIndex] = word;
+      wordBankCopy[wordIndex] = word;
     }
-    setWordBank(w);
+    setWordBank(wordBankCopy);
   };
 
   const handleSelectedClick = (event) => {
     const word = event.target.textContent;
     const wordIndex = event.target.dataset.position * 1;
-    const w = [...wordBank];
-    w[wordIndex] = word;
-    setWordBank(w);
+    const wordBankCopy = [...wordBank];
+    wordBankCopy[wordIndex] = word;
+    setWordBank(wordBankCopy);
 
     setSelected(null);
   };

@@ -14,9 +14,12 @@ import { shuffleArray } from "../utils";
 const Lesson = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(1);
+  const [mistakeCount, setMistakeCount] = useState(0);
   const { pathname } = useLocation();
 
-  console.log("current question", currentQuestion);
+  const handleMistake = () => setMistakeCount((prevState) => prevState + 1);
+
+  console.log(mistakeCount);
 
   const exampleAudio = new Audio(audio);
 
@@ -98,6 +101,7 @@ const Lesson = () => {
       return (
         <VocabMatchCard
           onNextQuestion={handleNextQuestionMatch}
+          addMistake={handleMistake}
           key={index}
           header="Tap the matching pairs"
           pairs={modifiedPairs}
@@ -111,6 +115,7 @@ const Lesson = () => {
         <TranslationCard
           header="Translate this sentence"
           onNextQuestion={handleNextQuestion}
+          addMistake={handleMistake}
           key={index}
           text={question.text}
           solution={question.solution}
@@ -123,6 +128,7 @@ const Lesson = () => {
       return (
         <MultipleChoiceCard
           onNextQuestion={handleNextQuestion}
+          addMistake={handleMistake}
           key={index}
           text={question.text}
           solution={question.solution}
@@ -134,6 +140,7 @@ const Lesson = () => {
       return (
         <PicCardMC
           onNextQuestion={handleNextQuestion}
+          addMistake={handleMistake}
           key={index}
           text={question.text}
           solution={question.solution}
@@ -145,6 +152,7 @@ const Lesson = () => {
       return (
         <ListeningCard
           onNextQuestion={handleNextQuestion}
+          addMistake={handleMistake}
           key={index}
           text={question.text}
           solution={question.solution}
@@ -161,6 +169,7 @@ const Lesson = () => {
       return (
         <ListeningWritingCard
           onNextQuestion={handleNextQuestion}
+          addMistake={handleMistake}
           key={index}
           text={question.text}
           solution={question.solution}
@@ -175,6 +184,7 @@ const Lesson = () => {
       return (
         <PictureCard
           onNextQuestion={handleNextQuestion}
+          addMistake={handleMistake}
           key={index}
           text={question.text}
           solution={question.solution}

@@ -3,13 +3,22 @@ import { Link } from "react-router-dom";
 import Choice from "./Choice";
 import "../styles/multipleChoiceCard.css";
 
-const MultipleChoiceCard = ({ onNextQuestion, text, solution, choices }) => {
+const MultipleChoiceCard = ({
+  onNextQuestion,
+  text,
+  solution,
+  choices,
+  addMistake,
+}) => {
   const [userChoice, setUserChoice] = useState("");
   const [result, setResult] = useState("");
 
   const onOptionChange = (event) => setUserChoice(event.target.value);
   const handleCorrectAnswer = () => setResult("success");
-  const handleWrongAnswer = () => setResult("failure");
+  const handleWrongAnswer = () => {
+    setResult("failure");
+    addMistake();
+  };
 
   const answerChoices = choices.map((choice, index) => (
     <Choice

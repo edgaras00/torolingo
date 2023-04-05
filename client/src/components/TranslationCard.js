@@ -11,6 +11,7 @@ const TranslationCard = ({
   normalizedSolution,
   words,
   header,
+  addMistake,
 }) => {
   const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState([]);
@@ -27,7 +28,10 @@ const TranslationCard = ({
   }, [selected]);
 
   const handleCorrectAnswer = () => setResult("success");
-  const handleWrongAnswer = () => setResult("failure");
+  const handleWrongAnswer = () => {
+    setResult("failure");
+    addMistake();
+  };
 
   const handleClick = (event) => {
     const selectedWord = event.target.cloneNode();

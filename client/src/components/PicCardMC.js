@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import Choice from "./Choice";
 import "../styles/picCardMC.css";
 
-const PicCardMC = ({ onNextQuestion, text, solution, choices }) => {
+const PicCardMC = ({ onNextQuestion, text, solution, choices, addMistake }) => {
   const [userChoice, setUserChoice] = useState("");
   const [result, setResult] = useState("");
 
   const handleCorrectAnswer = () => setResult("success");
-  const handleWrongAnswer = () => setResult("failure");
+  const handleWrongAnswer = () => {
+    setResult("failure");
+    addMistake();
+  };
 
   const onOptionChange = (event) => setUserChoice(event.target.value);
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Choice from "./Choice";
 import "../styles/multipleChoiceCard.css";
 
@@ -23,7 +24,9 @@ const MultipleChoiceCard = ({ onNextQuestion, text, solution, choices }) => {
     <div className="multiple-choice-card">
       <div className="card-top">
         <div className="exit-lesson">
-          <button className="exit-button">X</button>
+          <Link to="/">
+            <button className="exit-button">X</button>
+          </Link>
         </div>
         <div className="problem-header-container">
           <h3 className="problem-header">{text}</h3>

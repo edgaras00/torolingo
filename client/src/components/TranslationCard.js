@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import WordBubble from "./WordBubble";
 import NotebookLines from "./NotebookLines";
 import "../styles/translationCard.css";
@@ -88,7 +89,9 @@ const TranslationCard = ({
     <div className="translation-card">
       <div className="card-top">
         <div className="exit-lesson">
-          <button className="exit-button">X</button>
+          <Link to="/">
+            <button className="exit-button">X</button>
+          </Link>
         </div>
         <div className="problem-header-container">
           <h3 className="problem-header">{header}</h3>

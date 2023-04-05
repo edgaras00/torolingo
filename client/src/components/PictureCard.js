@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import WordBubble from "./WordBubble";
 import "../styles/pictureCard.css";
 
@@ -10,15 +11,6 @@ const PictureCard = ({ onQuestionChange, text, header, solution, words }) => {
   const modifiedSolution = solution
     .replace(/[^\w\s\u00C0-\u00FF]/g, "")
     .toLowerCase();
-
-  // useEffect(() => {
-  //   const sol = "tren";
-  //   const modifiedSol = sol.replace(/[^\w\s\u00C0-\u00FF]/g, "").toLowerCase();
-  //   setCorrectSolution(modifiedSol);
-
-  //   const data = ["hombre", "carro", "tren", "pan"];
-  //   setWordBank(data);
-  // }, []);
 
   const handleClick = (event) => {
     const selectedWord = event.target.cloneNode();
@@ -75,7 +67,9 @@ const PictureCard = ({ onQuestionChange, text, header, solution, words }) => {
     <div className="translation-card">
       <div className="card-top">
         <div className="exit-lesson">
-          <button className="exit-button">X</button>
+          <Link to="/">
+            <button className="exit-button">X</button>
+          </Link>
         </div>
         <div className="problem-header-container">
           <h3 className="problem-header">{header}</h3>

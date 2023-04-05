@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 // import { shuffleArray } from "../utils";
 import "../styles/vocabMatchCard.css";
 
@@ -137,7 +138,9 @@ const VocabMatchCard = ({
     <div className="vocab-match">
       <div className="card-top">
         <div className="exit-lesson">
-          <button className="exit-button">X</button>
+          <Link to="/">
+            <button className="exit-button">X</button>
+          </Link>
         </div>
         <div className="problem-header-container">
           <h3 className="problem-header">{header}</h3>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/listeningWritingCard.css";
 
 const ListeningWritingCard = ({
@@ -20,7 +21,9 @@ const ListeningWritingCard = ({
     <div className="translation-card">
       <div className="card-top">
         <div className="exit-lesson">
-          <button className="exit-button">X</button>
+          <Link to="/">
+            <button className="exit-button">X</button>
+          </Link>
         </div>
         <div className="problem-header-container">
           <h3 className="problem-header">{text}</h3>

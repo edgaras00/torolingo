@@ -16,6 +16,8 @@ const Lesson = () => {
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const { pathname } = useLocation();
 
+  console.log("current question", currentQuestion);
+
   const exampleAudio = new Audio(audio);
 
   const normalizeSolution = (solution) => {
@@ -184,47 +186,17 @@ const Lesson = () => {
     }
   });
 
-  const renderQuestion = () => {
-    switch (currentQuestion) {
-      case 1:
-        return questionCards[0];
-      case 2:
-        return questionCards[1];
-      case 3:
-        return questionCards[2];
-      case 4:
-        return questionCards[3];
-      case 5:
-        return questionCards[4];
-      case 6:
-        return questionCards[5];
-      case 7:
-        return questionCards[6];
-      case 8:
-        return questionCards[7];
-      case 9:
-        return questionCards[8];
-      case 10:
-        return questionCards[9];
-      case 11:
-        return questionCards[10];
-      case 12:
-        return questionCards[11];
-      case 13:
-        return questionCards[12];
-      case 14:
-        return questionCards[13];
-      case 15:
-        return questionCards[14];
-      case 16:
-        return questionCards[15];
-      case 17:
-        return questionCards[16];
-      default:
-        return null;
-    }
-  };
-  return <div className="lesson-container">{renderQuestion()}</div>;
+  return (
+    <div className="lesson-container">
+      {questionCards.map((question, index) => {
+        if (index + 1 === currentQuestion) {
+          return question;
+        } else {
+          return null;
+        }
+      })}
+    </div>
+  );
 };
 
 export default Lesson;

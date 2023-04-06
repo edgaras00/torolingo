@@ -37,6 +37,7 @@ const Lesson = () => {
           `http://localhost:5000/problems/lessons?unit=${unit}&lesson=${lesson}`
         );
         const problemData = await response.json();
+        console.log(problemData);
         setQuestions(problemData.data);
       } catch (error) {
         console.log(error);
@@ -118,7 +119,7 @@ const Lesson = () => {
           key={index}
           text={question.text}
           solution={question.solution}
-          normalizedSolution={normalizeSolution(question.solution)}
+          // normalizedSolution={normalizeSolution(question.solution)}
           words={question.wordBank}
         />
       );
@@ -172,7 +173,7 @@ const Lesson = () => {
           key={index}
           text={question.text}
           solution={question.solution}
-          normalizedSolution={normalizeSolution(question.solution)}
+          // normalizedSolution={normalizeSolution(question.solution)}
           audio={question.audio}
           slowAudio={question.audio}
           header="Type what you hear"
@@ -204,7 +205,7 @@ const Lesson = () => {
 
   return (
     <div className="lesson-container">
-      {questionCards.slice(15).map((question, index) => {
+      {questionCards.slice(2).map((question, index) => {
         if (index + 1 === currentQuestion) {
           return question;
         } else {

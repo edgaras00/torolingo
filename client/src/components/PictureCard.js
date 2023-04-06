@@ -1,16 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import WordBubble from "./WordBubble";
 import "../styles/pictureCard.css";
 
-const PictureCard = ({ onQuestionChange, text, header, solution, words }) => {
+const PictureCard = ({
+  onNextQuestion,
+  text,
+  header,
+  solution,
+  words,
+  normalizedSolution,
+  addMistake,
+}) => {
   const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState(null);
-  const [correctSolution, setCorrectSolution] = useState("");
+  const [result, setResult] = useState("");
 
-  const modifiedSolution = solution
-    .replace(/[^\w\s\u00C0-\u00FF]/g, "")
-    .toLowerCase();
+  const handleRightAnswer = () => setResult("success");
+  const handleWrongAnswer = () => {
+    setResult("failure");
+    addMistake();
+  };
 
   const handleClick = (event) => {
     const selectedWord = event.target.cloneNode();
@@ -61,7 +71,23 @@ const PictureCard = ({ onQuestionChange, text, header, solution, words }) => {
       />
     );
   }
-  console.log(correctSolution);
+
+  const textWords = text.split(" ");
+  const elements = textWords.map((word, index) => {
+    if (word === "____") {
+      return (
+        <span className="pic-blank" key={index}>
+          {selectedBubble}
+        </span>
+      );
+    } else {
+      return (
+        <span className="word-elements" key={index}>
+          {word}
+        </span>
+      );
+    }
+  });
 
   return (
     <div className="translation-card">
@@ -79,8 +105,9 @@ const PictureCard = ({ onQuestionChange, text, header, solution, words }) => {
             <div className="image"></div>
           </div>
           <div className="pic-sentence-container">
-            <div className="pic-sentence">{text}</div>
-            <div className="pic-blank">{selectedBubble}</div>
+            {/* <div className="pic-sentence">{text}</div>
+            <div className="pic-blank">{selectedBubble}</div> */}
+            {elements}
           </div>
         </div>
       </div>
@@ -90,7 +117,17 @@ const PictureCard = ({ onQuestionChange, text, header, solution, words }) => {
         </div>
       </div>
       <div className="card-bottom">
-        <button className="check-answer" onClick={onQuestionChange}>
+        <button
+          className="check-answer"
+          onClick={() =>
+            onNextQuestion(
+              normalizedSolution,
+              selected.textContent,
+              handleRightAnswer,
+              handleWrongAnswer
+            )
+          }
+        >
           CHECK
         </button>
       </div>

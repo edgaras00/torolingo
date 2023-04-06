@@ -17,7 +17,6 @@ const TranslationCard = ({
   const [selected, setSelected] = useState([]);
   const [result, setResult] = useState("");
   const [userSolution, setUserSolution] = useState("");
-  // const [correctSolution, setCorrectSolution] = useState("");
 
   useEffect(() => {
     const joinedWords = selected

@@ -13,6 +13,7 @@
   border: 1px solid red;
   width: 180px;
   height: 110px;
+  margin-right: 1rem;
 }
 
 .pic-sentence-container {
@@ -30,9 +31,15 @@
   border-bottom: 2px solid black;
   width: 20%;
   height: 20px;
-  margin-left: 0.8rem;
+  text-align: center;
+  padding-bottom: 0.4rem;
+  margin: 0 0.5rem;
 }
 
 .pic-middle {
   margin-top: 6rem;
+}
+
+.word-elements {
+  margin-left: 5px;
 }

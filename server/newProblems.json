@@ -232,7 +232,7 @@
   },
   {
     "problemType": "listening",
-    "solution": "Discuple, por favor.",
+    "solution": "Disculpe, por favor.",
     "translation": "Excuse me, please.",
     "unit": 1,
     "lesson": 2,
@@ -267,6 +267,7 @@
     "problemType": "pictureBlank",
     "text": "Sí, ____ por favor.",
     "unit": 1,
+    "solution": "agua",
     "lesson": 2,
     "translation": "Yes, water please.",
     "wordBank": ["pan", "agua", "manzana", "leche"],

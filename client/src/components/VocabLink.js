@@ -4,7 +4,7 @@ import "../styles/vocabLink.css";
 
 const VocabLink = ({ unit }) => {
   return (
-    <Link to={`/vocabulary-${unit}`} className="vocab-link">
+    <Link to={`vocabulary-${unit}`} className="vocab-link">
       <div className="vocab-content">
         <div className="text">UNIT {unit}</div>
       </div>

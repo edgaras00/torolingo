@@ -18,6 +18,8 @@ const TranslationCard = ({
   const [result, setResult] = useState("");
   const [userSolution, setUserSolution] = useState("");
 
+  console.log(normalizedSolution);
+
   useEffect(() => {
     const joinedWords = selected
       .map((word) => word.textContent)

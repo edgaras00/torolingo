@@ -9,6 +9,7 @@ const MultipleChoiceCard = ({
   solution,
   choices,
   addMistake,
+  normalizedSolution,
 }) => {
   const [userChoice, setUserChoice] = useState("");
   const [result, setResult] = useState("");
@@ -51,7 +52,7 @@ const MultipleChoiceCard = ({
           className="check-answer"
           onClick={() =>
             onNextQuestion(
-              solution,
+              normalizedSolution,
               userChoice,
               handleCorrectAnswer,
               handleWrongAnswer

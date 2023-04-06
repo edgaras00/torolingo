@@ -18,6 +18,8 @@ const Lesson = () => {
   const [mistakeCount, setMistakeCount] = useState(0);
   const { pathname } = useLocation();
 
+  console.log(questions);
+
   const handleMistake = () => setMistakeCount((prevState) => prevState + 1);
 
   const exampleAudio = new Audio(audio);
@@ -119,7 +121,7 @@ const Lesson = () => {
           key={index}
           text={question.text}
           solution={question.solution}
-          // normalizedSolution={normalizeSolution(question.solution)}
+          normalizedSolution={normalizeSolution(question.solution)}
           words={question.wordBank}
         />
       );
@@ -133,6 +135,7 @@ const Lesson = () => {
           text={question.text}
           solution={question.solution}
           choices={question.choices}
+          normalizedSolution={normalizeSolution(question.solution)}
         />
       );
     }
@@ -173,7 +176,7 @@ const Lesson = () => {
           key={index}
           text={question.text}
           solution={question.solution}
-          // normalizedSolution={normalizeSolution(question.solution)}
+          normalizedSolution={normalizeSolution(question.solution)}
           audio={question.audio}
           slowAudio={question.audio}
           header="Type what you hear"
@@ -200,6 +203,7 @@ const Lesson = () => {
     <CompletedCard
       mistakeCount={mistakeCount}
       questionCount={questionCards.length}
+      key="complete-card"
     />
   );
 

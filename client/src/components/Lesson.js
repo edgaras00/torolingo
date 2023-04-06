@@ -9,6 +9,7 @@ import audio from "../hombre.mp3";
 import "../styles/lesson.css";
 import PictureCard from "./PictureCard";
 import VocabMatchCard from "./VocabMatchCard";
+import CompletedCard from "./CompletedCard";
 import { shuffleArray } from "../utils";
 
 const Lesson = () => {
@@ -18,8 +19,6 @@ const Lesson = () => {
   const { pathname } = useLocation();
 
   const handleMistake = () => setMistakeCount((prevState) => prevState + 1);
-
-  console.log(mistakeCount);
 
   const exampleAudio = new Audio(audio);
 
@@ -196,9 +195,16 @@ const Lesson = () => {
     }
   });
 
+  questionCards.push(
+    <CompletedCard
+      mistakeCount={mistakeCount}
+      questionCount={questionCards.length}
+    />
+  );
+
   return (
     <div className="lesson-container">
-      {questionCards.map((question, index) => {
+      {questionCards.slice(15).map((question, index) => {
         if (index + 1 === currentQuestion) {
           return question;
         } else {

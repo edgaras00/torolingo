@@ -585,7 +585,7 @@
     "lesson": 4,
     "text": "Thank you, good night.",
     "solution": "Gracias, buenas noches.",
-    "wordBank": ["buenos", "lo", "siento", "adiós", "Gracias", "días", "noches"]
+    "wordBank": ["buenas", "lo", "siento", "adiós", "Gracias", "días", "noches"]
   },
   {
     "problemType": "multipleChoice",
@@ -843,7 +843,7 @@
     "solution": "maleta",
     "unit": 2,
     "lesson": 1,
-    "wordBank": ["pasaporte", "pan", "maleta", "reserva"]
+    "choices": ["pasaporte", "pan", "maleta", "reserva"]
   },
   {
     "problemType": "listening",
@@ -890,7 +890,7 @@
   },
   {
     "problemType": "translation",
-    "solution": "A taxi, please.",
+    "solution": "Taxi, please.",
     "text": "Un taxi, por favor.",
     "wordBank": ["museum", "taxi", "please", "bus", "Yes", "train"],
     "unit": 2,

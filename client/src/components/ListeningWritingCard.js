@@ -1,17 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/listeningWritingCard.css";
 
 const ListeningWritingCard = ({
   onNextQuestion,
-  text,
   solution,
+  normalizedSolution,
   audio,
   slowAudio,
+  header,
+  addMistake,
+  normalizeText,
 }) => {
   const [inputText, setInputText] = useState("");
+  const [result, setResult] = useState("");
 
-  console.log(inputText);
+  const handleRightAnswer = () => setResult("success");
+  const handleWrongAnswer = () => {
+    setResult("failure");
+    addMistake();
+  };
 
   const handleAudioClick = () => {
     audio.play();
@@ -26,7 +34,7 @@ const ListeningWritingCard = ({
           </Link>
         </div>
         <div className="problem-header-container">
-          <h3 className="problem-header">{text}</h3>
+          <h3 className="problem-header">{header}</h3>
         </div>
         <div className="audio-box-wrapper">
           <div
@@ -50,7 +58,17 @@ const ListeningWritingCard = ({
         </form>
       </div>
       <div className="card-bottom">
-        <button className="check-answer" onClick={onNextQuestion}>
+        <button
+          className="check-answer"
+          onClick={() =>
+            onNextQuestion(
+              normalizedSolution,
+              normalizeText(inputText),
+              handleRightAnswer,
+              handleWrongAnswer
+            )
+          }
+        >
           CHECK
         </button>
       </div>

@@ -22,12 +22,25 @@ import "./styles/app.css";
 const App = () => {
   const unitOneLessons = [];
   const unitTwoLessons = [];
-  for (let i = 1; i < 6; i++) {
+  const unitThreeLessons = [];
+  const unitFourLessons = [];
+  const unitFiveLessons = [];
+  for (let i = 1; i < 7; i++) {
     unitOneLessons.push(
       <Route path={`u1l${i}`} element={<Lesson lesson={`u1l${i}`} key={i} />} />
     );
     unitTwoLessons.push(
-      <Route path={`u2${i}`} element={<Lesson lesson={`u2l${i}`} key={i} />} />
+      <Route path={`u2l${i}`} element={<Lesson lesson={`u2l${i}`} key={i} />} />
+    );
+
+    unitThreeLessons.push(
+      <Route path={`u3l${i}`} element={<Lesson lesson={`u3l${i}`} key={i} />} />
+    );
+    unitFourLessons.push(
+      <Route path={`u4l${i}`} element={<Lesson lesson={`u4l${i}`} key={i} />} />
+    );
+    unitFiveLessons.push(
+      <Route path={`u5l${i}`} element={<Lesson lesson={`u5l${i}`} key={i} />} />
     );
   }
   return (
@@ -37,6 +50,9 @@ const App = () => {
         <Route exact path="/" element={<Path />} />
         {unitOneLessons}
         {unitTwoLessons}
+        {unitThreeLessons}
+        {unitFourLessons}
+        {unitFiveLessons}
         <Route
           path="guidebook-1"
           element={

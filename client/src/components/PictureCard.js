@@ -11,6 +11,7 @@ const PictureCard = ({
   words,
   normalizedSolution,
   addMistake,
+  normalizeText,
 }) => {
   const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState(null);
@@ -74,7 +75,8 @@ const PictureCard = ({
 
   const textWords = text.split(" ");
   const elements = textWords.map((word, index) => {
-    if (word === "____") {
+    // if (word === "____") {
+    if (word.includes("_")) {
       return (
         <span className="pic-blank" key={index}>
           {selectedBubble}
@@ -88,6 +90,9 @@ const PictureCard = ({
       );
     }
   });
+
+  console.log(textWords);
+  console.log(selectedBubble);
 
   return (
     <div className="translation-card">
@@ -122,7 +127,7 @@ const PictureCard = ({
           onClick={() =>
             onNextQuestion(
               normalizedSolution,
-              selected.textContent,
+              normalizeText(selected.textContent),
               handleRightAnswer,
               handleWrongAnswer
             )

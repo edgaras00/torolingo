@@ -25,7 +25,7 @@ const Unit = ({ number, description, primaryColor, secondaryColor }) => {
           <div class="sparkle"></div>
           <div class="sparkle"></div>
         </div> */}
-        <Link to="/u1l1">
+        <Link to={`/u${number}l1`}>
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
@@ -33,7 +33,7 @@ const Unit = ({ number, description, primaryColor, secondaryColor }) => {
             right={21}
           />
         </Link>
-        <Link to="/u1l2">
+        <Link to={`/u${number}l2`}>
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
@@ -41,7 +41,7 @@ const Unit = ({ number, description, primaryColor, secondaryColor }) => {
             left={16}
           />
         </Link>
-        <Link to="/u1l3">
+        <Link to={`/u${number}l3`}>
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
@@ -49,7 +49,7 @@ const Unit = ({ number, description, primaryColor, secondaryColor }) => {
             left={50}
           />
         </Link>
-        <Link to="/u1l4">
+        <Link to={`/u${number}l4`}>
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
@@ -57,7 +57,7 @@ const Unit = ({ number, description, primaryColor, secondaryColor }) => {
             left={16}
           />
         </Link>
-        <Link to="/u1l5">
+        <Link to={`/u${number}l5`}>
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
@@ -65,7 +65,7 @@ const Unit = ({ number, description, primaryColor, secondaryColor }) => {
             right={21}
           />
         </Link>
-        <Link to="/u1l6">
+        <Link to={`/u${number}l6`}>
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}

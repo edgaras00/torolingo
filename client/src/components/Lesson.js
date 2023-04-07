@@ -18,21 +18,32 @@ const Lesson = () => {
   const [mistakeCount, setMistakeCount] = useState(0);
   const { pathname } = useLocation();
 
-  console.log(questions);
-
   const handleMistake = () => setMistakeCount((prevState) => prevState + 1);
 
   const exampleAudio = new Audio(audio);
 
   const normalizeSolution = (solution) => {
     return solution.replace(/[^\w\s\u00C0-\u00FF]/g, "").toLowerCase();
+    // .replace(/ +/g, " ");
   };
+
+  console.log(questions);
 
   useEffect(() => {
     const unitLessonArray = pathname.replace("/", "").split("l");
-    const unit = unitLessonArray[0].slice(1);
-    const lesson = unitLessonArray[1];
+    let unit = unitLessonArray[0].slice(1);
+    let lesson = unitLessonArray[1];
 
+    // Reuse questions for now
+    if (unit === "1" && lesson === "6") {
+      lesson = 5;
+    }
+    if (unit !== "1") {
+      unit = 2;
+      lesson = 1;
+    }
+
+    console.log(unit, lesson);
     const fetchProblemdata = async (unit, lesson) => {
       try {
         const response = await fetch(
@@ -177,13 +188,17 @@ const Lesson = () => {
           text={question.text}
           solution={question.solution}
           normalizedSolution={normalizeSolution(question.solution)}
+          normalizeText={normalizeSolution}
           audio={question.audio}
           slowAudio={question.audio}
           header="Type what you hear"
         />
       );
     }
-    if (question.problemType === "pictureBlank") {
+    if (
+      question.problemType === "pictureBlank" ||
+      question.problemType === "fillBlank"
+    ) {
       return (
         <PictureCard
           onNextQuestion={handleNextQuestion}
@@ -192,6 +207,7 @@ const Lesson = () => {
           text={question.text}
           solution={question.solution}
           normalizedSolution={normalizeSolution(question.solution)}
+          normalizeText={normalizeSolution}
           words={question.wordBank}
           header="Fill in the blank"
         />
@@ -209,7 +225,7 @@ const Lesson = () => {
 
   return (
     <div className="lesson-container">
-      {questionCards.slice(2).map((question, index) => {
+      {questionCards.map((question, index) => {
         if (index + 1 === currentQuestion) {
           return question;
         } else {

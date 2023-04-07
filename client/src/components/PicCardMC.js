@@ -13,6 +13,18 @@ const PicCardMC = ({ onNextQuestion, text, solution, choices, addMistake }) => {
     addMistake();
   };
 
+  const handleCheckAnswer = (correctSolution, userSolution) => {
+    if (correctSolution === userSolution) {
+      setResult("success");
+      return;
+    }
+    if (correctSolution !== userSolution) {
+      setResult("failure");
+      addMistake();
+      return;
+    }
+  };
+
   const onOptionChange = (event) => setUserChoice(event.target.value);
 
   const answerChoices = choices.map((choice, index) => (
@@ -43,19 +55,18 @@ const PicCardMC = ({ onNextQuestion, text, solution, choices, addMistake }) => {
         </div>
       </div>
       <div className="card-bottom">
-        <button
-          className="check-answer"
-          onClick={() =>
-            onNextQuestion(
-              solution,
-              userChoice,
-              handleCorrectAnswer,
-              handleWrongAnswer
-            )
-          }
-        >
-          CHECK
-        </button>
+        {result === "success" ? (
+          <button className="check-answer" onClick={onNextQuestion}>
+            CONTINUE
+          </button>
+        ) : (
+          <button
+            className="check-answer"
+            onClick={() => handleCheckAnswer(solution, userChoice)}
+          >
+            CHECK
+          </button>
+        )}
       </div>
     </div>
   );

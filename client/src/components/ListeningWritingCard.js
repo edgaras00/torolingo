@@ -21,6 +21,18 @@ const ListeningWritingCard = ({
     addMistake();
   };
 
+  const handleCheckAnswer = (correctSolution, userSolution) => {
+    if (correctSolution === userSolution) {
+      setResult("success");
+      return;
+    }
+    if (correctSolution !== userSolution) {
+      setResult("failure");
+      addMistake();
+      return;
+    }
+  };
+
   const handleAudioClick = () => {
     audio.play();
   };
@@ -58,19 +70,20 @@ const ListeningWritingCard = ({
         </form>
       </div>
       <div className="card-bottom">
-        <button
-          className="check-answer"
-          onClick={() =>
-            onNextQuestion(
-              normalizedSolution,
-              normalizeText(inputText),
-              handleRightAnswer,
-              handleWrongAnswer
-            )
-          }
-        >
-          CHECK
-        </button>
+        {result === "success" ? (
+          <button className="check-answer" onClick={onNextQuestion}>
+            CONTINUE
+          </button>
+        ) : (
+          <button
+            className="check-answer"
+            onClick={() =>
+              handleCheckAnswer(normalizedSolution, normalizeText(inputText))
+            }
+          >
+            CHECK
+          </button>
+        )}
       </div>
     </div>
   );

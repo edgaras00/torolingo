@@ -23,6 +23,18 @@ const PictureCard = ({
     addMistake();
   };
 
+  const handleCheckAnswer = (correctSolution, userSolution) => {
+    if (correctSolution === userSolution) {
+      setResult("success");
+      return;
+    }
+    if (correctSolution !== userSolution) {
+      setResult("failure");
+      addMistake();
+      return;
+    }
+  };
+
   const handleClick = (event) => {
     const selectedWord = event.target.cloneNode();
     const wordIndex = selectedWord.dataset.position * 1;
@@ -91,9 +103,6 @@ const PictureCard = ({
     }
   });
 
-  console.log(textWords);
-  console.log(selectedBubble);
-
   return (
     <div className="translation-card">
       <div className="card-top">
@@ -122,19 +131,23 @@ const PictureCard = ({
         </div>
       </div>
       <div className="card-bottom">
-        <button
-          className="check-answer"
-          onClick={() =>
-            onNextQuestion(
-              normalizedSolution,
-              normalizeText(selected.textContent),
-              handleRightAnswer,
-              handleWrongAnswer
-            )
-          }
-        >
-          CHECK
-        </button>
+        {result === "success" ? (
+          <button className="check-answer" onClick={onNextQuestion}>
+            CONTINUE
+          </button>
+        ) : (
+          <button
+            className="check-answer"
+            onClick={() =>
+              handleCheckAnswer(
+                normalizedSolution,
+                normalizeText(selected.textContent)
+              )
+            }
+          >
+            CHECK
+          </button>
+        )}
       </div>
     </div>
   );

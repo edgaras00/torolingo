@@ -21,6 +21,18 @@ const MultipleChoiceCard = ({
     addMistake();
   };
 
+  const handleCheckAnswer = (correctSolution, userSolution) => {
+    if (correctSolution === userSolution) {
+      setResult("success");
+      return;
+    }
+    if (correctSolution !== userSolution) {
+      setResult("failure");
+      addMistake();
+      return;
+    }
+  };
+
   const answerChoices = choices.map((choice, index) => (
     <Choice
       key={index}
@@ -48,7 +60,20 @@ const MultipleChoiceCard = ({
         </div>
       </div>
       <div className="card-bottom">
-        <button
+        <div className="solution">{result === "success" ? solution : null}</div>
+        {result === "success" ? (
+          <button className="check-answer" onClick={onNextQuestion}>
+            CONTINUE
+          </button>
+        ) : (
+          <button
+            className="check-answer"
+            onClick={() => handleCheckAnswer(normalizedSolution, userChoice)}
+          >
+            CHECK
+          </button>
+        )}
+        {/* <button
           className="check-answer"
           onClick={() =>
             onNextQuestion(
@@ -60,7 +85,20 @@ const MultipleChoiceCard = ({
           }
         >
           CHECK
-        </button>
+        </button> */}
+        {/* <button
+          className="check-answer"
+          onClick={() =>
+            onNextQuestion(
+              normalizedSolution,
+              userChoice,
+              handleCorrectAnswer,
+              handleWrongAnswer
+            )
+          }
+        >
+          CONTINUE
+        </button> */}
       </div>
     </div>
   );

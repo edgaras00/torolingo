@@ -18,8 +18,6 @@ const TranslationCard = ({
   const [result, setResult] = useState("");
   const [userSolution, setUserSolution] = useState("");
 
-  console.log(normalizedSolution);
-
   useEffect(() => {
     const joinedWords = selected
       .map((word) => word.textContent)
@@ -32,6 +30,18 @@ const TranslationCard = ({
   const handleWrongAnswer = () => {
     setResult("failure");
     addMistake();
+  };
+
+  const handleCheckAnswer = (correctSolution, userSolution) => {
+    if (correctSolution === userSolution) {
+      setResult("success");
+      return;
+    }
+    if (correctSolution !== userSolution) {
+      setResult("failure");
+      addMistake();
+      return;
+    }
   };
 
   const handleClick = (event) => {
@@ -122,8 +132,20 @@ const TranslationCard = ({
         </div>
       </div>
       <div className="card-bottom">
-        {result}
-        <button
+        <div className="solution"></div>
+        {result === "success" ? (
+          <button className="check-answer" onClick={onNextQuestion}>
+            CONTINUE
+          </button>
+        ) : (
+          <button
+            className="check-answer"
+            onClick={() => handleCheckAnswer(normalizedSolution, userSolution)}
+          >
+            CHECK
+          </button>
+        )}
+        {/* <button
           className="check-answer"
           onClick={() =>
             onNextQuestion(
@@ -135,7 +157,7 @@ const TranslationCard = ({
           }
         >
           CHECK
-        </button>
+        </button> */}
       </div>
     </div>
   );

@@ -59,22 +59,25 @@ const Lesson = () => {
     fetchProblemdata(unit, lesson);
   }, [pathname]);
 
-  const handleNextQuestion = (
-    correctSolution,
-    userSolution,
-    successCallback,
-    failureCallback
-  ) => {
-    console.log(correctSolution);
-    console.log(userSolution);
-    if (correctSolution === userSolution) {
-      successCallback();
-      setCurrentQuestion((currentQuestion) => currentQuestion + 1);
-    } else {
-      failureCallback();
-    }
-    return;
-  };
+  // const handleNextQuestion = (
+  //   correctSolution,
+  //   userSolution,
+  //   successCallback,
+  //   failureCallback
+  // ) => {
+  //   console.log(correctSolution);
+  //   console.log(userSolution);
+  //   if (correctSolution === userSolution) {
+  //     successCallback();
+  //     setCurrentQuestion((currentQuestion) => currentQuestion + 1);
+  //   } else {
+  //     failureCallback();
+  //   }
+  //   return;
+  // };
+
+  const handleNextQuestion = () =>
+    setCurrentQuestion((prevState) => prevState + 1);
 
   const handleNextQuestionMatch = (
     matches,
@@ -113,7 +116,8 @@ const Lesson = () => {
 
       return (
         <VocabMatchCard
-          onNextQuestion={handleNextQuestionMatch}
+          // onNextQuestion={handleNextQuestionMatch}
+          onNextQuestion={handleNextQuestion}
           addMistake={handleMistake}
           key={index}
           header="Tap the matching pairs"

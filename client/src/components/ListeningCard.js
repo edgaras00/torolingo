@@ -27,6 +27,18 @@ const ListeningCard = ({
     addMistake();
   };
 
+  const handleCheckAnswer = (correctSolution, userSolution) => {
+    if (correctSolution === userSolution) {
+      setResult("success");
+      return;
+    }
+    if (correctSolution !== userSolution) {
+      setResult("failure");
+      addMistake();
+      return;
+    }
+  };
+
   const handleAudioClick = () => {
     audio.play();
   };
@@ -129,19 +141,18 @@ const ListeningCard = ({
         </div>
       </div>
       <div className="card-bottom">
-        <button
-          className="check-answer"
-          onClick={() =>
-            onNextQuestion(
-              normalizedSolution,
-              userSolution,
-              handleRightAnswer,
-              handleWrongAnswer
-            )
-          }
-        >
-          CHECK
-        </button>
+        {result === "success" ? (
+          <button className="check-answer" onClick={onNextQuestion}>
+            CONTINUE
+          </button>
+        ) : (
+          <button
+            className="check-answer"
+            onClick={() => handleCheckAnswer(normalizedSolution, userSolution)}
+          >
+            CHECK
+          </button>
+        )}
       </div>
     </div>
   );

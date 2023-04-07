@@ -156,14 +156,11 @@ const VocabMatchCard = ({
         </div>
       </div>
       <div className="card-bottom">
-        <button
-          className="check-answer"
-          onClick={() =>
-            onNextQuestion(match, handleRightAnswer, handleWrongAnswer)
-          }
-        >
-          CHECK
-        </button>
+        {match.every((pair) => pair.matched) ? (
+          <button className="check-answer" onClick={onNextQuestion}>
+            CONTINUE
+          </button>
+        ) : null}
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import WordBubble from "./WordBubble";
 import NotebookLines from "./NotebookLines";
+import CheckAnswer from "./CheckAnswer";
 import "../styles/translationCard.css";
 
 const TranslationCard = ({
@@ -124,21 +125,14 @@ const TranslationCard = ({
           <div className="bubbles">{bubbles}</div>
         </div>
       </div>
-      <div className="card-bottom">
-        <div className="solution">{result === "success" ? solution : null}</div>
-        {result === "success" ? (
-          <button className="check-answer" onClick={onNextQuestion}>
-            CONTINUE
-          </button>
-        ) : (
-          <button
-            className="check-answer"
-            onClick={() => handleCheckAnswer(normalizedSolution, userSolution)}
-          >
-            CHECK
-          </button>
-        )}
-      </div>
+      <CheckAnswer
+        result={result}
+        onCheckAnswer={handleCheckAnswer}
+        onNextQuestion={onNextQuestion}
+        solution={solution}
+        normalizedSolution={normalizedSolution}
+        userSolution={userSolution}
+      />
     </div>
   );
 };

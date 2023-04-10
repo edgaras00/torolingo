@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import WordBubble from "./WordBubble";
 import NotebookLines from "./NotebookLines";
+import CheckAnswer from "./CheckAnswer";
 import soundIcon from "../sound.svg";
 import turtleICon from "../turtle.svg";
 import "../styles/listeningCard.css";
@@ -141,28 +142,16 @@ const ListeningCard = ({
           <div className="bubbles">{bubbles}</div>
         </div>
       </div>
-      <div className="card-bottom">
-        <div className="solution">
-          {result === "success" ? (
-            <div className="listening-solution-wrapper">
-              <div className="listening-solution">{solution}</div>
-              <div className="translation">{translation}</div>
-            </div>
-          ) : null}
-        </div>
-        {result === "success" ? (
-          <button className="check-answer" onClick={onNextQuestion}>
-            CONTINUE
-          </button>
-        ) : (
-          <button
-            className="check-answer"
-            onClick={() => handleCheckAnswer(normalizedSolution, userSolution)}
-          >
-            CHECK
-          </button>
-        )}
-      </div>
+      <CheckAnswer
+        listening={true}
+        result={result}
+        onCheckAnswer={handleCheckAnswer}
+        onNextQuestion={onNextQuestion}
+        solution={solution}
+        normalizedSolution={normalizedSolution}
+        userSolution={userSolution}
+        translation={translation}
+      />
     </div>
   );
 };

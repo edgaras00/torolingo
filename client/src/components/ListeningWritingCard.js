@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import CheckAnswer from "./CheckAnswer";
 import "../styles/listeningWritingCard.css";
 
 const ListeningWritingCard = ({
@@ -64,30 +65,16 @@ const ListeningWritingCard = ({
           />
         </form>
       </div>
-      <div className="card-bottom">
-        <div className="solution">
-          {result === "success" ? (
-            <div className="listening-solution-wrapper">
-              <div className="listening-solution">{solution}</div>
-              <div className="translation">{translation}</div>
-            </div>
-          ) : null}
-        </div>
-        {result === "success" ? (
-          <button className="check-answer" onClick={onNextQuestion}>
-            CONTINUE
-          </button>
-        ) : (
-          <button
-            className="check-answer"
-            onClick={() =>
-              handleCheckAnswer(normalizedSolution, normalizeText(inputText))
-            }
-          >
-            CHECK
-          </button>
-        )}
-      </div>
+      <CheckAnswer
+        solution={solution}
+        result={result}
+        onNextQuestion={onNextQuestion}
+        onCheckAnswer={handleCheckAnswer}
+        translation={translation}
+        userSolution={normalizeText(inputText)}
+        normalizedSolution={normalizedSolution}
+        listening={true}
+      />
     </div>
   );
 };

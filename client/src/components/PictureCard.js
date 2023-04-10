@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import WordBubble from "./WordBubble";
+import CheckAnswer from "./CheckAnswer";
 import "../styles/pictureCard.css";
 
 const PictureCard = ({
@@ -121,28 +122,14 @@ const PictureCard = ({
           <div className="bubbles">{bubbles}</div>
         </div>
       </div>
-      <div className="card-bottom">
-        <div className="solution">
-          {result === "success" ? translation : null}
-        </div>
-        {result === "success" ? (
-          <button className="check-answer" onClick={onNextQuestion}>
-            CONTINUE
-          </button>
-        ) : (
-          <button
-            className="check-answer"
-            onClick={() =>
-              handleCheckAnswer(
-                normalizedSolution,
-                normalizeText(selected.textContent)
-              )
-            }
-          >
-            CHECK
-          </button>
-        )}
-      </div>
+      <CheckAnswer
+        result={result}
+        solution={translation}
+        normalizedSolution={normalizedSolution}
+        userSolution={selected ? normalizeText(selected.textContent) : ""}
+        onNextQuestion={onNextQuestion}
+        onCheckAnswer={handleCheckAnswer}
+      />
     </div>
   );
 };

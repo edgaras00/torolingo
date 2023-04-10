@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Choice from "./Choice";
+import CheckAnswer from "./CheckAnswer";
 import { capitalize } from "../utils";
 import "../styles/picCardMC.css";
 
@@ -49,23 +50,14 @@ const PicCardMC = ({ onNextQuestion, text, solution, choices, addMistake }) => {
           <form className="mc-form">{answerChoices}</form>
         </div>
       </div>
-      <div className="card-bottom">
-        <div className="solution">
-          {result === "success" ? capitalize(solution) : null}
-        </div>
-        {result === "success" ? (
-          <button className="check-answer" onClick={onNextQuestion}>
-            CONTINUE
-          </button>
-        ) : (
-          <button
-            className="check-answer"
-            onClick={() => handleCheckAnswer(solution, userChoice)}
-          >
-            CHECK
-          </button>
-        )}
-      </div>
+      <CheckAnswer
+        result={result}
+        onCheckAnswer={handleCheckAnswer}
+        onNextQuestion={onNextQuestion}
+        solution={capitalize(solution)}
+        normalizedSolution={solution}
+        userSolution={userChoice}
+      />
     </div>
   );
 };

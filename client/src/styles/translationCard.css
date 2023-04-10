@@ -122,7 +122,8 @@
   border-color: transparent #f1f1f1 transparent transparent;
 }
 
-.card-bottom {
+.card-bottom,
+.check-answer-wrapper {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -141,4 +142,8 @@
   text-transform: capitalize;
   margin-right: 3rem;
   cursor: pointer;
+}
+
+.wrong-answer-button {
+  border: 1px solid red;
 }

@@ -14,6 +14,7 @@ const ListeningCard = ({
   normalizedSolution,
   audio,
   slowAudio,
+  translation,
   addMistake,
 }) => {
   const [wordBank, setWordBank] = useState([...words]);
@@ -141,6 +142,14 @@ const ListeningCard = ({
         </div>
       </div>
       <div className="card-bottom">
+        <div className="solution">
+          {result === "success" ? (
+            <div className="listening-solution-wrapper">
+              <div className="listening-solution">{solution}</div>
+              <div className="translation">{translation}</div>
+            </div>
+          ) : null}
+        </div>
         {result === "success" ? (
           <button className="check-answer" onClick={onNextQuestion}>
             CONTINUE

@@ -155,7 +155,7 @@ const VocabMatchCard = ({
           <div className="right-side">{spanishCards}</div>
         </div>
       </div>
-      <div className="card-bottom">
+      <div className="card-bottom match-bottom">
         {match.every((pair) => pair.matched) ? (
           <button className="check-answer" onClick={onNextQuestion}>
             CONTINUE

@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Choice from "./Choice";
+import { capitalize } from "../utils";
 import "../styles/picCardMC.css";
 
 const PicCardMC = ({ onNextQuestion, text, solution, choices, addMistake }) => {
   const [userChoice, setUserChoice] = useState("");
   const [result, setResult] = useState("");
-
-  const handleCorrectAnswer = () => setResult("success");
-  const handleWrongAnswer = () => {
-    setResult("failure");
-    addMistake();
-  };
 
   const handleCheckAnswer = (correctSolution, userSolution) => {
     if (correctSolution === userSolution) {
@@ -55,6 +50,9 @@ const PicCardMC = ({ onNextQuestion, text, solution, choices, addMistake }) => {
         </div>
       </div>
       <div className="card-bottom">
+        <div className="solution">
+          {result === "success" ? capitalize(solution) : null}
+        </div>
         {result === "success" ? (
           <button className="check-answer" onClick={onNextQuestion}>
             CONTINUE

@@ -26,12 +26,6 @@ const TranslationCard = ({
     setUserSolution(joinedWords);
   }, [selected]);
 
-  const handleCorrectAnswer = () => setResult("success");
-  const handleWrongAnswer = () => {
-    setResult("failure");
-    addMistake();
-  };
-
   const handleCheckAnswer = (correctSolution, userSolution) => {
     if (correctSolution === userSolution) {
       setResult("success");
@@ -99,7 +93,6 @@ const TranslationCard = ({
       );
     });
   }
-  console.log(result);
   return (
     <div className="translation-card">
       <div className="card-top">
@@ -132,7 +125,7 @@ const TranslationCard = ({
         </div>
       </div>
       <div className="card-bottom">
-        <div className="solution"></div>
+        <div className="solution">{result === "success" ? solution : null}</div>
         {result === "success" ? (
           <button className="check-answer" onClick={onNextQuestion}>
             CONTINUE
@@ -145,19 +138,6 @@ const TranslationCard = ({
             CHECK
           </button>
         )}
-        {/* <button
-          className="check-answer"
-          onClick={() =>
-            onNextQuestion(
-              normalizedSolution,
-              userSolution,
-              handleCorrectAnswer,
-              handleWrongAnswer
-            )
-          }
-        >
-          CHECK
-        </button> */}
       </div>
     </div>
   );

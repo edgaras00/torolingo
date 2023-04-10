@@ -27,8 +27,6 @@ const Lesson = () => {
     // .replace(/ +/g, " ");
   };
 
-  console.log(questions);
-
   useEffect(() => {
     const unitLessonArray = pathname.replace("/", "").split("l");
     let unit = unitLessonArray[0].slice(1);
@@ -43,14 +41,13 @@ const Lesson = () => {
       lesson = 1;
     }
 
-    console.log(unit, lesson);
     const fetchProblemdata = async (unit, lesson) => {
       try {
         const response = await fetch(
           `http://localhost:5000/problems/lessons?unit=${unit}&lesson=${lesson}`
         );
         const problemData = await response.json();
-        console.log(problemData);
+        problemData.data.push({ problemType: "completed" });
         setQuestions(problemData.data);
       } catch (error) {
         console.log(error);
@@ -59,38 +56,8 @@ const Lesson = () => {
     fetchProblemdata(unit, lesson);
   }, [pathname]);
 
-  // const handleNextQuestion = (
-  //   correctSolution,
-  //   userSolution,
-  //   successCallback,
-  //   failureCallback
-  // ) => {
-  //   console.log(correctSolution);
-  //   console.log(userSolution);
-  //   if (correctSolution === userSolution) {
-  //     successCallback();
-  //     setCurrentQuestion((currentQuestion) => currentQuestion + 1);
-  //   } else {
-  //     failureCallback();
-  //   }
-  //   return;
-  // };
-
   const handleNextQuestion = () =>
     setCurrentQuestion((prevState) => prevState + 1);
-
-  const handleNextQuestionMatch = (
-    matches,
-    successCallback,
-    failureCallback
-  ) => {
-    if (matches.every((pair) => pair.matched)) {
-      successCallback();
-      setCurrentQuestion((currentQuestion) => currentQuestion + 1);
-    } else {
-      failureCallback();
-    }
-  };
 
   const questionCards = questions.map((question, index) => {
     if (question.problemType === "match") {
@@ -116,7 +83,6 @@ const Lesson = () => {
 
       return (
         <VocabMatchCard
-          // onNextQuestion={handleNextQuestionMatch}
           onNextQuestion={handleNextQuestion}
           addMistake={handleMistake}
           key={index}
@@ -178,6 +144,7 @@ const Lesson = () => {
           words={question.wordBank}
           audio={exampleAudio}
           slowAudio={exampleAudio}
+          translation={question.translation}
           header="Tap what you hear"
         />
       );
@@ -196,6 +163,7 @@ const Lesson = () => {
           audio={question.audio}
           slowAudio={question.audio}
           header="Type what you hear"
+          translation={question.translation}
         />
       );
     }
@@ -210,6 +178,7 @@ const Lesson = () => {
           key={index}
           text={question.text}
           solution={question.solution}
+          translation={question.translation}
           normalizedSolution={normalizeSolution(question.solution)}
           normalizeText={normalizeSolution}
           words={question.wordBank}
@@ -217,15 +186,17 @@ const Lesson = () => {
         />
       );
     }
-  });
 
-  questionCards.push(
-    <CompletedCard
-      mistakeCount={mistakeCount}
-      questionCount={questionCards.length}
-      key="complete-card"
-    />
-  );
+    if (question.problemType === "completed") {
+      return (
+        <CompletedCard
+          mistakeCount={mistakeCount}
+          questionCount={questions.length - 1}
+          key="complete-card"
+        />
+      );
+    }
+  });
 
   return (
     <div className="lesson-container">

@@ -22,3 +22,12 @@
   height: 110px;
   width: 110px;
 }
+
+.listening-solution-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.listening-solution {
+  margin-bottom: 1rem;
+}

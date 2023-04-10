@@ -12,16 +12,11 @@ const PictureCard = ({
   normalizedSolution,
   addMistake,
   normalizeText,
+  translation,
 }) => {
   const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState(null);
   const [result, setResult] = useState("");
-
-  const handleRightAnswer = () => setResult("success");
-  const handleWrongAnswer = () => {
-    setResult("failure");
-    addMistake();
-  };
 
   const handleCheckAnswer = (correctSolution, userSolution) => {
     if (correctSolution === userSolution) {
@@ -118,11 +113,7 @@ const PictureCard = ({
           <div className="image-container">
             <div className="image"></div>
           </div>
-          <div className="pic-sentence-container">
-            {/* <div className="pic-sentence">{text}</div>
-            <div className="pic-blank">{selectedBubble}</div> */}
-            {elements}
-          </div>
+          <div className="pic-sentence-container">{elements}</div>
         </div>
       </div>
       <div className="card-middle pic-middle">
@@ -131,6 +122,9 @@ const PictureCard = ({
         </div>
       </div>
       <div className="card-bottom">
+        <div className="solution">
+          {result === "success" ? translation : null}
+        </div>
         {result === "success" ? (
           <button className="check-answer" onClick={onNextQuestion}>
             CONTINUE

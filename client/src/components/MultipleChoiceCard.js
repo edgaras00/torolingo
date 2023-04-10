@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Choice from "./Choice";
+import { capitalize } from "../utils";
 import "../styles/multipleChoiceCard.css";
 
 const MultipleChoiceCard = ({
@@ -60,7 +61,9 @@ const MultipleChoiceCard = ({
         </div>
       </div>
       <div className="card-bottom">
-        <div className="solution">{result === "success" ? solution : null}</div>
+        <div className="solution">
+          {result === "success" ? capitalize(solution) : null}
+        </div>
         {result === "success" ? (
           <button className="check-answer" onClick={onNextQuestion}>
             CONTINUE
@@ -73,32 +76,6 @@ const MultipleChoiceCard = ({
             CHECK
           </button>
         )}
-        {/* <button
-          className="check-answer"
-          onClick={() =>
-            onNextQuestion(
-              normalizedSolution,
-              userChoice,
-              handleCorrectAnswer,
-              handleWrongAnswer
-            )
-          }
-        >
-          CHECK
-        </button> */}
-        {/* <button
-          className="check-answer"
-          onClick={() =>
-            onNextQuestion(
-              normalizedSolution,
-              userChoice,
-              handleCorrectAnswer,
-              handleWrongAnswer
-            )
-          }
-        >
-          CONTINUE
-        </button> */}
       </div>
     </div>
   );

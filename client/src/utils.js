@@ -5,3 +5,8 @@ export const shuffleArray = (array) => {
     .map(({ value }) => value);
   return shuffled;
 };
+
+export const capitalize = (string) => {
+  const firstLetter = string.slice(0, 1).toUpperCase();
+  return firstLetter + string.slice(1);
+};

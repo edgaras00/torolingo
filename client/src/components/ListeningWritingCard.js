@@ -11,15 +11,10 @@ const ListeningWritingCard = ({
   header,
   addMistake,
   normalizeText,
+  translation,
 }) => {
   const [inputText, setInputText] = useState("");
   const [result, setResult] = useState("");
-
-  const handleRightAnswer = () => setResult("success");
-  const handleWrongAnswer = () => {
-    setResult("failure");
-    addMistake();
-  };
 
   const handleCheckAnswer = (correctSolution, userSolution) => {
     if (correctSolution === userSolution) {
@@ -70,6 +65,14 @@ const ListeningWritingCard = ({
         </form>
       </div>
       <div className="card-bottom">
+        <div className="solution">
+          {result === "success" ? (
+            <div className="listening-solution-wrapper">
+              <div className="listening-solution">{solution}</div>
+              <div className="translation">{translation}</div>
+            </div>
+          ) : null}
+        </div>
         {result === "success" ? (
           <button className="check-answer" onClick={onNextQuestion}>
             CONTINUE

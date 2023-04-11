@@ -1,0 +1,27 @@
+.account-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-form {
+  width: 60%;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-wrapper {
+  margin-top: 1.5rem;
+}
+
+.input-wrapper input {
+  margin-left: 2rem;
+}
+
+.name-form button {
+  margin-top: 3rem;
+}

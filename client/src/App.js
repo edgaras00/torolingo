@@ -16,7 +16,8 @@ import UnitFiveTips from "./components/UnitFiveTips";
 import Vocabulary from "./components/Vocabulary";
 import UnitVocabulary from "./components/UnitVocabulary";
 import Practice from "./components/Practice";
-import Profile from "./components/Profile";
+import UserProfile from "./components/UserProfile";
+import Account from "./components/Account";
 
 import "./styles/app.css";
 const App = () => {
@@ -101,7 +102,8 @@ const App = () => {
         <Route path="/vocabulary" element={<Vocabulary />} />
         <Route path="/vocabulary/:vocabID" element={<UnitVocabulary />} />
         <Route path="/practice" element={<Practice />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
     </div>
   );

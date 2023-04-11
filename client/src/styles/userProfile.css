@@ -1,0 +1,53 @@
+.user-profile {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  margin-bottom: 4rem;
+}
+
+.name-circle {
+  border: 1px dashed grey;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4.8rem;
+  font-weight: bold;
+  color: rgb(156, 156, 156);
+  margin-right: 2rem;
+}
+
+.name-card {
+  font-size: 1.2rem;
+}
+
+.username {
+  margin-bottom: 0.9rem;
+  font-weight: 400;
+}
+
+.joined {
+  color: rgb(133, 133, 133);
+}
+
+.edit-profile-btn {
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 25px 30px;
+  background-color: royalblue;
+  color: #ffffff;
+  border-radius: 10%;
+  cursor: pointer;
+}

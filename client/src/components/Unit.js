@@ -15,6 +15,8 @@ const Unit = ({
   secondaryColor,
   leftMascot,
   rightMascot,
+  leftMascotSize,
+  rightMascotSize,
 }) => {
   return (
     <div className="unit">
@@ -48,7 +50,12 @@ const Unit = ({
             left={16}
           />
         </Link>
-        <img src={leftMascot} alt="mascot" className="top-left-mascot" />
+        <img
+          src={leftMascot}
+          alt="mascot"
+          className="top-left-mascot"
+          width={`${leftMascotSize}px`}
+        />
         <Link to={`/u${number}l3`}>
           <Circle
             primaryColor={primaryColor}
@@ -65,7 +72,12 @@ const Unit = ({
             left={16}
           />
         </Link>
-        <img src={rightMascot} alt="mascot" className="bottom-right-mascot" />
+        <img
+          src={rightMascot}
+          alt="mascot"
+          className="bottom-right-mascot"
+          width={`${rightMascotSize}px`}
+        />
         <Link to={`/u${number}l5`}>
           <Circle
             primaryColor={primaryColor}

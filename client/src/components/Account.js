@@ -19,7 +19,7 @@ const Account = () => {
   return (
     <div className="account-container">
       <div>Account</div>
-      <form onSubmit={handleSubmit} className="name-form">
+      <form onSubmit={handleSubmit} className="account-form">
         <div className="input-wrapper">
           <label htmlFor="userName">Name</label>
           <input
@@ -43,15 +43,17 @@ const Account = () => {
         <button>Save Changes</button>
       </form>
       <br />
-      <form onSubmit={handleSubmitPassword} className="password-form">
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          name="password"
-          id="password"
-          onChange={(event) => setPassword(event.target.value)}
-        />
+      <form onSubmit={handleSubmitPassword} className="account-form">
+        <div className="input-wrapper">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            value={password}
+            name="password"
+            id="password"
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </div>
         <button>Change Password</button>
       </form>
     </div>

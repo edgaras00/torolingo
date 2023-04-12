@@ -1,5 +1,6 @@
 import React from "react";
 import Unit from "./Unit";
+import guitarMascot from "../cow-guitar.png";
 import "../styles/path.css";
 
 const Path = () => {
@@ -10,6 +11,8 @@ const Path = () => {
         primaryColor="#e84943"
         secondaryColor="#c23e39"
         description="Form basic sentences, greet people"
+        leftMascot={guitarMascot}
+        rightMascot={guitarMascot}
       />
       <Unit
         number="2"

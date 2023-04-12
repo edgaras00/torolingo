@@ -8,7 +8,14 @@ import star from "../star.svg";
 import crown from "../crown.svg";
 import "../styles/unit.css";
 
-const Unit = ({ number, description, primaryColor, secondaryColor }) => {
+const Unit = ({
+  number,
+  description,
+  primaryColor,
+  secondaryColor,
+  leftMascot,
+  rightMascot,
+}) => {
   return (
     <div className="unit">
       <div className="unit-top">
@@ -41,6 +48,7 @@ const Unit = ({ number, description, primaryColor, secondaryColor }) => {
             left={16}
           />
         </Link>
+        <img src={leftMascot} alt="mascot" className="top-left-mascot" />
         <Link to={`/u${number}l3`}>
           <Circle
             primaryColor={primaryColor}
@@ -57,6 +65,7 @@ const Unit = ({ number, description, primaryColor, secondaryColor }) => {
             left={16}
           />
         </Link>
+        <img src={rightMascot} alt="mascot" className="bottom-right-mascot" />
         <Link to={`/u${number}l5`}>
           <Circle
             primaryColor={primaryColor}

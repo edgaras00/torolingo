@@ -6,33 +6,28 @@ const UnitVocabulary = () => {
   const [vocabData, setVocabData] = useState([]);
 
   const { vocabID } = useParams();
-  console.log(vocabID);
+  let unit = vocabID.split("-")[1] * 1;
+  if (unit > 2) {
+    unit = 2;
+  }
+  console.log(unit);
 
   useEffect(() => {
-    const data = [
-      {
-        english: "man",
-        spanish: "hombre",
-      },
-      {
-        english: "woman",
-        spanish: "mujer",
-      },
-      {
-        english: "hola",
-        spanish: "hello",
-      },
-      {
-        english: "thank you",
-        spanish: "gracias",
-      },
-      {
-        english: "bread",
-        spanish: "pan",
-      },
-    ];
-    setVocabData(data);
+    const fetchVocab = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/vocab/unit?unit=${unit}`
+        );
+        const data = await response.json();
+        setVocabData(data.data.words);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchVocab();
   }, []);
+
+  console.log(vocabData);
 
   const tableRows = vocabData.map((pair, index) => (
     <tr className={index % 2 === 0 ? "row-even" : "row-odd"}>

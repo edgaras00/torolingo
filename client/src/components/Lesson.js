@@ -20,8 +20,6 @@ const Lesson = () => {
 
   const handleMistake = () => setMistakeCount((prevState) => prevState + 1);
 
-  const exampleAudio = new Audio(audio);
-
   const normalizeSolution = (solution) => {
     return solution.replace(/[^\w\s\u00C0-\u00FF]/g, "").toLowerCase();
     // .replace(/ +/g, " ");

@@ -17,7 +17,7 @@ const Path = () => {
     <div className="path-container">
       <Unit
         number="1"
-        primaryColor="#e84943"
+        primaryColor="#ff4b4b"
         secondaryColor="#c23e39"
         description="Form basic sentences, greet people"
         leftMascot={guitarMascot}

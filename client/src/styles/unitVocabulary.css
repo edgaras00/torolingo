@@ -33,16 +33,19 @@
 
 .vocab-table th {
   background-color: #3b5998;
+  background-color: #2b70c9;
   padding: 1.2rem;
   color: #ffff;
 }
 
 .row-even {
   background-color: #8b9dc3;
+  background-color: #afafaf;
   font-weight: 420;
 }
 
 .row-odd {
   background-color: #dfe3ee;
+  background-color: #e5e5e5;
   font-weight: 420;
 }

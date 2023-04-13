@@ -8,6 +8,8 @@ router
   .get(vocabularyController.getAllWords)
   .post(vocabularyController.createWord);
 
+router.route("/unit").get(vocabularyController.getUnitWords);
+
 router
   .route("/:wordId")
   .get(vocabularyController.getWord)

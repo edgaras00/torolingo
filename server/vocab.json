@@ -1,0 +1,247 @@
+[
+  {
+    "spanish": "mujer",
+    "english": "woman",
+    "unit": 1
+  },
+  {
+    "spanish": "hombre",
+    "english": "man",
+    "unit": 1
+  },
+  {
+    "spanish": "el/la",
+    "english": "the",
+    "unit": 1
+  },
+  {
+    "spanish": "comer",
+    "english": "to eat",
+    "unit": 1
+  },
+  {
+    "spanish": "beber",
+    "english": "to drink",
+    "unit": 1
+  },
+  {
+    "spanish": "soy",
+    "english": "I am",
+    "unit": 1
+  },
+  {
+    "spanish": "manzana",
+    "english": "apple",
+    "unit": 1
+  },
+  {
+    "spanish": "pan",
+    "english": "bread",
+    "unit": 1
+  },
+  {
+    "spanish": "ella",
+    "english": "she",
+    "unit": 1
+  },
+  {
+    "spanish": "él",
+    "english": "he",
+    "unit": 1
+  },
+  {
+    "spanish": "hola",
+    "english": "hello",
+    "unit": 1
+  },
+  {
+    "spanish": "niño",
+    "english": "boy",
+    "unit": 1
+  },
+  {
+    "spanish": "niña",
+    "english": "girl",
+    "unit": 1
+  },
+  {
+    "spanish": "leche",
+    "english": "milk",
+    "unit": 1
+  },
+  {
+    "spanish": "agua",
+    "english": "water",
+    "unit": 1
+  },
+  {
+    "spanish": "tú",
+    "english": "you",
+    "unit": 1
+  },
+  {
+    "spanish": "yo",
+    "english": "I",
+    "unit": 1
+  },
+  {
+    "spanish": "un/una",
+    "english": "a",
+    "unit": 1
+  },
+  {
+    "spanish": "ser",
+    "english": "to be",
+    "unit": 1
+  },
+  {
+    "spanish": "disculpe",
+    "english": "excuse me",
+    "unit": 1
+  },
+  {
+    "spanish": "gracias",
+    "english": "thank you",
+    "unit": 1
+  },
+  {
+    "spanish": "buenas noches",
+    "english": "good night",
+    "unit": 1
+  },
+  {
+    "spanish": "buenos días",
+    "english": "good morning",
+    "unit": 1
+  },
+  {
+    "spanish": "hablar",
+    "english": "to speak",
+    "unit": 1
+  },
+  {
+    "spanish": "español",
+    "english": "Spanish",
+    "unit": 1
+  },
+  {
+    "spanish": "inglés",
+    "english": "English",
+    "unit": 1
+  },
+  {
+    "spanish": "de nada",
+    "english": "you're welcome",
+    "unit": 1
+  },
+  {
+    "spanish": "adiós",
+    "english": "bye",
+    "unit": 1
+  },
+  {
+    "spanish": "por favor",
+    "english": "please",
+    "unit": 1
+  },
+  {
+    "spanish": "no",
+    "english": "no",
+    "unit": 1
+  },
+  {
+    "spanish": "sí",
+    "unit": 1,
+    "english": "yes"
+  },
+  {
+    "spanish": "mucho gusto",
+    "english": "nice to meet you",
+    "unit": 1
+  },
+  {
+    "english": "sorry",
+    "spanish": "lo siento",
+    "unit": 1
+  },
+  {
+    "spanish": "airport",
+    "english": "aeropuerto",
+    "unit": 2
+  },
+  {
+    "spanish": "tren",
+    "english": "train",
+    "unit": 2
+  },
+  {
+    "spanish": "mi",
+    "english": "my",
+    "unit": 2
+  },
+  {
+    "spanish": "hotel",
+    "english": "hotel",
+    "unit": 2
+  },
+  {
+    "spanish": "dónde",
+    "english": "where",
+    "unit": 2
+  },
+  {
+    "spanish": "aquí",
+    "english": "here",
+    "unit": 2
+  },
+  {
+    "spanish": "teléfono",
+    "english": "telephone",
+    "unit": 2
+  },
+  {
+    "spanish": "maleta",
+    "english": "suitcase",
+    "unit": 2
+  },
+  {
+    "spanish": "en",
+    "english": "in",
+    "unit": 2
+  },
+  {
+    "spanish": "dinero",
+    "english": "money",
+    "unit": 2
+  },
+  {
+    "spanish": "tu",
+    "english": "your",
+    "unit": 2
+  },
+  {
+    "spanish": "reserva",
+    "english": "reservation",
+    "unit": 2
+  },
+  {
+    "spanish": "estar",
+    "english": "to be",
+    "unit": 2
+  },
+  {
+    "spanish": "museo",
+    "english": "museum",
+    "unit": 2
+  },
+  {
+    "spanish": "boleto",
+    "english": "ticket",
+    "unit": 2
+  },
+  {
+    "spanish": "taxi",
+    "english": "taxi",
+    "unit": 2
+  }
+]

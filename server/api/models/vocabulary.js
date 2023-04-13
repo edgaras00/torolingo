@@ -4,7 +4,6 @@ const vocabularySchema = mongoose.Schema({
   spanish: {
     type: String,
     required: [true, "Spanish word required"],
-    audioLink: String,
     maxLength: 30,
   },
   english: {
@@ -12,9 +11,7 @@ const vocabularySchema = mongoose.Schema({
     required: [true, "Engish word required"],
     maxLength: 30,
   },
-  unit: {
-    type: mongoose.Schema.Types.ObjectId,
-  },
+  unit: Number,
 });
 
 const Vocabulary = mongoose.model("Vocabulary", vocabularySchema);

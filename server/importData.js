@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const mongoose = require("mongoose");
 const Problem = require("./api/models/problems");
+const Vocabulary = require("./api/models/vocabulary");
 require("dotenv").config({ path: "./.env" });
 
 const readData = (path) => JSON.parse(fs.readFileSync(path, "utf-8"));
@@ -35,13 +36,13 @@ const uploadData = async (Model, data) => {
 
 const importData = async () => {
   try {
-    const problemData = readData(path.join(__dirname, "newProblems.json"));
+    const problemData = readData(path.join(__dirname, "vocab.json"));
 
     await connectToDB();
 
-    await clearDB(Problem);
+    await clearDB(Vocabulary);
 
-    await uploadData(Problem, problemData);
+    await uploadData(Vocabulary, problemData);
     console.log("Data imported successfullly.");
     process.exit(0);
   } catch (error) {

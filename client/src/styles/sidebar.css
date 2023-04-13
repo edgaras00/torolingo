@@ -26,10 +26,8 @@
 .sidebar-option {
   width: 90%;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   margin-bottom: 20px;
-  /* padding: 10px 0px; */
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
@@ -59,8 +57,22 @@
 .more-resources {
   display: flex;
   flex-direction: column;
-  /* background-color: #e5e5e5; */
   padding: 0.6rem 1rem;
+  border: 1px solid grey;
+  margin-left: 1rem;
+  position: relative;
+  border-radius: 10%;
+}
+
+.more-resources::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-color: transparent #d6d6d6 transparent transparent;
+  border-width: 15px;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .resource {
@@ -68,6 +80,16 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: #3a3a3a;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 10%;
+  padding: 0.2rem 1rem;
+}
+
+.resource:hover {
+  background-color: #dbf4ff;
+  color: #3978ca;
 }
 
 .resource-img-wrapper {

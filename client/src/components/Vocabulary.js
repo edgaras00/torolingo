@@ -10,11 +10,36 @@ import "../styles/vocabulary.css";
 const Vocabulary = () => {
   return (
     <div className="vocabulary">
-      <VocabLink unit={1} color="#ff4b4b" image={mascotPaper} />
-      <VocabLink unit={2} color="#5ad12a" image={dancingMascot} />
-      <VocabLink unit={3} color="#2a6fc9" image={guitarMascot} />
-      <VocabLink unit={4} color="#eb9c3d" image={bullTongue} />
-      <VocabLink unit={5} color="#e03879" image={mascotStanding2} />
+      <VocabLink
+        unit={1}
+        color="#ff4b4b"
+        image={mascotPaper}
+        hoverColor="#f55d5d"
+      />
+      <VocabLink
+        unit={2}
+        color="#5ad12a"
+        image={dancingMascot}
+        hoverColor="#7ae051"
+      />
+      <VocabLink
+        unit={3}
+        color="#2a6fc9"
+        image={guitarMascot}
+        hoverColor="#477fc9"
+      />
+      <VocabLink
+        unit={4}
+        color="#eb9c3d"
+        image={bullTongue}
+        hoverColor="#f2ae5c"
+      />
+      <VocabLink
+        unit={5}
+        color="#e03879"
+        image={mascotStanding2}
+        hoverColor="#e8518c"
+      />
     </div>
   );
 };

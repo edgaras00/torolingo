@@ -27,8 +27,6 @@ const UnitVocabulary = () => {
     fetchVocab();
   }, []);
 
-  console.log(vocabData);
-
   const tableRows = vocabData.map((pair, index) => (
     <tr className={index % 2 === 0 ? "row-even" : "row-odd"}>
       <td>{pair.spanish}</td>
@@ -39,7 +37,7 @@ const UnitVocabulary = () => {
   return (
     <div className="unit-vocab">
       <div className="unit-vocab-header">
-        <h3>Unit 1 Vocabulary</h3>
+        <h3>Unit {unit} Vocabulary</h3>
       </div>
       <div className="unit-vocab-content">
         <table className="vocab-table">

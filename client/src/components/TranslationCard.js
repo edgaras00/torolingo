@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import WordBubble from "./WordBubble";
 import NotebookLines from "./NotebookLines";
 import CheckAnswer from "./CheckAnswer";
+import bullTongue from "../bull-tongue.png";
+import mascotStanding from "../mascot-standing2.png";
+import mascotPaper from "../bull-paper.png";
+import dancingMascot from "../mascot-dancing.jpg";
+
 import "../styles/translationCard.css";
 
 const TranslationCard = ({
@@ -18,6 +23,13 @@ const TranslationCard = ({
   const [selected, setSelected] = useState([]);
   const [result, setResult] = useState("");
   const [userSolution, setUserSolution] = useState("");
+  const [mascot, setMascot] = useState(null);
+
+  useEffect(() => {
+    const mascots = [bullTongue, mascotStanding, mascotPaper, dancingMascot];
+    const mascotChoice = mascots[Math.floor(Math.random() * mascots.length)];
+    setMascot(mascotChoice);
+  }, []);
 
   useEffect(() => {
     const joinedWords = selected
@@ -106,7 +118,9 @@ const TranslationCard = ({
           <h3 className="problem-header">{header}</h3>
         </div>
         <div className="problem-wrapper">
-          <div className="mascot"></div>
+          <div className="mascot">
+            <img src={mascot} width="120px" />
+          </div>
           <div className="speech-bubble">
             <p>{text}</p>
           </div>

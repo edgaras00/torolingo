@@ -8,8 +8,11 @@
 }
 
 .audio-box {
-  border: 1px solid red;
+  border: 1px solid rgb(19, 19, 218);
+  background-color: rgb(19, 19, 218);
   border-radius: 10%;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
 }
 
 .normal-audio {

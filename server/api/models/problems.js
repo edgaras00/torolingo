@@ -18,6 +18,7 @@ const problemSchema = new mongoose.Schema({
   translation: String,
   pictureURL: String,
   audioURL: String,
+  slowAudioURL: String,
   problemType: {
     type: String,
     required: [true, "Problem must have a type"],

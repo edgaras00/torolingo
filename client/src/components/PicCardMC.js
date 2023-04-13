@@ -5,7 +5,14 @@ import CheckAnswer from "./CheckAnswer";
 import { capitalize } from "../utils";
 import "../styles/picCardMC.css";
 
-const PicCardMC = ({ onNextQuestion, text, solution, choices, addMistake }) => {
+const PicCardMC = ({
+  onNextQuestion,
+  text,
+  solution,
+  choices,
+  addMistake,
+  image,
+}) => {
   const [userChoice, setUserChoice] = useState("");
   const [result, setResult] = useState("");
 
@@ -45,7 +52,9 @@ const PicCardMC = ({ onNextQuestion, text, solution, choices, addMistake }) => {
         </div>
       </div>
       <div className="mc-card-middle">
-        <div className="mc-pic"></div>
+        <div className="mc-pic">
+          <img src={image} alt="question picture" width="180px" />
+        </div>
         <div className="choices-container">
           <form className="mc-form">{answerChoices}</form>
         </div>

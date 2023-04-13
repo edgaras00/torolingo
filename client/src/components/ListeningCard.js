@@ -23,11 +23,8 @@ const ListeningCard = ({
   const [userSolution, setUserSolution] = useState(null);
   const [result, setResult] = useState("");
 
-  const handleRightAnswer = () => setResult("success");
-  const handleWrongAnswer = () => {
-    setResult("failure");
-    addMistake();
-  };
+  const audioElement = new Audio(audio);
+  const slowAudioElement = new Audio(slowAudio);
 
   const handleCheckAnswer = (correctSolution, userSolution) => {
     if (correctSolution === userSolution) {
@@ -42,8 +39,16 @@ const ListeningCard = ({
   };
 
   const handleAudioClick = () => {
-    audio.play();
+    audioElement.play();
   };
+
+  const handleSlowAudioClick = () => {
+    slowAudioElement.play();
+  };
+
+  useEffect(() => {
+    audioElement.play();
+  }, []);
 
   useEffect(() => {
     const joinedWords = selected
@@ -124,7 +129,7 @@ const ListeningCard = ({
           <div className="audio-box normal-audio" onClick={handleAudioClick}>
             <img src={soundIcon} alt="sound icon" width="140px" />
           </div>
-          <div className="audio-box slow-audio" onClick={handleAudioClick}>
+          <div className="audio-box slow-audio" onClick={handleSlowAudioClick}>
             <img src={turtleICon} alt="turtle icon" width="100px" />
           </div>
         </div>

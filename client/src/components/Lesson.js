@@ -129,6 +129,7 @@ const Lesson = () => {
           text={question.text}
           solution={question.solution}
           choices={question.choices}
+          image={question.pictureURL}
         />
       );
     }
@@ -136,14 +137,14 @@ const Lesson = () => {
       return (
         <ListeningCard
           onNextQuestion={handleNextQuestion}
+          audio={question.audioURL}
+          slowAudio={question.slowAudioURL}
           addMistake={handleMistake}
           key={index}
           text={question.text}
           solution={question.solution}
           normalizedSolution={normalizeSolution(question.solution)}
           words={question.wordBank}
-          audio={exampleAudio}
-          slowAudio={exampleAudio}
           translation={question.translation}
           header="Tap what you hear"
         />
@@ -154,14 +155,14 @@ const Lesson = () => {
       return (
         <ListeningWritingCard
           onNextQuestion={handleNextQuestion}
+          audio={question.audioURL}
+          slowAudio={question.slowAudioURL}
           addMistake={handleMistake}
           key={index}
           text={question.text}
           solution={question.solution}
           normalizedSolution={normalizeSolution(question.solution)}
           normalizeText={normalizeSolution}
-          audio={question.audio}
-          slowAudio={question.audio}
           header="Type what you hear"
           translation={question.translation}
         />
@@ -183,6 +184,7 @@ const Lesson = () => {
           normalizeText={normalizeSolution}
           words={question.wordBank}
           header="Fill in the blank"
+          image={question.pictureURL}
         />
       );
     }

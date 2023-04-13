@@ -29,6 +29,8 @@
     "translation": "I eat bread.",
     "unit": 1,
     "lesson": 1,
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening1.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening1_slow.mp3",
     "wordBank": ["la", "un", "como", "manzanas", "Yo", "eres", "pan"]
   },
   {
@@ -64,6 +66,8 @@
     "translation": "She is a girl.",
     "lesson": 1,
     "unit": 1,
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening2.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening2_slow.mp3",
     "wordBank": ["una", "agua", "niña", "soy", "ella", "bebe", "es"]
   },
   {
@@ -91,7 +95,9 @@
       "la",
       "Yo",
       "mujer"
-    ]
+    ],
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening3.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening3_slow.mp3"
   },
   {
     "problemType": "multipleChoicePicture",
@@ -100,7 +106,7 @@
     "unit": 1,
     "lesson": 1,
     "choices": ["la leche", "el agua", "el pan"],
-    "pictures": ["milk", "water", "bread"]
+    "pictureURL": "https://travelappbucket.s3.amazonaws.com/imgs/milk.png"
   },
   {
     "problemType": "translation",
@@ -117,7 +123,7 @@
     "unit": 1,
     "lesson": 1,
     "choices": ["la mujer", "el hombre", "el niño"],
-    "pictures": ["woman", "man", "boy"]
+    "pictureURL": "https://tlingobucket.s3.amazonaws.com/woman1.svg"
   },
   {
     "problemType": "translation",
@@ -163,6 +169,8 @@
     "problemType": "listening",
     "solution": "Yo bebo, tú bebes, él bebe.",
     "lesson": 1,
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening4.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening4_slow.mp3",
     "unit": 1,
     "translation": "I drink, you drink, he drinks.",
     "wordBank": [
@@ -193,9 +201,9 @@
     "wordBank": ["hablo", "como", "bebo", "perdón"],
     "solution": "hablo",
     "translation": "I speak Spanish.",
-    "picture": "man-spanish.svg",
     "unit": 1,
-    "lesson": 2
+    "lesson": 2,
+    "pictureURL": "https://tlingobucket.s3.amazonaws.com/man_spanish.svg"
   },
   {
     "problemType": "match",
@@ -213,6 +221,8 @@
     "problemType": "listening",
     "solution": "De nada, Juan.",
     "translation": "You're welcome, Juan.",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening5.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening5_slow.mp3",
     "unit": 1,
     "lesson": 2,
     "wordBank": ["nada", "Juan", "hola", "Soy", "De", "hablas", "disculpe"]
@@ -235,6 +245,8 @@
     "solution": "Disculpe, por favor.",
     "translation": "Excuse me, please.",
     "unit": 1,
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening6.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening6_slow.mp3",
     "lesson": 2,
     "wordBank": [
       "por",
@@ -249,6 +261,8 @@
   {
     "problemType": "listening",
     "solution": "Sí, yo hablo español.",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening7.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening7_slow.mp3",
     "wordBank": [
       "Sí",
       "como",
@@ -271,7 +285,7 @@
     "lesson": 2,
     "translation": "Yes, water please.",
     "wordBank": ["pan", "agua", "manzana", "leche"],
-    "picture": "water.svg"
+    "pictureURL": "https://tlingobucket.s3.amazonaws.com/water1.svg"
   },
   {
     "problemType": "multipleChoice",
@@ -365,6 +379,8 @@
     "problemType": "listening",
     "solution": "Tú eres Luis.",
     "translation": "You are Luis.",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l8.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l8_slow.mp3",
     "unit": 1,
     "lesson": 3,
     "wordBank": ["Luis", "comes", "Tú", "hablo", "tu", "eres"]
@@ -376,7 +392,8 @@
     "solution": "agua",
     "wordBank": ["agua", "manzana", "yo"],
     "lesson": 3,
-    "unit": 1
+    "unit": 1,
+    "pictureURL": "https://tlingobucket.s3.amazonaws.com/water1.svg"
   },
   {
     "problemType": "fillBlank",
@@ -385,13 +402,16 @@
     "solution": "es",
     "unit": 1,
     "lesson": 3,
-    "wordBank": ["eres", "soy", "es", "la"]
+    "wordBank": ["eres", "soy", "es", "la"],
+    "pictureURL": "https://tlingobucket.s3.amazonaws.com/woman1.svg"
   },
   {
     "problemType": "listening",
     "unit": 1,
     "lesson": 3,
     "solution": "Yo bebo, tú bebes, ella bebe.",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l9.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l9_slow.mp3",
     "translation": "I drink, you drink, she drinks.",
     "wordBank": ["bebes", "Yo", "tú", "como", "bebo", "ella", "bebe", "comes"]
   },
@@ -400,6 +420,8 @@
     "unit": 1,
     "lesson": 3,
     "solution": "Yo como manzanas.",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l10.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l10_slow.mp3",
     "translation": "I eat apples."
   },
   {
@@ -456,6 +478,8 @@
     "problemType": "listening",
     "translation": "I am a boy.",
     "solution": "Yo soy un niño.",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l11.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l11_slow.mp3",
     "lesson": 3,
     "unit": 1,
     "wordBank": ["niña", "Yo", "niño", "es", "ella", "soy", "el", "un"]
@@ -505,6 +529,8 @@
   {
     "problemType": "listening",
     "solution": "Disculpe, por favor",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l13.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l13_slow.mp3",
     "wordBank": [
       "mucho",
       "gusto",
@@ -531,6 +557,8 @@
     "problemType": "listening",
     "translation": "Hi, do you speak English?",
     "solution": "¿Hola, hablas inglés?",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l14.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l14_slow.mp3",
     "lesson": 4,
     "unit": 1,
     "wordBank": ["inglés", "adiós", "gracias", "hola", "hablas", "Yo"]
@@ -546,6 +574,8 @@
   {
     "problemType": "listening",
     "translation": "Yes, I speak English",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l15.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l15_slow.mp3",
     "solution": "Sí, yo hablo inglés.",
     "lesson": 4,
     "unit": 1,
@@ -565,7 +595,7 @@
     "problemType": "pictureBlank",
     "unit": 1,
     "lesson": 4,
-    "picture": "coffeSpill.svg",
+    "pictureURL": "https://tlingobucket.s3.amazonaws.com/coffe_spill.svg",
     "translation": "I'm sorry! Pardon me!",
     "solution": "perdón",
     "text": "¡Lo siento! ¡____!",
@@ -597,6 +627,8 @@
   },
   {
     "problemType": "listeningWriting",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l16.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l16_slow.mp3",
     "translation": "Thank you.",
     "lesson": 4,
     "unit": 1,
@@ -647,6 +679,8 @@
     "problemType": "listening",
     "solution": "Una niña.",
     "translation": "A girl.",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l17.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l17_slow.mp3",
     "unit": 1,
     "lesson": 5,
     "wordBank": ["una", "la", "agua", "niño", "niña", "un"]
@@ -656,6 +690,8 @@
     "solution": "Ella bebe agua.",
     "translation": "She drinks water.",
     "unit": 1,
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l18.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l18_slow.mp3",
     "lesson": 5,
     "wordBank": [
       "el",
@@ -695,6 +731,8 @@
   },
   {
     "problemType": "listening",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l19.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l19_slow.mp3",
     "solution": "Hola.",
     "translation": "Hello.",
     "wordBank": ["adiós", "días", "hola", "mucho", "gusto", "mujer"],
@@ -765,7 +803,7 @@
     "solution": "tren",
     "translation": "Here is the train.",
     "wordBank": ["hotel", "dinero", "aeropuerto", "tren"],
-    "picture": "train.svg"
+    "pictureURL": "https://tlingobucket.s3.amazonaws.com/train.svg"
   },
   {
     "problemType": "multipleChoice",
@@ -783,7 +821,7 @@
     "wordBank": ["hotel", "taxi", "soy", "pan"],
     "unit": 2,
     "lesson": 1,
-    "picture": "man_hotel.svg"
+    "pictureURL": "https://tlingobucket.s3.amazonaws.com/hotel_man.svg"
   },
   {
     "problemType": "match",
@@ -851,6 +889,8 @@
     "unit": 2,
     "lesson": 1,
     "translation": "Where is the phone?",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l20.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l20_slow.mp3",
     "wordBank": [
       "es",
       "Dónde",
@@ -874,6 +914,8 @@
   {
     "problemType": "listening",
     "solution": "En la maleta.",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l21.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l21_slow.mp3",
     "wordBank": [
       "maleta",
       "el",
@@ -899,6 +941,8 @@
   {
     "problemType": "listening",
     "solution": "Un boleto a Santiago.",
+    "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l22.mp3",
+    "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l22_slow.mp3",
     "wordBank": [
       "a",
       "una",

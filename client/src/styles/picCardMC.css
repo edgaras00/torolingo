@@ -9,7 +9,10 @@
 .mc-pic {
   height: 160px;
   width: 260px;
-  border: 1px solid red;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 10px;
+  text-align: center;
+  padding-bottom: 1rem;
 }
 
 .choices-container {

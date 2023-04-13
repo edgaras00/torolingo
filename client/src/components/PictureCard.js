@@ -14,6 +14,7 @@ const PictureCard = ({
   addMistake,
   normalizeText,
   translation,
+  image,
 }) => {
   const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState(null);
@@ -112,7 +113,9 @@ const PictureCard = ({
         </div>
         <div className="picture-problem">
           <div className="image-container">
-            <div className="image"></div>
+            <div className="image">
+              <img src={image} alt="question image" />
+            </div>
           </div>
           <div className="pic-sentence-container">{elements}</div>
         </div>

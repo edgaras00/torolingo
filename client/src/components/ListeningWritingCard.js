@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CheckAnswer from "./CheckAnswer";
+import soundIcon from "../sound.svg";
+import turtleICon from "../turtle.svg";
 import "../styles/listeningWritingCard.css";
 
 const ListeningWritingCard = ({
@@ -45,14 +47,12 @@ const ListeningWritingCard = ({
           <h3 className="problem-header">{header}</h3>
         </div>
         <div className="audio-box-wrapper">
-          <div
-            className="audio-box normal-audio"
-            onClick={handleAudioClick}
-          ></div>
-          <div
-            className="audio-box slow-audio"
-            onClick={handleAudioClick}
-          ></div>
+          <div className="audio-box normal-audio" onClick={handleAudioClick}>
+            <img src={soundIcon} alt="sound icon" width="140px" />
+          </div>
+          <div className="audio-box slow-audio" onClick={handleAudioClick}>
+            <img src={turtleICon} alt="turtle icon" width="100px" />
+          </div>
         </div>
       </div>
       <div className="form-container">

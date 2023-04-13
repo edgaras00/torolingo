@@ -11,19 +11,19 @@ const Practice = () => {
     <div className="practice-section">
       <div className="practice-cards">
         <div className="practice-card lesson-practice">
-          <img src={mascotPhone} width="104px" />
+          <img src={mascotPhone} width="104px" alt="mascot" />
           <div>Lesson</div>
         </div>
         <div className="practice-card vocabulary-practice">
-          <img src={bullTongue} width="104px" />
+          <img src={bullTongue} width="104px" alt="mascot" />
           <div>Vocabulary</div>
         </div>
         <div className="practice-card listening-practice">
-          <img src={mascotSitting} width="104px" />
+          <img src={mascotSitting} width="104px" alt="mascot" />
           <div>Listening</div>
         </div>
         <div className="practice-card test-practice">
-          <img src={mascotPaper2} width="104px" />
+          <img src={mascotPaper2} width="104px" alt="mascot" />
           <div>Test</div>
         </div>
       </div>

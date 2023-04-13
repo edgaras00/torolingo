@@ -10,7 +10,6 @@ const UnitVocabulary = () => {
   if (unit > 2) {
     unit = 2;
   }
-  console.log(unit);
 
   useEffect(() => {
     const fetchVocab = async () => {
@@ -25,7 +24,7 @@ const UnitVocabulary = () => {
       }
     };
     fetchVocab();
-  }, []);
+  }, [unit]);
 
   const tableRows = vocabData.map((pair, index) => (
     <tr className={index % 2 === 0 ? "row-even" : "row-odd"}>

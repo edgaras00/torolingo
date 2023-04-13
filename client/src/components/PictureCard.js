@@ -114,7 +114,7 @@ const PictureCard = ({
         <div className="picture-problem">
           <div className="image-container">
             <div className="image">
-              <img src={image} alt="question image" />
+              <img src={image} alt="question" />
             </div>
           </div>
           <div className="pic-sentence-container">{elements}</div>

@@ -47,8 +47,9 @@ const ListeningCard = ({
   };
 
   useEffect(() => {
-    audioElement.play();
-  }, []);
+    const initialAudio = new Audio(audio);
+    initialAudio.play();
+  }, [audio]);
 
   useEffect(() => {
     const joinedWords = selected

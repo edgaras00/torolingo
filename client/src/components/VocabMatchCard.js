@@ -15,10 +15,6 @@ const VocabMatchCard = ({
   const [firstSelected, setFirstSelected] = useState(null);
   const [englishWords, setEnglishWords] = useState([...english]);
   const [spanishWords, setSpanishWords] = useState([...spanish]);
-  const [result, setResult] = useState("");
-
-  const handleRightAnswer = () => setResult("success");
-  const handleWrongAnswer = () => setResult("failure");
 
   //   Helper function
   const resetWrongWords = (array) => {

@@ -119,7 +119,7 @@ const TranslationCard = ({
         </div>
         <div className="problem-wrapper">
           <div className="mascot">
-            <img src={mascot} width="120px" />
+            <img src={mascot} width="120px" alt="mascot" />
           </div>
           <div className="speech-bubble">
             <p>{text}</p>

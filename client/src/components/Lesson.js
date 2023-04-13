@@ -5,7 +5,6 @@ import ListeningCard from "./ListeningCard";
 import ListeningWritingCard from "./ListeningWritingCard";
 import MultipleChoiceCard from "./MultipleChoiceCard";
 import PicCardMC from "./PicCardMC";
-import audio from "../hombre.mp3";
 import "../styles/lesson.css";
 import PictureCard from "./PictureCard";
 import VocabMatchCard from "./VocabMatchCard";
@@ -90,8 +89,7 @@ const Lesson = () => {
           spanish={shuffledSpanish}
         />
       );
-    }
-    if (question.problemType === "translation") {
+    } else if (question.problemType === "translation") {
       return (
         <TranslationCard
           header="Translate this sentence"
@@ -104,8 +102,7 @@ const Lesson = () => {
           words={question.wordBank}
         />
       );
-    }
-    if (question.problemType === "multipleChoice") {
+    } else if (question.problemType === "multipleChoice") {
       return (
         <MultipleChoiceCard
           onNextQuestion={handleNextQuestion}
@@ -117,8 +114,7 @@ const Lesson = () => {
           normalizedSolution={normalizeSolution(question.solution)}
         />
       );
-    }
-    if (question.problemType === "multipleChoicePicture") {
+    } else if (question.problemType === "multipleChoicePicture") {
       return (
         <PicCardMC
           onNextQuestion={handleNextQuestion}
@@ -130,8 +126,7 @@ const Lesson = () => {
           image={question.pictureURL}
         />
       );
-    }
-    if (question.problemType === "listening") {
+    } else if (question.problemType === "listening") {
       return (
         <ListeningCard
           onNextQuestion={handleNextQuestion}
@@ -147,9 +142,7 @@ const Lesson = () => {
           header="Tap what you hear"
         />
       );
-    }
-
-    if (question.problemType === "listeningWriting") {
+    } else if (question.problemType === "listeningWriting") {
       return (
         <ListeningWritingCard
           onNextQuestion={handleNextQuestion}
@@ -165,8 +158,7 @@ const Lesson = () => {
           translation={question.translation}
         />
       );
-    }
-    if (
+    } else if (
       question.problemType === "pictureBlank" ||
       question.problemType === "fillBlank"
     ) {
@@ -185,9 +177,7 @@ const Lesson = () => {
           image={question.pictureURL}
         />
       );
-    }
-
-    if (question.problemType === "completed") {
+    } else {
       return (
         <CompletedCard
           mistakeCount={mistakeCount}

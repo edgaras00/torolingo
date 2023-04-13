@@ -17,11 +17,6 @@ const MultipleChoiceCard = ({
   const [result, setResult] = useState("");
 
   const onOptionChange = (event) => setUserChoice(event.target.value);
-  const handleCorrectAnswer = () => setResult("success");
-  const handleWrongAnswer = () => {
-    setResult("failure");
-    addMistake();
-  };
 
   const handleCheckAnswer = (correctSolution, userSolution) => {
     if (correctSolution === userSolution) {

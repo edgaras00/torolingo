@@ -53,7 +53,7 @@ const PicCardMC = ({
       </div>
       <div className="mc-card-middle">
         <div className="mc-pic">
-          <img src={image} alt="question picture" width="180px" />
+          <img src={image} alt="question" width="180px" />
         </div>
         <div className="choices-container">
           <form className="mc-form">{answerChoices}</form>

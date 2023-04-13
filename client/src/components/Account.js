@@ -18,7 +18,9 @@ const Account = () => {
 
   return (
     <div className="account-container">
-      <div>Account</div>
+      <div className="header-wrapper">
+        <div>Account</div>
+      </div>
       <form onSubmit={handleSubmit} className="account-form">
         <div className="input-wrapper">
           <label htmlFor="userName">Name</label>
@@ -31,7 +33,9 @@ const Account = () => {
           />
         </div>
         <div className="input-wrapper">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
           <input
             type="email"
             id="email"

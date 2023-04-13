@@ -6,24 +6,60 @@
   justify-content: center;
 }
 
+.header-wrapper {
+  width: 80%;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
 .account-form {
   width: 80%;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.account-form button {
+  margin-top: 1.4rem;
+  border: none;
+  border-radius: 10%;
+  padding: 1rem;
+  background-color: #2b70c9;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 20%;
+}
+
+.account-form button:hover {
+  background-color: #3f7ccc;
 }
 
 .input-wrapper {
   margin-top: 1.5rem;
   width: 60%;
+  display: flex;
+  align-items: center;
+  padding-right: 3rem;
+}
+
+.input-wrapper label {
+  display: block;
+  width: 20%;
   text-align: center;
+  margin-left: 2.1rem;
 }
 
 .input-wrapper input {
   margin-left: 1.2rem;
   border-radius: 8px;
+  font-size: 1.1rem;
   height: 1.5rem;
-  padding: 0.1rem 0;
+  padding: 0.3rem 0;
+  padding-left: 0.5em;
   width: 48%;
   border: 1px solid grey;
 }

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Popover, OverlayTrigger } from "react-bootstrap";
 import globe from "../globe.png";
 import barbell from "../barbell.png";
 import profile from "../profile.png";
 import more from "../more.png";
 import vocab from "../vocab.png";
+import githubIcon from "../github.svg";
+import portfolioIcon from "../portfolio.svg";
+import sourceIcon from "../source.svg";
 import "../styles/sidebar.css";
 const Sidebar = () => {
   const [selectedSidebar, setSelectedSidebar] = useState({
@@ -21,6 +25,46 @@ const Sidebar = () => {
     selectedCopy[value] = true;
     setSelectedSidebar(selectedCopy);
   };
+
+  const popoverRight = (
+    <Popover id="popover-positioned-right" title="Resources">
+      <div className="more-resources">
+        <a
+          className="resource"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/edgaras00"
+        >
+          <div className="resource-img-wrapper">
+            <img src={sourceIcon} alt="source code" width="42px" />
+          </div>
+          <div className="resource-name">Source Code</div>
+        </a>
+        <a
+          className="resource"
+          href="https://github.com/edgaras00"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="resource-img-wrapper">
+            <img src={githubIcon} alt="github" width="32px" />
+          </div>
+          <div className="resource-name">Github</div>
+        </a>
+        <a
+          className="resource"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/edgaras00"
+        >
+          <div className="resource-img-wrapper">
+            <img src={portfolioIcon} alt="portfolio" width="32px" />
+          </div>
+          <div className="resource-name">Portfolio</div>
+        </a>
+      </div>
+    </Popover>
+  );
 
   return (
     <nav className="sidebar">
@@ -74,15 +118,21 @@ const Sidebar = () => {
             <span>PROFILE</span>
           </div>
         </Link>
-        <div
-          className={`sidebar-option ${
-            selectedSidebar.more ? "selected-option" : null
-          }`}
-          onClick={() => handleClick("more")}
+        <OverlayTrigger
+          trigger="click"
+          placement="right"
+          overlay={popoverRight}
+          rootClose
         >
-          <img src={more} alt="more" width="30px" />
-          <span>MORE</span>
-        </div>
+          <div
+            className={`sidebar-option ${
+              selectedSidebar.more ? "selected-option" : null
+            }`}
+          >
+            <img src={more} alt="more" width="30px" />
+            <span>MORE</span>
+          </div>
+        </OverlayTrigger>
       </div>
     </nav>
   );

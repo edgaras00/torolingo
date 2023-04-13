@@ -55,3 +55,21 @@
   margin-left: 1.1rem;
   margin-right: 15px;
 }
+
+.more-resources {
+  display: flex;
+  flex-direction: column;
+  /* background-color: #e5e5e5; */
+  padding: 0.6rem 1rem;
+}
+
+.resource {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.resource-img-wrapper {
+  width: 50px;
+}

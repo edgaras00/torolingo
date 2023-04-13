@@ -46,8 +46,12 @@
   font-size: 1.1rem;
   font-weight: 600;
   padding: 25px 30px;
-  background-color: royalblue;
+  background-color: #2b70c9;
   color: #ffffff;
   border-radius: 10%;
   cursor: pointer;
+}
+
+.edit-profile-btn:hover {
+  background-color: #3f7ccc;
 }

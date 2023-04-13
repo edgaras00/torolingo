@@ -19,6 +19,7 @@ const Path = () => {
         number="1"
         primaryColor="#ff4b4b"
         secondaryColor="#c23e39"
+        hoverColor="#c45551"
         description="Form basic sentences, greet people"
         leftMascot={guitarMascot}
         rightMascot={dancingMascot}
@@ -29,6 +30,7 @@ const Path = () => {
         number="2"
         primaryColor="#5ad12a"
         secondaryColor="#3e8f1e"
+        hoverColor="#4e9632"
         description="Get around in a city"
         leftMascot={mascotStanding}
         leftMascotSize="120"
@@ -39,6 +41,7 @@ const Path = () => {
         number="3"
         primaryColor="#2a6fc9"
         secondaryColor="#21569c"
+        hoverColor="#305f9c"
         description="Order food and drink"
         leftMascot={mascotPaper}
         leftMascotSize="190"
@@ -49,6 +52,7 @@ const Path = () => {
         number="4"
         primaryColor="#eb9c3d"
         secondaryColor="#b8792e"
+        hoverColor="#bd8542"
         description="Describe family"
         leftMascot={mascotSitting}
         rightMascot={mascotStanding2}
@@ -59,6 +63,7 @@ const Path = () => {
         number="5"
         primaryColor="#e03879"
         secondaryColor="#ad2b5e"
+        hoverColor="#b53e6c"
         description="Shop for clothes"
         leftMascot={mascotMoney}
         leftMascotSize="210"

@@ -17,6 +17,7 @@ const Unit = ({
   rightMascot,
   leftMascotSize,
   rightMascotSize,
+  hoverColor,
 }) => {
   return (
     <div className="unit">
@@ -26,6 +27,7 @@ const Unit = ({
           secondaryColor={secondaryColor}
           unitNumber={number}
           description={description}
+          hoverColor={hoverColor}
         />
       </div>
       <div className="unit-path">

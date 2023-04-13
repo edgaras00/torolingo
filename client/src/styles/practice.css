@@ -6,15 +6,55 @@
 }
 
 .practice-cards {
-  width: 50%;
+  width: 46%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 4rem;
+  column-gap: 4rem;
 }
 
 .practice-card {
   height: 200px;
   width: 200px;
   border-radius: 10%;
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lesson-practice {
+  background-color: #ff4b4b;
+}
+
+.lesson-practice:hover {
+  background-color: #ff6e6e;
+}
+
+.vocabulary-practice {
+  background-color: #ff9600;
+}
+
+.vocabulary-practice:hover {
+  background-color: #ffa528;
+}
+
+.listening-practice {
+  background-color: #2b70c9;
+}
+
+.listening-practice:hover {
+  background-color: #4a7cbd;
+}
+
+.test-practice {
+  background-color: #ce82ff;
+}
+
+.test-practice:hover {
+  background-color: #d39df7;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/unitHeader.css";
 import notebook from "../notebook.png";
@@ -8,7 +8,20 @@ const UnitHeader = ({
   description,
   primaryColor,
   secondaryColor,
+  hoverColor,
 }) => {
+  const [hovered, setHovered] = useState(false);
+
+  const handleOnMouseEnter = () => {
+    console.log("hovered");
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    console.log("left");
+    setHovered(false);
+  };
+
   return (
     <header className="unit-header" style={{ backgroundColor: primaryColor }}>
       <div className="header-text">
@@ -18,7 +31,9 @@ const UnitHeader = ({
       <Link to={`guidebook-${unitNumber}`}>
         <div
           className="unit-lesson-btn"
-          style={{ backgroundColor: secondaryColor }}
+          onMouseEnter={handleOnMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          style={{ backgroundColor: hovered ? hoverColor : secondaryColor }}
         >
           <img src={notebook} alt="notebook" width="38px" />
           GUIDEBOOK

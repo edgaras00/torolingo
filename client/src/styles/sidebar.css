@@ -25,17 +25,20 @@
 
 .sidebar-option {
   width: 90%;
-  /* border: 1px solid red; */
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   margin-bottom: 20px;
-  padding: 10px 0px;
+  /* padding: 10px 0px; */
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
   color: #6d6c6c;
   letter-spacing: 1px;
+}
+
+.sidebar-option:hover {
+  background-color: #f7f7f7;
 }
 
 .selected-option {
@@ -49,5 +52,6 @@
 }
 
 .sidebar img {
+  margin-left: 1.1rem;
   margin-right: 15px;
 }

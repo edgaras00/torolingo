@@ -3,7 +3,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #e84943; */
   color: #ffffff;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -20,7 +19,6 @@
 
 .unit-lesson-btn {
   border: 1px solid rgb(80, 80, 80);
-  /* background-color: #c23e39; */
   font-weight: 700;
   font-size: 0.9rem;
   padding: 6px 14px;

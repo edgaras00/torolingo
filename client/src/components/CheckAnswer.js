@@ -51,8 +51,18 @@ const CheckAnswer = ({
   };
 
   return (
-    <div className="check-answer-wrapper">
-      <div className="solution">
+    <div
+      className={`check-answer-wrapper ${
+        result === "success"
+          ? "right-answer"
+          : result === "failure"
+          ? "wrong-answer"
+          : null
+      }`}
+    >
+      <div
+        className={`solution ${result === "failure" ? "wrong-solution" : null}`}
+      >
         {listening ? renderListeningSolution(result) : renderSolution(result)}
       </div>
       {renderButtons(result)}

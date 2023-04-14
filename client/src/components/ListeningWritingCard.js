@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CheckAnswer from "./CheckAnswer";
 import soundIcon from "../sound.svg";
@@ -19,6 +19,14 @@ const ListeningWritingCard = ({
   const [inputText, setInputText] = useState("");
   const [result, setResult] = useState("");
 
+  const audioElement = new Audio(audio);
+  const slowAudioElement = new Audio(slowAudio);
+
+  useEffect(() => {
+    const initialAudio = new Audio(audio);
+    initialAudio.play();
+  }, [audio]);
+
   const handleCheckAnswer = (correctSolution, userSolution) => {
     if (correctSolution === userSolution) {
       setResult("success");
@@ -31,9 +39,8 @@ const ListeningWritingCard = ({
     }
   };
 
-  const handleAudioClick = () => {
-    audio.play();
-  };
+  const handleAudioClick = () => audioElement.play();
+  const handleSlowAudioClick = () => slowAudioElement.play();
 
   return (
     <div className="translation-card">
@@ -51,7 +58,7 @@ const ListeningWritingCard = ({
         <div className="audio-box normal-audio" onClick={handleAudioClick}>
           <img src={soundIcon} alt="sound icon" width="140px" />
         </div>
-        <div className="audio-box slow-audio" onClick={handleAudioClick}>
+        <div className="audio-box slow-audio" onClick={handleSlowAudioClick}>
           <img src={turtleICon} alt="turtle icon" width="100px" />
         </div>
       </div>

@@ -7,6 +7,12 @@ import kidsPicture from "../kids.svg";
 import "../styles/unitOneTips.css";
 
 const UnitOneTips = () => {
+  const audioElement = new Audio(
+    "https://tlingobucket.s3.amazonaws.com/phrases/phrase19.mp3"
+  );
+
+  const handleClick = () => audioElement.play();
+
   return (
     <div className="tips">
       <TipTop header="Gender" />
@@ -20,13 +26,15 @@ const UnitOneTips = () => {
           img={boyPicture}
           type={2}
           englishText="The Boy"
-          spanishText="El nino"
+          spanishText="El niño"
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase17.mp3"
         />
         <TipCard
           img={girlPicture}
           type={2}
           englishText="The girl"
-          spanishText="La nina"
+          spanishText="La niña"
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase18.mp3"
         />
         <p>
           Notice how you use <span>el</span> if the word is masculine and{" "}
@@ -57,7 +65,7 @@ const UnitOneTips = () => {
             </tr>
             <tr>
               <td>
-                <div className="table-spanish">tu</div>
+                <div className="table-spanish">tú</div>
                 <div className="table-english">you</div>
               </td>
               <td>
@@ -69,7 +77,7 @@ const UnitOneTips = () => {
             </tr>
             <tr>
               <td>
-                <div className="table-spanish">el</div>
+                <div className="table-spanish">él</div>
                 <div className="table-english">he</div>
               </td>
               <td>
@@ -98,8 +106,8 @@ const UnitOneTips = () => {
             <img src={kidsPicture} alt="kids" />
           </div>
           <div className="conjugation-example-text">
-            <div className="spanish-text">
-              Yo soy una nina. Tu eres un nino.
+            <div className="spanish-text" onClick={handleClick}>
+              Yo soy una niña. Tu eres un niño.
             </div>
             <div className="english-text">I am a girl. You are a boy.</div>
           </div>

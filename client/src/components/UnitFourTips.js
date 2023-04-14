@@ -21,12 +21,14 @@ const UnitFourTips = () => {
           type={1}
           spanishText="Tú tienes un perro."
           englishText="You have a dog."
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase35.mp3"
         />
         <TipCard
           img={manQuestionPicture}
           type={1}
           spanishText="¿Tú tienes un perro?"
           englishText="Do you have a dog?"
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase36.mp3"
         />
         <p>
           Notice that all questions in Spanish begin with an upside down
@@ -48,6 +50,7 @@ const UnitFourTips = () => {
             img={womanCatPicture}
             spanishText="¿Tú tienes un gato?"
             englishText="Do you have a cat?"
+            audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase37.mp3"
           />
           <p>
             Without an accent, <span>tu</span> means your.
@@ -56,6 +59,7 @@ const UnitFourTips = () => {
             img={catPicture}
             spanishText="¡Tu gato es grande!"
             englishText="Your cat is big!"
+            audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase38.mp3"
             type={1}
           />
         </div>

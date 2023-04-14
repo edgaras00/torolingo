@@ -20,24 +20,28 @@ const UnitFiveTips = () => {
           type={2}
           spanishText="Un vestido azul"
           englishText="A blue dress"
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase45.mp3"
         />
         <TipCard
           img={shirtPicture}
           type={2}
           spanishText="Una camisa roja"
           englishText="A red shirt"
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase46.mp3"
         />
         <TipCard
           img={watchPicture}
           type={2}
           spanishText="Un reloj caro"
           englishText="An expensive watch"
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase47.mp3"
         />
         <TipCard
           img={coatPicture}
           type={2}
           englishText="A cheap coat"
           spanishText="Un abrigo barato"
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase48.mp3"
         />
       </div>
     </div>

@@ -18,6 +18,7 @@ const UnitThreeTips = () => {
           img={waiterPicture}
           spanishText="Una taza de café."
           englishText="A cup of coffee."
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase26.mp3"
         />
         <p>
           You also use de when you're describing what type of food something is.
@@ -27,6 +28,7 @@ const UnitThreeTips = () => {
           img={waiterPicture}
           spanishText="Un jugo de naranja."
           englishText="An orange juice."
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase27.mp3"
         />
       </div>
     </div>

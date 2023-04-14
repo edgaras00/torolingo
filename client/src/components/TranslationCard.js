@@ -60,6 +60,7 @@ const TranslationCard = ({
     setSelected((prevState) => [...prevState, selectedWord]);
 
     const wordBankCopy = [...wordBank];
+    console.log(selectedWord.offsetWidth);
     wordBankCopy[wordIndex] = "0".repeat(selectedWord.textContent.length);
     setWordBank(wordBankCopy);
   };

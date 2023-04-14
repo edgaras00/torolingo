@@ -4,6 +4,7 @@ import ListeningWritingCard from "./ListeningWritingCard";
 
 const MatchingLesson = () => {
   const [questionData, setQuestionData] = useState([]);
+  const [];
 
   useEffect(() => {
     const fetchMatchingQuestions = async () => {
@@ -54,11 +55,7 @@ const MatchingLesson = () => {
     }
   });
 
-  return (
-    <div>
-      <div></div>
-    </div>
-  );
+  return <div className="lesson-container"></div>;
 };
 
 export default MatchingLesson;

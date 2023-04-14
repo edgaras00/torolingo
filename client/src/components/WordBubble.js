@@ -8,7 +8,7 @@ const WordBubble = ({ text, handleClick, position, empty }) => {
       data-position={position}
       onClick={handleClick}
     >
-      {text}
+      {empty ? text.replace("*", "") : text}
     </span>
   );
 };

@@ -11,7 +11,7 @@ import VocabMatchCard from "./VocabMatchCard";
 import CompletedCard from "./CompletedCard";
 import { shuffleArray } from "../utils";
 
-const Lesson = () => {
+const Lesson = ({ matchingOnly, listeningOnly }) => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [mistakeCount, setMistakeCount] = useState(0);
@@ -20,8 +20,10 @@ const Lesson = () => {
   const handleMistake = () => setMistakeCount((prevState) => prevState + 1);
 
   const normalizeSolution = (solution) => {
-    return solution.replace(/[^\w\s\u00C0-\u00FF]/g, "").toLowerCase();
-    // .replace(/ +/g, " ");
+    return solution
+      .replace(/[^\w\s\u00C0-\u00FF]/g, "")
+      .toLowerCase()
+      .replace(/ +/g, " ");
   };
 
   useEffect(() => {
@@ -40,9 +42,17 @@ const Lesson = () => {
 
     const fetchProblemdata = async (unit, lesson) => {
       try {
-        const response = await fetch(
-          `http://localhost:5000/problems/lessons?unit=${unit}&lesson=${lesson}`
-        );
+        let url = `http://localhost:5000/problems/lessons?unit=${unit}&lesson=${lesson}`;
+
+        if (matchingOnly) {
+          url = "http://localhost:5000/problems/match";
+        }
+
+        if (listeningOnly) {
+          url = "http://localhost:5000/problems/listening";
+        }
+
+        const response = await fetch(url);
         const problemData = await response.json();
         problemData.data.push({ problemType: "completed" });
         setQuestions(problemData.data);
@@ -51,7 +61,7 @@ const Lesson = () => {
       }
     };
     fetchProblemdata(unit, lesson);
-  }, [pathname]);
+  }, [pathname, matchingOnly, listeningOnly]);
 
   const handleNextQuestion = () =>
     setCurrentQuestion((prevState) => prevState + 1);
@@ -190,7 +200,7 @@ const Lesson = () => {
 
   return (
     <div className="lesson-container">
-      {questionCards.map((question, index) => {
+      {questionCards.slice(16).map((question, index) => {
         if (index + 1 === currentQuestion) {
           return question;
         } else {

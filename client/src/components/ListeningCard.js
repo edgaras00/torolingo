@@ -47,7 +47,9 @@ const ListeningCard = ({
 
   useEffect(() => {
     const initialAudio = new Audio(audio);
-    initialAudio.play();
+    setTimeout(() => {
+      initialAudio.play();
+    }, 1000);
   }, [audio]);
 
   useEffect(() => {
@@ -63,11 +65,11 @@ const ListeningCard = ({
     const wordIndex = selectedWord.dataset.position * 1;
     selectedWord.textContent = event.target.textContent;
     selectedWord.setAttribute("data-position", wordIndex);
-    console.log(selectedWord);
     setSelected((prevState) => [...prevState, selectedWord]);
 
     const wordBankCopy = [...wordBank];
-    wordBankCopy[wordIndex] = "*".repeat(selectedWord.textContent.length);
+    // wordBankCopy[wordIndex] = "*".repeat(selectedWord.textContent.length);
+    wordBankCopy[wordIndex] = selectedWord.textContent + "*";
     setWordBank(wordBankCopy);
   };
 
@@ -89,15 +91,17 @@ const ListeningCard = ({
     setSelected(selectedCopy);
   };
 
-  const bubbles = wordBank.map((word, index) => (
-    <WordBubble
-      text={word}
-      key={index}
-      position={index}
-      handleClick={handleClick}
-      empty={word.includes("*") ? "empty" : null}
-    />
-  ));
+  const bubbles = wordBank.map((word, index) => {
+    return (
+      <WordBubble
+        text={word}
+        key={index}
+        position={index}
+        handleClick={handleClick}
+        empty={word.includes("*") ? "empty" : null}
+      />
+    );
+  });
 
   let selectedBubbles = [];
   if (selected.length > 0) {

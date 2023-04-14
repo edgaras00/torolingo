@@ -104,6 +104,14 @@ const App = () => {
         <Route path="/practice" element={<Practice />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/account" element={<Account />} />
+        <Route
+          path="/practice/matching"
+          element={<Lesson matchingOnly={true} />}
+        />
+        <Route
+          path="/practice/listening"
+          element={<Lesson listeningOnly={true} />}
+        />
       </Routes>
     </div>
   );

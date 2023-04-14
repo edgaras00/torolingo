@@ -20,14 +20,18 @@ const Practice = () => {
             <div>Lesson</div>
           </div>
         </Link>
-        <div className="practice-card vocabulary-practice">
-          <img src={bullTongue} width="104px" alt="mascot" />
-          <div>Vocabulary</div>
-        </div>
-        <div className="practice-card listening-practice">
-          <img src={mascotSitting} width="104px" alt="mascot" />
-          <div>Listening</div>
-        </div>
+        <Link to="/practice/matching">
+          <div className="practice-card vocabulary-practice">
+            <img src={bullTongue} width="104px" alt="mascot" />
+            <div>Vocabulary</div>
+          </div>
+        </Link>
+        <Link to="/practice/listening">
+          <div className="practice-card listening-practice">
+            <img src={mascotSitting} width="104px" alt="mascot" />
+            <div>Listening</div>
+          </div>
+        </Link>
         <div className="practice-card test-practice">
           <img src={mascotPaper2} width="104px" alt="mascot" />
           <div>Test</div>

@@ -27,6 +27,11 @@
   cursor: pointer;
 }
 
+.practice-cards a {
+  color: #ffff;
+  text-decoration: none;
+}
+
 .lesson-practice {
   background-color: #ff4b4b;
 }

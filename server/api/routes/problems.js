@@ -9,6 +9,8 @@ router
   .post(problemController.createProblem);
 
 router.route("/lessons").get(problemController.getLessonProblems);
+router.route("/listening").get(problemController.getListeningProblems);
+router.route("/match").get(problemController.getMatchingProblems);
 
 router
   .route("/:problemId")

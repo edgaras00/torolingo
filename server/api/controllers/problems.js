@@ -14,7 +14,6 @@ exports.getAllProblems = async (req, res) => {
 
 exports.getLessonProblems = async (req, res) => {
   try {
-    console.log(req.query);
     const unit = req.query.unit;
     const lesson = req.query.lesson;
     const lessonProblems = await Problem.find({
@@ -23,6 +22,32 @@ exports.getLessonProblems = async (req, res) => {
     res.status(200).json({
       status: "success",
       data: lessonProblems,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+exports.getMatchingProblems = async (req, res) => {
+  try {
+    const matchingProblems = await Problem.find({ problemType: "match" });
+    res.status(200).json({
+      status: "success",
+      data: matchingProblems,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+exports.getListeningProblems = async (req, res) => {
+  try {
+    const listeningProblems = await Problem.find({
+      $or: [{ problemType: "listening" }, { problemType: "listeningWriting" }],
+    });
+    res.status(200).json({
+      status: "success",
+      data: listeningProblems,
     });
   } catch (error) {
     console.log(error);

@@ -14,28 +14,33 @@ const Practice = () => {
   return (
     <div className="practice-section">
       <div className="practice-cards">
-        <Link to={`/${randomLesson}`}>
+        <Link to={`/${randomLesson}`} state={{ from: "practice" }}>
           <div className="practice-card lesson-practice">
             <img src={mascotPhone} width="104px" alt="mascot" />
             <div>Lesson</div>
           </div>
         </Link>
-        <Link to="/practice/matching">
+        <Link to="/practice/matching" state={{ from: "practice" }}>
           <div className="practice-card vocabulary-practice">
             <img src={bullTongue} width="104px" alt="mascot" />
             <div>Vocabulary</div>
           </div>
         </Link>
-        <Link to="/practice/listening">
+        <Link to="/practice/listening" state={{ from: "practice" }}>
           <div className="practice-card listening-practice">
             <img src={mascotSitting} width="104px" alt="mascot" />
             <div>Listening</div>
           </div>
         </Link>
-        <div className="practice-card test-practice">
-          <img src={mascotPaper2} width="104px" alt="mascot" />
-          <div>Test</div>
-        </div>
+        <Link to={`/${randomLesson}`} state={{ from: "practice" }}>
+          <div
+            className="practice-card test-practice"
+            state={{ from: "practice" }}
+          >
+            <img src={mascotPaper2} width="104px" alt="mascot" />
+            <div>Test</div>
+          </div>
+        </Link>
       </div>
     </div>
   );

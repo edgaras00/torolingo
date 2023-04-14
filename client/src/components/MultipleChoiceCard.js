@@ -12,6 +12,7 @@ const MultipleChoiceCard = ({
   choices,
   addMistake,
   normalizedSolution,
+  locationState,
 }) => {
   const [userChoice, setUserChoice] = useState("");
   const [result, setResult] = useState("");
@@ -43,7 +44,7 @@ const MultipleChoiceCard = ({
     <div className="multiple-choice-card">
       <div className="card-top mc-card-top">
         <div className="exit-lesson">
-          <Link to="/">
+          <Link to={locationState ? `/${locationState.from}` : "/"}>
             <button className="exit-button">X</button>
           </Link>
         </div>

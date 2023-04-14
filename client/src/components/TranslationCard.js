@@ -18,6 +18,7 @@ const TranslationCard = ({
   words,
   header,
   addMistake,
+  locationState,
 }) => {
   const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState([]);
@@ -111,7 +112,7 @@ const TranslationCard = ({
     <div className="translation-card">
       <div className="card-top">
         <div className="exit-lesson">
-          <Link to="/">
+          <Link to={locationState ? `/${locationState.from}` : "/"}>
             <button className="exit-button">X</button>
           </Link>
         </div>

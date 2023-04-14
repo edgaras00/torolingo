@@ -15,6 +15,7 @@ const PictureCard = ({
   normalizeText,
   translation,
   image,
+  locationState,
 }) => {
   const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState(null);
@@ -84,7 +85,6 @@ const PictureCard = ({
 
   const textWords = text.split(" ");
   const elements = textWords.map((word, index) => {
-    // if (word === "____") {
     if (word.includes("_")) {
       return (
         <span className="pic-blank" key={index}>
@@ -104,21 +104,13 @@ const PictureCard = ({
     <div className="translation-card">
       <div className="card-top">
         <div className="exit-lesson">
-          <Link to="/">
+          <Link to={locationState ? `/${locationState.from}` : "/"}>
             <button className="exit-button">X</button>
           </Link>
         </div>
         <div className="problem-header-container">
           <h3 className="problem-header">{header}</h3>
         </div>
-        {/* <div className="picture-problem">
-          <div className="image-container">
-            <div className="image">
-              <img src={image} alt="question" />
-            </div>
-          </div>
-          <div className="pic-sentence-container">{elements}</div>
-        </div> */}
       </div>
       <div className="picture-problem">
         <div className="image-container">

@@ -17,6 +17,9 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
   const [mistakeCount, setMistakeCount] = useState(0);
   const { pathname } = useLocation();
 
+  const location = useLocation();
+  const locationState = location.state;
+
   const handleMistake = () => setMistakeCount((prevState) => prevState + 1);
 
   const normalizeSolution = (solution) => {
@@ -97,6 +100,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           pairs={modifiedPairs}
           english={shuffledEnglish}
           spanish={shuffledSpanish}
+          locationState={locationState}
         />
       );
     } else if (question.problemType === "translation") {
@@ -110,6 +114,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           solution={question.solution}
           normalizedSolution={normalizeSolution(question.solution)}
           words={question.wordBank}
+          locationState={locationState}
         />
       );
     } else if (question.problemType === "multipleChoice") {
@@ -122,6 +127,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           solution={question.solution}
           choices={question.choices}
           normalizedSolution={normalizeSolution(question.solution)}
+          locationState={locationState}
         />
       );
     } else if (question.problemType === "multipleChoicePicture") {
@@ -134,6 +140,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           solution={question.solution}
           choices={question.choices}
           image={question.pictureURL}
+          locationState={locationState}
         />
       );
     } else if (question.problemType === "listening") {
@@ -150,6 +157,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           words={question.wordBank}
           translation={question.translation}
           header="Tap what you hear"
+          locationState={locationState}
         />
       );
     } else if (question.problemType === "listeningWriting") {
@@ -166,6 +174,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           normalizeText={normalizeSolution}
           header="Type what you hear"
           translation={question.translation}
+          locationState={locationState}
         />
       );
     } else if (
@@ -185,6 +194,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           words={question.wordBank}
           header="Fill in the blank"
           image={question.pictureURL}
+          locationState={locationState}
         />
       );
     } else {
@@ -200,7 +210,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
 
   return (
     <div className="lesson-container">
-      {questionCards.slice(16).map((question, index) => {
+      {questionCards.map((question, index) => {
         if (index + 1 === currentQuestion) {
           return question;
         } else {

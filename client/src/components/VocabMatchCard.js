@@ -10,6 +10,7 @@ const VocabMatchCard = ({
   english,
   spanish,
   addMistake,
+  locationState,
 }) => {
   const [match, setMatch] = useState([...pairs]);
   const [firstSelected, setFirstSelected] = useState(null);
@@ -137,7 +138,7 @@ const VocabMatchCard = ({
     <div className="vocab-match">
       <div className="card-top">
         <div className="exit-lesson">
-          <Link to="/">
+          <Link to={locationState ? `/${locationState.from}` : "/"}>
             <button className="exit-button">X</button>
           </Link>
         </div>

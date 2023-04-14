@@ -15,6 +15,7 @@ const ListeningWritingCard = ({
   addMistake,
   normalizeText,
   translation,
+  locationState,
 }) => {
   const [inputText, setInputText] = useState("");
   const [result, setResult] = useState("");
@@ -46,7 +47,7 @@ const ListeningWritingCard = ({
     <div className="translation-card">
       <div className="card-top">
         <div className="exit-lesson">
-          <Link to="/">
+          <Link to={locationState ? `/${locationState.from}` : "/"}>
             <button className="exit-button">X</button>
           </Link>
         </div>

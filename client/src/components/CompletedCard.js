@@ -12,8 +12,6 @@ const CompleteCard = ({ mistakeCount, questionCount }) => {
   const [displayScore, setDisplayScore] = useState(0);
   const [displayMistakes, setDisplayMistakes] = useState(0);
 
-  console.log(displayScore);
-
   useEffect(() => {
     if (displayMistakes < mistakeCount) {
       const intervalId = setInterval(() => {

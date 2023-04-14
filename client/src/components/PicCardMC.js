@@ -12,6 +12,7 @@ const PicCardMC = ({
   choices,
   addMistake,
   image,
+  locationState,
 }) => {
   const [userChoice, setUserChoice] = useState("");
   const [result, setResult] = useState("");
@@ -43,7 +44,7 @@ const PicCardMC = ({
     <div className="translation-card">
       <div className="card-top">
         <div className="exit-lesson">
-          <Link to="/">
+          <Link to={locationState ? `/${locationState.from}` : "/"}>
             <button className="exit-button">X</button>
           </Link>
         </div>

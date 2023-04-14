@@ -20,6 +20,7 @@ const UnitTwoTips = () => {
           img={womanTaxiPicture}
           spanishText="¡El taxi está aquí!"
           englishText="The taxi is here!"
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase8.mp3"
           type={1}
         />
         <p>
@@ -31,12 +32,14 @@ const UnitTwoTips = () => {
           img={hotelPicture}
           spanishText="El hotel está cerrado."
           englishText="The hotel is closed."
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase9.mp3"
         />
         <TipCard
           type={1}
           img={taxiPicture}
           spanishText="El taxi es amarillo."
           englishText="The taxi is yellow."
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase10.mp3"
         />
       </div>
     </div>

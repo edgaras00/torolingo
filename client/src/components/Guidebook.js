@@ -1,4 +1,6 @@
 import React from "react";
+import mascotPaper from "../bull-paper.png";
+
 import "../styles/guidebook.css";
 
 const Guidebook = ({ number, children }) => {
@@ -9,7 +11,9 @@ const Guidebook = ({ number, children }) => {
     <div className="guidebook">
       <div className="guidebook-content">
         <div className="guide-top">
-          <div className="guide-top-image"></div>
+          <div className="guide-top-image">
+            <img src={mascotPaper} alt="mascot" />
+          </div>
           <div className="guide-top-text">
             <h3>Unit {number} Guidebook</h3>
             <p>Explore grammar tips and keyphrases for this unit</p>

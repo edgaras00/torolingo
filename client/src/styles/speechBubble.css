@@ -54,3 +54,12 @@
 .speech-reverse {
   align-self: flex-end;
 }
+
+.phrase-sound {
+  cursor: pointer;
+  width: 28px;
+}
+
+.phrase-sound:hover {
+  background-color: #f7f7f7;
+}

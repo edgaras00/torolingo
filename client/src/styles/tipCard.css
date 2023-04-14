@@ -40,4 +40,9 @@
   margin-bottom: 10px;
   border-bottom: 2px dashed grey;
   padding-bottom: 2px;
+  cursor: pointer;
+}
+
+.spanish-text:hover {
+  color: #2b70c9;
 }

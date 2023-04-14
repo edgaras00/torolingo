@@ -19,7 +19,10 @@
 .guide-top-image {
   width: 140px;
   height: 140px;
-  border: 1px solid red;
+}
+
+.guide-top-image img {
+  width: 140px;
 }
 
 .guide-top-text {

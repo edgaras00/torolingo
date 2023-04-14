@@ -117,13 +117,13 @@ const TranslationCard = ({
         <div className="problem-header-container">
           <h3 className="problem-header">{header}</h3>
         </div>
-        <div className="problem-wrapper">
-          <div className="mascot">
-            <img src={mascot} width="120px" alt="mascot" />
-          </div>
-          <div className="speech-bubble">
-            <p>{text}</p>
-          </div>
+      </div>
+      <div className="problem-wrapper">
+        <div className="mascot">
+          <img src={mascot} width="120px" alt="mascot" />
+        </div>
+        <div className="speech-bubble">
+          <p>{text}</p>
         </div>
       </div>
       <div className="card-middle">

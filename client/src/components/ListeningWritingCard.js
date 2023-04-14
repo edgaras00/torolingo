@@ -46,13 +46,13 @@ const ListeningWritingCard = ({
         <div className="problem-header-container">
           <h3 className="problem-header">{header}</h3>
         </div>
-        <div className="audio-box-wrapper">
-          <div className="audio-box normal-audio" onClick={handleAudioClick}>
-            <img src={soundIcon} alt="sound icon" width="140px" />
-          </div>
-          <div className="audio-box slow-audio" onClick={handleAudioClick}>
-            <img src={turtleICon} alt="turtle icon" width="100px" />
-          </div>
+      </div>
+      <div className="audio-box-wrapper">
+        <div className="audio-box normal-audio" onClick={handleAudioClick}>
+          <img src={soundIcon} alt="sound icon" width="140px" />
+        </div>
+        <div className="audio-box slow-audio" onClick={handleAudioClick}>
+          <img src={turtleICon} alt="turtle icon" width="100px" />
         </div>
       </div>
       <div className="form-container">

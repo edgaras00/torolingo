@@ -1,19 +1,21 @@
 .translation-card {
-  width: 90%;
-  height: 580px;
+  width: 100%;
+  /* height: 580px; */
+  height: 560px;
   padding-left: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 
 .card-top {
   width: 100%;
+  height: 90px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 0.5rem;
 }
 
 .exit-lesson {
@@ -24,8 +26,14 @@
   border: none;
   font-size: 1.8rem;
   background-color: white;
-  color: grey;
+  color: #afafaf;
   cursor: pointer;
+  margin-left: 1rem;
+  margin-top: 1.5rem;
+}
+
+.exit-button:hover {
+  color: #e5e5e5;
 }
 
 .problem-header-container {
@@ -33,6 +41,7 @@
 }
 
 .problem-header {
+  margin-top: 0.1rem;
   font-size: 1.3rem;
 }
 
@@ -61,7 +70,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 0.4rem;
 }
 
 .solution-container {
@@ -124,7 +132,10 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  border: 1px solid red;
+  padding-top: 0.6rem;
+  padding-bottom: 1rem;
 }
 
 .solution {
@@ -139,6 +150,13 @@
   text-transform: capitalize;
   margin-right: 3rem;
   cursor: pointer;
+  background-color: #2b70c9;
+  color: #fff;
+  font-weight: 600;
+}
+
+.check-answer:hover {
+  background-color: #4a85d3;
 }
 
 .wrong-answer-button {

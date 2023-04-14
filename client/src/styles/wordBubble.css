@@ -1,17 +1,17 @@
 .word-bubble {
-  border: 2px solid rgb(121, 121, 121);
+  border: 2px solid #777777;
   width: fit-content;
-  padding: 6px 8px;
-  /* margin-top: 5px; */
+  padding: 5px 10px;
+  margin-top: 5px;
   /* margin-left: 20px; */
   margin-right: 8px;
-  margin-top: 6px;
-  border-radius: 36%;
+  border-radius: 25%;
   text-align: center;
   cursor: pointer;
 }
 
 .empty-bubble {
-  background-color: grey;
-  color: grey;
+  background-color: #afafaf;
+  color: #afafaf;
+  border-color: #afafaf;
 }

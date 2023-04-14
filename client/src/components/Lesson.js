@@ -17,6 +17,12 @@ const Lesson = () => {
   const [mistakeCount, setMistakeCount] = useState(0);
   const { pathname } = useLocation();
 
+  const test = (event, ref) => {
+    if (event.key === "Enter") {
+      ref.click();
+    }
+  };
+
   const handleMistake = () => setMistakeCount((prevState) => prevState + 1);
 
   const normalizeSolution = (solution) => {

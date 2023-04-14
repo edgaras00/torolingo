@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useref } from "react";
 import "../styles/checkAnswer.css";
 
 const CheckAnswer = ({
@@ -11,6 +11,7 @@ const CheckAnswer = ({
   listening,
   translation,
 }) => {
+  const r = useref(null);
   const renderButtons = (result) => {
     if (result === "success") {
       return (
@@ -25,6 +26,7 @@ const CheckAnswer = ({
           result === "failure" ? "wrong-answer-button" : null
         }`}
         onClick={() => onCheckAnswer(normalizedSolution, userSolution)}
+        ref={r}
       >
         CHECK
       </button>

@@ -33,6 +33,7 @@
   font-weight: bold;
   color: #6d6c6c;
   letter-spacing: 1px;
+  padding: 0.5rem 0;
 }
 
 .sidebar-option:hover {

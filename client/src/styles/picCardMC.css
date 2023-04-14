@@ -7,17 +7,21 @@
 }
 
 .mc-pic {
-  height: 160px;
-  width: 260px;
+  height: 110px;
+  width: 200px;
   border: 1px solid rgb(221, 221, 221);
   border-radius: 10px;
   text-align: center;
   padding-bottom: 1rem;
 }
 
+.mc-pic img {
+  width: 120px;
+}
+
 .choices-container {
   width: 90%;
-  margin-top: 3rem;
+  margin-top: 2.2rem;
 }
 
 .mc-form {
@@ -37,8 +41,16 @@
   text-align: center;
 }
 
+.pic-mc:hover {
+  background-color: #b0e6ff;
+}
+
 .pic-mc-selected {
-  background-color: hotpink;
+  background-color: #1cb0f6;
+}
+
+.pic-mc-selected:hover {
+  background-color: #1cb0f6;
 }
 
 .pic-mc-input {

@@ -111,14 +111,22 @@ const PictureCard = ({
         <div className="problem-header-container">
           <h3 className="problem-header">{header}</h3>
         </div>
-        <div className="picture-problem">
+        {/* <div className="picture-problem">
           <div className="image-container">
             <div className="image">
               <img src={image} alt="question" />
             </div>
           </div>
           <div className="pic-sentence-container">{elements}</div>
+        </div> */}
+      </div>
+      <div className="picture-problem">
+        <div className="image-container">
+          <div className="image">
+            <img src={image} alt="question" />
+          </div>
         </div>
+        <div className="pic-sentence-container">{elements}</div>
       </div>
       <div className="card-middle pic-middle">
         <div className="bubble-container">

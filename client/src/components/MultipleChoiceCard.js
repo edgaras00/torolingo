@@ -41,7 +41,7 @@ const MultipleChoiceCard = ({
 
   return (
     <div className="multiple-choice-card">
-      <div className="card-top">
+      <div className="card-top mc-card-top">
         <div className="exit-lesson">
           <Link to="/">
             <button className="exit-button">X</button>

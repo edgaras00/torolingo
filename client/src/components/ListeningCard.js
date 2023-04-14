@@ -10,7 +10,6 @@ import "../styles/listeningCard.css";
 const ListeningCard = ({
   onNextQuestion,
   words,
-  text,
   solution,
   normalizedSolution,
   audio,
@@ -68,7 +67,7 @@ const ListeningCard = ({
     setSelected((prevState) => [...prevState, selectedWord]);
 
     const wordBankCopy = [...wordBank];
-    wordBankCopy[wordIndex] = "0".repeat(selectedWord.textContent.length);
+    wordBankCopy[wordIndex] = "*".repeat(selectedWord.textContent.length);
     setWordBank(wordBankCopy);
   };
 
@@ -96,7 +95,7 @@ const ListeningCard = ({
       key={index}
       position={index}
       handleClick={handleClick}
-      empty={word.includes("0") ? "empty" : null}
+      empty={word.includes("*") ? "empty" : null}
     />
   ));
 
@@ -124,15 +123,15 @@ const ListeningCard = ({
           </Link>
         </div>
         <div className="problem-header-container">
-          <h3 className="problem-header">{text}</h3>
+          <h3 className="problem-header">Tap what you hear</h3>
         </div>
-        <div className="audio-box-wrapper">
-          <div className="audio-box normal-audio" onClick={handleAudioClick}>
-            <img src={soundIcon} alt="sound icon" width="140px" />
-          </div>
-          <div className="audio-box slow-audio" onClick={handleSlowAudioClick}>
-            <img src={turtleICon} alt="turtle icon" width="100px" />
-          </div>
+      </div>
+      <div className="audio-box-wrapper">
+        <div className="audio-box normal-audio" onClick={handleAudioClick}>
+          <img src={soundIcon} alt="sound icon" />
+        </div>
+        <div className="audio-box slow-audio" onClick={handleSlowAudioClick}>
+          <img src={turtleICon} alt="turtle icon" />
         </div>
       </div>
       <div className="card-middle">

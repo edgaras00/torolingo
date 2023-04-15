@@ -18,6 +18,11 @@ const userSchema = new mongoose.Schema({
     minLength: [6, "Password must be at least 6 characters long"],
     select: false,
   },
+  role: {
+    type: String,
+    default: "user",
+    enum: ["user", "admin"],
+  },
 });
 
 const User = mongoose.model("User", userSchema);

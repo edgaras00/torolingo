@@ -5,6 +5,7 @@ exports.getAllProblems = async (req, res) => {
     const problems = await Problem.find().select("-__v");
     res.status(200).json({
       status: "success",
+      results: problems.length,
       data: { problems },
     });
   } catch (error) {
@@ -16,12 +17,13 @@ exports.getLessonProblems = async (req, res) => {
   try {
     const unit = req.query.unit;
     const lesson = req.query.lesson;
-    const lessonProblems = await Problem.find({
+    const problems = await Problem.find({
       $and: [{ unit: unit }, { lesson: lesson }],
     }).select("-__v");
     res.status(200).json({
       status: "success",
-      data: lessonProblems,
+      results: problems.length,
+      data: { problems },
     });
   } catch (error) {
     console.log(error);
@@ -30,10 +32,11 @@ exports.getLessonProblems = async (req, res) => {
 
 exports.getMatchingProblems = async (req, res) => {
   try {
-    const matchingProblems = await Problem.find({ problemType: "match" });
+    const problems = await Problem.find({ problemType: "match" });
     res.status(200).json({
       status: "success",
-      data: matchingProblems,
+      results: problems.length,
+      data: { problems },
     });
   } catch (error) {
     console.log(error);
@@ -42,12 +45,13 @@ exports.getMatchingProblems = async (req, res) => {
 
 exports.getListeningProblems = async (req, res) => {
   try {
-    const listeningProblems = await Problem.find({
+    const problems = await Problem.find({
       $or: [{ problemType: "listening" }, { problemType: "listeningWriting" }],
     });
     res.status(200).json({
       status: "success",
-      data: listeningProblems,
+      results: problems.length,
+      data: { problems },
     });
   } catch (error) {
     console.log(error);

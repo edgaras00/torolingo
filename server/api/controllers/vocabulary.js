@@ -6,6 +6,7 @@ exports.getAllWords = async (req, res) => {
 
     res.status(200).json({
       status: "success",
+      results: words.length,
       data: {
         words,
       },
@@ -22,6 +23,7 @@ exports.getUnitWords = async (req, res) => {
 
     res.status(200).json({
       status: "success",
+      results: words.length,
       data: {
         words,
       },

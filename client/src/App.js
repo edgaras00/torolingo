@@ -18,6 +18,7 @@ import UnitVocabulary from "./components/UnitVocabulary";
 import Practice from "./components/Practice";
 import UserProfile from "./components/UserProfile";
 import Account from "./components/Account";
+import Home from "./components/Home";
 
 import "./styles/app.css";
 const App = () => {
@@ -46,9 +47,10 @@ const App = () => {
   }
   return (
     <div id="app">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Routes>
-        <Route exact path="/" element={<Path />} />
+        <Route exact path="/" element={<Home />} />
+        <Route path="/path" element={<Path />} />
         {unitOneLessons}
         {unitTwoLessons}
         {unitThreeLessons}

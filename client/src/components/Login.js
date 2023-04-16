@@ -21,10 +21,12 @@ const Login = () => {
           type="email"
           name="email"
           value={email}
+          placeholder="Email"
           onChange={(event) => setEmail(event.target.value)}
         />
         <input
           type="password"
+          placeholder="Password"
           name="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}

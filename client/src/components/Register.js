@@ -19,18 +19,21 @@ const Register = () => {
         <input
           type="text"
           name="name"
+          placeholder="Name"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
         <input
           type="email"
           name="email"
+          placeholder="Email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
         <input
           type="password"
           name="password"
+          placeholder="Password"
           value={password}
           minlength="6"
           onChange={(event) => setPassword(event.target.value)}
@@ -38,6 +41,7 @@ const Register = () => {
         <input
           type="password"
           name="passwordConfirm"
+          placeholder="Confirm Password"
           value={passwordConfirm}
           minlength="6"
           onChange={(event) => setPasswordConfirm(event.target.value)}

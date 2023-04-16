@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import hispanicFlags from "../spanish.png";
+import "../styles/home.css";
 
 const Home = () => {
   return (
     <div className="home">
       <div className="home-top">
-        <div className="logo">torolingo</div>
+        <div className="home-logo">torolingo</div>
       </div>
       <div className="home-middle">
         <div className="home-img-container">
-          <div className="placeholder"></div>
+          <img src={hispanicFlags} alt="hispanic flags" />
         </div>
         <div className="signup-links-container">
           <div className="learn-text">
@@ -17,10 +19,12 @@ const Home = () => {
           </div>
           <div className="signup-links">
             <Link to="/signup">
-              <button className="signup">GET STARTED</button>
+              <button className="link-button">GET STARTED</button>
             </Link>
             <Link to="/login">
-              <button className="login">I ALREADY HAVE AN ACCOUNT</button>
+              <button className="link-button login-button">
+                I ALREADY HAVE AN ACCOUNT
+              </button>
             </Link>
           </div>
         </div>

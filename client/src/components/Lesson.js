@@ -58,7 +58,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
         const response = await fetch(url);
         const problemData = await response.json();
         problemData.data.push({ problemType: "completed" });
-        setQuestions(problemData.data);
+        setQuestions(problemData.data.problems);
       } catch (error) {
         console.log(error);
       }

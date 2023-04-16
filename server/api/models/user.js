@@ -25,10 +25,20 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+// Middleware
 userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, 10);
   next();
 });
+
+// Instance method
+userSchema.methods.correctPassword = async function (
+  inputPassword,
+  userPassword
+) {
+  const isPasswordCorrect = bcrypt.compare(inputPassword, userPassword);
+  return isPasswordCorrect;
+};
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;

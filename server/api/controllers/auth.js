@@ -40,3 +40,37 @@ exports.signup = async (req, res) => {
     console.log(error);
   }
 };
+
+exports.login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      throw new Error("Please provide email or password");
+    }
+
+    const user = await User.findOne({ email }).select("+password");
+
+    if (!user || (await user.correctPassword(password, user.password))) {
+      throw new Error("Bad credentials");
+    }
+
+    const token = await signToken(user._id);
+    const userObject = { name: user.name, email: user.email, id: user._id };
+
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      maxAge: process.env.JWT_COOKIE_EXPIRES_IN,
+    });
+
+    res.status(200).json({
+      status: "success",
+      token,
+      data: {
+        user: userObject,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

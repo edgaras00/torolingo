@@ -19,6 +19,8 @@ import Practice from "./components/Practice";
 import UserProfile from "./components/UserProfile";
 import Account from "./components/Account";
 import Home from "./components/Home";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 import "./styles/app.css";
 const App = () => {
@@ -50,6 +52,8 @@ const App = () => {
       {/* <Sidebar /> */}
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route path="/signup" element={<Register />} />
+        <Route path="login" element={<Login />} />
         <Route path="/path" element={<Path />} />
         {unitOneLessons}
         {unitTwoLessons}

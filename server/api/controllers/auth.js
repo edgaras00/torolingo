@@ -74,3 +74,11 @@ exports.login = async (req, res) => {
     console.log(error);
   }
 };
+
+exports.protectRoute = async (req, res, next) => {
+  try {
+    next();
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/register.css";
+import "../styles/userForms.css";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -13,7 +13,7 @@ const Register = () => {
   };
 
   return (
-    <div className="register-form-container">
+    <div className="form-container">
       <div className="exit-login">
         <Link to="/">
           <div className="form-exit-button">X</div>
@@ -23,7 +23,7 @@ const Register = () => {
         <div className="header-container">
           <h3>Create your profile</h3>
         </div>
-        <form className="registration-form" onSubmit={handleSubmit}>
+        <form className="user-form" onSubmit={handleSubmit}>
           <input
             type="text"
             name="name"

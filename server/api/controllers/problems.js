@@ -1,94 +1,70 @@
 const Problem = require("../models/problems");
+const catchAsync = require("../../utils/catchAsync");
+exports.getAllProblems = catchAsync(async (req, res) => {
+  const problems = await Problem.find().select("-__v");
+  res.status(200).json({
+    status: "success",
+    results: problems.length,
+    data: { problems },
+  });
+});
 
-exports.getAllProblems = async (req, res) => {
-  try {
-    const problems = await Problem.find().select("-__v");
-    res.status(200).json({
-      status: "success",
-      results: problems.length,
-      data: { problems },
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
+exports.getLessonProblems = catchAsync(async (req, res, next) => {
+  const unit = req.query.unit;
+  const lesson = req.query.lesson;
+  const problems = await Problem.find({
+    $and: [{ unit: unit }, { lesson: lesson }],
+  }).select("-__v");
+  res.status(200).json({
+    status: "success",
+    results: problems.length,
+    data: { problems },
+  });
+});
 
-exports.getLessonProblems = async (req, res) => {
-  try {
-    const unit = req.query.unit;
-    const lesson = req.query.lesson;
-    const problems = await Problem.find({
-      $and: [{ unit: unit }, { lesson: lesson }],
-    }).select("-__v");
-    res.status(200).json({
-      status: "success",
-      results: problems.length,
-      data: { problems },
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
+exports.getMatchingProblems = catchAsync(async (req, res, next) => {
+  const problems = await Problem.find({ problemType: "match" });
+  res.status(200).json({
+    status: "success",
+    results: problems.length,
+    data: { problems },
+  });
+});
 
-exports.getMatchingProblems = async (req, res) => {
-  try {
-    const problems = await Problem.find({ problemType: "match" });
-    res.status(200).json({
-      status: "success",
-      results: problems.length,
-      data: { problems },
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
+exports.getListeningProblems = catchAsync(async (req, res, next) => {
+  const problems = await Problem.find({
+    $or: [{ problemType: "listening" }, { problemType: "listeningWriting" }],
+  });
+  res.status(200).json({
+    status: "success",
+    results: problems.length,
+    data: { problems },
+  });
+});
 
-exports.getListeningProblems = async (req, res) => {
-  try {
-    const problems = await Problem.find({
-      $or: [{ problemType: "listening" }, { problemType: "listeningWriting" }],
-    });
-    res.status(200).json({
-      status: "success",
-      results: problems.length,
-      data: { problems },
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-exports.getSingleProblem = async (req, res) => {
+exports.getSingleProblem = catchAsync(async (req, res, next) => {
   const problemId = req.params.problemId;
-
-  // Handle 404
-  // if (!problem) {...}
 
   const problem = await Problem.findById(problemId);
   res.status(200).json({
     status: "success",
     data: { problem },
   });
-};
+});
 
-exports.createProblem = async (req, res) => {
-  try {
-    const newProblem = { ...req.body };
-    const problem = await Problem.create(newProblem);
+exports.createProblem = catchAsync(async (req, res, next) => {
+  const newProblem = { ...req.body };
+  const problem = await Problem.create(newProblem);
 
-    res.status(201).json({
-      status: "success",
-      data: {
-        problem,
-      },
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ msg: "error" });
-  }
-};
+  res.status(201).json({
+    status: "success",
+    data: {
+      problem,
+    },
+  });
+});
 
-exports.updateProblem = async (req, res) => {
+exports.updateProblem = catchAsync(async (req, res, next) => {
   const problemId = req.params.problemId;
 
   const problem = await Problem.findByIdAndUpdate(problemId, req.body, {
@@ -104,9 +80,9 @@ exports.updateProblem = async (req, res) => {
       problem,
     },
   });
-};
+});
 
-exports.deleteProblem = async (req, res) => {
+exports.deleteProblem = catchAsync(async (req, res, next) => {
   const problemId = req.params.problemId;
 
   const problem = await Problem.findByIdAndDelete(problemId);
@@ -118,4 +94,4 @@ exports.deleteProblem = async (req, res) => {
     status: "success",
     message: "Problem was removed successfully",
   });
-};
+});

@@ -9,9 +9,7 @@ router
   .get(problemController.getAllProblems)
   .post(authController.protectRoute, problemController.createProblem);
 
-router
-  .route("/lessons")
-  .get(authController.protectRoute, problemController.getLessonProblems);
+// router.route("/lessons").get(problemController.getLessonProblems);
 router
   .route("/listening")
   .get(authController.protectRoute, problemController.getListeningProblems);
@@ -21,7 +19,7 @@ router
 
 router
   .route("/:problemId")
-  .get(authController.protectRoute, problemController.getSingleProblem)
+  .get(problemController.getSingleProblem)
   .patch(authController.protectRoute, problemController.updateProblem)
   .delete(authController.protectRoute, problemController.deleteProblem);
 

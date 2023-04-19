@@ -1,20 +1,15 @@
 const Problem = require("../models/problems");
+const AppError = require("../../utils/appError");
 const catchAsync = require("../../utils/catchAsync");
-exports.getAllProblems = catchAsync(async (req, res) => {
-  const problems = await Problem.find().select("-__v");
-  res.status(200).json({
-    status: "success",
-    results: problems.length,
-    data: { problems },
-  });
-});
 
-exports.getLessonProblems = catchAsync(async (req, res, next) => {
-  const unit = req.query.unit;
-  const lesson = req.query.lesson;
-  const problems = await Problem.find({
-    $and: [{ unit: unit }, { lesson: lesson }],
-  }).select("-__v");
+// Get all problems
+exports.getAllProblems = catchAsync(async (req, res, next) => {
+  const problems = await Problem.find(req.query).select("-__v");
+
+  if (problems.length === 0) {
+    return next(new AppError("No Spanish problems found.", 404));
+  }
+
   res.status(200).json({
     status: "success",
     results: problems.length,

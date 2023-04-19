@@ -1,4 +1,4 @@
-// const { promisify } = require("utils");
+const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
@@ -77,6 +77,21 @@ exports.login = async (req, res) => {
 
 exports.protectRoute = async (req, res, next) => {
   try {
+    // Check for token
+    let token;
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startswith("Bearer")
+    ) {
+      token = req.headers.authorization.split(" ")[1];
+    }
+
+    if (!token) {
+      throw new Error("Please log in to get access");
+    }
+
+    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
     next();
   } catch (error) {
     console.log(error);

@@ -48,6 +48,7 @@ module.exports = (err, req, res, next) => {
     let error = { ...err };
     if (err.name === "CastError") error = handleCastErrorDB(error);
     if (err.code === 11000) error = handleDuplicateDB(error, err.message);
+    if (err.statusCode === 404) error.message = "Resource not found";
     sendErrorProd(error, res);
   }
 };

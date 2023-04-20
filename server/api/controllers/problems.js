@@ -6,30 +6,6 @@ const catchAsync = require("../../utils/catchAsync");
 exports.getAllProblems = catchAsync(async (req, res, next) => {
   const problems = await Problem.find(req.query).select("-__v");
 
-  if (problems.length === 0) {
-    return next(new AppError("No Spanish problems found.", 404));
-  }
-
-  res.status(200).json({
-    status: "success",
-    results: problems.length,
-    data: { problems },
-  });
-});
-
-exports.getMatchingProblems = catchAsync(async (req, res, next) => {
-  const problems = await Problem.find({ problemType: "match" });
-  res.status(200).json({
-    status: "success",
-    results: problems.length,
-    data: { problems },
-  });
-});
-
-exports.getListeningProblems = catchAsync(async (req, res, next) => {
-  const problems = await Problem.find({
-    $or: [{ problemType: "listening" }, { problemType: "listeningWriting" }],
-  });
   res.status(200).json({
     status: "success",
     results: problems.length,
@@ -38,9 +14,12 @@ exports.getListeningProblems = catchAsync(async (req, res, next) => {
 });
 
 exports.getSingleProblem = catchAsync(async (req, res, next) => {
-  const problemId = req.params.problemId;
+  const problem = await Problem.findById(req.params.problemId);
 
-  const problem = await Problem.findById(problemId);
+  if (!problem) {
+    return next(new AppError("Problem not found with that ID", 404));
+  }
+
   res.status(200).json({
     status: "success",
     data: { problem },
@@ -60,14 +39,17 @@ exports.createProblem = catchAsync(async (req, res, next) => {
 });
 
 exports.updateProblem = catchAsync(async (req, res, next) => {
-  const problemId = req.params.problemId;
+  const problem = await Problem.findByIdAndUpdate(
+    req.params.problemId,
+    req.body,
+    {
+      new: true,
+    }
+  );
 
-  const problem = await Problem.findByIdAndUpdate(problemId, req.body, {
-    new: true,
-  });
-
-  // Handle 404
-  // if (!problem) {...}
+  if (!problem) {
+    return next(new AppError("Problem not found with that ID", 404));
+  }
 
   res.status(200).json({
     status: "success",
@@ -78,12 +60,11 @@ exports.updateProblem = catchAsync(async (req, res, next) => {
 });
 
 exports.deleteProblem = catchAsync(async (req, res, next) => {
-  const problemId = req.params.problemId;
+  const problem = await Problem.findByIdAndDelete(req.params.problemId);
 
-  const problem = await Problem.findByIdAndDelete(problemId);
-
-  // Handle 404
-  // if (!problem) {...}
+  if (!problem) {
+    return next(new AppError("Problem not found with that ID", 404));
+  }
 
   res.status(204).json({
     status: "success",

@@ -7,7 +7,6 @@ const problemSchema = new mongoose.Schema({
   },
   solution: {
     type: String,
-    // required: [true, "Problem must have a solution"],
     maxLength: 200,
   },
   pairs: [],

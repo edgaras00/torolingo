@@ -1,5 +1,6 @@
 const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
+const catchAsync = require("../../utils/catchAsync");
 const User = require("../models/user");
 
 const signToken = async (id) => {
@@ -9,37 +10,33 @@ const signToken = async (id) => {
   return token;
 };
 
-exports.signup = async (req, res) => {
-  try {
-    const newUser = {
-      email: req.body.email,
-      name: req.body.name,
-      password: req.body.password,
-    };
+exports.signup = catchAsync(async (req, res) => {
+  const newUser = {
+    email: req.body.email,
+    name: req.body.name,
+    password: req.body.password,
+  };
 
-    const user = await User.create(newUser);
-    user.password = undefined;
+  const user = await User.create(newUser);
+  user.password = undefined;
 
-    const token = await signToken(user._id);
-    const userObject = { name: user.name, email: user.email, id: user._id };
+  const token = await signToken(user._id);
+  const userObject = { name: user.name, email: user.email, id: user._id };
 
-    // Send JWT as a cookie
-    res.cookie("jwt", token, {
-      httpOnly: true,
-      maxAge: process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
-    });
+  // Send JWT as a cookie
+  res.cookie("jwt", token, {
+    httpOnly: true,
+    maxAge: process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
+  });
 
-    res.status(201).json({
-      status: "success",
-      token,
-      data: {
-        user: userObject,
-      },
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
+  res.status(201).json({
+    status: "success",
+    token,
+    data: {
+      user: userObject,
+    },
+  });
+});
 
 exports.login = async (req, res) => {
   try {

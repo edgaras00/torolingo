@@ -1,6 +1,7 @@
 const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
 const catchAsync = require("../../utils/catchAsync");
+const AppError = require("../../utils/appError");
 const User = require("../models/user");
 
 const signToken = async (id) => {
@@ -38,59 +39,53 @@ exports.signup = catchAsync(async (req, res) => {
   });
 });
 
-exports.login = async (req, res) => {
-  try {
-    const { email, password } = req.body;
+exports.login = catchAsync(async (req, res) => {
+  const { email, password } = req.body;
 
-    if (!email || !password) {
-      throw new Error("Please provide email or password");
-    }
-
-    const user = await User.findOne({ email }).select("+password");
-
-    if (!user || (await user.correctPassword(password, user.password))) {
-      throw new Error("Bad credentials");
-    }
-
-    const token = await signToken(user._id);
-    const userObject = { name: user.name, email: user.email, id: user._id };
-
-    res.cookie("jwt", token, {
-      httpOnly: true,
-      maxAge: process.env.JWT_COOKIE_EXPIRES_IN,
-    });
-
-    res.status(200).json({
-      status: "success",
-      token,
-      data: {
-        user: userObject,
-      },
-    });
-  } catch (error) {
-    console.log(error);
+  if (!email || !password) {
+    throw new Error("Please provide email or password");
   }
-};
 
-exports.protectRoute = async (req, res, next) => {
-  try {
-    // Check for token
-    let token;
-    if (
-      req.headers.authorization &&
-      req.headers.authorization.startswith("Bearer")
-    ) {
-      token = req.headers.authorization.split(" ")[1];
-    }
+  const user = await User.findOne({ email }).select("+password");
 
-    if (!token) {
-      throw new Error("Please log in to get access");
-    }
-
-    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-
-    next();
-  } catch (error) {
-    console.log(error);
+  if (!user || (await user.correctPassword(password, user.password))) {
+    return next(new AppError("Bad credentials", 401));
   }
-};
+
+  const token = await signToken(user._id);
+  const userObject = { name: user.name, email: user.email, id: user._id };
+
+  res.cookie("jwt", token, {
+    httpOnly: true,
+    maxAge: process.env.JWT_COOKIE_EXPIRES_IN,
+  });
+
+  res.status(200).json({
+    status: "success",
+    token,
+    data: {
+      user: userObject,
+    },
+  });
+});
+
+exports.protectRoute = catchAsync(async (req, res, next) => {
+  // Get token
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startswith("Bearer")
+  ) {
+    token = req.headers.authorization.split(" ")[1];
+  }
+  // Check if received token
+  if (!token) {
+    return next(new AppError("Please log in to get access", 401));
+  }
+  // Verify token
+  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
+  // Check if user still exists
+
+  next();
+});

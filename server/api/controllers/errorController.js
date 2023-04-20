@@ -11,6 +11,9 @@ const handleDuplicateDB = (err, errmsg) => {
   return new AppError(message, 400);
 };
 
+const handleJWTError = (err) =>
+  new AppError("Invalid token. Pleae log in again", 401);
+
 const sendErrorDev = (err, res) => {
   res.status(err.statusCode).json({
     status: err.status,
@@ -46,9 +49,10 @@ module.exports = (err, req, res, next) => {
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === "production") {
     let error = { ...err };
-    if (err.name === "CastError") error = handleCastErrorDB(error);
-    if (err.code === 11000) error = handleDuplicateDB(error, err.message);
-    if (err.statusCode === 404) error.message = "Resource not found";
+    if (error.name === "CastError") error = handleCastErrorDB(error);
+    if (error.code === 11000) error = handleDuplicateDB(error, err.message);
+    if (error.statusCode === 404) error.message = "Resource not found";
+    if (error.name === "JsonWebTokenError") error = handleJWTError(error);
     sendErrorProd(error, res);
   }
 };

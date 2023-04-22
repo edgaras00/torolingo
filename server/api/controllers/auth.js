@@ -16,7 +16,6 @@ exports.signup = catchAsync(async (req, res) => {
     email: req.body.email,
     name: req.body.name,
     password: req.body.password,
-    passwordChangedAt: req.body.passwordChangedAt,
   };
 
   const user = await User.create(newUser);
@@ -40,7 +39,7 @@ exports.signup = catchAsync(async (req, res) => {
   });
 });
 
-exports.login = catchAsync(async (req, res) => {
+exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -49,7 +48,7 @@ exports.login = catchAsync(async (req, res) => {
 
   const user = await User.findOne({ email }).select("+password");
 
-  if (!user || (await user.correctPassword(password, user.password))) {
+  if (!user || !(await user.correctPassword(password, user.password))) {
     return next(new AppError("Bad credentials", 401));
   }
 
@@ -108,3 +107,15 @@ exports.protectRoute = catchAsync(async (req, res, next) => {
   req.user = user;
   next();
 });
+
+exports.restrictRouteTo = (...roles) => {
+  return (req, res, next) => {
+    // roles: ["admin", "user"]
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new AppError("You do not have permission to perform this action", 403)
+      );
+    }
+    next();
+  };
+};

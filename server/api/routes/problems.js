@@ -6,7 +6,11 @@ const router = express.Router();
 
 router
   .route("/")
-  .get(authController.protectRoute, problemController.getAllProblems)
+  .get(
+    authController.protectRoute,
+    authController.restrictRouteTo("admin"),
+    problemController.getAllProblems
+  )
   .post(authController.protectRoute, problemController.createProblem);
 
 // router.route("/lessons").get(problemController.getLessonProblems);

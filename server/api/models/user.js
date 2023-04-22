@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
 
 // Middleware
 userSchema.pre("save", async function (next) {
-  this.password = bcrypt.hash(this.password, 10);
+  this.password = await bcrypt.hash(this.password, 10);
   next();
 });
 
@@ -37,7 +37,7 @@ userSchema.methods.correctPassword = async function (
   inputPassword,
   userPassword
 ) {
-  const isPasswordCorrect = bcrypt.compare(inputPassword, userPassword);
+  const isPasswordCorrect = await bcrypt.compare(inputPassword, userPassword);
   return isPasswordCorrect;
 };
 

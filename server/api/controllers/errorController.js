@@ -11,8 +11,11 @@ const handleDuplicateDB = (err, errmsg) => {
   return new AppError(message, 400);
 };
 
-const handleJWTError = (err) =>
+const handleJWTError = () =>
   new AppError("Invalid token. Pleae log in again", 401);
+
+const handleJWTExpiredError = () =>
+  new AppError("Your token has expird. Please log in again", 401);
 
 const sendErrorDev = (err, res) => {
   res.status(err.statusCode).json({
@@ -53,6 +56,7 @@ module.exports = (err, req, res, next) => {
     if (error.code === 11000) error = handleDuplicateDB(error, err.message);
     if (error.statusCode === 404) error.message = "Resource not found";
     if (error.name === "JsonWebTokenError") error = handleJWTError(error);
+    if (error.name === "TokenExpiredError") error = handleJWTExpired(error);
     sendErrorProd(error, res);
   }
 };

@@ -23,6 +23,7 @@ const userSchema = new mongoose.Schema({
     default: "user",
     enum: ["user", "admin"],
   },
+  passwordChangedAt: Date,
 });
 
 // Middleware
@@ -38,6 +39,17 @@ userSchema.methods.correctPassword = async function (
 ) {
   const isPasswordCorrect = bcrypt.compare(inputPassword, userPassword);
   return isPasswordCorrect;
+};
+
+userSchema.methods.changedPasswordAfterToken = function (timestampJWT) {
+  if (this.passwordChangedAt) {
+    const modifiedTimestamp = parseInt(
+      this.passwordChangedAt.getTime() / 1000,
+      10
+    );
+    return timestampJWT < modifiedTimestamp;
+  }
+  return false;
 };
 
 const User = mongoose.model("User", userSchema);

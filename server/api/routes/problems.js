@@ -8,7 +8,7 @@ router
   .route("/")
   .get(
     authController.protectRoute,
-    authController.restrictRouteTo("admin"),
+    authController.restrictRouteTo("admin", "user"),
     problemController.getAllProblems
   )
   .post(authController.protectRoute, problemController.createProblem);

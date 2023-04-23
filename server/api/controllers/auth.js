@@ -119,3 +119,37 @@ exports.restrictRouteTo = (...roles) => {
     next();
   };
 };
+
+exports.updatePassword = catchAsync(async (req, res, next) => {
+  // Get user
+  const user = await User.findById(req.user._id).select("+password");
+
+  if (!user) {
+    return next(new AppError("User does not exist", 404));
+  }
+
+  // Check if submitted password is correct
+  if (!(await user.correctPassword(req.body.currentPassword, user.password))) {
+    return next(new AppError("Incorrect password", 401));
+  }
+
+  // Update password
+  // const updatedUser = await User.findByIdAndUpdate(req.user._id, req.body, {
+  //   new: true,
+  // });
+
+  user.password = req.body.password;
+  const updatedUser = await user.save();
+  updatedUser.password = undefined;
+
+  // Log in user / Send JWT
+  const token = await signToken(updatedUser._id);
+
+  res.status(200).json({
+    status: "success",
+    token,
+    data: {
+      updatedUser,
+    },
+  });
+});

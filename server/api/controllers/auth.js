@@ -4,11 +4,38 @@ const catchAsync = require("../../utils/catchAsync");
 const AppError = require("../../utils/appError");
 const User = require("../models/user");
 
-const signToken = async (id) => {
-  const token = await jwt.sign({ id }, process.env.JWT_SECRET, {
+const signToken = (id) => {
+  const token = jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
   return token;
+};
+
+const createAndSendToken = (user, statusCode, res) => {
+  // Function that creates a token and sends it as a cookie to client
+
+  const token = signToken(user.id);
+
+  // Cookie options
+  const cookieOptions = {
+    httpOnly: true,
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+    ),
+  };
+  // Make it secure only in production
+  if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
+  // Send JWT as a cookie
+  res.cookie("jwt", token, cookieOptions);
+
+  // Send response
+  res.status(statusCode).json({
+    status: "success",
+    token,
+    data: {
+      user,
+    },
+  });
 };
 
 exports.signup = catchAsync(async (req, res) => {
@@ -21,22 +48,10 @@ exports.signup = catchAsync(async (req, res) => {
   const user = await User.create(newUser);
   user.password = undefined;
 
-  const token = await signToken(user._id);
   const userObject = { name: user.name, email: user.email, id: user._id };
 
-  // Send JWT as a cookie
-  res.cookie("jwt", token, {
-    httpOnly: true,
-    maxAge: process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
-  });
-
-  res.status(201).json({
-    status: "success",
-    token,
-    data: {
-      user: userObject,
-    },
-  });
+  // Send response and JWT as a cookie
+  createAndSendToken(userObject, 201, res);
 });
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -55,18 +70,7 @@ exports.login = catchAsync(async (req, res, next) => {
   const token = await signToken(user._id);
   const userObject = { name: user.name, email: user.email, id: user._id };
 
-  res.cookie("jwt", token, {
-    httpOnly: true,
-    maxAge: process.env.JWT_COOKIE_EXPIRES_IN,
-  });
-
-  res.status(200).json({
-    status: "success",
-    token,
-    data: {
-      user: userObject,
-    },
-  });
+  createAndSendToken(userObject, 200, res);
 });
 
 exports.protectRoute = catchAsync(async (req, res, next) => {

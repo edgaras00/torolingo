@@ -9,6 +9,10 @@ const problemSchema = new mongoose.Schema({
     type: String,
     maxLength: 200,
   },
+  altSolution: {
+    type: String,
+    maxLength: 200,
+  }
   pairs: [],
   choices: [],
   wordBank: [],

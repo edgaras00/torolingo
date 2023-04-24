@@ -25,7 +25,8 @@
   },
   {
     "problemType": "listening",
-    "solution": "Yo como pan",
+    "solution": "Yo como pan.",
+    "altSolution": "Como pan.",
     "translation": "I eat bread.",
     "unit": 1,
     "lesson": 1,
@@ -378,6 +379,7 @@
   {
     "problemType": "listening",
     "solution": "Tú eres Luis.",
+    "altSolution": "Eres Luis",
     "translation": "You are Luis.",
     "audioURL": "https://tlingobucket.s3.amazonaws.com/audio/l8.mp3",
     "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/l8_slow.mp3",
@@ -452,6 +454,7 @@
     "problemType": "translation",
     "text": "Do you eat apples?",
     "solution": "¿Tú comes manzanas?",
+    "altSolution": "¿Comes manzanas?",
     "unit": 1,
     "lesson": 3,
     "wordBank": [
@@ -661,7 +664,8 @@
   {
     "problemType": "translation",
     "text": "Do you drink water?",
-    "solution": "¿Tú bebes Agua?",
+    "solution": "¿Tú bebes agua?",
+    "altSolution": "¿Bebes agua?",
     "lesson": 5,
     "unit": 1,
     "wordBank": [
@@ -972,5 +976,138 @@
     ],
     "unit": 2,
     "lesson": 1
+  },
+  {
+    "problemType": "match",
+    "unit": 2,
+    "lesson": 2,
+    "pairs": [
+      { "english": "water", "spanish": "agua" },
+      { "english": "goodbye", "spanish": "adiós" },
+      { "english": "hello", "spanish": "hola" },
+      { "english": "thanks", "spanish": "gracias" },
+      { "english": "girl", "spanish": "niña" }
+    ]
+  },
+  {
+    "problemType": "listening",
+    "unit": 2,
+    "lesson": 2,
+    "solution": "¿Perdón, Juan",
+    "audioURL": "",
+    "slowAudioURL": "",
+    "wordBank": [
+      "buenas noches",
+      "Perdón",
+      "Juan",
+      "por favor",
+      "lo",
+      "siento"
+    ],
+    "translation": "Pardon me, Juan?"
+  },
+  {
+    "problemType": "match",
+    "unit": 2,
+    "lesson": 2,
+    "pairs": [
+      { "spanish": "leche", "english": "milk" },
+      { "spanish": "ella", "english": "she" },
+      { "english": "suitcase", "spanish": "maleta" },
+      { "english": "apple", "spanish": "manzana" },
+      { "spanish": "boleto", "english": "ticket" },
+      { "spanish": "teléfono", "english": "telephone" },
+      { "spanish": "dinero", "english": "money" }
+    ]
+  },
+  {
+    "problemType": "fillBlank",
+    "unit": 2,
+    "lesson": 2,
+    "text": "____, por favor. Lo siento.",
+    "solution": "disuclpe",
+    "translation": "Excuse me, please. Sorry.",
+    "wordBank": ["adiós", "de nada", "disculpe"],
+    "pictureURL": "https://tlingobucket.s3.amazonaws.com/coffe_spill.svg"
+  },
+  {
+    "problemType": "translation",
+    "text": "En el banco.",
+    "solution": "In the bank.",
+    "unit": 2,
+    "lesson": 2,
+    "wordBank": ["the", "my", "In", "here", "bank", "your", "phone"]
+  },
+  {
+    "problemType": "fillBlank",
+    "unit": 2,
+    "lesson": 2,
+    "text": "Yo necesito ____.",
+    "solution": "dinero",
+    "translation": "I need money.",
+    "wordBank": ["leche", "boleto", "dinero", "gracias"],
+    "pictureURL": "https://tlingobucket.s3.amazonaws.com/train.svg"
+  },
+  {
+    "problemType": "translation",
+    "text": "I have a reservation.",
+    "solution": "Yo tengo una reserva.",
+    "altSolution": "Tengo una reserva",
+    "unit": 2,
+    "lesson": 2,
+    "wordBank": [
+      "tengo",
+      "Yo",
+      "mujer",
+      "una",
+      "reserva",
+      "supermercado",
+      "agua"
+    ]
+  },
+  {
+    "problemType": "translation",
+    "text": "En el aeropuerto.",
+    "solution": "At the airport.",
+    "unit": 2,
+    "lesson": 2,
+    "wordBank": [
+      "she",
+      "suitcase",
+      "At",
+      "supermarket",
+      "a",
+      "the",
+      "airport",
+      "please"
+    ]
+  },
+  {
+    "problemType": "multipleChoice",
+    "choices": ["el hotel", "el banco", "el museo", "el aeropuerto"],
+    "solution": "el hotel",
+    "text": "How do you say \"the hotel\"?",
+    "unit": 2,
+    "lesson": 2
+  },
+  {
+    "problemType": "match",
+    "unit": 2,
+    "lesson": 2,
+    "pairs": [
+      { "english": "street", "spanish": "calle" },
+      { "english": "ticket", "spanish": "boleto" },
+      { "english": "bus", "spanish": "autobús" },
+      { "english": "my", "spanish": "mi" },
+      { "english": "in", "spanish": "en" }
+    ]
+  },
+  {
+    "problemType": "translation",
+    "text": "¿Dónde está tu el museo?",
+    "solution": "Where is the museum?",
+    "unit": 2,
+    "lesson": 2,
+    "wordBank": ["is", "a", "Where", "money", "bank", "the", "bread", "museum"]
   }
 ]

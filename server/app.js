@@ -7,22 +7,29 @@ const vocabularyRouter = require("./api/routes/vocabulary");
 const userRouter = require("./api/routes/user");
 const errorController = require("./api/controllers/errorController");
 const rateLimit = require("express-rate-limit");
+const helmet = require("helmet");
 require("dotenv").config();
 
 const app = express();
 
-// Rate limiter to limit /user requests
+// Global middlewares
+
+// Security HTTP headers
+app.use(helmet());
+
+// Rate limiter to limit /user requests from same IP address
 const limiter = rateLimit({
   max: 1000,
   windowMs: 60 * 60 * 1000,
   message:
     "Too many requests from this IP address. Please try again in an hour.",
 });
-
 app.use("/api/user", limiter);
+// Handle CORS
 app.use(cors());
+// Body parser (body --> req.body)
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(express.json({ limit: "10kb" }));
 
 app.use("/api/problems", problemRouter);
 app.use("/api/vocab", vocabularyRouter);

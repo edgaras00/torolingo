@@ -11,6 +11,11 @@ router.patch(
   authController.protectRoute,
   authController.updatePassword
 );
+router.patch(
+  "/updateUser",
+  authController.protectRoute,
+  userController.updateUser
+);
 // router.post("/logout", authController.logout);
 
 router.get("/", userController.getAllUsers);
@@ -18,7 +23,7 @@ router.get("/", userController.getAllUsers);
 router
   .route("/:userId")
   .get(userController.getUser)
-  .patch(userController.updateUser)
+  // .patch(userController.updateUserAdmin)
   .delete(userController.deleteUser);
 
 module.exports = router;

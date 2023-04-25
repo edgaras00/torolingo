@@ -23,6 +23,7 @@ import Account from "./components/Account";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import NotFound from "./components/NotFound";
 
 import "./styles/app.css";
 const App = () => {
@@ -239,6 +240,7 @@ const App = () => {
             )
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

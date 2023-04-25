@@ -13,12 +13,10 @@ const UnitHeader = ({
   const [hovered, setHovered] = useState(false);
 
   const handleOnMouseEnter = () => {
-    console.log("hovered");
     setHovered(true);
   };
 
   const handleMouseLeave = () => {
-    console.log("left");
     setHovered(false);
   };
 

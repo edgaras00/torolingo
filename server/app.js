@@ -17,7 +17,7 @@ const app = express();
 // Global middlewares
 
 // Security HTTP headers
-app.use(helmet());
+// app.use(helmet());
 
 // Rate limiter to limit /user requests from same IP address
 const limiter = rateLimit({
@@ -31,7 +31,7 @@ app.use("/api/user", limiter);
 app.use(cors());
 // Body parser (body --> req.body)
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json({ limit: "10kb" }));
+app.use(express.json());
 
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());

@@ -7,8 +7,8 @@ const router = express.Router();
 router
   .route("/")
   .get(
-    authController.protectRoute,
-    authController.restrictRouteTo("admin", "user"),
+    // authController.protectRoute,
+    // authController.restrictRouteTo("admin", "user"),
     problemController.getAllProblems
   )
   .post(authController.protectRoute, problemController.createProblem);

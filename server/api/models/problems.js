@@ -12,7 +12,7 @@ const problemSchema = new mongoose.Schema({
   altSolution: {
     type: String,
     maxLength: 200,
-  }
+  },
   pairs: [],
   choices: [],
   wordBank: [],

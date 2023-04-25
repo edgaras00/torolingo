@@ -46,12 +46,11 @@ const App = () => {
   }
   return (
     <div id="app">
-      {/* <Sidebar /> */}
       <Routes>
         <Route
           exact
           path="/"
-          element={user ? <Home /> : <Navigate to="/path" replace />}
+          element={!user ? <Home /> : <Navigate to="/path" replace />}
         />
         <Route
           path="/signup"
@@ -75,11 +74,6 @@ const App = () => {
           }
         />
         {lessons}
-        {/* {unitOneLessons}
-        {unitTwoLessons}
-        {unitThreeLessons}
-        {unitFourLessons}
-        {unitFiveLessons} */}
         <Route
           path="/path/guidebook-1"
           element={

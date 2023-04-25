@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { AppError } from "../utils";
+import { AppError, setRequestOptions } from "../utils";
 import "../styles/userForms.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState(null);
+  const [loginError, setLoginError] = useState("");
   const { setUser } = useContext(AuthContext);
 
   const handleSubmit = async (event, email, password) => {
@@ -17,17 +17,10 @@ const Login = () => {
       setLoginError("Please fill in all of the fields.");
       return;
     }
-
+    setLoginError(null);
     try {
-      const loginBody = { email, password };
-      const requestOptions = {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(loginBody),
-      };
+      // Set request options and prepare data to be sent to server
+      const requestOptions = setRequestOptions({ email, password });
 
       // Send request
       const response = await fetch(
@@ -77,6 +70,9 @@ const Login = () => {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
+          {loginError ? (
+            <p className="user-submit-error">{loginError}</p>
+          ) : null}
           <button>LOG IN</button>
         </form>
       </div>

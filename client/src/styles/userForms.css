@@ -66,3 +66,8 @@
 .user-form button:hover {
   background-color: #51bff1;
 }
+
+.user-submit-error {
+  color: rgb(243, 0, 0);
+  font-size: 0.95rem;
+}

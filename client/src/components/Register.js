@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { AppError } from "../utils";
+import { AppError, setRequestOptions } from "../utils";
 import "../styles/userForms.css";
 
 const Register = () => {
@@ -9,32 +9,37 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [signupError, setSignupError] = useState(null);
+  const [signupError, setSignupError] = useState("");
   const { setUser } = useContext(AuthContext);
 
-  const handleSubmit = async (event, name, email, password) => {
+  const handleSubmit = async (
+    event,
+    name,
+    email,
+    password,
+    confirmPassword
+  ) => {
     event.preventDefault();
 
-    if (!name || !email || !password || !passwordConfirm) {
+    if (!name || !email || !password || !confirmPassword) {
       setSignupError("Please fill in all of the fields.");
       return;
     }
 
+    if (password !== confirmPassword) {
+      setSignupError("Passwords do not match!");
+      setPasswordConfirm("");
+      return;
+    }
+    setSignupError("");
     try {
-      const signupBody = { name, email, password };
-      const requestOptions = {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(signupBody),
-      };
+      // Set request options and prepare data to be sent to server
+      const requestOptions = setRequestOptions({ name, email, password });
 
       const response = await fetch("/api/user/signup", requestOptions);
       const data = await response.json();
 
-      if (!response.status === 201) {
+      if (response.status !== 201) {
         throw new AppError(data.message, response.status);
       }
 
@@ -42,6 +47,10 @@ const Register = () => {
       localStorage.setItem("user", JSON.stringify(data.data.user));
     } catch (error) {
       console.error(error);
+      if (error.statusCode === 500) {
+        setSignupError("Something went wrong. Please try again later.");
+        return;
+      }
       setSignupError(error.message);
     }
   };
@@ -59,7 +68,9 @@ const Register = () => {
         </div>
         <form
           className="user-form"
-          onSubmit={(event) => handleSubmit(event, name, email, password)}
+          onSubmit={(event) =>
+            handleSubmit(event, name, email, password, passwordConfirm)
+          }
         >
           <input
             type="text"
@@ -91,6 +102,9 @@ const Register = () => {
             minLength="6"
             onChange={(event) => setPasswordConfirm(event.target.value)}
           />
+          {signupError ? (
+            <p className="user-submit-error">{signupError}</p>
+          ) : null}
           <button>CREATE ACCOUNT</button>
         </form>
       </div>

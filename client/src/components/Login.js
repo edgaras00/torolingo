@@ -1,13 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { AppError } from "../utils";
 import "../styles/userForms.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(null);
+  const { setUser } = useContext(AuthContext);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event, email, password) => {
     event.preventDefault();
+
+    if (!email || !password) {
+      setLoginError("Please fill in all of the fields.");
+      return;
+    }
+
+    try {
+      const loginBody = { email, password };
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginBody),
+      };
+
+      // Send request
+      const response = await fetch(
+        "http://localhost:5000/api/user/login",
+        requestOptions
+      );
+
+      const data = await response.json();
+
+      if (response.status !== 200) {
+        throw new AppError(data.message, response.status);
+      }
+      setUser(data.data.user);
+      localStorage.setItem("user", JSON.stringify(data.data.user));
+    } catch (error) {
+      console.error(error);
+      setLoginError(error.message);
+    }
   };
 
   return (
@@ -21,7 +59,10 @@ const Login = () => {
         <div className="login-header-container">
           <h3>Log in</h3>
         </div>
-        <form className="user-form" onSubmit={handleSubmit}>
+        <form
+          className="user-form"
+          onSubmit={(event) => handleSubmit(event, email, password)}
+        >
           <input
             type="email"
             name="email"

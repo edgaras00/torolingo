@@ -10,3 +10,11 @@ export const capitalize = (string) => {
   const firstLetter = string.slice(0, 1).toUpperCase();
   return firstLetter + string.slice(1);
 };
+
+export class AppError extends Error {
+  constructor(message, statusCode) {
+    super(message);
+    this.statusCode = statusCode;
+    this.isOperational = true;
+  }
+}

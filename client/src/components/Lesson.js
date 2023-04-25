@@ -45,19 +45,19 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
 
     const fetchProblemdata = async (unit, lesson) => {
       try {
-        let url = `http://localhost:5000/problems/lessons?unit=${unit}&lesson=${lesson}`;
+        let url = `/api/problems?unit=${unit}&lesson=${lesson}`;
 
         if (matchingOnly) {
-          url = "http://localhost:5000/problems/match";
+          url = "/api/problems/match";
         }
 
         if (listeningOnly) {
-          url = "http://localhost:5000/problems/listening";
+          url = "/api/problems/listening";
         }
 
         const response = await fetch(url);
         const problemData = await response.json();
-        problemData.data.push({ problemType: "completed" });
+        problemData.data.problems.push({ problemType: "completed" });
         setQuestions(problemData.data.problems);
       } catch (error) {
         console.log(error);
@@ -115,6 +115,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           normalizedSolution={normalizeSolution(question.solution)}
           words={question.wordBank}
           locationState={locationState}
+          altSolution={question.altSolution}
         />
       );
     } else if (question.problemType === "multipleChoice") {

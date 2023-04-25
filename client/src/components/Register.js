@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { AppError } from "../utils";
 import "../styles/userForms.css";
 
 const Register = () => {
@@ -7,9 +9,41 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [signupError, setSignupError] = useState(null);
+  const { setUser } = useContext(AuthContext);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event, name, email, password) => {
     event.preventDefault();
+
+    if (!name || !email || !password || !passwordConfirm) {
+      setSignupError("Please fill in all of the fields.");
+      return;
+    }
+
+    try {
+      const signupBody = { name, email, password };
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signupBody),
+      };
+
+      const response = await fetch("/api/user/signup", requestOptions);
+      const data = await response.json();
+
+      if (!response.status === 201) {
+        throw new AppError(data.message, response.status);
+      }
+
+      setUser(data.data.user);
+      localStorage.setItem("user", JSON.stringify(data.data.user));
+    } catch (error) {
+      console.error(error);
+      setSignupError(error.message);
+    }
   };
 
   return (
@@ -23,7 +57,10 @@ const Register = () => {
         <div className="header-container">
           <h3>Create your profile</h3>
         </div>
-        <form className="user-form" onSubmit={handleSubmit}>
+        <form
+          className="user-form"
+          onSubmit={(event) => handleSubmit(event, name, email, password)}
+        >
           <input
             type="text"
             name="name"
@@ -43,7 +80,7 @@ const Register = () => {
             name="password"
             placeholder="Password"
             value={password}
-            minlength="6"
+            minLength="6"
             onChange={(event) => setPassword(event.target.value)}
           />
           <input
@@ -51,7 +88,7 @@ const Register = () => {
             name="passwordConfirm"
             placeholder="Confirm Password"
             value={passwordConfirm}
-            minlength="6"
+            minLength="6"
             onChange={(event) => setPasswordConfirm(event.target.value)}
           />
           <button>CREATE ACCOUNT</button>

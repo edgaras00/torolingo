@@ -19,6 +19,7 @@ const TranslationCard = ({
   header,
   addMistake,
   locationState,
+  altSolution,
 }) => {
   const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState([]);
@@ -40,8 +41,8 @@ const TranslationCard = ({
     setUserSolution(joinedWords);
   }, [selected]);
 
-  const handleCheckAnswer = (correctSolution, userSolution) => {
-    if (correctSolution === userSolution) {
+  const handleCheckAnswer = (correctSolution, userSolution, altSolution) => {
+    if (correctSolution === userSolution || altSolution === userSolution) {
       setResult("success");
       return;
     }
@@ -148,6 +149,7 @@ const TranslationCard = ({
         solution={solution}
         normalizedSolution={normalizedSolution}
         userSolution={userSolution}
+        altSolution={altSolution}
       />
     </div>
   );

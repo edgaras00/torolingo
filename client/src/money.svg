@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="212px" height="212px" viewBox="0 0 212 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>money and coins</title>
+    <desc>Created with Sketch.</desc>
+    <g id="money-and-coins" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="dollar-copy" transform="translate(119.500000, 86.000000) rotate(-8.000000) translate(-119.500000, -86.000000) translate(42.000000, 43.000000)" fill-rule="nonzero">
+            <rect id="Rectangle" stroke="#79C500" stroke-width="10" fill="#9ED926" x="5" y="5" width="145" height="76" rx="9"></rect>
+            <rect id="Rectangle" fill="#79C500" x="53" y="16" width="49" height="63" rx="24.5"></rect>
+            <rect id="Rectangle" fill="#79C500" x="129" y="57" width="20" height="28" rx="10"></rect>
+            <rect id="Rectangle-Copy" fill="#79C500" x="129" y="1" width="20" height="28" rx="10"></rect>
+            <rect id="Rectangle-Copy-3" fill="#79C500" x="6" y="57" width="20" height="28" rx="10"></rect>
+            <rect id="Rectangle-Copy-2" fill="#79C500" x="6" y="1" width="20" height="28" rx="10"></rect>
+            <rect id="Rectangle" fill="#79C500" x="110" y="35" width="13" height="20" rx="6.5"></rect>
+            <rect id="Rectangle-Copy-4" fill="#79C500" x="30" y="35" width="13" height="20" rx="6.5"></rect>
+        </g>
+        <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" opacity="0.179501488" style="mix-blend-mode: screen;" x="24" y="26" width="183" height="114" rx="6"></rect>
+        <g id="dollar" transform="translate(98.310742, 107.301381) rotate(4.000000) translate(-98.310742, -107.301381) translate(20.810742, 64.301381)" fill-rule="nonzero">
+            <rect id="Rectangle" stroke="#79C500" stroke-width="10" fill="#9ED926" x="5" y="5" width="145" height="76" rx="9"></rect>
+            <rect id="Rectangle" fill="#79C500" x="53" y="16" width="49" height="63" rx="24.5"></rect>
+            <rect id="Rectangle" fill="#79C500" x="129" y="57" width="20" height="28" rx="10"></rect>
+            <rect id="Rectangle-Copy" fill="#79C500" x="129" y="1" width="20" height="28" rx="10"></rect>
+            <rect id="Rectangle-Copy-3" fill="#79C500" x="6" y="57" width="20" height="28" rx="10"></rect>
+            <rect id="Rectangle-Copy-2" fill="#79C500" x="6" y="1" width="20" height="28" rx="10"></rect>
+            <rect id="Rectangle" fill="#79C500" x="110" y="35" width="13" height="20" rx="6.5"></rect>
+            <rect id="Rectangle-Copy-4" fill="#79C500" x="30" y="35" width="13" height="20" rx="6.5"></rect>
+        </g>
+        <g id="Group-2" transform="translate(23.000000, 127.000000)" fill-rule="nonzero">
+            <g id="Group" transform="translate(22.356164, 0.000000)">
+                <rect id="Rectangle-Copy-5" fill="#C5C5C5" x="0" y="0" width="39.4520548" height="45.05" rx="19.7260274"></rect>
+                <ellipse id="Oval-Copy-2" fill="#D8D8D8" cx="19.7260274" cy="19.875" rx="19.7260274" ry="19.875"></ellipse>
+            </g>
+            <g id="Group-Copy-2" transform="translate(0.000000, 17.225000)">
+                <rect id="Rectangle-Copy-5" fill="#C5C5C5" x="0" y="1.325" width="30.2465753" height="34.45" rx="14.8500006"></rect>
+                <ellipse id="Oval-Copy-2" fill="#D8D8D8" cx="15.1232877" cy="15.1985294" rx="15.1232877" ry="15.1985294"></ellipse>
+            </g>
+            <g id="Group-Copy-3" transform="translate(65.753425, 15.900000)">
+                <rect id="Rectangle-Copy-5" fill="#C5C5C5" x="0" y="1.325" width="30.2465753" height="34.45" rx="14.8500006"></rect>
+                <ellipse id="Oval-Copy-2" fill="#D8D8D8" cx="15.1232877" cy="15.1985294" rx="15.1232877" ry="15.1985294"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

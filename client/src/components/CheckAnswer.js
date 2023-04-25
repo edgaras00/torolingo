@@ -7,6 +7,7 @@ const CheckAnswer = ({
   normalizedSolution,
   userSolution,
   solution,
+  altSolution,
   result,
   listening,
   translation,
@@ -24,7 +25,9 @@ const CheckAnswer = ({
         className={`check-answer ${
           result === "failure" ? "wrong-answer-button" : null
         }`}
-        onClick={() => onCheckAnswer(normalizedSolution, userSolution)}
+        onClick={() =>
+          onCheckAnswer(normalizedSolution, userSolution, altSolution)
+        }
       >
         CHECK
       </button>

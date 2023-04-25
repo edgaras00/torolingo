@@ -27,29 +27,6 @@ import Login from "./components/Login";
 import "./styles/app.css";
 const App = () => {
   const { user } = useContext(AuthContext);
-  // const unitOneLessons = [];
-  // const unitTwoLessons = [];
-  // const unitThreeLessons = [];
-  // const unitFourLessons = [];
-  // const unitFiveLessons = [];
-  // for (let i = 1; i < 7; i++) {
-  //   unitOneLessons.push(
-  //     <Route path={`u1l${i}`} element={<Lesson lesson={`u1l${i}`} key={i} />} />
-  //   );
-  //   unitTwoLessons.push(
-  //     <Route path={`u2l${i}`} element={<Lesson lesson={`u2l${i}`} key={i} />} />
-  //   );
-
-  //   unitThreeLessons.push(
-  //     <Route path={`u3l${i}`} element={<Lesson lesson={`u3l${i}`} key={i} />} />
-  //   );
-  //   unitFourLessons.push(
-  //     <Route path={`u4l${i}`} element={<Lesson lesson={`u4l${i}`} key={i} />} />
-  //   );
-  //   unitFiveLessons.push(
-  //     <Route path={`u5l${i}`} element={<Lesson lesson={`u5l${i}`} key={i} />} />
-  //   );
-  // }
   const lessons = [];
   for (let unit = 1; unit < 6; unit++) {
     for (let lesson = 1; lesson < 7; lesson++) {
@@ -86,7 +63,16 @@ const App = () => {
         />
         <Route
           path="/path"
-          element={user ? <Path /> : <Navigate to="/login" replace />}
+          element={
+            user ? (
+              <>
+                <Sidebar />
+                <Path />
+              </>
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
         />
         {lessons}
         {/* {unitOneLessons}
@@ -98,10 +84,13 @@ const App = () => {
           path="/path/guidebook-1"
           element={
             user ? (
-              <Guidebook>
-                <UnitOnePhrases />
-                <UnitOneTips />
-              </Guidebook>
+              <>
+                <Sidebar />
+                <Guidebook>
+                  <UnitOnePhrases />
+                  <UnitOneTips />
+                </Guidebook>
+              </>
             ) : (
               <Navigate to="/login" replace />
             )
@@ -111,10 +100,13 @@ const App = () => {
           path="/path/guidebook-2"
           element={
             user ? (
-              <Guidebook>
-                <UnitTwoPhrases />
-                <UnitTwoTips />
-              </Guidebook>
+              <>
+                <Sidebar />
+                <Guidebook>
+                  <UnitTwoPhrases />
+                  <UnitTwoTips />
+                </Guidebook>
+              </>
             ) : (
               <Navigate to="/login" replace />
             )
@@ -124,10 +116,13 @@ const App = () => {
           path="/path/guidebook-3"
           element={
             user ? (
-              <Guidebook>
-                <UnitThreePhrases />
-                <UnitThreeTips />
-              </Guidebook>
+              <>
+                <Sidebar />
+                <Guidebook>
+                  <UnitThreePhrases />
+                  <UnitThreeTips />
+                </Guidebook>
+              </>
             ) : (
               <Navigate to="/login" replace />
             )
@@ -137,10 +132,13 @@ const App = () => {
           path="/path/guidebook-4"
           element={
             user ? (
-              <Guidebook>
-                <UnitFourPhrases />
-                <UnitFourTips />
-              </Guidebook>
+              <>
+                <Sidebar />
+                <Guidebook>
+                  <UnitFourPhrases />
+                  <UnitFourTips />
+                </Guidebook>
+              </>
             ) : (
               <Navigate to="/login" replace />
             )
@@ -150,10 +148,13 @@ const App = () => {
           path="/path/guidebook-5"
           element={
             user ? (
-              <Guidebook>
-                <UnitFivePhrases />
-                <UnitFiveTips />
-              </Guidebook>
+              <>
+                <Sidebar />
+                <Guidebook>
+                  <UnitFivePhrases />
+                  <UnitFiveTips />
+                </Guidebook>
+              </>
             ) : (
               <Navigate to="/login" replace />
             )
@@ -161,23 +162,68 @@ const App = () => {
         />
         <Route
           path="/vocabulary"
-          element={user ? <Vocabulary /> : <Navigate to="/login" replace />}
+          element={
+            user ? (
+              <>
+                <Sidebar />
+                <Vocabulary />
+              </>
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
         />
         <Route
           path="/vocabulary/:vocabID"
-          element={user ? <UnitVocabulary /> : <Navigate to="/login" replace />}
+          element={
+            user ? (
+              <>
+                <Sidebar />
+                <UnitVocabulary />
+              </>
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
         />
         <Route
           path="/practice"
-          element={user ? <Practice /> : <Navigate to="/login" replace />}
+          element={
+            user ? (
+              <>
+                <Sidebar />
+                <Practice />
+              </>
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
         />
         <Route
           path="/profile"
-          element={user ? <UserProfile /> : <Navigate to="/login" replace />}
+          element={
+            user ? (
+              <>
+                <Sidebar />
+                <UserProfile />
+              </>
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
         />
         <Route
           path="/account"
-          element={user ? <Account /> : <Navigate to="/login" replace />}
+          element={
+            user ? (
+              <>
+                <Sidebar />
+                <Account />
+              </>
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
         />
         <Route
           path="/practice/matching"

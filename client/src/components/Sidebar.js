@@ -69,12 +69,12 @@ const Sidebar = () => {
   return (
     <nav className="sidebar">
       <div className="sidebar-top">
-        <Link to="/">
+        <Link to="/path">
           <div className="logo">torolingo</div>
         </Link>
       </div>
       <div className="option-container">
-        <Link to="/">
+        <Link to="/path">
           <div
             className={`sidebar-option ${
               selectedSidebar.learn ? "selected-option" : null

@@ -54,13 +54,24 @@ const Unit = ({
         />
       </div>
       <div className="unit-path">
-        <Link to={`/u${number}l1`}>
+        <Link
+          to={
+            parseInt(number) === 1
+              ? `/u${number}l1`
+              : unlockCircle(user, number - 1, 6)
+              ? `/u${number}l1`
+              : ""
+          }
+        >
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
             icon={check}
             right={21}
             isCompleted={markCompleted(user, number, 1)}
+            isUnlocked={
+              parseInt(number) === 1 ? true : unlockCircle(user, number - 1, 6)
+            }
           />
         </Link>
         <Link to={unlockCircle(user, number, 1) ? `/u${number}l2` : ""}>

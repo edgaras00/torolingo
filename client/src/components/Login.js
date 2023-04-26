@@ -23,12 +23,10 @@ const Login = () => {
       const requestOptions = setRequestOptions("POST", { email, password });
 
       // Send request
-      const response = await fetch(
-        "http://localhost:5000/api/user/login",
-        requestOptions
-      );
+      const response = await fetch("/api/user/login", requestOptions);
 
       const data = await response.json();
+      console.log(data);
 
       if (response.status !== 200) {
         throw new AppError(data.message, response.status);

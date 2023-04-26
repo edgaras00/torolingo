@@ -52,11 +52,13 @@ module.exports = (err, req, res, next) => {
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === "production") {
     let error = { ...err };
+    error.message = err.message;
     if (error.name === "CastError") error = handleCastErrorDB(error);
     if (error.code === 11000) error = handleDuplicateDB(error, err.message);
     if (error.statusCode === 404) error.message = "Resource not found";
     if (error.name === "JsonWebTokenError") error = handleJWTError(error);
-    if (error.name === "TokenExpiredError") error = handleJWTExpired(error);
+    if (error.name === "TokenExpiredError")
+      error = handleJWTExpiredError(error);
     sendErrorProd(error, res);
   }
 };

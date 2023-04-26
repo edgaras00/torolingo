@@ -67,3 +67,13 @@
 .name-form button {
   margin-top: 3rem;
 }
+
+.form-status-message {
+  color: #58cc02;
+  font-size: 1.1rem;
+  font-weight: 550;
+}
+
+.form-error {
+  color: #ff4b4b;
+}

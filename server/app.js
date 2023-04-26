@@ -18,7 +18,7 @@ const app = express();
 // Global middlewares
 
 // Security HTTP headers
-// app.use(helmet());
+app.use(helmet());
 
 // Rate limiter to limit /user requests from same IP address
 const limiter = rateLimit({

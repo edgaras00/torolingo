@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Popover, OverlayTrigger } from "react-bootstrap";
+import { AuthContext } from "../context/AuthContext";
 import globe from "../globe.png";
 import barbell from "../barbell.png";
 import profile from "../profile.png";
@@ -9,6 +10,7 @@ import vocab from "../vocab.png";
 import githubIcon from "../github.svg";
 import portfolioIcon from "../portfolio.svg";
 import sourceIcon from "../source.svg";
+import logoutIcon from "../logout.svg";
 import "../styles/sidebar.css";
 const Sidebar = () => {
   const [selectedSidebar, setSelectedSidebar] = useState({
@@ -19,11 +21,28 @@ const Sidebar = () => {
     more: false,
   });
 
+  const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleClick = (value) => {
     const selectedCopy = { ...selectedSidebar };
     Object.keys(selectedCopy).forEach((value) => (selectedCopy[value] = false));
     selectedCopy[value] = true;
     setSelectedSidebar(selectedCopy);
+  };
+
+  const handleLogout = async () => {
+    try {
+      const response = await fetch("/api/user/logout");
+      const data = await response.json();
+      console.log(data);
+
+      setUser(null);
+      localStorage.setItem("user", null);
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const popoverRight = (
@@ -62,6 +81,12 @@ const Sidebar = () => {
           </div>
           <div className="resource-name">Portfolio</div>
         </a>
+        <div className="resource" onClick={handleLogout}>
+          <div className="resource-img-wrapper">
+            <img src={logoutIcon} alt="log out" width="38px" />
+          </div>
+          <div className="resource-name">Log Out</div>
+        </div>
       </div>
     </Popover>
   );

@@ -55,6 +55,10 @@ const Register = () => {
         setSignupError("Something went wrong. Please try again later.");
         return;
       }
+      if (error.message.startsWith("Duplicate value")) {
+        setSignupError("User with this email already exists");
+        return;
+      }
       setSignupError(error.message);
     }
   };

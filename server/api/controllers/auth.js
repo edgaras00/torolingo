@@ -25,6 +25,7 @@ const createAndSendToken = (user, statusCode, res) => {
   };
   // Make it secure only in production
   if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
+
   // Send JWT as a cookie
   res.cookie("jwt", token, cookieOptions);
 
@@ -67,9 +68,17 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError("Incorrect email or password", 401));
   }
 
-  // const userObject = { name: user.name, email: user.email, id: user._id };
-
+  // Remove password from user object
+  user.password = undefined;
   createAndSendToken(user, 200, res);
+});
+
+exports.logout = catchAsync(async (req, res) => {
+  res.cookie("jwt", "loggedout", {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+  res.status(200).json({ status: "success" });
 });
 
 exports.protectRoute = catchAsync(async (req, res, next) => {
@@ -148,13 +157,14 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
   updatedUser.password = undefined;
 
   // Log in user / Send JWT
-  const token = await signToken(updatedUser._id);
+  // const token = await signToken(updatedUser._id);
 
   res.status(200).json({
     status: "success",
-    token,
-    data: {
-      updatedUser,
-    },
+    message: "Password changed successfully",
+    // token,
+    // data: {
+    // user: updatedUser,
+    // },
   });
 });

@@ -21,7 +21,6 @@ const Unit = ({
   hoverColor,
 }) => {
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   const unlockCircle = (user, unit, lesson) => {
     if (

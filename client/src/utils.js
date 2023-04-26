@@ -36,3 +36,20 @@ export const getUnitAndLesson = (pathString) => {
   const lesson = splitStringArray[1];
   return [unit, lesson];
 };
+
+export const unlockCircle = (user, unit, lesson) => {
+  if (
+    user.progress[unit] !== undefined &&
+    user.progress[unit][lesson] !== undefined
+  ) {
+    return user.progress[unit][lesson] >= 60;
+  }
+  return false;
+};
+
+export const unlockRoute = (user, unit, lesson) => {
+  if (unit === 1 && lesson === 1) return true;
+  if (unit !== 1 && lesson === 1) return unlockCircle(user, unit - 1, 6);
+
+  return unlockCircle(user, unit, lesson - 1);
+};

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
+import { unlockRoute } from "./utils";
 import Path from "./components/Path";
 import Lesson from "./components/Lesson";
 import Sidebar from "./components/Sidebar";
@@ -29,14 +30,21 @@ import "./styles/app.css";
 const App = () => {
   const { user } = useContext(AuthContext);
   const lessons = [];
+
   for (let unit = 1; unit < 6; unit++) {
     for (let lesson = 1; lesson < 7; lesson++) {
+      const allowAccess = unlockRoute(user, unit, lesson);
+
       lessons.push(
         <Route
           path={`/u${unit}l${lesson}`}
           element={
             user ? (
-              <Lesson lesson={`u${unit}l${lesson}`} key={unit + lesson} />
+              allowAccess ? (
+                <Lesson lesson={`u${unit}l${lesson}`} key={unit + lesson} />
+              ) : (
+                <Navigate to="/path" replace />
+              )
             ) : (
               <Navigate to="/login" replace />
             )

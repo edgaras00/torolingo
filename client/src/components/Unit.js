@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import { unlockCircle } from "../utils";
 import UnitHeader from "./UnitHeader";
 import Circle from "./Circle";
 import dumbbell from "../db3.svg";
@@ -22,16 +23,6 @@ const Unit = ({
 }) => {
   const { user } = useContext(AuthContext);
 
-  const unlockCircle = (user, unit, lesson) => {
-    if (
-      user.progress[unit] !== undefined &&
-      user.progress[unit][lesson] !== undefined
-    ) {
-      return user.progress[unit][lesson] >= 60;
-    }
-    return false;
-  };
-
   const markCompleted = (user, unit, lesson) => {
     if (
       user.progress[unit] !== undefined &&
@@ -42,6 +33,7 @@ const Unit = ({
     }
     return false;
   };
+
   return (
     <div className="unit">
       <div className="unit-top">

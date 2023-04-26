@@ -63,7 +63,7 @@ const Unit = ({
             isCompleted={markCompleted(user, number, 1)}
           />
         </Link>
-        <Link to={`/u${number}l2`}>
+        <Link to={unlockCircle(user, number, 1) ? `/u${number}l2` : ""}>
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
@@ -78,7 +78,7 @@ const Unit = ({
           className="top-left-mascot"
           width={`${leftMascotSize}px`}
         />
-        <Link to={`/u${number}l3`}>
+        <Link to={unlockCircle(user, number, 2) ? `/u${number}l3` : ""}>
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
@@ -87,7 +87,7 @@ const Unit = ({
             isUnlocked={unlockCircle(user, number, 2)}
           />
         </Link>
-        <Link to={`/u${number}l4`}>
+        <Link to={unlockCircle(user, number, 3) ? `/u${number}l4` : ""}>
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
@@ -102,7 +102,7 @@ const Unit = ({
           className="bottom-right-mascot"
           width={`${rightMascotSize}px`}
         />
-        <Link to={`/u${number}l5`}>
+        <Link to={unlockCircle(user, number, 4) ? `/u${number}l5` : ""}>
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
@@ -111,7 +111,7 @@ const Unit = ({
             isUnlocked={unlockCircle(user, number, 4)}
           />
         </Link>
-        <Link to={`/u${number}l6`}>
+        <Link to={unlockCircle(user, number, 5) ? `/u${number}l6` : ""}>
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}

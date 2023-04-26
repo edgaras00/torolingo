@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const AppError = require("./utils/appError");
 const problemRouter = require("./api/routes/problems");
 const vocabularyRouter = require("./api/routes/vocabulary");
@@ -30,6 +31,7 @@ app.use("/api/user", limiter);
 // Handle CORS
 app.use(cors());
 // Body parser (body --> req.body)
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

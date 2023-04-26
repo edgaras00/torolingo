@@ -19,13 +19,20 @@ export class AppError extends Error {
   }
 }
 
-export const setRequestOptions = (body) => {
+export const setRequestOptions = (method, body) => {
   return {
-    method: "POST",
+    method,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
   };
+};
+
+export const getUnitAndLesson = (pathString) => {
+  const splitStringArray = pathString.replace("/", "").split("l");
+  const unit = splitStringArray[0].slice(1);
+  const lesson = splitStringArray[1];
+  return [unit, lesson];
 };

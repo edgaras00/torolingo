@@ -16,6 +16,11 @@ router.patch(
   authController.protectRoute,
   userController.updateUser
 );
+router.patch(
+  "/updateScore",
+  authController.protectRoute,
+  userController.updateUserScore
+);
 // router.post("/logout", authController.logout);
 
 router.get("/", userController.getAllUsers);

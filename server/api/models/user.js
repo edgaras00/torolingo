@@ -17,17 +17,32 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     mingLength: 6,
+    select: false,
   },
   role: {
     type: String,
     default: "user",
     enum: ["user", "admin"],
   },
+  // progress: {
+  //   type: Map,
+  //   of: {
+  //     type: Map,
+  //     of: Number,
+  //   },
+  // },
+  progress: {
+    type: Map,
+    of: Map,
+    default: {},
+  },
   passwordChangedAt: Date,
 });
 
 // Middleware
 userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+
   this.password = await bcrypt.hash(this.password, 10);
   next();
 });
@@ -35,7 +50,6 @@ userSchema.pre("save", async function (next) {
 userSchema.pre("save", async function (next) {
   // Skip if password was not modified or if created new document
   if (!this.isModified("password") || this.isNew) return next();
-
   this.passwordChangedAt = Date.now() - 1000;
   next();
 });
@@ -58,6 +72,20 @@ userSchema.methods.changedPasswordAfterToken = function (timestampJWT) {
     return timestampJWT < modifiedTimestamp;
   }
   return false;
+};
+
+userSchema.methods.updateProgress = function (unitID, lessonID, score) {
+  const progress = this.progress;
+
+  if (progress.has(unitID)) {
+    const unit = new Map(progress.get(unitID));
+    unit.set(lessonID, score);
+    progress.set(unitID, unit);
+  } else {
+    const unit = new Map([[lessonID, score]]);
+    progress.set(unitID, unit);
+  }
+  this.progress = progress;
 };
 
 const User = mongoose.model("User", userSchema);

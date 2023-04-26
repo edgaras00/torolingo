@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import UnitHeader from "./UnitHeader";
 import Circle from "./Circle";
@@ -19,6 +20,28 @@ const Unit = ({
   rightMascotSize,
   hoverColor,
 }) => {
+  const { user } = useContext(AuthContext);
+
+  const unlockCircle = (user, unit, lesson) => {
+    if (
+      user.progress[unit] !== undefined &&
+      user.progress[unit][lesson] !== undefined
+    ) {
+      return user.progress[unit][lesson] >= 60;
+    }
+    return false;
+  };
+
+  const markCompleted = (user, unit, lesson) => {
+    if (
+      user.progress[unit] !== undefined &&
+      user.progress[unit][lesson] !== undefined &&
+      user.progress[unit][lesson] >= 60
+    ) {
+      return true;
+    }
+    return false;
+  };
   return (
     <div className="unit">
       <div className="unit-top">
@@ -31,17 +54,13 @@ const Unit = ({
         />
       </div>
       <div className="unit-path">
-        {/* <div class="sparkles-container">
-          <div class="sparkle"></div>
-          <div class="sparkle"></div>
-          <div class="sparkle"></div>
-        </div> */}
         <Link to={`/u${number}l1`}>
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
             icon={check}
             right={21}
+            isCompleted={markCompleted(user, number, 1)}
           />
         </Link>
         <Link to={`/u${number}l2`}>
@@ -50,6 +69,7 @@ const Unit = ({
             secondaryColor={secondaryColor}
             icon={star}
             left={16}
+            isUnlocked={unlockCircle(user, number, 1)}
           />
         </Link>
         <img
@@ -64,6 +84,7 @@ const Unit = ({
             secondaryColor={secondaryColor}
             icon={dumbbell}
             left={50}
+            isUnlocked={unlockCircle(user, number, 2)}
           />
         </Link>
         <Link to={`/u${number}l4`}>
@@ -72,6 +93,7 @@ const Unit = ({
             secondaryColor={secondaryColor}
             icon={star}
             left={16}
+            isUnlocked={unlockCircle(user, number, 3)}
           />
         </Link>
         <img
@@ -86,6 +108,7 @@ const Unit = ({
             secondaryColor={secondaryColor}
             icon={dumbbell}
             right={21}
+            isUnlocked={unlockCircle(user, number, 4)}
           />
         </Link>
         <Link to={`/u${number}l6`}>
@@ -94,6 +117,7 @@ const Unit = ({
             secondaryColor={secondaryColor}
             icon={crown}
             right={48}
+            isUnlocked={unlockCircle(user, number, 5)}
           />
         </Link>
       </div>

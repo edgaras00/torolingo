@@ -58,11 +58,9 @@ const TranslationCard = ({
     const wordIndex = selectedWord.dataset.position * 1;
     selectedWord.textContent = event.target.textContent;
     selectedWord.setAttribute("data-position", wordIndex);
-    console.log(selectedWord);
     setSelected((prevState) => [...prevState, selectedWord]);
 
     const wordBankCopy = [...wordBank];
-    console.log(selectedWord.offsetWidth);
     wordBankCopy[wordIndex] = "0".repeat(selectedWord.textContent.length);
     setWordBank(wordBankCopy);
   };

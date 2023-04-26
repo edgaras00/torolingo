@@ -34,7 +34,11 @@ const Register = () => {
     setSignupError("");
     try {
       // Set request options and prepare data to be sent to server
-      const requestOptions = setRequestOptions({ name, email, password });
+      const requestOptions = setRequestOptions("POST", {
+        name,
+        email,
+        password,
+      });
 
       const response = await fetch("/api/user/signup", requestOptions);
       const data = await response.json();

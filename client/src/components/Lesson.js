@@ -9,7 +9,7 @@ import "../styles/lesson.css";
 import PictureCard from "./PictureCard";
 import VocabMatchCard from "./VocabMatchCard";
 import CompletedCard from "./CompletedCard";
-import { shuffleArray } from "../utils";
+import { shuffleArray, getUnitAndLesson } from "../utils";
 
 const Lesson = ({ matchingOnly, listeningOnly }) => {
   const [questions, setQuestions] = useState([]);
@@ -19,6 +19,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
 
   const location = useLocation();
   const locationState = location.state;
+  let [unit, lesson] = getUnitAndLesson(pathname);
 
   const handleMistake = () => setMistakeCount((prevState) => prevState + 1);
 
@@ -30,9 +31,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
   };
 
   useEffect(() => {
-    const unitLessonArray = pathname.replace("/", "").split("l");
-    let unit = unitLessonArray[0].slice(1);
-    let lesson = unitLessonArray[1];
+    let [unit, lesson] = getUnitAndLesson(pathname);
 
     // Reuse questions for now
     if (unit === "1" && lesson === "6") {
@@ -204,6 +203,8 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           mistakeCount={mistakeCount}
           questionCount={questions.length - 1}
           key="complete-card"
+          unit={unit}
+          lesson={lesson}
         />
       );
     }
@@ -211,7 +212,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
 
   return (
     <div className="lesson-container">
-      {questionCards.map((question, index) => {
+      {questionCards.slice(14).map((question, index) => {
         if (index + 1 === currentQuestion) {
           return question;
         } else {

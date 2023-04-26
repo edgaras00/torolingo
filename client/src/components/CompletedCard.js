@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { setRequestOptions } from "../utils";
 import mascotStanding2 from "../mascot-standing2.png";
 import "../styles/completedCard.css";
 
-const CompleteCard = ({ mistakeCount, questionCount }) => {
+const CompleteCard = ({ mistakeCount, questionCount, unit, lesson }) => {
   const rightAnswers = questionCount - mistakeCount;
   const score = Math.round((rightAnswers / questionCount) * 100);
 
@@ -11,8 +13,26 @@ const CompleteCard = ({ mistakeCount, questionCount }) => {
 
   const [displayScore, setDisplayScore] = useState(0);
   const [displayMistakes, setDisplayMistakes] = useState(0);
+  const { setUser } = useContext(AuthContext);
 
   useEffect(() => {
+    const updateProgress = async (unit, lesson, score) => {
+      try {
+        const requestOptions = setRequestOptions("PATCH", {
+          unit,
+          lesson,
+          score,
+        });
+        const response = await fetch("/api/user/updateScore", requestOptions);
+        const data = await response.json();
+        console.log(data);
+        setUser(data.data.user);
+        localStorage.setItem("user", JSON.stringify(data.data.user));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     if (displayMistakes < mistakeCount) {
       const intervalId = setInterval(() => {
         setDisplayMistakes((mistakes) => mistakes + 1);
@@ -26,7 +46,17 @@ const CompleteCard = ({ mistakeCount, questionCount }) => {
       }, 5);
       return () => clearInterval(intervalId);
     }
-  }, [score, displayScore, mistakeCount, displayMistakes]);
+
+    updateProgress(unit, lesson, score);
+  }, [
+    score,
+    displayScore,
+    mistakeCount,
+    displayMistakes,
+    setUser,
+    lesson,
+    unit,
+  ]);
 
   return (
     <div className="completed-card">

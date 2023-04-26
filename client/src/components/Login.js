@@ -20,7 +20,7 @@ const Login = () => {
     setLoginError(null);
     try {
       // Set request options and prepare data to be sent to server
-      const requestOptions = setRequestOptions({ email, password });
+      const requestOptions = setRequestOptions("POST", { email, password });
 
       // Send request
       const response = await fetch(

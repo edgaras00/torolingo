@@ -48,10 +48,10 @@ exports.signup = catchAsync(async (req, res) => {
   const user = await User.create(newUser);
   user.password = undefined;
 
-  const userObject = { name: user.name, email: user.email, id: user._id };
+  // const userObject = { name: user.name, email: user.email, id: user._id };
 
   // Send response and JWT as a cookie
-  createAndSendToken(userObject, 201, res);
+  createAndSendToken(user, 201, res);
 });
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -67,9 +67,9 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError("Incorrect email or password", 401));
   }
 
-  const userObject = { name: user.name, email: user.email, id: user._id };
+  // const userObject = { name: user.name, email: user.email, id: user._id };
 
-  createAndSendToken(userObject, 200, res);
+  createAndSendToken(user, 200, res);
 });
 
 exports.protectRoute = catchAsync(async (req, res, next) => {
@@ -80,6 +80,8 @@ exports.protectRoute = catchAsync(async (req, res, next) => {
     req.headers.authorization.startsWith("Bearer")
   ) {
     token = req.headers.authorization.split(" ")[1];
+  } else if (req.cookies.jwt) {
+    token = req.cookies.jwt;
   }
   // Check if received token
   if (!token) {

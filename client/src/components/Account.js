@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { setRequestOptions } from "../utils";
 import "../styles/account.css";
 
 const Account = () => {
@@ -6,9 +8,22 @@ const Account = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const { user } = useContext(AuthContext);
+
+  const handleSubmitProfile = async (event) => {
     event.preventDefault();
-    return;
+    const updateData = {};
+
+    if (user.name !== userName) updateData.name = userName;
+    if (user.email !== email) updateData.email = email;
+    const requestOptions = setRequestOptions("PATCH", updateData);
+
+    try {
+      const response = await fetch("/api/user/updateUser", requestOptions);
+      const data = await response.json();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleSubmitPassword = (event) => {
@@ -21,7 +36,10 @@ const Account = () => {
       <div className="header-wrapper">
         <div>Account</div>
       </div>
-      <form onSubmit={handleSubmit} className="account-form">
+      <form
+        onSubmit={(event) => handleSubmitProfile(event, email, userName)}
+        className="account-form"
+      >
         <div className="input-wrapper">
           <label htmlFor="userName">Name</label>
           <input

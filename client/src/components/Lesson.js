@@ -212,7 +212,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
 
   return (
     <div className="lesson-container">
-      {questionCards.slice(14).map((question, index) => {
+      {questionCards.map((question, index) => {
         if (index + 1 === currentQuestion) {
           return question;
         } else {

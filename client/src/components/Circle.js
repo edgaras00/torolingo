@@ -25,17 +25,19 @@ const Circle = ({
   }
 
   return (
-    <button
-      className="circle"
-      style={{
-        background: circlePrimaryColor,
-        boxShadow: `0 7px ${circleSecondaryColor}`,
-        left,
-        right,
-      }}
-    >
-      <img src={icon} width="31px" alt="lesson icon" />
-    </button>
+    <>
+      <button
+        className="circle"
+        style={{
+          background: circlePrimaryColor,
+          boxShadow: `0 7px ${circleSecondaryColor}`,
+          left,
+          right,
+        }}
+      >
+        <img src={icon} width="31px" alt="lesson icon" />
+      </button>
+    </>
   );
 };
 

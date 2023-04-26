@@ -79,6 +79,11 @@ userSchema.methods.updateProgress = function (unitID, lessonID, score) {
 
   if (progress.has(unitID)) {
     const unit = new Map(progress.get(unitID));
+
+    const lessonScore = unit.get(lessonID);
+    if (lessonScore && score < lessonScore) {
+      return;
+    }
     unit.set(lessonID, score);
     progress.set(unitID, unit);
   } else {

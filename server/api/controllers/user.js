@@ -70,20 +70,9 @@ exports.updateUserScore = catchAsync(async (req, res, next) => {
   const user = await User.findById(req.user.id);
   const progress = user.progress;
 
-  // if (progress.has(unitID)) {
-  //   const unit = new Map(progress.get(unitID));
-  //   unit.set(lessonID, score);
-  //   progress.set(unitID, unit);
-  //   user.progress = progress;
-  // } else {
-  //   const unit = new Map([[lessonID, score]]);
-  //   progress.set(unitID, unit);
-  //   user.progress = progress;
-  // }
   user.updateProgress(unitID, lessonID, score);
 
   await user.save();
-  console.log(user);
   res.status(200).json({ status: "success", data: { user } });
 });
 

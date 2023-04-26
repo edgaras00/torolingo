@@ -21,6 +21,7 @@ const Unit = ({
   hoverColor,
 }) => {
   const { user } = useContext(AuthContext);
+  console.log(user);
 
   const unlockCircle = (user, unit, lesson) => {
     if (
@@ -81,6 +82,7 @@ const Unit = ({
             icon={star}
             left={16}
             isUnlocked={unlockCircle(user, number, 1)}
+            isCompleted={markCompleted(user, number, 2)}
           />
         </Link>
         <img
@@ -96,6 +98,7 @@ const Unit = ({
             icon={dumbbell}
             left={50}
             isUnlocked={unlockCircle(user, number, 2)}
+            isCompleted={markCompleted(user, number, 3)}
           />
         </Link>
         <Link to={unlockCircle(user, number, 3) ? `/u${number}l4` : ""}>
@@ -105,6 +108,7 @@ const Unit = ({
             icon={star}
             left={16}
             isUnlocked={unlockCircle(user, number, 3)}
+            isCompleted={markCompleted(user, number, 4)}
           />
         </Link>
         <img
@@ -120,6 +124,7 @@ const Unit = ({
             icon={dumbbell}
             right={21}
             isUnlocked={unlockCircle(user, number, 4)}
+            isCompleted={markCompleted(user, number, 5)}
           />
         </Link>
         <Link to={unlockCircle(user, number, 5) ? `/u${number}l6` : ""}>
@@ -129,6 +134,7 @@ const Unit = ({
             icon={crown}
             right={48}
             isUnlocked={unlockCircle(user, number, 5)}
+            isCompleted={markCompleted(user, number, 6)}
           />
         </Link>
       </div>

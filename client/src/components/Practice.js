@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import mascotPhone from "../mascot-phone.png";
 import mascotPaper2 from "../mascot-paper2.jpg";
 import mascotSitting from "../mascot-sitting.png";
@@ -8,7 +9,19 @@ import bullTongue from "../bull-tongue.png";
 import "../styles/practice.css";
 
 const Practice = () => {
-  const lessons = ["u1l1", "u1l2", "u1l3", "u1l4", "u1l5"];
+  const { user } = useContext(AuthContext);
+
+  // Prepare random lessons for practice
+  let lessons = ["u1l1"];
+  // Add lessons that the user has already completed
+  for (const unit in user.progress) {
+    for (const lesson in user.progress[unit]) {
+      if (parseInt(unit) !== 1 || parseInt(lesson) !== 1) {
+        lessons.push(`u${unit}l${lesson}`);
+      }
+    }
+  }
+  // Pick a random lesson
   const randomLesson = lessons[Math.floor(Math.random() * lessons.length)];
 
   return (

@@ -12,18 +12,16 @@ const UnitVocabulary = () => {
   }
 
   useEffect(() => {
-    const fetchVocab = async () => {
+    const getVocabData = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:5000/vocab/unit?unit=${unit}`
-        );
+        const response = await fetch(`/api/vocab?unit=${unit}`);
         const data = await response.json();
         setVocabData(data.data.words);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchVocab();
+    getVocabData();
   }, [unit]);
 
   const tableRows = vocabData.map((pair, index) => (

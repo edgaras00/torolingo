@@ -61,8 +61,24 @@
   background-color: #f1f1f1;
   padding: 10px;
   border-radius: 10px;
-  width: 150px;
+  /* width: 150px; */
   margin: 20px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  top: 48%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent #f1f1f1 transparent transparent;
 }
 
 .card-middle {
@@ -113,17 +129,6 @@
   width: 200px;
   position: absolute;
   border-radius: 10%;
-}
-
-.speech-bubble::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent #f1f1f1 transparent transparent;
 }
 
 .card-bottom,

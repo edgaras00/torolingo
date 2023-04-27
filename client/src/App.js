@@ -41,7 +41,10 @@ const App = () => {
           element={
             user ? (
               allowAccess ? (
-                <Lesson lesson={`u${unit}l${lesson}`} key={unit + lesson} />
+                <>
+                  <Sidebar />
+                  <Lesson lesson={`u${unit}l${lesson}`} key={unit + lesson} />
+                </>
               ) : (
                 <Navigate to="/path" replace />
               )

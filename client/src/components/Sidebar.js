@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useContext, useRef } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Popover, OverlayTrigger } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
 import globe from "../globe.png";
@@ -12,6 +12,7 @@ import portfolioIcon from "../portfolio.svg";
 import sourceIcon from "../source.svg";
 import logoutIcon from "../logout.svg";
 import "../styles/sidebar.css";
+
 const Sidebar = () => {
   const [selectedSidebar, setSelectedSidebar] = useState({
     learn: true,
@@ -23,6 +24,22 @@ const Sidebar = () => {
 
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const currentPath = useLocation().pathname;
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      console.log("first");
+      isFirstRender.current = false;
+      const selectedCopy = { ...selectedSidebar };
+      for (const key in selectedCopy) selectedCopy[key] = false;
+      if (currentPath === "/path") selectedCopy.learn = true;
+      if (currentPath === "/practice") selectedCopy.practice = true;
+      if (currentPath === "/profile") selectedCopy.profile = true;
+      if (currentPath === "/vocabulary") selectedCopy.vocabulary = true;
+      setSelectedSidebar(selectedCopy);
+    }
+  }, [currentPath, selectedSidebar]);
 
   const handleClick = (value) => {
     const selectedCopy = { ...selectedSidebar };
@@ -95,7 +112,9 @@ const Sidebar = () => {
     <nav className="sidebar">
       <div className="sidebar-top">
         <Link to="/path">
-          <div className="logo">torolingo</div>
+          <div className="logo" onClick={() => handleClick("learn")}>
+            torolingo
+          </div>
         </Link>
       </div>
       <div className="option-container">

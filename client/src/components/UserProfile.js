@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import "../styles/userProfile.css";
 
 const UserProfile = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div className="user-profile">
       <div className="profile-card">
-        <div className="name-circle">A</div>
+        <div className="name-circle">{user ? user.name[0] : "A"}</div>
         <div className="name-card">
           <div className="username">Name</div>
           <div className="joined">Joined April 10th 2022</div>

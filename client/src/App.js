@@ -33,7 +33,7 @@ const App = () => {
 
   for (let unit = 1; unit < 6; unit++) {
     for (let lesson = 1; lesson < 7; lesson++) {
-      const allowAccess = unlockRoute(user, unit, lesson);
+      const allowAccess = user ? unlockRoute(user, unit, lesson) : false;
 
       lessons.push(
         <Route

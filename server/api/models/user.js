@@ -6,6 +6,12 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "User must have a name"],
+    validate: {
+      validator: function (v) {
+        return /^[a-zA-Z0-9_]+$/.test(v);
+      },
+      message: `Username can only contain underscores and alphanumeric characters`,
+    },
   },
   email: {
     type: String,
@@ -24,13 +30,6 @@ const userSchema = new mongoose.Schema({
     default: "user",
     enum: ["user", "admin"],
   },
-  // progress: {
-  //   type: Map,
-  //   of: {
-  //     type: Map,
-  //     of: Number,
-  //   },
-  // },
   progress: {
     type: Map,
     of: Map,

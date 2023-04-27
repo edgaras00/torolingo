@@ -17,6 +17,11 @@ const handleJWTError = () =>
 const handleJWTExpiredError = () =>
   new AppError("Your token has expird. Please log in again", 401);
 
+const handleValidationError = (err) => {
+  const message = err.errors.name.properties.message;
+  return new AppError(message, 400);
+};
+
 const sendErrorDev = (err, res) => {
   res.status(err.statusCode).json({
     status: err.status,
@@ -46,19 +51,20 @@ const sendErrorProd = (err, res) => {
 module.exports = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || "error";
-
   if (process.env.NODE_ENV === "development") {
     // More info about the error in development mode
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === "production") {
     let error = { ...err };
     error.message = err.message;
+    error.name = err.name;
     if (error.name === "CastError") error = handleCastErrorDB(error);
     if (error.code === 11000) error = handleDuplicateDB(error, err.message);
     if (error.statusCode === 404) error.message = "Resource not found";
     if (error.name === "JsonWebTokenError") error = handleJWTError(error);
     if (error.name === "TokenExpiredError")
       error = handleJWTExpiredError(error);
+    if (error.name === "ValidationError") error = handleValidationError(error);
     sendErrorProd(error, res);
   }
 };

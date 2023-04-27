@@ -71,3 +71,16 @@
   color: rgb(243, 0, 0);
   font-size: 0.95rem;
 }
+
+.link-to-form {
+  color: #4b4b4b;
+  font-weight: 400;
+}
+
+.link-to-form a {
+  color: #1cb0f6;
+}
+
+.link-to-form a:hover {
+  color: #51bff1;
+}

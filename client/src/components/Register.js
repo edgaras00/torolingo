@@ -114,6 +114,9 @@ const Register = () => {
             <p className="user-submit-error">{signupError}</p>
           ) : null}
           <button>CREATE ACCOUNT</button>
+          <p className="link-to-form">
+            Already have an account? <Link to="/login">Log in</Link>
+          </p>
         </form>
       </div>
     </div>

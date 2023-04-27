@@ -72,6 +72,9 @@ const Login = () => {
             <p className="user-submit-error">{loginError}</p>
           ) : null}
           <button>LOG IN</button>
+          <p className="link-to-form">
+            Don't have an account? <Link to="/signup">Sign up</Link>
+          </p>
         </form>
       </div>
     </div>

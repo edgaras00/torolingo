@@ -29,7 +29,6 @@ const Sidebar = () => {
 
   useEffect(() => {
     if (isFirstRender.current) {
-      console.log("first");
       isFirstRender.current = false;
       const selectedCopy = { ...selectedSidebar };
       for (const key in selectedCopy) selectedCopy[key] = false;

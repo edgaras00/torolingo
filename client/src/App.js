@@ -38,12 +38,13 @@ const App = () => {
       lessons.push(
         <Route
           path={`/u${unit}l${lesson}`}
+          key={unit + lesson}
           element={
             user ? (
               allowAccess ? (
                 <>
                   <Sidebar />
-                  <Lesson lesson={`u${unit}l${lesson}`} key={unit + lesson} />
+                  <Lesson lesson={`u${unit}l${lesson}`} />
                 </>
               ) : (
                 <Navigate to="/path" replace />

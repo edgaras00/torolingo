@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import { shuffleArray } from "../utils";
 import "../styles/vocabMatchCard.css";
 
 const VocabMatchCard = ({
@@ -53,16 +52,16 @@ const VocabMatchCard = ({
       const englishCopy = [...englishWords];
       englishCopy[englishIndex].err = true;
       setEnglishWords(englishCopy);
+      // addMistake();
       return;
     }
     if (spanishIndex !== -1) {
       const spanishCopy = [...spanishWords];
       spanishCopy[spanishIndex].err = true;
       setSpanishWords(spanishCopy);
+      // addMistake();
       return;
     }
-
-    addMistake();
   };
 
   const handleClick = (event) => {

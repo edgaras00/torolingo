@@ -6,21 +6,21 @@ const router = express.Router();
 
 router
   .route("/")
-  .get(
-    // authController.protectRoute,
-    // authController.restrictRouteTo("admin", "user"),
-    problemController.getAllProblems
-  )
+  .get(authController.protectRoute, problemController.getAllProblems)
   .post(authController.protectRoute, problemController.createProblem);
-
-// router.route("/lessons").get(problemController.getLessonProblems);
-// router.route("/listening").get(problemController.getListeningProblems);
-// router.route("/match").get(problemController.getMatchingProblems);
 
 router
   .route("/:problemId")
-  .get(problemController.getSingleProblem)
-  .patch(problemController.updateProblem)
-  .delete(problemController.deleteProblem);
+  .get(authController.protectRoute, problemController.getSingleProblem)
+  .patch(
+    authController.protectRoute,
+    authController.restrictRouteTo("admin"),
+    problemController.updateProblem
+  )
+  .delete(
+    authController.protectRoute,
+    authController.restrictRouteTo("admin"),
+    problemController.deleteProblem
+  );
 
 module.exports = router;

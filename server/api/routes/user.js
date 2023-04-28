@@ -7,6 +7,7 @@ const router = express.Router();
 router.post("/signup", authController.signup);
 router.post("/login", authController.login);
 router.get("/logout", authController.logout);
+
 router.patch(
   "/changePassword",
   authController.protectRoute,
@@ -27,8 +28,16 @@ router.get("/", userController.getAllUsers);
 
 router
   .route("/:userId")
-  .get(userController.getUser)
+  .get(
+    authController.protectRoute,
+    authController.restrictRouteTo("admin"),
+    userController.getUser
+  )
   // .patch(userController.updateUserAdmin)
-  .delete(userController.deleteUser);
+  .delete(
+    authController.protectRoute,
+    authController.restrictRouteTo("admin"),
+    userController.deleteUser
+  );
 
 module.exports = router;

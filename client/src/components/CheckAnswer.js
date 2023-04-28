@@ -11,6 +11,8 @@ const CheckAnswer = ({
   result,
   listening,
   translation,
+  addMistake,
+  setResult,
 }) => {
   const renderButtons = (result) => {
     if (result === "success") {
@@ -26,7 +28,13 @@ const CheckAnswer = ({
           result === "failure" ? "wrong-answer-button" : null
         }`}
         onClick={() =>
-          onCheckAnswer(normalizedSolution, userSolution, altSolution)
+          onCheckAnswer(
+            normalizedSolution,
+            userSolution,
+            altSolution,
+            setResult,
+            addMistake
+          )
         }
       >
         CHECK

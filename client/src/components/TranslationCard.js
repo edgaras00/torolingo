@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import WordBubble from "./WordBubble";
 import NotebookLines from "./NotebookLines";
 import CheckAnswer from "./CheckAnswer";
-import { handleWordClick, handleSelectedWordClick } from "../utils";
+import {
+  handleCheckAnswer,
+  createUserSolution,
+  createWordBubbles,
+  createSelectedWordBubbles,
+} from "../utils";
 import bullTongue from "../bull-tongue.png";
 import mascotStanding from "../mascot-standing2.png";
 import mascotPaper from "../bull-paper.png";
@@ -35,59 +39,18 @@ const TranslationCard = ({
   }, []);
 
   useEffect(() => {
-    const joinedWords = selected
-      .map((word) => word.textContent)
-      .join(" ")
-      .toLowerCase();
-    setUserSolution(joinedWords);
+    const solution = createUserSolution(selected);
+    setUserSolution(solution);
   }, [selected]);
 
-  const handleCheckAnswer = (correctSolution, userSolution, altSolution) => {
-    if (correctSolution === userSolution || altSolution === userSolution) {
-      setResult("success");
-      return;
-    }
-    if (correctSolution !== userSolution) {
-      setResult("failure");
-      addMistake();
-      return;
-    }
-  };
+  const bubbles = createWordBubbles(wordBank, setSelected, setWordBank);
+  const selectedBubbles = createSelectedWordBubbles(
+    selected,
+    wordBank,
+    setWordBank,
+    setSelected
+  );
 
-  const bubbles = wordBank.map((word, index) => (
-    <WordBubble
-      text={word}
-      key={index}
-      position={index}
-      handleClick={(event) =>
-        handleWordClick(event, wordBank, setSelected, setWordBank)
-      }
-      empty={word.includes("*") ? true : false}
-    />
-  ));
-
-  let selectedBubbles = [];
-  if (selected.length > 0) {
-    selectedBubbles = selected.map((element, index) => {
-      const word = element.textContent;
-      return (
-        <WordBubble
-          text={word}
-          key={index}
-          handleClick={(event) =>
-            handleSelectedWordClick(
-              event,
-              wordBank,
-              setWordBank,
-              selected,
-              setSelected
-            )
-          }
-          position={element.dataset.position}
-        />
-      );
-    });
-  }
   return (
     <div className="translation-card">
       <div className="card-top">
@@ -129,6 +92,8 @@ const TranslationCard = ({
         normalizedSolution={normalizedSolution}
         userSolution={userSolution}
         altSolution={altSolution}
+        setResult={setResult}
+        addMistake={addMistake}
       />
     </div>
   );

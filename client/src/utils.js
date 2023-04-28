@@ -1,3 +1,5 @@
+import WordBubble from "./components/WordBubble";
+
 export const shuffleArray = (array) => {
   const shuffled = array
     .map((value) => ({ value, sort: Math.random() }))
@@ -88,4 +90,74 @@ export const handleSelectedWordClick = (
   });
   selectedCopy.splice(index, 1);
   setSelected(selectedCopy);
+};
+
+export const handleCheckAnswer = (
+  correctSolution,
+  userSolution,
+  altSolution,
+  setResult,
+  addMistake
+) => {
+  if (correctSolution === userSolution || altSolution === userSolution) {
+    setResult("success");
+    return;
+  }
+  setResult("failure");
+  addMistake();
+};
+
+export const createUserSolution = (selectedArray) => {
+  const joinedWords = selectedArray
+    .map((word) => word.textContent)
+    .join(" ")
+    .toLowerCase();
+  return joinedWords;
+};
+
+export const createWordBubbles = (wordBank, setSelected, setWordBank) => {
+  return wordBank.map((word, index) => {
+    return (
+      <WordBubble
+        text={word}
+        key={index}
+        position={index}
+        handleClick={(event) =>
+          handleWordClick(event, wordBank, setSelected, setWordBank)
+        }
+        empty={word.includes("*") ? true : false}
+      />
+    );
+  });
+};
+
+export const createSelectedWordBubbles = (
+  selected,
+  wordBank,
+  setWordBank,
+  setSelected
+) => {
+  let selectedBubbles = [];
+  if (selected.length > 0) {
+    selectedBubbles = selected.map((element, index) => {
+      const word = element.textContent;
+      return (
+        <WordBubble
+          text={word}
+          key={index}
+          handleClick={(event) =>
+            handleSelectedWordClick(
+              event,
+              wordBank,
+              setWordBank,
+              selected,
+              setSelected
+            )
+          }
+          position={element.dataset.position}
+        />
+      );
+    });
+  }
+  return selectedBubbles;
 };

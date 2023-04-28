@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import WordBubble from "./WordBubble";
 import NotebookLines from "./NotebookLines";
 import CheckAnswer from "./CheckAnswer";
-import { handleWordClick, handleSelectedWordClick } from "../utils";
+import {
+  handleCheckAnswer,
+  createUserSolution,
+  createWordBubbles,
+  createSelectedWordBubbles,
+} from "../utils";
 import soundIcon from "../sound.svg";
 import turtleICon from "../turtle.svg";
 import "../styles/listeningCard.css";
@@ -27,18 +31,6 @@ const ListeningCard = ({
   const audioElement = new Audio(audio);
   const slowAudioElement = new Audio(slowAudio);
 
-  const handleCheckAnswer = (correctSolution, userSolution) => {
-    if (correctSolution === userSolution) {
-      setResult("success");
-      return;
-    }
-    if (correctSolution !== userSolution) {
-      setResult("failure");
-      addMistake();
-      return;
-    }
-  };
-
   const handleAudioClick = () => {
     audioElement.play();
   };
@@ -58,49 +50,18 @@ const ListeningCard = ({
   }, [audio]);
 
   useEffect(() => {
-    const joinedWords = selected
-      .map((word) => word.textContent)
-      .join(" ")
-      .toLowerCase();
-    setUserSolution(joinedWords);
+    const solution = createUserSolution(selected);
+    setUserSolution(solution);
   }, [selected]);
 
-  const bubbles = wordBank.map((word, index) => {
-    return (
-      <WordBubble
-        text={word}
-        key={index}
-        position={index}
-        handleClick={(event) =>
-          handleWordClick(event, wordBank, setSelected, setWordBank)
-        }
-        empty={word.includes("*") ? true : false}
-      />
-    );
-  });
+  const bubbles = createWordBubbles(wordBank, setSelected, setWordBank);
 
-  let selectedBubbles = [];
-  if (selected.length > 0) {
-    selectedBubbles = selected.map((element, index) => {
-      const word = element.textContent;
-      return (
-        <WordBubble
-          text={word}
-          key={index}
-          handleClick={(event) =>
-            handleSelectedWordClick(
-              event,
-              wordBank,
-              setWordBank,
-              selected,
-              setSelected
-            )
-          }
-          position={element.dataset.position}
-        />
-      );
-    });
-  }
+  const selectedBubbles = createSelectedWordBubbles(
+    selected,
+    wordBank,
+    setWordBank,
+    setSelected
+  );
 
   return (
     <div className="translation-card">
@@ -144,6 +105,8 @@ const ListeningCard = ({
         normalizedSolution={normalizedSolution}
         userSolution={userSolution}
         translation={translation}
+        setResult={setResult}
+        addMistake={addMistake}
       />
     </div>
   );

@@ -23,6 +23,8 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
 
   const handleMistake = () => setMistakeCount((prevState) => prevState + 1);
 
+  console.log(mistakeCount);
+
   const normalizeSolution = (solution) => {
     return solution
       .replace(/[^\w\s\u00C0-\u00FF]/g, "")

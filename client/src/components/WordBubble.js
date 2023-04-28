@@ -6,7 +6,7 @@ const WordBubble = ({ text, handleClick, position, empty }) => {
     <span
       className={`word-bubble ${empty ? "empty-bubble" : null}`}
       data-position={position}
-      onClick={handleClick}
+      onClick={!empty ? handleClick : null}
     >
       {empty ? text.replace("*", "") : text}
     </span>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import WordBubble from "./WordBubble";
 import NotebookLines from "./NotebookLines";
 import CheckAnswer from "./CheckAnswer";
+import { handleWordClick, handleSelectedWordClick } from "../utils";
 import bullTongue from "../bull-tongue.png";
 import mascotStanding from "../mascot-standing2.png";
 import mascotPaper from "../bull-paper.png";
@@ -53,43 +54,15 @@ const TranslationCard = ({
     }
   };
 
-  const handleClick = (event) => {
-    const selectedWord = event.target.cloneNode();
-    const wordIndex = selectedWord.dataset.position * 1;
-    selectedWord.textContent = event.target.textContent;
-    selectedWord.setAttribute("data-position", wordIndex);
-    setSelected((prevState) => [...prevState, selectedWord]);
-
-    const wordBankCopy = [...wordBank];
-    wordBankCopy[wordIndex] = "0".repeat(selectedWord.textContent.length);
-    setWordBank(wordBankCopy);
-  };
-
-  const handleSelectedClick = (event) => {
-    const word = event.target.textContent;
-    const wordIndex = event.target.dataset.position * 1;
-    const wordBankCopy = [...wordBank];
-    wordBankCopy[wordIndex] = word;
-    setWordBank(wordBankCopy);
-
-    const selectedCopy = [...selected];
-    const index = selectedCopy.findIndex((arrayWord) => {
-      return (
-        arrayWord.textContent === word &&
-        arrayWord.dataset.position === String(wordIndex)
-      );
-    });
-    selectedCopy.splice(index, 1);
-    setSelected(selectedCopy);
-  };
-
   const bubbles = wordBank.map((word, index) => (
     <WordBubble
       text={word}
       key={index}
       position={index}
-      handleClick={handleClick}
-      empty={word.includes("0") ? true : false}
+      handleClick={(event) =>
+        handleWordClick(event, wordBank, setSelected, setWordBank)
+      }
+      empty={word.includes("*") ? true : false}
     />
   ));
 
@@ -101,7 +74,15 @@ const TranslationCard = ({
         <WordBubble
           text={word}
           key={index}
-          handleClick={handleSelectedClick}
+          handleClick={(event) =>
+            handleSelectedWordClick(
+              event,
+              wordBank,
+              setWordBank,
+              selected,
+              setSelected
+            )
+          }
           position={element.dataset.position}
         />
       );

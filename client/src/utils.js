@@ -53,3 +53,39 @@ export const unlockRoute = (user, unit, lesson) => {
 
   return unlockCircle(user, unit, lesson - 1);
 };
+
+export const handleWordClick = (event, wordBank, setSelected, setWordBank) => {
+  const selectedWord = event.target.cloneNode();
+  const wordIndex = selectedWord.dataset.position * 1;
+  selectedWord.textContent = event.target.textContent;
+  selectedWord.setAttribute("data-position", wordIndex);
+  setSelected((prevState) => [...prevState, selectedWord]);
+
+  const wordBankCopy = [...wordBank];
+  wordBankCopy[wordIndex] = selectedWord.textContent + "*";
+  setWordBank(wordBankCopy);
+};
+
+export const handleSelectedWordClick = (
+  event,
+  wordBank,
+  setWordBank,
+  selected,
+  setSelected
+) => {
+  const word = event.target.textContent;
+  const wordIndex = event.target.dataset.position * 1;
+  const wordBankCopy = [...wordBank];
+  wordBankCopy[wordIndex] = word;
+  setWordBank(wordBankCopy);
+
+  const selectedCopy = [...selected];
+  const index = selectedCopy.findIndex((arrayWord) => {
+    return (
+      arrayWord.textContent === word &&
+      arrayWord.dataset.position === String(wordIndex)
+    );
+  });
+  selectedCopy.splice(index, 1);
+  setSelected(selectedCopy);
+};

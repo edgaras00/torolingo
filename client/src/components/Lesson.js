@@ -22,7 +22,6 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
   let [unit, lesson] = getUnitAndLesson(pathname);
 
   const handleMistake = () => setMistakeCount((prevState) => prevState + 1);
-  console.log(mistakeCount);
 
   const normalizeSolution = (solution) => {
     return solution
@@ -95,13 +94,14 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
       return (
         <VocabMatchCard
           onNextQuestion={handleNextQuestion}
-          // addMistake={handleMistake}
+          addMistake={handleMistake}
           key={index}
           header="Tap the matching pairs"
           pairs={modifiedPairs}
           english={shuffledEnglish}
           spanish={shuffledSpanish}
           locationState={locationState}
+          mpairs={question.pairs}
         />
       );
     } else if (question.problemType === "translation") {

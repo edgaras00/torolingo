@@ -11,7 +11,7 @@ const VocabMatchCard = ({
   addMistake,
   locationState,
 }) => {
-  const [match, setMatch] = useState([...pairs]);
+  const [match, setMatch] = useState(JSON.parse(JSON.stringify(pairs)));
   const [firstSelected, setFirstSelected] = useState(null);
   const [englishWords, setEnglishWords] = useState([...english]);
   const [spanishWords, setSpanishWords] = useState([...spanish]);
@@ -25,8 +25,8 @@ const VocabMatchCard = ({
     return modifiedArray;
   };
 
-  const setRenewedWords = () => {
-    // Resert word that are marked wrong
+  const resetAllWrongWords = () => {
+    // Reset words that are marked wrong
     const englishWordsRenewed = resetWrongWords([...englishWords]);
     const spanishWordsRenewed = resetWrongWords([...spanishWords]);
     setEnglishWords(englishWordsRenewed);
@@ -42,6 +42,7 @@ const VocabMatchCard = ({
   };
 
   const markWrongMatch = () => {
+    addMistake();
     const englishIndex = englishWords.findIndex(
       (word) => word.word === firstSelected
     );
@@ -52,23 +53,22 @@ const VocabMatchCard = ({
       const englishCopy = [...englishWords];
       englishCopy[englishIndex].err = true;
       setEnglishWords(englishCopy);
-      // addMistake();
       return;
     }
     if (spanishIndex !== -1) {
       const spanishCopy = [...spanishWords];
       spanishCopy[spanishIndex].err = true;
       setSpanishWords(spanishCopy);
-      // addMistake();
       return;
     }
   };
 
   const handleClick = (event) => {
     const word = event.target.textContent;
+    // Mark as firstSelected if no other words are selected
     if (!firstSelected) {
-      // Reset word that are marked wrong
-      setRenewedWords();
+      // Reset words that are marked wrong | err --> false
+      resetAllWrongWords();
       //   Select new word
       setFirstSelected(word);
       return;
@@ -161,5 +161,4 @@ const VocabMatchCard = ({
     </div>
   );
 };
-
 export default VocabMatchCard;

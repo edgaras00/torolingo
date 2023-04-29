@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import NotebookLines from "./NotebookLines";
 import CheckAnswer from "./CheckAnswer";
@@ -27,6 +27,7 @@ const ListeningCard = ({
   const [selected, setSelected] = useState([]);
   const [userSolution, setUserSolution] = useState(null);
   const [result, setResult] = useState("");
+  const hasPlayedAudioRef = useRef(false);
 
   const audioElement = new Audio(audio);
   const slowAudioElement = new Audio(slowAudio);
@@ -34,20 +35,19 @@ const ListeningCard = ({
   const handleAudioClick = () => {
     audioElement.play();
   };
-
   const handleSlowAudioClick = () => {
     slowAudioElement.play();
   };
 
   useEffect(() => {
-    const initialAudio = new Audio(audio);
-    setTimeout(() => {
-      initialAudio.play();
-    }, 1000);
-    return () => {
-      initialAudio.removeEventListener("ended", () => console.log("removed"));
-    };
-  }, [audio]);
+    if (!hasPlayedAudioRef.current) {
+      const initialAudio = new Audio(audio);
+      setTimeout(() => {
+        initialAudio.play();
+      }, 1000);
+      hasPlayedAudioRef.current = true;
+    }
+  }, [audio, hasPlayedAudioRef]);
 
   useEffect(() => {
     const solution = createUserSolution(selected);

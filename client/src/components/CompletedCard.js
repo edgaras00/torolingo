@@ -1,19 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { setRequestOptions } from "../utils";
+import { setRequestOptions, AppError } from "../utils";
 import mascotStanding2 from "../mascot-standing2.png";
 import "../styles/completedCard.css";
 
 const CompleteCard = ({ mistakeCount, questionCount, unit, lesson }) => {
-  const rightAnswers = questionCount - mistakeCount;
-  const score = Math.round((rightAnswers / questionCount) * 100);
-
-  const mistakeClass = mistakeCount > 0 ? "has-mistakes" : "no-mistakes";
-
   const [displayScore, setDisplayScore] = useState(0);
   const [displayMistakes, setDisplayMistakes] = useState(0);
+  const [isError, setIsError] = useState(false);
   const { setUser } = useContext(AuthContext);
+
+  // Calculate lesson score
+  const rightAnswers = questionCount - mistakeCount;
+  const score = Math.round((rightAnswers / questionCount) * 100);
+  // Set class if there are any mistakes or not (for color)
+  const mistakeClass = mistakeCount > 0 ? "has-mistakes" : "no-mistakes";
 
   useEffect(() => {
     const updateProgress = async (unit, lesson, score) => {
@@ -25,11 +27,17 @@ const CompleteCard = ({ mistakeCount, questionCount, unit, lesson }) => {
         });
         const response = await fetch("/api/user/updateScore", requestOptions);
         const data = await response.json();
-        console.log(data);
+
+        if (response.status !== 200) {
+          throw new AppError(data.message, response.status);
+        }
+
+        // Update user data
         setUser(data.data.user);
         localStorage.setItem("user", JSON.stringify(data.data.user));
       } catch (error) {
-        console.log(error);
+        console.error(error);
+        setIsError(true);
       }
     };
 
@@ -74,6 +82,14 @@ const CompleteCard = ({ mistakeCount, questionCount, unit, lesson }) => {
           <div className="result-head total-score">Score</div>
           <div className="result total-score">{displayScore}%</div>
         </div>
+      </div>
+      <div className="progress-error">
+        {isError ? (
+          <>
+            <div>Something went wrong</div>
+            <div>Could not save progress data</div>
+          </>
+        ) : null}
       </div>
       <div className="completed-bottom">
         <Link to="/">

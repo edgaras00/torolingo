@@ -1,36 +1,40 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+
+// Components
 import TranslationCard from "./TranslationCard";
 import ListeningCard from "./ListeningCard";
 import ListeningWritingCard from "./ListeningWritingCard";
 import MultipleChoiceCard from "./MultipleChoiceCard";
 import PicCardMC from "./PicCardMC";
-import "../styles/lesson.css";
 import PictureCard from "./PictureCard";
 import VocabMatchCard from "./VocabMatchCard";
 import CompletedCard from "./CompletedCard";
-import { shuffleArray, getUnitAndLesson } from "../utils";
+import ErrorPage from "./ErrorPage";
+
+import {
+  getUnitAndLesson,
+  normalizeSolution,
+  createMatchWords,
+  AppError,
+} from "../utils";
+import "../styles/lesson.css";
 
 const Lesson = ({ matchingOnly, listeningOnly }) => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [mistakeCount, setMistakeCount] = useState(0);
-  const { pathname } = useLocation();
+  const [isError, setIsError] = useState(false);
 
+  const { pathname } = useLocation();
   const location = useLocation();
   const locationState = location.state;
+
+  // Get unit and lesson numbers
   let [unit, lesson] = getUnitAndLesson(pathname);
 
-  const handleMistake = () => setMistakeCount((prevState) => prevState + 1);
-
-  console.log(mistakeCount);
-
-  const normalizeSolution = (solution) => {
-    return solution
-      .replace(/[^\w\s\u00C0-\u00FF]/g, "")
-      .toLowerCase()
-      .replace(/ +/g, " ");
-  };
+  // Increase mistake count
+  const handleMistake = () => setMistakeCount((mistakes) => mistakes + 1);
 
   useEffect(() => {
     let [unit, lesson] = getUnitAndLesson(pathname);
@@ -58,41 +62,30 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
         }
 
         const response = await fetch(url);
-        const problemData = await response.json();
-        problemData.data.problems.push({ problemType: "completed" });
-        setQuestions(problemData.data.problems);
+        const data = await response.json();
+
+        if (response.status !== 200) {
+          throw new AppError(data.message, response.status);
+        }
+
+        data.data.problems.push({ problemType: "completed" });
+        setQuestions(data.data.problems);
       } catch (error) {
-        console.log(error);
+        console.error(error);
+        setIsError(true);
       }
     };
     fetchProblemdata(unit, lesson);
   }, [pathname, matchingOnly, listeningOnly]);
 
   const handleNextQuestion = () =>
-    setCurrentQuestion((prevState) => prevState + 1);
+    setCurrentQuestion((prevQuestion) => prevQuestion + 1);
 
   const questionCards = questions.map((question, index) => {
     if (question.problemType === "match") {
-      const modifiedPairs = question.pairs.map((pair) => {
-        pair.matched = false;
-        pair.err = false;
-        return pair;
-      });
-
-      const englishWords = modifiedPairs.map((pair, index) => ({
-        word: pair.english,
-        index,
-        err: false,
-      }));
-      const shuffledEnglish = shuffleArray(englishWords);
-
-      const spanishWords = modifiedPairs.map((pair, index) => ({
-        word: pair.spanish,
-        index,
-        err: false,
-      }));
-      const shuffledSpanish = shuffleArray(spanishWords);
-
+      const [modifiedPairs, englishWords, spanishWords] = createMatchWords(
+        question.pairs
+      );
       return (
         <VocabMatchCard
           onNextQuestion={handleNextQuestion}
@@ -100,8 +93,8 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           key={index}
           header="Tap the matching pairs"
           pairs={modifiedPairs}
-          english={shuffledEnglish}
-          spanish={shuffledSpanish}
+          english={englishWords}
+          spanish={spanishWords}
           locationState={locationState}
           mpairs={question.pairs}
         />
@@ -216,13 +209,17 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
 
   return (
     <div className="lesson-container">
-      {questionCards.slice(2).map((question, index) => {
-        if (index + 1 === currentQuestion) {
-          return question;
-        } else {
-          return null;
-        }
-      })}
+      {!isError ? (
+        questionCards.map((question, index) => {
+          if (index + 1 === currentQuestion) {
+            return question;
+          } else {
+            return null;
+          }
+        })
+      ) : (
+        <ErrorPage />
+      )}
     </div>
   );
 };

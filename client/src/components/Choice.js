@@ -1,5 +1,3 @@
-import React from "react";
-
 const Choice = ({ choiceState, value, onOptionChange }) => {
   return (
     <label

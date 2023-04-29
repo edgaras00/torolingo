@@ -19,6 +19,13 @@ export class AppError extends Error {
   }
 }
 
+export const normalizeSolution = (solution) => {
+  return solution
+    .replace(/[^\w\s\u00C0-\u00FF]/g, "")
+    .toLowerCase()
+    .replace(/ +/g, " ");
+};
+
 export const shuffleArray = (array) => {
   const shuffled = array
     .map((value) => ({ value, sort: Math.random() }))
@@ -174,4 +181,38 @@ export const createSelectedWordBubbles = (
     });
   }
   return selectedBubbles;
+};
+
+export const modifyMatchPairs = (pairs) => {
+  const modifiedPairs = pairs.map((pair) => {
+    pair.matched = false;
+    pair.err = false;
+    return pair;
+  });
+  return modifiedPairs;
+};
+
+export const getEnglishWords = (pairs) => {
+  const englishWords = pairs.map((pair, index) => ({
+    word: pair.english,
+    index,
+    err: false,
+  }));
+  return englishWords;
+};
+
+export const getSpanishWords = (pairs) => {
+  const spanishWords = pairs.map((pair, index) => ({
+    word: pair.spanish,
+    index,
+    err: false,
+  }));
+  return spanishWords;
+};
+
+export const createMatchWords = (pairs) => {
+  const modifiedPairs = modifyMatchPairs(pairs);
+  const englishWords = shuffleArray(getEnglishWords(modifiedPairs));
+  const spanishWords = shuffleArray(getSpanishWords(modifiedPairs));
+  return [modifiedPairs, englishWords, spanishWords];
 };

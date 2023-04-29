@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import hispanicFlags from "../spanish.png";
 import "../styles/home.css";

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import CheckAnswer from "./CheckAnswer";
+import { handleCheckAnswer } from "../utils";
 import soundIcon from "../sound.svg";
 import turtleICon from "../turtle.svg";
 import "../styles/listeningWritingCard.css";
@@ -19,26 +20,18 @@ const ListeningWritingCard = ({
 }) => {
   const [inputText, setInputText] = useState("");
   const [result, setResult] = useState("");
+  const hasPlayedAudioRef = useRef(null);
 
   const audioElement = new Audio(audio);
   const slowAudioElement = new Audio(slowAudio);
 
   useEffect(() => {
-    const initialAudio = new Audio(audio);
-    initialAudio.play();
-  }, [audio]);
-
-  const handleCheckAnswer = (correctSolution, userSolution) => {
-    if (correctSolution === userSolution) {
-      setResult("success");
-      return;
+    if (!hasPlayedAudioRef.current) {
+      const initialAudio = new Audio(audio);
+      initialAudio.play();
+      hasPlayedAudioRef.current = true;
     }
-    if (correctSolution !== userSolution) {
-      setResult("failure");
-      addMistake();
-      return;
-    }
-  };
+  }, [audio, hasPlayedAudioRef]);
 
   const handleAudioClick = () => audioElement.play();
   const handleSlowAudioClick = () => slowAudioElement.play();
@@ -82,6 +75,8 @@ const ListeningWritingCard = ({
         userSolution={normalizeText(inputText)}
         normalizedSolution={normalizedSolution}
         listening={true}
+        setResult={setResult}
+        addMistake={addMistake}
       />
     </div>
   );

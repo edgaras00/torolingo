@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { setRequestOptions, AppError } from "../utils";
 import "../styles/account.css";
@@ -9,20 +9,25 @@ const Account = () => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
+  // Request status state
   const [isError, setIsError] = useState(false);
   const [dataStatusMessage, setDataStatusMessage] = useState("");
   const [passwordStatusMessage, setPasswordStatusMessage] = useState("");
 
   const { user, setUser } = useContext(AuthContext);
 
-  const handleSubmitProfile = async (event) => {
-    event.preventDefault();
+  const resetStatusMessages = () => {
     setIsError(false);
     setDataStatusMessage("");
     setPasswordStatusMessage("");
+  };
 
+  const handleSubmitProfile = async (event) => {
+    event.preventDefault();
+    resetStatusMessages();
+
+    // Update with only new data
     const updateData = {};
-
     if (username && user.name !== username) updateData.name = username;
     if (email && user.email !== email) updateData.email = email;
     const requestOptions = setRequestOptions("PATCH", updateData);
@@ -35,13 +40,10 @@ const Account = () => {
         throw new AppError(data.message, response.status);
       }
 
-      if (response.status === 200) {
-        setEmail("");
-        setUsername("");
-        setDataStatusMessage("Profile data saved successfully");
-      }
-
-      console.log(data);
+      // Reset inputs and set request status message
+      setEmail("");
+      setUsername("");
+      setDataStatusMessage("Profile data saved successfully");
 
       setUser(data.data.user);
       localStorage.setItem("user", JSON.stringify(data.data.user));
@@ -50,15 +52,15 @@ const Account = () => {
       setIsError(true);
       if (error.message.startsWith("Duplicate value")) {
         setDataStatusMessage("User with this email address already exists");
+        return;
       }
+      setDataStatusMessage(error.message);
     }
   };
 
   const handleSubmitPassword = async (event) => {
     event.preventDefault();
-    setIsError(false);
-    setDataStatusMessage("");
-    setPasswordStatusMessage("");
+    resetStatusMessages();
 
     const passwordData = { currentPassword, password: newPassword };
     const requestOptions = setRequestOptions("PATCH", passwordData);
@@ -67,8 +69,6 @@ const Account = () => {
       const response = await fetch("/api/user/changePassword", requestOptions);
       const data = await response.json();
 
-      console.log(data);
-
       if (response.status !== 200) {
         throw new AppError(data.message, response.status);
       }
@@ -76,6 +76,7 @@ const Account = () => {
       setNewPassword("");
       setCurrentPassword("");
       setPasswordStatusMessage("Password changed successfully");
+      // Log out user after password change
       setUser(null);
       localStorage.removeItem("user");
     } catch (error) {
@@ -83,7 +84,6 @@ const Account = () => {
       setIsError(true);
       setPasswordStatusMessage(error.message);
     }
-
     return;
   };
 

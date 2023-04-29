@@ -35,12 +35,15 @@
 }
 
 .completed-bottom {
-  margin-top: 3.8rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .completed-bottom button {
   padding: 0.8rem 1.8rem;
   cursor: pointer;
+  margin-left: 3rem;
 }
 
 .has-mistakes {
@@ -53,4 +56,10 @@
 
 .total-score {
   color: #58cc02;
+}
+
+.progress-error {
+  color: red;
+  margin-top: 1.5rem;
+  text-align: center;
 }

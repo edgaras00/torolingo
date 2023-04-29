@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import WordBubble from "./WordBubble";
 import CheckAnswer from "./CheckAnswer";
+import { getSelectedWord, handleCheckAnswer, deselectWord } from "../utils";
 import "../styles/pictureCard.css";
 
 const PictureCard = ({
   onNextQuestion,
   text,
   header,
-  solution,
   words,
   normalizedSolution,
   addMistake,
@@ -21,28 +21,13 @@ const PictureCard = ({
   const [selected, setSelected] = useState(null);
   const [result, setResult] = useState("");
 
-  const handleCheckAnswer = (correctSolution, userSolution) => {
-    if (correctSolution === userSolution) {
-      setResult("success");
-      return;
-    }
-    if (correctSolution !== userSolution) {
-      setResult("failure");
-      addMistake();
-      return;
-    }
-  };
-
   const handleClick = (event) => {
-    const selectedWord = event.target.cloneNode();
-    const wordIndex = selectedWord.dataset.position * 1;
-    selectedWord.textContent = event.target.textContent;
-    selectedWord.setAttribute("data-position", wordIndex);
+    const [selectedWord, wordIndex] = getSelectedWord(event);
     setSelected(selectedWord);
 
     const wordBankCopy = [...wordBank];
     if (!selected || selected.textContent !== event.target.textContent) {
-      wordBankCopy[wordIndex] = "0".repeat(selectedWord.textContent.length);
+      wordBankCopy[wordIndex] = selectedWord.textContent + "*";
     }
     if (selected && selected.textContent !== event.target.textContent) {
       const word = selected.textContent;
@@ -53,12 +38,8 @@ const PictureCard = ({
   };
 
   const handleSelectedClick = (event) => {
-    const word = event.target.textContent;
-    const wordIndex = event.target.dataset.position * 1;
-    const wordBankCopy = [...wordBank];
-    wordBankCopy[wordIndex] = word;
+    const [wordBankCopy] = deselectWord(event, wordBank);
     setWordBank(wordBankCopy);
-
     setSelected(null);
   };
 
@@ -68,7 +49,7 @@ const PictureCard = ({
       key={index}
       position={index}
       handleClick={handleClick}
-      empty={word.includes("0") ? true : false}
+      empty={word.includes("*") ? true : false}
     />
   ));
 
@@ -132,6 +113,8 @@ const PictureCard = ({
         userSolution={selected ? normalizeText(selected.textContent) : ""}
         onNextQuestion={onNextQuestion}
         onCheckAnswer={handleCheckAnswer}
+        setResult={setResult}
+        addMistake={addMistake}
       />
     </div>
   );

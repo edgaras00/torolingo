@@ -1,5 +1,24 @@
 import WordBubble from "./components/WordBubble";
 
+export const setRequestOptions = (method, body) => {
+  return {
+    method,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  };
+};
+
+export class AppError extends Error {
+  constructor(message, statusCode) {
+    super(message);
+    this.statusCode = statusCode;
+    this.isOperational = true;
+  }
+}
+
 export const shuffleArray = (array) => {
   const shuffled = array
     .map((value) => ({ value, sort: Math.random() }))
@@ -11,25 +30,6 @@ export const shuffleArray = (array) => {
 export const capitalize = (string) => {
   const firstLetter = string.slice(0, 1).toUpperCase();
   return firstLetter + string.slice(1);
-};
-
-export class AppError extends Error {
-  constructor(message, statusCode) {
-    super(message);
-    this.statusCode = statusCode;
-    this.isOperational = true;
-  }
-}
-
-export const setRequestOptions = (method, body) => {
-  return {
-    method,
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  };
 };
 
 export const getUnitAndLesson = (pathString) => {
@@ -56,16 +56,29 @@ export const unlockRoute = (user, unit, lesson) => {
   return unlockCircle(user, unit, lesson - 1);
 };
 
-export const handleWordClick = (event, wordBank, setSelected, setWordBank) => {
+export const getSelectedWord = (event) => {
   const selectedWord = event.target.cloneNode();
   const wordIndex = selectedWord.dataset.position * 1;
   selectedWord.textContent = event.target.textContent;
   selectedWord.setAttribute("data-position", wordIndex);
+  return [selectedWord, wordIndex];
+};
+
+export const handleWordClick = (event, wordBank, setSelected, setWordBank) => {
+  const [selectedWord, wordIndex] = getSelectedWord(event);
   setSelected((prevState) => [...prevState, selectedWord]);
 
   const wordBankCopy = [...wordBank];
   wordBankCopy[wordIndex] = selectedWord.textContent + "*";
   setWordBank(wordBankCopy);
+};
+
+export const deselectWord = (event, wordBank) => {
+  const word = event.target.textContent;
+  const wordIndex = event.target.dataset.position * 1;
+  const wordBankCopy = [...wordBank];
+  wordBankCopy[wordIndex] = word;
+  return [wordBankCopy, word, wordIndex];
 };
 
 export const handleSelectedWordClick = (
@@ -75,10 +88,11 @@ export const handleSelectedWordClick = (
   selected,
   setSelected
 ) => {
-  const word = event.target.textContent;
-  const wordIndex = event.target.dataset.position * 1;
-  const wordBankCopy = [...wordBank];
-  wordBankCopy[wordIndex] = word;
+  // const word = event.target.textContent;
+  // const wordIndex = event.target.dataset.position * 1;
+  // const wordBankCopy = [...wordBank];
+  // wordBankCopy[wordIndex] = word;
+  const [wordBankCopy, word, wordIndex] = deselectWord(event, wordBank);
   setWordBank(wordBankCopy);
 
   const selectedCopy = [...selected];

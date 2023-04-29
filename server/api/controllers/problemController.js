@@ -1,4 +1,6 @@
-const Problem = require("../models/problems");
+const Problem = require("../models/problemModel");
+
+// Utils
 const AppError = require("../../utils/appError");
 const catchAsync = require("../../utils/catchAsync");
 

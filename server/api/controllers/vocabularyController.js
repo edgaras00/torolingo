@@ -1,4 +1,6 @@
-const Vocabulary = require("../models/vocabulary");
+const Vocabulary = require("../models/vocabularyModel");
+
+// Utils
 const catchAsync = require("../../utils/catchAsync");
 const AppError = require("../../utils/appError");
 
@@ -15,8 +17,7 @@ exports.getAllWords = catchAsync(async (req, res, next) => {
 });
 
 exports.getWord = catchAsync(async (req, res, next) => {
-  const wordId = req.params.wordId;
-  const word = await Vocabulary.findById(wordId);
+  const word = await Vocabulary.findById(req.params.wordId);
 
   if (!word) {
     return next(new AppError("Word not found with that ID", 404));
@@ -43,9 +44,7 @@ exports.createWord = catchAsync(async (req, res, next) => {
 });
 
 exports.updateWord = catchAsync(async (req, res, next) => {
-  const wordId = req.params.wordId;
-  console.log(wordId);
-  const word = await Vocabulary.findByIdAndUpdate(wordId, req.body, {
+  const word = await Vocabulary.findByIdAndUpdate(req.params.wordId, req.body, {
     new: true,
   });
 
@@ -62,8 +61,7 @@ exports.updateWord = catchAsync(async (req, res, next) => {
 });
 
 exports.deleteWord = catchAsync(async (req, res, next) => {
-  const wordId = req.params.wordId;
-  const word = await Vocabulary.findByIdAndDelete(wordId);
+  const word = await Vocabulary.findByIdAndDelete(req.params.wordId);
 
   if (!word) {
     return next(new AppError("Word not found with that ID", 404));

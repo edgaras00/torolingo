@@ -53,7 +53,7 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-// Instance method
+// Instance methods
 userSchema.methods.correctPassword = async function (
   inputPassword,
   userPassword

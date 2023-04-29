@@ -1,6 +1,6 @@
 const express = require("express");
-const userController = require("../controllers/user");
-const authController = require("../controllers/auth");
+const userController = require("../controllers/userController");
+const authController = require("../controllers/authController");
 
 const router = express.Router();
 
@@ -24,7 +24,12 @@ router.patch(
   userController.updateUserScore
 );
 
-router.get("/", userController.getAllUsers);
+router.get(
+  "/",
+  authController.protectRoute,
+  authController.restrictRouteTo("admin"),
+  userController.getAllUsers
+);
 
 router
   .route("/:userId")
@@ -33,7 +38,6 @@ router
     authController.restrictRouteTo("admin"),
     userController.getUser
   )
-  // .patch(userController.updateUserAdmin)
   .delete(
     authController.protectRoute,
     authController.restrictRouteTo("admin"),

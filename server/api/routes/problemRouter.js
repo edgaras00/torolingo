@@ -1,13 +1,17 @@
 const express = require("express");
-const problemController = require("../controllers/problems");
-const authController = require("../controllers/auth");
+const problemController = require("../controllers/problemController");
+const authController = require("../controllers/authController");
 
 const router = express.Router();
 
 router
   .route("/")
   .get(authController.protectRoute, problemController.getAllProblems)
-  .post(authController.protectRoute, problemController.createProblem);
+  .post(
+    authController.protectRoute,
+    authController.restrictRouteTo("admin"),
+    problemController.createProblem
+  );
 
 router
   .route("/:problemId")

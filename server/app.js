@@ -1,16 +1,18 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const AppError = require("./utils/appError");
-const problemRouter = require("./api/routes/problems");
-const vocabularyRouter = require("./api/routes/vocabulary");
-const userRouter = require("./api/routes/user");
-const errorController = require("./api/controllers/errorController");
+const mongoSanitize = require("express-mongo-sanitize");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
-const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
+const cors = require("cors");
+
+const AppError = require("./utils/appError");
+
+const problemRouter = require("./api/routes/problemRouter");
+const vocabularyRouter = require("./api/routes/vocabularyRouter");
+const userRouter = require("./api/routes/userRouter");
+const errorController = require("./api/controllers/errorController");
+
 require("dotenv").config();
 
 const app = express();

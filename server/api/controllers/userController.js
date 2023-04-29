@@ -1,4 +1,6 @@
-const User = require("../models/user");
+const User = require("../models/userModel");
+
+// Utils
 const catchAsync = require("../../utils/catchAsync");
 const AppError = require("../../utils/appError");
 
@@ -65,9 +67,12 @@ exports.updateUserScore = catchAsync(async (req, res, next) => {
   const { score, unit, lesson } = req.body;
 
   if (!score || !unit || !lesson) {
-    return next(new AppError("Please include score, unit lesson numbers", 400));
+    return next(
+      new AppError("Please include score, unit and lesson numbers", 400)
+    );
   }
 
+  // Keys have to be strings Maps
   const unitID = String(unit);
   const lessonID = String(lesson);
 
@@ -78,8 +83,8 @@ exports.updateUserScore = catchAsync(async (req, res, next) => {
   }
 
   user.updateProgress(unitID, lessonID, score);
-
   await user.save();
+
   res.status(200).json({ status: "success", data: { user } });
 });
 

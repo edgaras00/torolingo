@@ -46,7 +46,7 @@ const Register = () => {
       if (response.status !== 201) {
         throw new AppError(data.message, response.status);
       }
-
+      // Log in user
       setUser(data.data.user);
       localStorage.setItem("user", JSON.stringify(data.data.user));
     } catch (error) {

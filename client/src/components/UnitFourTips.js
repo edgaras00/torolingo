@@ -1,10 +1,12 @@
-import React from "react";
 import TipCard from "./TipCard";
 import TipTop from "./TipTop";
+
+// Images
 import grandmaDogPicture from "../grandma-dog.svg";
 import manQuestionPicture from "../man-question.svg";
 import womanCatPicture from "../woman-cat.svg";
 import catPicture from "../cat.svg";
+
 import "../styles/unitFourTips.css";
 
 const UnitFourTips = () => {

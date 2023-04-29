@@ -18,6 +18,7 @@ import {
   createMatchWords,
   AppError,
 } from "../utils";
+
 import "../styles/lesson.css";
 
 const Lesson = ({ matchingOnly, listeningOnly }) => {
@@ -83,6 +84,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
 
   const questionCards = questions.map((question, index) => {
     if (question.problemType === "match") {
+      // Modify word pair object for match marking
       const [modifiedPairs, englishWords, spanishWords] = createMatchWords(
         question.pairs
       );

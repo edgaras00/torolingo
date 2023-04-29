@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/unitHeader.css";
+
 import notebook from "../notebook.png";
+
+import "../styles/unitHeader.css";
 
 const UnitHeader = ({
   unitNumber,

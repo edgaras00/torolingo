@@ -2,14 +2,19 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import NotebookLines from "./NotebookLines";
 import CheckAnswer from "./CheckAnswer";
+
 import {
   handleCheckAnswer,
   createUserSolution,
   createWordBubbles,
   createSelectedWordBubbles,
+  playAudioOnMount,
 } from "../utils";
+
+// Icons
 import soundIcon from "../sound.svg";
 import turtleICon from "../turtle.svg";
+
 import "../styles/listeningCard.css";
 
 const ListeningCard = ({
@@ -40,13 +45,8 @@ const ListeningCard = ({
   };
 
   useEffect(() => {
-    if (!hasPlayedAudioRef.current) {
-      const initialAudio = new Audio(audio);
-      setTimeout(() => {
-        initialAudio.play();
-      }, 1000);
-      hasPlayedAudioRef.current = true;
-    }
+    // Have the audio only play once during initial render
+    playAudioOnMount(hasPlayedAudioRef, audio);
   }, [audio, hasPlayedAudioRef]);
 
   useEffect(() => {
@@ -54,9 +54,9 @@ const ListeningCard = ({
     setUserSolution(solution);
   }, [selected]);
 
-  const bubbles = createWordBubbles(wordBank, setSelected, setWordBank);
+  const wordBubbles = createWordBubbles(wordBank, setSelected, setWordBank);
 
-  const selectedBubbles = createSelectedWordBubbles(
+  const selectedWordBubbles = createSelectedWordBubbles(
     selected,
     wordBank,
     setWordBank,
@@ -86,14 +86,14 @@ const ListeningCard = ({
       <div className="card-middle">
         <div className="solution-container">
           <div className="selected-words">
-            <div className="aligned-words">{selectedBubbles}</div>
+            <div className="aligned-words">{selectedWordBubbles}</div>
           </div>
           <div className="line-container">
             <NotebookLines />
           </div>
         </div>
         <div className="bubble-container">
-          <div className="bubbles">{bubbles}</div>
+          <div className="bubbles">{wordBubbles}</div>
         </div>
       </div>
       <CheckAnswer

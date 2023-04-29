@@ -1,10 +1,12 @@
-import React from "react";
 import TipCard from "./TipCard";
 import TipTop from "./TipTop";
+
+// Images
 import dressPicture from "../dress.svg";
 import shirtPicture from "../shirt.svg";
 import watchPicture from "../watch.svg";
 import coatPicture from "../coat.svg";
+
 import "../styles/unitFiveTips.css";
 
 const UnitFiveTips = () => {

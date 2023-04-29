@@ -1,5 +1,6 @@
-import React from "react";
 import Unit from "./Unit";
+
+// Images
 import guitarMascot from "../cow-guitar.png";
 import dancingMascot from "../mascot-dancing.jpg";
 import mascotStanding from "../bulls2.jpg";
@@ -10,6 +11,7 @@ import mascotSitting from "../mascot-sitting.png";
 import mascotStanding2 from "../mascot-standing2.png";
 import mascotMoney from "../mascot-money.png";
 import bullTongue from "../bull-tongue.png";
+
 import "../styles/path.css";
 
 const Path = () => {

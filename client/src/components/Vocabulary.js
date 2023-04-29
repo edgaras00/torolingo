@@ -1,10 +1,12 @@
-import React from "react";
 import VocabLink from "./VocabLink";
+
+// Images
 import mascotPaper from "../bull-paper.png";
 import dancingMascot from "../mascot-dancing.jpg";
 import guitarMascot from "../cow-guitar.png";
 import bullTongue from "../bull-tongue.png";
 import mascotStanding2 from "../mascot-standing2.png";
+
 import "../styles/vocabulary.css";
 
 const Vocabulary = () => {

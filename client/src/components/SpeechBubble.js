@@ -1,4 +1,3 @@
-import React from "react";
 import soundIcon from "../phrase-sound.svg";
 import "../styles/speechBubble.css";
 

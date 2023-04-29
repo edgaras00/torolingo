@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { AppError, setRequestOptions } from "../utils";
@@ -26,7 +26,6 @@ const Login = () => {
       const response = await fetch("/api/user/login", requestOptions);
 
       const data = await response.json();
-      console.log(data);
 
       if (response.status !== 200) {
         throw new AppError(data.message, response.status);

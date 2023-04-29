@@ -11,6 +11,7 @@ const VocabMatchCard = ({
   addMistake,
   locationState,
 }) => {
+  // Make a deep copy of the passed in pairs array
   const [match, setMatch] = useState(JSON.parse(JSON.stringify(pairs)));
   const [firstSelected, setFirstSelected] = useState(null);
   const [englishWords, setEnglishWords] = useState([...english]);
@@ -74,6 +75,7 @@ const VocabMatchCard = ({
       return;
     }
     if (firstSelected) {
+      // Check if pairs are matched | Set as {matched: true} if true
       match.forEach((pair) => {
         if (
           (pair.english === word && pair.spanish === firstSelected) ||
@@ -83,6 +85,7 @@ const VocabMatchCard = ({
           setFirstSelected(null);
           return;
         }
+        // Wrong match
         if (
           (pair.english === firstSelected && pair.spanish !== word) ||
           (pair.english === word && pair.spanish !== firstSelected)
@@ -100,7 +103,6 @@ const VocabMatchCard = ({
     const matchBool = match[word.index].matched;
     const matchClass = matchBool ? "matched" : null;
     const selectedClass = firstSelected === word.word ? "selected" : null;
-    // const wrong = match[word.index].err ? "wrong" : null;
     const wrong = word.err ? "wrong" : null;
 
     return (

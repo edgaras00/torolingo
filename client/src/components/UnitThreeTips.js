@@ -1,7 +1,8 @@
-import React from "react";
 import TipCard from "./TipCard";
 import TipTop from "./TipTop";
+
 import waiterPicture from "../waiter.svg";
+
 import "../styles/unitThreeTips.css";
 
 const UnitThreeTips = () => {

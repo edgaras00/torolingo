@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/tipCard.css";
 
 const TipCard = ({ type, img, spanishText, englishText, audio }) => {

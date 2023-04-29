@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+
+// Images
 import mascotPhone from "../mascot-phone.png";
 import mascotPaper2 from "../mascot-paper2.jpg";
 import mascotSitting from "../mascot-sitting.png";

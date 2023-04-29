@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import CheckAnswer from "./CheckAnswer";
-import { handleCheckAnswer } from "../utils";
+import { handleCheckAnswer, playAudioOnMount } from "../utils";
+
 import soundIcon from "../sound.svg";
 import turtleICon from "../turtle.svg";
+
 import "../styles/listeningWritingCard.css";
 
 const ListeningWritingCard = ({
@@ -26,11 +28,8 @@ const ListeningWritingCard = ({
   const slowAudioElement = new Audio(slowAudio);
 
   useEffect(() => {
-    if (!hasPlayedAudioRef.current) {
-      const initialAudio = new Audio(audio);
-      initialAudio.play();
-      hasPlayedAudioRef.current = true;
-    }
+    // Have the audio only play once during initial render
+    playAudioOnMount(hasPlayedAudioRef, audio);
   }, [audio, hasPlayedAudioRef]);
 
   const handleAudioClick = () => audioElement.play();

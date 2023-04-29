@@ -216,3 +216,13 @@ export const createMatchWords = (pairs) => {
   const spanishWords = shuffleArray(getSpanishWords(modifiedPairs));
   return [modifiedPairs, englishWords, spanishWords];
 };
+
+export const playAudioOnMount = (audioHasPlayedRef, audioSrc) => {
+  if (!audioHasPlayedRef.current) {
+    const initialAudio = new Audio(audioSrc);
+    setTimeout(() => {
+      initialAudio.play();
+    }, 1000);
+  }
+  audioHasPlayedRef.current = true;
+};

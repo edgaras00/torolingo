@@ -2,7 +2,9 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { setRequestOptions, AppError } from "../utils";
+
 import mascotStanding2 from "../mascot-standing2.png";
+
 import "../styles/completedCard.css";
 
 const CompleteCard = ({ mistakeCount, questionCount, unit, lesson }) => {

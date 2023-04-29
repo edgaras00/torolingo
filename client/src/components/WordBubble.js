@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/wordBubble.css";
 
 const WordBubble = ({ text, handleClick, position, empty }) => {

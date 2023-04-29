@@ -1,16 +1,17 @@
-import React from "react";
 import TipCard from "./TipCard";
 import TipTop from "./TipTop";
+
+// Images
 import boyPicture from "../boy.svg";
 import girlPicture from "../girl.svg";
 import kidsPicture from "../kids.svg";
+
 import "../styles/unitOneTips.css";
 
 const UnitOneTips = () => {
   const audioElement = new Audio(
     "https://tlingobucket.s3.amazonaws.com/phrases/phrase19.mp3"
   );
-
   const handleClick = () => audioElement.play();
 
   return (

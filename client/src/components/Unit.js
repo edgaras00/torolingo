@@ -1,13 +1,18 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
-import { unlockCircle } from "../utils";
+
 import UnitHeader from "./UnitHeader";
 import Circle from "./Circle";
+
+import { unlockCircle } from "../utils";
+
+// Images
 import dumbbell from "../db3.svg";
 import check from "../check.svg";
 import star from "../star.svg";
 import crown from "../crown.svg";
+
 import "../styles/unit.css";
 
 const Unit = ({

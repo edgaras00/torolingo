@@ -1,9 +1,11 @@
-import React from "react";
 import TipCard from "./TipCard";
 import TipTop from "./TipTop";
+
+// Images
 import womanTaxiPicture from "../woman_taxi.svg";
 import hotelPicture from "../hotel.svg";
 import taxiPicture from "../taxi.svg";
+
 import "../styles/unitTwoTips.css";
 
 const UnitTwoTips = () => {

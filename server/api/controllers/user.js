@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const User = require("../models/user");
 const catchAsync = require("../../utils/catchAsync");
 const AppError = require("../../utils/appError");
@@ -63,12 +62,20 @@ exports.updateUser = catchAsync(async (req, res, next) => {
 });
 
 exports.updateUserScore = catchAsync(async (req, res, next) => {
-  const { score } = req.body;
-  const unitID = String(req.body.unit);
-  const lessonID = String(req.body.lesson);
+  const { score, unit, lesson } = req.body;
+
+  if (!score || !unit || !lesson) {
+    return next(new AppError("Please include score, unit lesson numbers", 400));
+  }
+
+  const unitID = String(unit);
+  const lessonID = String(lesson);
 
   const user = await User.findById(req.user.id);
-  const progress = user.progress;
+
+  if (!user) {
+    return next(new AppError("User not found with that ID", 404));
+  }
 
   user.updateProgress(unitID, lessonID, score);
 

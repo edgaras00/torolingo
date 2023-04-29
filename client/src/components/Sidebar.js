@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Popover, OverlayTrigger } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
+
+// Icons
 import globe from "../globe.png";
 import barbell from "../barbell.png";
 import profile from "../profile.png";
@@ -11,6 +13,7 @@ import githubIcon from "../github.svg";
 import portfolioIcon from "../portfolio.svg";
 import sourceIcon from "../source.svg";
 import logoutIcon from "../logout.svg";
+
 import "../styles/sidebar.css";
 
 const Sidebar = () => {
@@ -28,6 +31,7 @@ const Sidebar = () => {
   const isFirstRender = useRef(true);
 
   useEffect(() => {
+    // Highlight the correct sidebar option if user hits route through URL
     if (isFirstRender.current) {
       isFirstRender.current = false;
       const selectedCopy = { ...selectedSidebar };
@@ -41,6 +45,7 @@ const Sidebar = () => {
   }, [currentPath, selectedSidebar]);
 
   const handleClick = (value) => {
+    // Highlight correct option if user hits route through clicking link
     const selectedCopy = { ...selectedSidebar };
     Object.keys(selectedCopy).forEach((value) => (selectedCopy[value] = false));
     selectedCopy[value] = true;

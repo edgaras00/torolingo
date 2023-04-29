@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Choice from "./Choice";
 import CheckAnswer from "./CheckAnswer";
-import { capitalize } from "../utils";
+import { capitalize, handleCheckAnswer } from "../utils";
 import "../styles/multipleChoiceCard.css";
 
 const MultipleChoiceCard = ({
@@ -17,26 +17,14 @@ const MultipleChoiceCard = ({
   const [userChoice, setUserChoice] = useState("");
   const [result, setResult] = useState("");
 
-  const onOptionChange = (event) => setUserChoice(event.target.value);
-
-  const handleCheckAnswer = (correctSolution, userSolution) => {
-    if (correctSolution === userSolution) {
-      setResult("success");
-      return;
-    }
-    if (correctSolution !== userSolution) {
-      setResult("failure");
-      addMistake();
-      return;
-    }
-  };
+  const handleOptionChange = (event) => setUserChoice(event.target.value);
 
   const answerChoices = choices.map((choice, index) => (
     <Choice
       key={index}
       value={choice}
       choiceState={userChoice}
-      onOptionChange={onOptionChange}
+      onOptionChange={handleOptionChange}
     />
   ));
 
@@ -64,6 +52,8 @@ const MultipleChoiceCard = ({
         solution={capitalize(solution)}
         normalizedSolution={normalizedSolution}
         userSolution={userChoice}
+        addMistake={addMistake}
+        setResult={setResult}
       />
     </div>
   );

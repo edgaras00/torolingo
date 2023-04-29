@@ -1,6 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
+
 import mascotPaper2 from "../mascot-paper2.jpg";
+
 import "../styles/notFound.css";
 
 const NotFound = () => {

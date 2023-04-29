@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import NotebookLines from "./NotebookLines";
 import CheckAnswer from "./CheckAnswer";
+
 import {
   handleCheckAnswer,
   createUserSolution,
   createWordBubbles,
   createSelectedWordBubbles,
 } from "../utils";
+
+// Images
 import bullTongue from "../bull-tongue.png";
 import mascotStanding from "../mascot-standing2.png";
 import mascotPaper from "../bull-paper.png";

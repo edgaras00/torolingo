@@ -1,5 +1,7 @@
 import mascotPaper2 from "../mascot-paper2.jpg";
+
 import "../styles/errorPage.css";
+
 const ErrorPage = () => {
   return (
     <div className="error-page">

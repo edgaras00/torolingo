@@ -12,7 +12,9 @@ const PicCardMC = ({
   choices,
   addMistake,
   image,
+  imageChoices,
   locationState,
+  pictureChoice,
 }) => {
   const [userChoice, setUserChoice] = useState("");
   const [result, setResult] = useState("");
@@ -25,6 +27,7 @@ const PicCardMC = ({
       value={choice}
       choiceState={userChoice}
       onOptionChange={handleOptionChange}
+      image={pictureChoice ? imageChoices[index] : null}
     />
   ));
 
@@ -41,11 +44,15 @@ const PicCardMC = ({
         </div>
       </div>
       <div className="mc-card-middle">
-        <div className="mc-pic">
-          <img src={image} alt="question" />
-        </div>
+        {pictureChoice ? null : (
+          <div className="mc-pic">
+            <img src={image} alt="question" />
+          </div>
+        )}
         <div className="choices-container">
-          <form className="mc-form">{answerChoices}</form>
+          <form className={pictureChoice ? "mc-pic-form" : "mc-form"}>
+            {answerChoices}
+          </form>
         </div>
       </div>
       <CheckAnswer

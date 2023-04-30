@@ -129,7 +129,10 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           locationState={locationState}
         />
       );
-    } else if (question.problemType === "multipleChoicePicture") {
+    } else if (
+      question.problemType === "multipleChoicePicture" ||
+      question.problemType === "pictureChoice"
+    ) {
       return (
         <PicCardMC
           onNextQuestion={handleNextQuestion}
@@ -139,7 +142,11 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           solution={question.solution}
           choices={question.choices}
           image={question.pictureURL}
+          imageChoices={question.pictures}
           locationState={locationState}
+          pictureChoice={
+            question.problemType === "pictureChoice" ? true : false
+          }
         />
       );
     } else if (question.problemType === "listening") {

@@ -1,9 +1,10 @@
-const Choice = ({ choiceState, value, onOptionChange }) => {
+const Choice = ({ choiceState, value, onOptionChange, image }) => {
   return (
     <label
-      className={`pic-mc ${choiceState === value ? "pic-mc-selected" : null}`}
+      className={`pic-mc ${image ? "pic-label" : null} 
+      ${choiceState === value ? "pic-mc-selected" : null}`}
     >
-      {value}
+      {image ? <img src={image} alt="choice option" /> : value}
       <input
         type="radio"
         name={value}
@@ -12,6 +13,7 @@ const Choice = ({ choiceState, value, onOptionChange }) => {
         checked={choiceState === value}
         onChange={onOptionChange}
       />
+      {image ? value : null}
     </label>
   );
 };

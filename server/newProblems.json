@@ -101,11 +101,24 @@
     "slowAudioURL": "https://tlingobucket.s3.amazonaws.com/audio/listening3_slow.mp3"
   },
   {
+    "problemType": "pictureChoice",
+    "text": "Which one of these is \"the milk\"?",
+    "solution": "la leche",
+    "unit": 1,
+    "lesson": 1,
+    "choices": ["el pan", "la leche", "el agua"],
+    "pictures": [
+      "https://tlingobucket.s3.amazonaws.com/bread.svg",
+      "https://tlingobucket.s3.amazonaws.com/milkpic.svg",
+      "https://tlingobucket.s3.amazonaws.com/waterpic.svg"
+    ]
+  },
+  {
     "problemType": "multipleChoicePicture",
     "text": "How do you say \"the milk\"?",
     "solution": "la leche",
     "unit": 1,
-    "lesson": 1,
+    "lesson": 2,
     "choices": ["la leche", "el agua", "el pan"],
     "pictureURL": "https://travelappbucket.s3.amazonaws.com/imgs/milk.png"
   },
@@ -164,7 +177,7 @@
       { "english": "woman", "spanish": "mujer" }
     ],
     "unit": 1,
-    "lesson": 1
+    "lesson": 2
   },
   {
     "problemType": "listening",
@@ -257,6 +270,19 @@
       "favor",
       "disculpe",
       "mucho gusto"
+    ]
+  },
+  {
+    "problemType": "pictureChoice",
+    "text": "Which one of these is \"the apple\"?",
+    "solution": "la manzana",
+    "unit": 1,
+    "lesson": 2,
+    "choices": ["la manzana", "el niño", "la niña"],
+    "pictures": [
+      "https://tlingobucket.s3.amazonaws.com/apple.svg",
+      "https://tlingobucket.s3.amazonaws.com/boypic.svg",
+      "https://tlingobucket.s3.amazonaws.com/girlpic.svg"
     ]
   },
   {

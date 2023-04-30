@@ -20,6 +20,7 @@ const problemSchema = new mongoose.Schema({
   lesson: Number,
   translation: String,
   pictureURL: String,
+  pictures: [],
   audioURL: String,
   slowAudioURL: String,
   problemType: {
@@ -34,6 +35,7 @@ const problemSchema = new mongoose.Schema({
       "match",
       "listeningWriting",
       "fillBlank",
+      "pictureChoice",
     ],
   },
 });

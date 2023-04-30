@@ -1,0 +1,40 @@
+.picture-mc {
+  border: 1px solid grey;
+  padding: 0.5rem 3.2rem;
+  margin-bottom: 0.3rem;
+  border-radius: 8%;
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+}
+
+.picture-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.picture-label img {
+  width: 150px;
+  margin-bottom: 0.5rem;
+}
+
+.picture-mc:hover {
+  background-color: #b0e6ff;
+}
+
+.picture-mc-selected {
+  background-color: #1cb0f6;
+}
+
+.picture-mc-selected:hover {
+  background-color: #1cb0f6;
+}
+
+.picture-mc-input {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}

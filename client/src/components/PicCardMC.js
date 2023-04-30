@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import QuestionHeader from "./QuestionHeader";
 import Choice from "./Choice";
 import CheckAnswer from "./CheckAnswer";
 import { capitalize, handleCheckAnswer } from "../utils";
+
+import "../styles/question.css";
 import "../styles/picCardMC.css";
 
 const PicCardMC = ({
@@ -32,20 +34,11 @@ const PicCardMC = ({
   ));
 
   return (
-    <div className="translation-card">
-      <div className="card-top">
-        <div className="exit-lesson">
-          <Link to={locationState ? `/${locationState.from}` : "/"}>
-            <button className="exit-button">X</button>
-          </Link>
-        </div>
-        <div className="problem-header-container">
-          <h3 className="problem-header">{text}</h3>
-        </div>
-      </div>
+    <div className="question-card">
+      <QuestionHeader locationState={locationState} text={text} />
       <div className="mc-card-middle">
         {pictureChoice ? null : (
-          <div className="mc-pic">
+          <div className="mc-picture-wrapper">
             <img src={image} alt="question" />
           </div>
         )}

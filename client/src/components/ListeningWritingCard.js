@@ -1,11 +1,10 @@
-import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import QuestionHeader from "./QuestionHeader";
 import CheckAnswer from "./CheckAnswer";
-import { handleCheckAnswer, playAudioOnMount } from "../utils";
+import AudioBox from "./AudioBox";
+import { handleCheckAnswer } from "../utils";
 
-import soundIcon from "../sound.svg";
-import turtleICon from "../turtle.svg";
-
+import "../styles/question.css";
 import "../styles/listeningWritingCard.css";
 
 const ListeningWritingCard = ({
@@ -14,7 +13,6 @@ const ListeningWritingCard = ({
   normalizedSolution,
   audio,
   slowAudio,
-  header,
   addMistake,
   normalizeText,
   translation,
@@ -22,39 +20,11 @@ const ListeningWritingCard = ({
 }) => {
   const [inputText, setInputText] = useState("");
   const [result, setResult] = useState("");
-  const hasPlayedAudioRef = useRef(null);
-
-  const audioElement = new Audio(audio);
-  const slowAudioElement = new Audio(slowAudio);
-
-  useEffect(() => {
-    // Have the audio only play once during initial render
-    playAudioOnMount(hasPlayedAudioRef, audio);
-  }, [audio, hasPlayedAudioRef]);
-
-  const handleAudioClick = () => audioElement.play();
-  const handleSlowAudioClick = () => slowAudioElement.play();
 
   return (
-    <div className="translation-card">
-      <div className="card-top">
-        <div className="exit-lesson">
-          <Link to={locationState ? `/${locationState.from}` : "/"}>
-            <button className="exit-button">X</button>
-          </Link>
-        </div>
-        <div className="problem-header-container">
-          <h3 className="problem-header">{header}</h3>
-        </div>
-      </div>
-      <div className="audio-box-wrapper">
-        <div className="audio-box normal-audio" onClick={handleAudioClick}>
-          <img src={soundIcon} alt="sound icon" width="140px" />
-        </div>
-        <div className="audio-box slow-audio" onClick={handleSlowAudioClick}>
-          <img src={turtleICon} alt="turtle icon" width="100px" />
-        </div>
-      </div>
+    <div className="question-card">
+      <QuestionHeader text="Type what you hear" locationState={locationState} />
+      <AudioBox audio={audio} slowAudio={slowAudio} />
       <div className="form-container">
         <form className="writing-form">
           <textarea

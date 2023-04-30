@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import QuestionHeader from "./QuestionHeader";
 import "../styles/vocabMatchCard.css";
 
 const VocabMatchCard = ({
@@ -137,16 +137,7 @@ const VocabMatchCard = ({
 
   return (
     <div className="vocab-match">
-      <div className="card-top">
-        <div className="exit-lesson">
-          <Link to={locationState ? `/${locationState.from}` : "/"}>
-            <button className="exit-button">X</button>
-          </Link>
-        </div>
-        <div className="problem-header-container">
-          <h3 className="problem-header">{header}</h3>
-        </div>
-      </div>
+      <QuestionHeader text={header} locationState={locationState} />
       <div className="vocab-card-middle">
         <div className="match-container">
           <div className="left-side">{englishCards}</div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import QuestionHeader from "./QuestionHeader";
 import Choice from "./Choice";
 import CheckAnswer from "./CheckAnswer";
 import { capitalize, handleCheckAnswer } from "../utils";
@@ -30,16 +30,7 @@ const MultipleChoiceCard = ({
 
   return (
     <div className="multiple-choice-card">
-      <div className="card-top mc-card-top">
-        <div className="exit-lesson">
-          <Link to={locationState ? `/${locationState.from}` : "/"}>
-            <button className="exit-button">X</button>
-          </Link>
-        </div>
-        <div className="problem-header-container">
-          <h3 className="problem-header">{text}</h3>
-        </div>
-      </div>
+      <QuestionHeader locationState={locationState} text={text} />
       <div className="mc-card-middle">
         <div className="choices-container">
           <form className="mc-form">{answerChoices}</form>

@@ -20,7 +20,6 @@
 .audio-box:hover {
   background-color: #4a81c9;
 }
-
 .normal-audio {
   height: 120px;
   width: 120px;
@@ -38,13 +37,4 @@
 
 .slow-audio img {
   width: 70px;
-}
-
-.listening-solution-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.listening-solution {
-  margin-bottom: 0.4rem;
 }

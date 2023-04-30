@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import QuestionHeader from "./QuestionHeader";
 import WordBubble from "./WordBubble";
 import CheckAnswer from "./CheckAnswer";
 import { getSelectedWord, handleCheckAnswer, deselectWord } from "../utils";
+
+import "../styles/question.css";
 import "../styles/pictureCard.css";
 
 const PictureCard = ({
@@ -82,17 +84,8 @@ const PictureCard = ({
   });
 
   return (
-    <div className="translation-card">
-      <div className="card-top">
-        <div className="exit-lesson">
-          <Link to={locationState ? `/${locationState.from}` : "/"}>
-            <button className="exit-button">X</button>
-          </Link>
-        </div>
-        <div className="problem-header-container">
-          <h3 className="problem-header">{header}</h3>
-        </div>
-      </div>
+    <div className="question-card">
+      <QuestionHeader text={header} locationState={locationState} />
       <div className="picture-problem">
         <div className="image-container">
           <div className="image">

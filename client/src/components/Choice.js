@@ -1,15 +1,17 @@
+import "../styles/choice.css";
+
 const Choice = ({ choiceState, value, onOptionChange, image }) => {
   return (
     <label
-      className={`pic-mc ${image ? "pic-label" : null} 
-      ${choiceState === value ? "pic-mc-selected" : null}`}
+      className={`picture-mc ${image ? "picture-label" : null} 
+      ${choiceState === value ? "picture-mc-selected" : null}`}
     >
       {image ? <img src={image} alt="choice option" /> : value}
       <input
         type="radio"
         name={value}
         value={value}
-        className="pic-mc-input"
+        className="picture-mc-input"
         checked={choiceState === value}
         onChange={onOptionChange}
       />

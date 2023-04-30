@@ -1,49 +1,3 @@
-.translation-card {
-  width: 100%;
-  /* height: 580px; */
-  height: 560px;
-  /* padding-left: 1rem; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.card-top {
-  width: 100%;
-  height: 90px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.exit-lesson {
-  width: 100%;
-}
-
-.exit-button {
-  border: none;
-  font-size: 1.8rem;
-  background-color: white;
-  color: #afafaf;
-  cursor: pointer;
-  margin-top: 1.5rem;
-}
-
-.exit-button:hover {
-  color: #e5e5e5;
-}
-
-.problem-header-container {
-  width: 74%;
-}
-
-.problem-header {
-  margin-top: 0.1rem;
-  font-size: 1.3rem;
-}
-
 .problem-wrapper {
   display: flex;
   flex-direction: row;
@@ -56,12 +10,11 @@
   margin-left: 3rem;
 }
 
-.speech-bubble {
+.mascot-speech-bubble {
   position: relative;
   background-color: #f1f1f1;
   padding: 10px;
   border-radius: 10px;
-  /* width: 150px; */
   margin: 20px;
   width: fit-content;
   display: flex;
@@ -70,7 +23,7 @@
   height: fit-content;
 }
 
-.speech-bubble::after {
+.mascot-speech-bubble::after {
   content: "";
   position: absolute;
   top: 48%;
@@ -81,108 +34,9 @@
   border-color: transparent #f1f1f1 transparent transparent;
 }
 
-.card-middle {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.solution-container {
-  position: relative;
-}
-
-.selected-words {
-  background-color: transparent;
-  width: 100%;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-}
-
-.aligned-words {
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.line-container {
-  display: flex;
-  justify-content: center;
-}
-
-.bubble-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.bubbles {
-  width: 46%;
-  padding: 0 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .problem-sentence {
   height: 70px;
   width: 200px;
   position: absolute;
   border-radius: 10%;
-}
-
-.card-bottom,
-.check-answer-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-  padding-top: 0.6rem;
-  padding-bottom: 1rem;
-}
-
-.right-answer {
-  background-color: #cbff8b;
-}
-
-.wrong-answer {
-  background-color: #fa9191;
-}
-
-.solution {
-  margin-left: 1.5rem;
-  color: #3aa700;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-}
-
-.wrong-solution {
-  color: #a30d0d;
-}
-
-.check-answer {
-  width: 8.2rem;
-  height: 2.8rem;
-  border: none;
-  border-radius: 25%;
-  text-transform: capitalize;
-  margin-right: 3rem;
-  cursor: pointer;
-  background-color: #58cc02;
-  color: #fff;
-  font-weight: 600;
-}
-
-.check-answer:hover {
-  background-color: #68e706;
-}
-
-.wrong-answer-button {
-  border: 1px solid #ff4b4b;
-  background-color: #ff4b4b;
-}
-
-.wrong-answer-button:hover {
-  background-color: #f85555;
 }

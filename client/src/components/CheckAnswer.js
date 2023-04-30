@@ -16,14 +16,14 @@ const CheckAnswer = ({
   const renderButtons = (result) => {
     if (result === "success") {
       return (
-        <button className="check-answer" onClick={onNextQuestion}>
+        <button className="check-answer-btn" onClick={onNextQuestion}>
           CONTINUE
         </button>
       );
     }
     return (
       <button
-        className={`check-answer ${
+        className={`check-answer-btn ${
           result === "failure" ? "wrong-answer-button" : null
         }`}
         onClick={() =>

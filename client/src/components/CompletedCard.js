@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { setRequestOptions, AppError } from "../utils";
 
@@ -13,11 +13,25 @@ const CompleteCard = ({ mistakeCount, questionCount, unit, lesson }) => {
   const [isError, setIsError] = useState(false);
   const { setUser } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   // Calculate lesson score
   const rightAnswers = questionCount - mistakeCount;
   const score = Math.round((rightAnswers / questionCount) * 100);
   // Set class if there are any mistakes or not (for color)
   const mistakeClass = mistakeCount > 0 ? "has-mistakes" : "no-mistakes";
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.keyCode === 13) {
+        navigate("/");
+      }
+    };
+    document.addEventListener("keypress", handleKeyPress);
+    return () => {
+      document.removeEventListener("keypress", handleKeyPress);
+    };
+  }, [navigate]);
 
   useEffect(() => {
     const updateProgress = async (unit, lesson, score) => {

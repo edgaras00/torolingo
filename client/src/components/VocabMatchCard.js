@@ -27,9 +27,9 @@ const VocabMatchCard = ({
         }
       }
     };
-    document.addEventListener("keydown", handleKeyPress);
+    document.addEventListener("keypress", handleKeyPress);
     return () => {
-      document.removeEventListener("keydown", handleKeyPress);
+      document.removeEventListener("keypress", handleKeyPress);
     };
   }, [match, onNextQuestion]);
 

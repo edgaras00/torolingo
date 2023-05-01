@@ -5,6 +5,7 @@ import CheckAnswer from "./CheckAnswer";
 import { getSelectedWord, handleCheckAnswer, deselectWord } from "../utils";
 
 import "../styles/question.css";
+// import "../styles/wordbankSolution.css";
 import "../styles/pictureCard.css";
 
 const PictureCard = ({
@@ -96,7 +97,7 @@ const PictureCard = ({
       </div>
       <div className="card-middle pic-middle">
         <div className="bubble-container">
-          <div className="bubbles">{bubbles}</div>
+          <div className="bubbles picture-bubbles">{bubbles}</div>
         </div>
       </div>
       <CheckAnswer

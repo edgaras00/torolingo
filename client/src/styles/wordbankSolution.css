@@ -40,3 +40,8 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.picture-bubbles {
+  width: 100%;
+  flex-wrap: nowrap;
+}

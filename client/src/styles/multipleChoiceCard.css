@@ -4,10 +4,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* padding-left: 1rem; */
 }
 
 .mc-card-middle {
   margin-top: 3rem;
-  /* margin-bottom: 9rem; */
 }

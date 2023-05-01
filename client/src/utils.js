@@ -95,10 +95,6 @@ export const handleSelectedWordClick = (
   selected,
   setSelected
 ) => {
-  // const word = event.target.textContent;
-  // const wordIndex = event.target.dataset.position * 1;
-  // const wordBankCopy = [...wordBank];
-  // wordBankCopy[wordIndex] = word;
   const [wordBankCopy, word, wordIndex] = deselectWord(event, wordBank);
   setWordBank(wordBankCopy);
 

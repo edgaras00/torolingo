@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import QuestionHeader from "./QuestionHeader";
+
 import "../styles/vocabMatchCard.css";
 
 const VocabMatchCard = ({
@@ -146,7 +147,7 @@ const VocabMatchCard = ({
       </div>
       <div className="card-bottom match-bottom">
         {match.every((pair) => pair.matched) ? (
-          <button className="check-answer" onClick={onNextQuestion}>
+          <button className="check-answer-btn" onClick={onNextQuestion}>
             CONTINUE
           </button>
         ) : null}

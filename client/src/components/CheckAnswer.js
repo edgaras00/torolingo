@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "../styles/checkAnswer.css";
 
 const CheckAnswer = ({
@@ -13,6 +14,38 @@ const CheckAnswer = ({
   addMistake,
   setResult,
 }) => {
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.keyCode === 13) {
+        if (result !== "success") {
+          onCheckAnswer(
+            normalizedSolution,
+            userSolution,
+            altSolution,
+            setResult,
+            addMistake
+          );
+          return;
+        }
+        onNextQuestion();
+        return;
+      }
+    };
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [
+    result,
+    addMistake,
+    altSolution,
+    normalizedSolution,
+    onCheckAnswer,
+    setResult,
+    userSolution,
+    onNextQuestion,
+  ]);
+
   const renderButtons = (result) => {
     if (result === "success") {
       return (

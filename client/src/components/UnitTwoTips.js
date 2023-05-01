@@ -12,7 +12,7 @@ const UnitTwoTips = () => {
   return (
     <div className="tips">
       <TipTop header="Esta vs es" />
-      <div className="tip-content">
+      <div className="tip-content unit-two-content">
         <p>
           <span>Está</span> and <span>es</span> both mean is. So what's the
           difference? If you want to say where someone or something is located,

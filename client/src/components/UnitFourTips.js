@@ -13,7 +13,7 @@ const UnitFourTips = () => {
   return (
     <div className="tips">
       <TipTop header="Questions" />
-      <div className="tip-content">
+      <div className="tip-content unit-four-content">
         <p>
           Asking questions in Spanish is easy! Just change the pronunciation of
           any statement to a question by lifting your voice at the end.

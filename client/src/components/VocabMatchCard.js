@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import QuestionHeader from "./QuestionHeader";
 
 import "../styles/vocabMatchCard.css";
@@ -17,6 +17,21 @@ const VocabMatchCard = ({
   const [firstSelected, setFirstSelected] = useState(null);
   const [englishWords, setEnglishWords] = useState([...english]);
   const [spanishWords, setSpanishWords] = useState([...spanish]);
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.keyCode === 13) {
+        if (match.every((pair) => pair.matched)) {
+          onNextQuestion();
+          return;
+        }
+      }
+    };
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [match, onNextQuestion]);
 
   //   Helper function
   const resetWrongWords = (array) => {

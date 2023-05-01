@@ -2,6 +2,7 @@ import { useState, useEffect, useContext, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Popover, OverlayTrigger } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
+import useWidth from "../hooks/useWidth";
 
 // Icons
 import globe from "../globe.png";
@@ -13,6 +14,7 @@ import githubIcon from "../github.svg";
 import portfolioIcon from "../portfolio.svg";
 import sourceIcon from "../source.svg";
 import logoutIcon from "../logout.svg";
+// Images
 import mascotStanding2 from "../mascot-standing2.png";
 
 import "../styles/sidebar.css";
@@ -30,6 +32,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const currentPath = useLocation().pathname;
   const isFirstRender = useRef(true);
+  const { width } = useWidth();
 
   useEffect(() => {
     // Highlight the correct sidebar option if user hits route through URL
@@ -68,7 +71,7 @@ const Sidebar = () => {
   };
 
   const popoverRight = (
-    <Popover id="popover-positioned-right" title="Resources">
+    <Popover>
       <div className="more-resources">
         <a
           className="resource"
@@ -170,7 +173,7 @@ const Sidebar = () => {
         </Link>
         <OverlayTrigger
           trigger="click"
-          placement="right"
+          placement={width > 535 ? "right" : "top"}
           overlay={popoverRight}
           rootClose
         >

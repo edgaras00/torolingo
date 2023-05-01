@@ -13,6 +13,7 @@ import githubIcon from "../github.svg";
 import portfolioIcon from "../portfolio.svg";
 import sourceIcon from "../source.svg";
 import logoutIcon from "../logout.svg";
+import mascotStanding2 from "../mascot-standing2.png";
 
 import "../styles/sidebar.css";
 
@@ -119,6 +120,7 @@ const Sidebar = () => {
           <div className="logo" onClick={() => handleClick("learn")}>
             torolingo
           </div>
+          <img className="mascot-logo" src={mascotStanding2} alt="mascot" />
         </Link>
       </div>
       <div className="option-container">
@@ -129,7 +131,7 @@ const Sidebar = () => {
             }`}
             onClick={() => handleClick("learn")}
           >
-            <img src={globe} alt="globe" width="30px" />
+            <img src={globe} alt="globe" className="sidebar-icon-a" />
             <span>LEARN</span>
           </div>
         </Link>
@@ -140,7 +142,7 @@ const Sidebar = () => {
             }`}
             onClick={() => handleClick("practice")}
           >
-            <img src={barbell} alt="barbell" width="36px" />
+            <img src={barbell} alt="barbell" className="sidebar-icon-b" />
             <span>PRACTICE</span>
           </div>
         </Link>
@@ -151,7 +153,7 @@ const Sidebar = () => {
             }`}
             onClick={() => handleClick("vocabulary")}
           >
-            <img src={vocab} alt="vocabulary" width="36px" />
+            <img src={vocab} alt="vocabulary" className="sidebar-icon-b" />
             <span>VOCABULARY</span>
           </div>
         </Link>
@@ -162,7 +164,7 @@ const Sidebar = () => {
             }`}
             onClick={() => handleClick("profile")}
           >
-            <img src={profile} alt="profile" width="30px" />
+            <img src={profile} alt="profile" className="sidebar-icon-a" />
             <span>PROFILE</span>
           </div>
         </Link>
@@ -177,7 +179,7 @@ const Sidebar = () => {
               selectedSidebar.more ? "selected-option" : null
             }`}
           >
-            <img src={more} alt="more" width="30px" />
+            <img src={more} alt="more" className="sidebar-icon-a" />
             <span>MORE</span>
           </div>
         </OverlayTrigger>

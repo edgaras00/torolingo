@@ -1,5 +1,11 @@
 #app {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  position: relative;
+}
+
+@media (max-width: 535px) {
+  #app {
+    /* flex-direction: column-reverse; */
+  }
 }

@@ -25,7 +25,6 @@ const TranslationCard = ({
   addMistake,
   locationState,
   altSolution,
-  onKeyDown,
 }) => {
   const [wordBank, setWordBank] = useState([...words]);
   const [selected, setSelected] = useState([]);

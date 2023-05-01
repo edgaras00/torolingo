@@ -113,7 +113,11 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           normalizedSolution={normalizeSolution(question.solution)}
           words={question.wordBank}
           locationState={locationState}
-          altSolution={question.altSolution}
+          altSolution={
+            question.altSolution
+              ? normalizeSolution(question.altSolution)
+              : null
+          }
         />
       );
     } else if (question.problemType === "multipleChoice") {

@@ -7,7 +7,7 @@ import manQuestionPicture from "../man-question.svg";
 import womanCatPicture from "../woman-cat.svg";
 import catPicture from "../cat.svg";
 
-import "../styles/unitFourTips.css";
+import "../styles/tips.css";
 
 const UnitFourTips = () => {
   return (

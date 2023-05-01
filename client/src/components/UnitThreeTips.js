@@ -3,7 +3,7 @@ import TipTop from "./TipTop";
 
 import waiterPicture from "../waiter.svg";
 
-import "../styles/unitThreeTips.css";
+import "../styles/tips.css";
 
 const UnitThreeTips = () => {
   return (

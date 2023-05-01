@@ -40,5 +40,17 @@
   margin: 0;
 }
 
-.phrase-container {
+@media (max-width: 1000px) {
+  .guidebook {
+    width: 90%;
+  }
+}
+
+@media (max-width: 535px) {
+  .guidebook {
+    width: 90%;
+  }
+  .guidebook-content {
+    width: 80%;
+  }
 }

@@ -6,6 +6,7 @@ import boyPicture from "../boy.svg";
 import girlPicture from "../girl.svg";
 import kidsPicture from "../kids.svg";
 
+import "../styles/tips.css";
 import "../styles/unitOneTips.css";
 
 const UnitOneTips = () => {

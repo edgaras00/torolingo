@@ -6,7 +6,7 @@ import womanTaxiPicture from "../woman_taxi.svg";
 import hotelPicture from "../hotel.svg";
 import taxiPicture from "../taxi.svg";
 
-import "../styles/unitTwoTips.css";
+import "../styles/tips.css";
 
 const UnitTwoTips = () => {
   return (

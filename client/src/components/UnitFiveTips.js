@@ -7,7 +7,7 @@ import shirtPicture from "../shirt.svg";
 import watchPicture from "../watch.svg";
 import coatPicture from "../coat.svg";
 
-import "../styles/unitFiveTips.css";
+import "../styles/tips.css";
 
 const UnitFiveTips = () => {
   return (

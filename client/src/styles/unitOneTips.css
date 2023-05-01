@@ -1,24 +1,3 @@
-.tips {
-  background-color: rgb(197, 225, 235);
-  padding: 15px 35px;
-  border-radius: 10px;
-}
-
-.tip-top h3 {
-  margin-top: 10px;
-  font-size: 1.3rem;
-}
-
-.tip-head {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: rgb(76, 171, 202);
-}
-
-.tip-content span {
-  color: rgb(30, 144, 182);
-}
-
 .boy-card,
 .girl-card {
   display: flex;
@@ -104,4 +83,23 @@
 
 .english-text {
   color: rgb(136, 136, 136);
+}
+
+@media (max-width: 705px) {
+  .tips {
+    width: 94%;
+  }
+  .example-img img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 535px) {
+  .tip {
+    width: 90%;
+  }
+
+  .conjugation-example {
+    /* padding-bottom: 100px; */
+  }
 }

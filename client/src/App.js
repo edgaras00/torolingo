@@ -93,7 +93,7 @@ const App = () => {
             user ? (
               <>
                 <Sidebar />
-                <Guidebook>
+                <Guidebook number={1}>
                   <UnitOnePhrases />
                   <UnitOneTips />
                 </Guidebook>
@@ -109,7 +109,7 @@ const App = () => {
             user ? (
               <>
                 <Sidebar />
-                <Guidebook>
+                <Guidebook number={2}>
                   <UnitTwoPhrases />
                   <UnitTwoTips />
                 </Guidebook>
@@ -125,7 +125,7 @@ const App = () => {
             user ? (
               <>
                 <Sidebar />
-                <Guidebook>
+                <Guidebook number={3}>
                   <UnitThreePhrases />
                   <UnitThreeTips />
                 </Guidebook>
@@ -141,7 +141,7 @@ const App = () => {
             user ? (
               <>
                 <Sidebar />
-                <Guidebook>
+                <Guidebook number={4}>
                   <UnitFourPhrases />
                   <UnitFourTips />
                 </Guidebook>
@@ -157,7 +157,7 @@ const App = () => {
             user ? (
               <>
                 <Sidebar />
-                <Guidebook>
+                <Guidebook number={5}>
                   <UnitFivePhrases />
                   <UnitFiveTips />
                 </Guidebook>

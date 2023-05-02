@@ -7,7 +7,13 @@ import mascotStanding2 from "../mascot-standing2.png";
 
 import "../styles/completedCard.css";
 
-const CompleteCard = ({ mistakeCount, questionCount, unit, lesson }) => {
+const CompleteCard = ({
+  mistakeCount,
+  questionCount,
+  unit,
+  lesson,
+  isPractice,
+}) => {
   const [displayScore, setDisplayScore] = useState(0);
   const [displayMistakes, setDisplayMistakes] = useState(0);
   const [isError, setIsError] = useState(false);
@@ -70,8 +76,9 @@ const CompleteCard = ({ mistakeCount, questionCount, unit, lesson }) => {
       }, 5);
       return () => clearInterval(intervalId);
     }
-
-    updateProgress(unit, lesson, score);
+    if (!isPractice) {
+      updateProgress(unit, lesson, score);
+    }
   }, [
     score,
     displayScore,

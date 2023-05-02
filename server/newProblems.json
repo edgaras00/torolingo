@@ -387,8 +387,6 @@
       { "english": "he", "spanish": "él" },
       { "english": "apple", "spanish": "manzana" },
       { "spanish": "adiós", "english": "bye" },
-      { "english": "girl", "spanish": "niña" },
-      { "english": "boy", "spanish": "niño" },
       { "english": "bread", "spanish": "pan" }
     ],
     "unit": 1,
@@ -800,9 +798,7 @@
       { "english": "water", "spanish": "agua" },
       { "english": "bread", "spanish": "pan" },
       { "english": "goodbye", "spanish": "adiós" },
-      { "english": "I", "spanish": "yo" },
       { "english": "she", "spanish": "ella" },
-      { "english": "english", "spanish": "inglés" },
       { "english": "apple", "spanish": "manzana" },
       { "english": "hello", "spanish": "hola" }
     ],

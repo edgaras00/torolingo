@@ -236,7 +236,10 @@ const App = () => {
           path="/practice/matching"
           element={
             user ? (
-              <Lesson matchingOnly={true} />
+              <>
+                <Sidebar />
+                <Lesson matchingOnly={true} />
+              </>
             ) : (
               <Navigate to="/login" replace />
             )
@@ -246,7 +249,10 @@ const App = () => {
           path="/practice/listening"
           element={
             user ? (
-              <Lesson listeningOnly={true} />
+              <>
+                <Sidebar />
+                <Lesson listeningOnly={true} />
+              </>
             ) : (
               <Navigate to="/login" replace />
             )

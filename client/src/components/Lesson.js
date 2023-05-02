@@ -215,6 +215,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
           key="complete-card"
           unit={unit}
           lesson={lesson}
+          isPractice={matchingOnly || listeningOnly ? true : null}
         />
       );
     }
@@ -223,7 +224,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
   return (
     <div className="lesson-container">
       {!isError ? (
-        questionCards.map((question, index) => {
+        questionCards.slice(10).map((question, index) => {
           if (index + 1 === currentQuestion) {
             return question;
           } else {

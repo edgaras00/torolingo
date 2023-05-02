@@ -55,6 +55,9 @@
 }
 
 @media (max-width: 535px) {
+  .match-card {
+    height: 32px;
+  }
   .match-check {
     margin-right: 3rem;
   }

@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { setRequestOptions, AppError } from "../utils";
 
-import mascotStanding2 from "../mascot-standing2.png";
-
 import "../styles/completedCard.css";
 
 const CompleteCard = ({
@@ -87,13 +85,17 @@ const CompleteCard = ({
     setUser,
     lesson,
     unit,
+    isPractice,
   ]);
 
   return (
     <div className="completed-card">
       <div className="completed-top">
         <div className="completed-picture">
-          <img src={mascotStanding2} alt="mascot" />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/mascots/mascot-4r.png`}
+            alt="mascot"
+          />
         </div>
       </div>
       <div className="completed-middle">

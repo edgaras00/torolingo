@@ -1,8 +1,6 @@
 import TipCard from "./TipCard";
 import TipTop from "./TipTop";
 
-import waiterPicture from "../waiter.svg";
-
 import "../styles/tips.css";
 
 const UnitThreeTips = () => {
@@ -16,7 +14,7 @@ const UnitThreeTips = () => {
         </p>
         <TipCard
           type={1}
-          img={waiterPicture}
+          img={`${process.env.PUBLIC_URL}/images/waiter.svg`}
           spanishText="Una taza de café."
           englishText="A cup of coffee."
           audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase26.mp3"
@@ -26,7 +24,7 @@ const UnitThreeTips = () => {
         </p>
         <TipCard
           type={1}
-          img={waiterPicture}
+          img={`${process.env.PUBLIC_URL}/images/waiter.svg`}
           spanishText="Un jugo de naranja."
           englishText="An orange juice."
           audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase27.mp3"

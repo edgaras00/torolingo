@@ -1,11 +1,6 @@
 import TipCard from "./TipCard";
 import TipTop from "./TipTop";
 
-// Images
-import boyPicture from "../boy.svg";
-import girlPicture from "../girl.svg";
-import kidsPicture from "../kids.svg";
-
 import "../styles/tips.css";
 import "../styles/unitOneTips.css";
 
@@ -25,14 +20,14 @@ const UnitOneTips = () => {
           masculine and <span>-a</span> if they're feminine
         </p>
         <TipCard
-          img={boyPicture}
+          img={`${process.env.PUBLIC_URL}/images/boy.svg`}
           type={2}
           englishText="The Boy"
           spanishText="El niño"
           audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase17.mp3"
         />
         <TipCard
-          img={girlPicture}
+          img={`${process.env.PUBLIC_URL}/images/girl.svg`}
           type={2}
           englishText="The girl"
           spanishText="La niña"
@@ -105,7 +100,7 @@ const UnitOneTips = () => {
         </table>
         <div className="conjugation-example">
           <div className="example-img">
-            <img src={kidsPicture} alt="kids" />
+            <img src={`${process.env.PUBLIC_URL}/images/kids.svg`} alt="kids" />
           </div>
           <div className="conjugation-example-text">
             <div className="spanish-text" onClick={handleClick}>

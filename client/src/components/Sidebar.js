@@ -4,19 +4,6 @@ import { Popover, OverlayTrigger } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
 import useWidth from "../hooks/useWidth";
 
-// Icons
-import globe from "../globe.png";
-import barbell from "../barbell.png";
-import profile from "../profile.png";
-import more from "../more.png";
-import vocab from "../vocab.png";
-import githubIcon from "../github.svg";
-import portfolioIcon from "../portfolio.svg";
-import sourceIcon from "../source.svg";
-import logoutIcon from "../logout.svg";
-// Images
-import mascotStanding2 from "../mascot-standing2.png";
-
 import "../styles/sidebar.css";
 
 const Sidebar = () => {
@@ -80,7 +67,11 @@ const Sidebar = () => {
           href="https://github.com/edgaras00"
         >
           <div className="resource-img-wrapper">
-            <img src={sourceIcon} alt="source code" width="42px" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/icons/source.svg`}
+              alt="source code"
+              width="42px"
+            />
           </div>
           <div className="resource-name">Source Code</div>
         </a>
@@ -91,7 +82,11 @@ const Sidebar = () => {
           rel="noopener noreferrer"
         >
           <div className="resource-img-wrapper">
-            <img src={githubIcon} alt="github" width="32px" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/icons/github.svg`}
+              alt="github"
+              width="32px"
+            />
           </div>
           <div className="resource-name">Github</div>
         </a>
@@ -102,13 +97,21 @@ const Sidebar = () => {
           href="https://github.com/edgaras00"
         >
           <div className="resource-img-wrapper">
-            <img src={portfolioIcon} alt="portfolio" width="32px" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/icons/portfolio.svg`}
+              alt="portfolio"
+              width="32px"
+            />
           </div>
           <div className="resource-name">Portfolio</div>
         </a>
         <div className="resource" onClick={handleLogout}>
           <div className="resource-img-wrapper">
-            <img src={logoutIcon} alt="log out" width="38px" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/icons/logout.svg`}
+              alt="log out"
+              width="38px"
+            />
           </div>
           <div className="resource-name">Log Out</div>
         </div>
@@ -123,7 +126,11 @@ const Sidebar = () => {
           <div className="logo" onClick={() => handleClick("learn")}>
             torolingo
           </div>
-          <img className="mascot-logo" src={mascotStanding2} alt="mascot" />
+          <img
+            className="mascot-logo"
+            src={`${process.env.PUBLIC_URL}/images/mascots/mascot-4r.png`}
+            alt="mascot"
+          />
         </Link>
       </div>
       <div className="option-container">
@@ -134,7 +141,11 @@ const Sidebar = () => {
             }`}
             onClick={() => handleClick("learn")}
           >
-            <img src={globe} alt="globe" className="sidebar-icon-a" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/icons/globe.png`}
+              alt="globe"
+              className="sidebar-icon-a"
+            />
             <span>LEARN</span>
           </div>
         </Link>
@@ -145,7 +156,11 @@ const Sidebar = () => {
             }`}
             onClick={() => handleClick("practice")}
           >
-            <img src={barbell} alt="barbell" className="sidebar-icon-b" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/icons/barbell.png`}
+              alt="barbell"
+              className="sidebar-icon-b"
+            />
             <span>PRACTICE</span>
           </div>
         </Link>
@@ -156,7 +171,11 @@ const Sidebar = () => {
             }`}
             onClick={() => handleClick("vocabulary")}
           >
-            <img src={vocab} alt="vocabulary" className="sidebar-icon-b" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/icons/vocab.png`}
+              alt="vocabulary"
+              className="sidebar-icon-b"
+            />
             <span>VOCABULARY</span>
           </div>
         </Link>
@@ -167,7 +186,11 @@ const Sidebar = () => {
             }`}
             onClick={() => handleClick("profile")}
           >
-            <img src={profile} alt="profile" className="sidebar-icon-a" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/icons/profile.png`}
+              alt="profile"
+              className="sidebar-icon-a"
+            />
             <span>PROFILE</span>
           </div>
         </Link>
@@ -182,7 +205,11 @@ const Sidebar = () => {
               selectedSidebar.more ? "selected-option" : null
             }`}
           >
-            <img src={more} alt="more" className="sidebar-icon-a" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/icons/more.png`}
+              alt="more"
+              className="sidebar-icon-a"
+            />
             <span>MORE</span>
           </div>
         </OverlayTrigger>

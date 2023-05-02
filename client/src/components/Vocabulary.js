@@ -1,12 +1,5 @@
 import VocabLink from "./VocabLink";
 
-// Images
-import mascotPaper from "../bull-paper.png";
-import dancingMascot from "../mascot-dancing.jpg";
-import guitarMascot from "../cow-guitar.png";
-import bullTongue from "../bull-tongue.png";
-import mascotStanding2 from "../mascot-standing2.png";
-
 import "../styles/vocabulary.css";
 
 const Vocabulary = () => {
@@ -15,31 +8,31 @@ const Vocabulary = () => {
       <VocabLink
         unit={1}
         color="#ff4b4b"
-        image={mascotPaper}
+        image={`${process.env.PUBLIC_URL}/images/mascots/mascot-3l.png`}
         hoverColor="#f55d5d"
       />
       <VocabLink
         unit={2}
         color="#5ad12a"
-        image={dancingMascot}
+        image={`${process.env.PUBLIC_URL}/images/mascots/mascot-1r.jpg`}
         hoverColor="#7ae051"
       />
       <VocabLink
         unit={3}
         color="#2a6fc9"
-        image={guitarMascot}
+        image={`${process.env.PUBLIC_URL}/images/mascots/mascot-1l.png`}
         hoverColor="#477fc9"
       />
       <VocabLink
         unit={4}
         color="#eb9c3d"
-        image={bullTongue}
+        image={`${process.env.PUBLIC_URL}/images/mascots/mascot-5r.png`}
         hoverColor="#f2ae5c"
       />
       <VocabLink
         unit={5}
         color="#e03879"
-        image={mascotStanding2}
+        image={`${process.env.PUBLIC_URL}/images/mascots/mascot-4r.png`}
         hoverColor="#e8518c"
       />
     </div>

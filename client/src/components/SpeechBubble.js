@@ -1,4 +1,3 @@
-import soundIcon from "../phrase-sound.svg";
 import "../styles/speechBubble.css";
 
 const SpeechBubble = ({ spanishText, englishText, reverse, audio }) => {
@@ -10,7 +9,7 @@ const SpeechBubble = ({ spanishText, englishText, reverse, audio }) => {
     <div className={`${reverse ? "speech-reverse" : "speech"}`}>
       <div className="speech-bubble-top">
         <img
-          src={soundIcon}
+          src={`${process.env.PUBLIC_URL}/images/icons/phrase-sound.svg`}
           alt="sound"
           onClick={handleClick}
           className="phrase-sound"

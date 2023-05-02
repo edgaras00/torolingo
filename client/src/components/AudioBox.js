@@ -1,7 +1,4 @@
 import { useEffect, useRef } from "react";
-import soundIcon from "../sound.svg";
-import turtleICon from "../turtle.svg";
-
 import "../styles/audioBox.css";
 
 const playAudioOnMount = (audioHasPlayedRef, audioSrc) => {
@@ -31,10 +28,18 @@ const AudioBox = ({ audio, slowAudio }) => {
   return (
     <div className="audio-box-wrapper">
       <div className="audio-box normal-audio" onClick={handleAudioClick}>
-        <img src={soundIcon} alt="sound icon" width="140px" />
+        <img
+          src={`${process.env.PUBLIC_URL}/images/icons/sound.svg`}
+          alt="sound icon"
+          width="140px"
+        />
       </div>
       <div className="audio-box slow-audio" onClick={handleSlowAudioClick}>
-        <img src={turtleICon} alt="turtle icon" width="100px" />
+        <img
+          src={`${process.env.PUBLIC_URL}/images/icons/slow_audio.svg`}
+          alt="turtle icon"
+          width="100px"
+        />
       </div>
     </div>
   );

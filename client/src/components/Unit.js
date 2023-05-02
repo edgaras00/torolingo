@@ -7,12 +7,6 @@ import Circle from "./Circle";
 
 import { unlockCircle } from "../utils";
 
-// Images
-import dumbbell from "../db3.svg";
-import check from "../check.svg";
-import star from "../star.svg";
-import crown from "../crown.svg";
-
 import "../styles/unit.css";
 
 const Unit = ({
@@ -65,7 +59,7 @@ const Unit = ({
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
-            icon={check}
+            icon={`${process.env.PUBLIC_URL}/images/icons/check.svg`}
             right={21}
             isCompleted={markCompleted(user, number, 1)}
             isUnlocked={
@@ -77,7 +71,7 @@ const Unit = ({
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
-            icon={star}
+            icon={`${process.env.PUBLIC_URL}/images/icons/star.svg`}
             left={16}
             isUnlocked={unlockCircle(user, number, 1)}
             isCompleted={markCompleted(user, number, 2)}
@@ -94,7 +88,7 @@ const Unit = ({
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
-            icon={dumbbell}
+            icon={`${process.env.PUBLIC_URL}/images/icons/dumbbell.svg`}
             left={50}
             isUnlocked={unlockCircle(user, number, 2)}
             isCompleted={markCompleted(user, number, 3)}
@@ -104,7 +98,7 @@ const Unit = ({
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
-            icon={star}
+            icon={`${process.env.PUBLIC_URL}/images/icons/star.svg`}
             left={16}
             isUnlocked={unlockCircle(user, number, 3)}
             isCompleted={markCompleted(user, number, 4)}
@@ -121,7 +115,7 @@ const Unit = ({
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
-            icon={dumbbell}
+            icon={`${process.env.PUBLIC_URL}/images/icons/dumbbell.svg`}
             right={21}
             isUnlocked={unlockCircle(user, number, 4)}
             isCompleted={markCompleted(user, number, 5)}
@@ -131,7 +125,7 @@ const Unit = ({
           <Circle
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
-            icon={crown}
+            icon={`${process.env.PUBLIC_URL}/images/icons/crown.svg`}
             right={48}
             isUnlocked={unlockCircle(user, number, 5)}
             isCompleted={markCompleted(user, number, 6)}

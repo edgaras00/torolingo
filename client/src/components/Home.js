@@ -1,7 +1,4 @@
 import { Link } from "react-router-dom";
-
-import hispanicFlags from "../spanish.png";
-
 import "../styles/home.css";
 
 const Home = () => {
@@ -12,7 +9,10 @@ const Home = () => {
       </div>
       <div className="home-middle">
         <div className="home-img-container">
-          <img src={hispanicFlags} alt="hispanic flags" />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/spanish.png`}
+            alt="hispanic flags"
+          />
         </div>
         <div className="signup-links-container">
           <div className="learn-text">

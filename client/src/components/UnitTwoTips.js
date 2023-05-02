@@ -1,11 +1,6 @@
 import TipCard from "./TipCard";
 import TipTop from "./TipTop";
 
-// Images
-import womanTaxiPicture from "../woman_taxi.svg";
-import hotelPicture from "../hotel.svg";
-import taxiPicture from "../taxi.svg";
-
 import "../styles/tips.css";
 
 const UnitTwoTips = () => {
@@ -19,7 +14,7 @@ const UnitTwoTips = () => {
           use <span>está</span> .
         </p>
         <TipCard
-          img={womanTaxiPicture}
+          img={`${process.env.PUBLIC_URL}/images/woman_taxi.svg`}
           spanishText="¡El taxi está aquí!"
           englishText="The taxi is here!"
           audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase8.mp3"
@@ -31,14 +26,14 @@ const UnitTwoTips = () => {
         </p>
         <TipCard
           type={1}
-          img={hotelPicture}
+          img={`${process.env.PUBLIC_URL}/images/hotel.svg`}
           spanishText="El hotel está cerrado."
           englishText="The hotel is closed."
           audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase9.mp3"
         />
         <TipCard
           type={1}
-          img={taxiPicture}
+          img={`${process.env.PUBLIC_URL}/images/taxi.svg`}
           spanishText="El taxi es amarillo."
           englishText="The taxi is yellow."
           audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase10.mp3"

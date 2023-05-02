@@ -1,17 +1,4 @@
 import Unit from "./Unit";
-
-// Images
-import guitarMascot from "../cow-guitar.png";
-import dancingMascot from "../mascot-dancing.jpg";
-import mascotStanding from "../bulls2.jpg";
-import mascotPhone from "../mascot-phone.png";
-import mascotPaper from "../bull-paper.png";
-import mascotPaper2 from "../mascot-paper2.jpg";
-import mascotSitting from "../mascot-sitting.png";
-import mascotStanding2 from "../mascot-standing2.png";
-import mascotMoney from "../mascot-money.png";
-import bullTongue from "../bull-tongue.png";
-
 import "../styles/path.css";
 
 const Path = () => {
@@ -23,8 +10,8 @@ const Path = () => {
         secondaryColor="#c23e39"
         hoverColor="#c45551"
         description="Form basic sentences, greet people"
-        leftMascot={guitarMascot}
-        rightMascot={dancingMascot}
+        leftMascot={`${process.env.PUBLIC_URL}/images/mascots/mascot-1l.png`}
+        rightMascot={`${process.env.PUBLIC_URL}/images/mascots/mascot-1r.jpg`}
         leftMascotSize="190"
         rightMascotSize="160"
         leftMascotID="left-mascot-1"
@@ -36,9 +23,9 @@ const Path = () => {
         secondaryColor="#3e8f1e"
         hoverColor="#4e9632"
         description="Get around in a city"
-        leftMascot={mascotStanding}
+        leftMascot={`${process.env.PUBLIC_URL}/images/mascots/mascot-2l.jpg`}
         leftMascotSize="120"
-        rightMascot={mascotPhone}
+        rightMascot={`${process.env.PUBLIC_URL}/images/mascots/mascot-2r.png`}
         rightMascotSize="190"
         leftMascotID="left-mascot-2"
         rightMascotID="right-mascot-2"
@@ -49,9 +36,9 @@ const Path = () => {
         secondaryColor="#21569c"
         hoverColor="#305f9c"
         description="Order food and drink"
-        leftMascot={mascotPaper}
+        leftMascot={`${process.env.PUBLIC_URL}/images/mascots/mascot-3l.png`}
         leftMascotSize="190"
-        rightMascot={mascotPaper2}
+        rightMascot={`${process.env.PUBLIC_URL}/images/mascots/mascot-3r.jpg`}
         rightMascotSize="210"
         leftMascotID="left-mascot-3"
         rightMascotID="right-mascot-3"
@@ -62,8 +49,8 @@ const Path = () => {
         secondaryColor="#b8792e"
         hoverColor="#bd8542"
         description="Describe family"
-        leftMascot={mascotSitting}
-        rightMascot={mascotStanding2}
+        leftMascot={`${process.env.PUBLIC_URL}/images/mascots/mascot-4l.png`}
+        rightMascot={`${process.env.PUBLIC_URL}/images/mascots/mascot-4r.png`}
         rightMascotSize="190"
         leftMascotSize="190"
         leftMascotID="left-mascot-4"
@@ -75,9 +62,9 @@ const Path = () => {
         secondaryColor="#ad2b5e"
         hoverColor="#b53e6c"
         description="Shop for clothes"
-        leftMascot={mascotMoney}
+        leftMascot={`${process.env.PUBLIC_URL}/images/mascots/mascot-5l.png`}
         leftMascotSize="210"
-        rightMascot={bullTongue}
+        rightMascot={`${process.env.PUBLIC_URL}/images/mascots/mascot-5r.png`}
         rightMascotSize="150"
         leftMascotID="left-mascot-5"
         rightMascotID="right-mascot-5"

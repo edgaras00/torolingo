@@ -2,12 +2,6 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
-// Images
-import mascotPhone from "../mascot-phone.png";
-import mascotPaper2 from "../mascot-paper2.jpg";
-import mascotSitting from "../mascot-sitting.png";
-import bullTongue from "../bull-tongue.png";
-
 import "../styles/practice.css";
 
 const Practice = () => {
@@ -31,19 +25,31 @@ const Practice = () => {
       <div className="practice-cards">
         <Link to={`/${randomLesson}`} state={{ from: "practice" }}>
           <div className="practice-card lesson-practice">
-            <img src={mascotPhone} className="practice-mascot" alt="mascot" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/mascots/mascot-2r.png`}
+              className="practice-mascot"
+              alt="mascot"
+            />
             <div>Lesson</div>
           </div>
         </Link>
         <Link to="/practice/matching" state={{ from: "practice" }}>
           <div className="practice-card vocabulary-practice">
-            <img src={bullTongue} className="practice-mascot" alt="mascot" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/mascots/mascot-5r.png`}
+              className="practice-mascot"
+              alt="mascot"
+            />
             <div>Vocabulary</div>
           </div>
         </Link>
         <Link to="/practice/listening" state={{ from: "practice" }}>
           <div className="practice-card listening-practice">
-            <img src={mascotSitting} className="practice-mascot" alt="mascot" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/mascots/mascot-4l.png`}
+              className="practice-mascot"
+              alt="mascot"
+            />
             <div>Listening</div>
           </div>
         </Link>
@@ -52,7 +58,11 @@ const Practice = () => {
             className="practice-card test-practice"
             state={{ from: "practice" }}
           >
-            <img src={mascotPaper2} className="practice-mascot" alt="mascot" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/mascots/mascot-3r.jpg`}
+              className="practice-mascot"
+              alt="mascot"
+            />
             <div>Test</div>
           </div>
         </Link>

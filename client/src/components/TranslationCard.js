@@ -6,12 +6,6 @@ import CheckAnswer from "./CheckAnswer";
 
 import { handleCheckAnswer, createUserSolution } from "../utils";
 
-// Images
-import bullTongue from "../bull-tongue.png";
-import mascotStanding from "../mascot-standing2.png";
-import mascotPaper from "../bull-paper.png";
-import dancingMascot from "../mascot-dancing.jpg";
-
 import "../styles/question.css";
 import "../styles/translationCard.css";
 
@@ -33,7 +27,12 @@ const TranslationCard = ({
   const [mascot, setMascot] = useState(null);
 
   useEffect(() => {
-    const mascots = [bullTongue, mascotStanding, mascotPaper, dancingMascot];
+    const mascots = [
+      `${process.env.PUBLIC_URL}/images/mascots/mascot-5r.png`,
+      `${process.env.PUBLIC_URL}/images/mascots/mascot-4r.png`,
+      `${process.env.PUBLIC_URL}/images/mascots/mascot-3l.png`,
+      `${process.env.PUBLIC_URL}/images/mascots/mascot-1r.jpg`,
+    ];
     const mascotChoice = mascots[Math.floor(Math.random() * mascots.length)];
     setMascot(mascotChoice);
   }, []);

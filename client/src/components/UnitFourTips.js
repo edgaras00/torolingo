@@ -1,12 +1,6 @@
 import TipCard from "./TipCard";
 import TipTop from "./TipTop";
 
-// Images
-import grandmaDogPicture from "../grandma-dog.svg";
-import manQuestionPicture from "../man-question.svg";
-import womanCatPicture from "../woman-cat.svg";
-import catPicture from "../cat.svg";
-
 import "../styles/tips.css";
 
 const UnitFourTips = () => {
@@ -19,14 +13,14 @@ const UnitFourTips = () => {
           any statement to a question by lifting your voice at the end.
         </p>
         <TipCard
-          img={grandmaDogPicture}
+          img={`${process.env.PUBLIC_URL}/images/grandma-dog.svg`}
           type={1}
           spanishText="Tú tienes un perro."
           englishText="You have a dog."
           audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase35.mp3"
         />
         <TipCard
-          img={manQuestionPicture}
+          img={`${process.env.PUBLIC_URL}/images/man-question.svg`}
           type={1}
           spanishText="¿Tú tienes un perro?"
           englishText="Do you have a dog?"
@@ -49,7 +43,7 @@ const UnitFourTips = () => {
           </p>
           <TipCard
             type={1}
-            img={womanCatPicture}
+            img={`${process.env.PUBLIC_URL}/images/woman-cat.svg`}
             spanishText="¿Tú tienes un gato?"
             englishText="Do you have a cat?"
             audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase37.mp3"
@@ -58,7 +52,7 @@ const UnitFourTips = () => {
             Without an accent, <span>tu</span> means your.
           </p>
           <TipCard
-            img={catPicture}
+            img={`${process.env.PUBLIC_URL}/images/cat.svg`}
             spanishText="¡Tu gato es grande!"
             englishText="Your cat is big!"
             audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase38.mp3"

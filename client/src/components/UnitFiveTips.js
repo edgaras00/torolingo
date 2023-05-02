@@ -1,12 +1,6 @@
 import TipCard from "./TipCard";
 import TipTop from "./TipTop";
 
-// Images
-import dressPicture from "../dress.svg";
-import shirtPicture from "../shirt.svg";
-import watchPicture from "../watch.svg";
-import coatPicture from "../coat.svg";
-
 import "../styles/tips.css";
 
 const UnitFiveTips = () => {
@@ -18,28 +12,28 @@ const UnitFiveTips = () => {
           In Spanish, adjectives usually come after the noun they're describing.
         </p>
         <TipCard
-          img={dressPicture}
+          img={`${process.env.PUBLIC_URL}/images/dress.svg`}
           type={2}
           spanishText="Un vestido azul"
           englishText="A blue dress"
           audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase45.mp3"
         />
         <TipCard
-          img={shirtPicture}
+          img={`${process.env.PUBLIC_URL}/images/shirt.svg`}
           type={2}
           spanishText="Una camisa roja"
           englishText="A red shirt"
           audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase46.mp3"
         />
         <TipCard
-          img={watchPicture}
+          img={`${process.env.PUBLIC_URL}/images/watch.svg`}
           type={2}
           spanishText="Un reloj caro"
           englishText="An expensive watch"
           audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase47.mp3"
         />
         <TipCard
-          img={coatPicture}
+          img={`${process.env.PUBLIC_URL}/images/coat.svg`}
           type={2}
           englishText="A cheap coat"
           spanishText="Un abrigo barato"

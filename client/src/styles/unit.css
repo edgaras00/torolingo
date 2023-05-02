@@ -15,14 +15,9 @@
 
 .top-left-mascot,
 .bottom-right-mascot {
-  /* width: 190px; */
   position: absolute;
   right: 390px;
   bottom: 250px;
-}
-
-.bottom-right-mascot {
-  /* width: 160px; */
 }
 
 .bottom-right-mascot {

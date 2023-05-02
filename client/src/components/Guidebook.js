@@ -1,5 +1,4 @@
 import React from "react";
-import mascotPaper from "../bull-paper.png";
 
 import "../styles/guidebook.css";
 
@@ -12,7 +11,10 @@ const Guidebook = ({ number, children }) => {
       <div className="guidebook-content">
         <div className="guide-top">
           <div className="guide-top-image">
-            <img src={mascotPaper} alt="mascot" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/mascots/mascot-3l.png`}
+              alt="mascot"
+            />
           </div>
           <div className="guide-top-text">
             <h3>Unit {number} Guidebook</h3>

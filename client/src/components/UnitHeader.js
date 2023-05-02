@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import notebook from "../notebook.png";
-
 import "../styles/unitHeader.css";
 
 const UnitHeader = ({
@@ -35,7 +33,11 @@ const UnitHeader = ({
           onMouseLeave={handleMouseLeave}
           style={{ backgroundColor: hovered ? hoverColor : secondaryColor }}
         >
-          <img src={notebook} alt="notebook" width="38px" />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/notebook.png`}
+            alt="notebook"
+            width="38px"
+          />
           GUIDEBOOK
         </div>
       </Link>

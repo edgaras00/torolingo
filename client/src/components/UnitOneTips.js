@@ -109,7 +109,7 @@ const UnitOneTips = () => {
           </div>
           <div className="conjugation-example-text">
             <div className="spanish-text" onClick={handleClick}>
-              Yo soy una niña. Tu eres un niño.
+              Yo soy una niña. Tú eres un niño.
             </div>
             <div className="english-text">I am a girl. You are a boy.</div>
           </div>

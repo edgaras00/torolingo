@@ -38,3 +38,13 @@
   opacity: 0;
   pointer-events: none;
 }
+
+@media (max-width: 535px) {
+  .picture-mc {
+    width: 50%;
+  }
+
+  .picture-label img {
+    width: 80px;
+  }
+}

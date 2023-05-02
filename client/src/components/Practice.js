@@ -31,19 +31,19 @@ const Practice = () => {
       <div className="practice-cards">
         <Link to={`/${randomLesson}`} state={{ from: "practice" }}>
           <div className="practice-card lesson-practice">
-            <img src={mascotPhone} width="104px" alt="mascot" />
+            <img src={mascotPhone} className="practice-mascot" alt="mascot" />
             <div>Lesson</div>
           </div>
         </Link>
         <Link to="/practice/matching" state={{ from: "practice" }}>
           <div className="practice-card vocabulary-practice">
-            <img src={bullTongue} width="104px" alt="mascot" />
+            <img src={bullTongue} className="practice-mascot" alt="mascot" />
             <div>Vocabulary</div>
           </div>
         </Link>
         <Link to="/practice/listening" state={{ from: "practice" }}>
           <div className="practice-card listening-practice">
-            <img src={mascotSitting} width="104px" alt="mascot" />
+            <img src={mascotSitting} className="practice-mascot" alt="mascot" />
             <div>Listening</div>
           </div>
         </Link>
@@ -52,7 +52,7 @@ const Practice = () => {
             className="practice-card test-practice"
             state={{ from: "practice" }}
           >
-            <img src={mascotPaper2} width="104px" alt="mascot" />
+            <img src={mascotPaper2} className="practice-mascot" alt="mascot" />
             <div>Test</div>
           </div>
         </Link>

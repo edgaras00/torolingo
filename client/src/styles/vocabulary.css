@@ -6,3 +6,16 @@
   align-items: center;
   padding: 2rem 0;
 }
+
+@media (max-width: 1000px) {
+  .vocabulary {
+    width: 90%;
+  }
+}
+
+@media (max-width: 535px) {
+  .vocabulary {
+    width: 100%;
+    padding-bottom: 100px;
+  }
+}

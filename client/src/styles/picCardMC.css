@@ -37,3 +37,9 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 535px) {
+  .mc-pic-form {
+    flex-wrap: wrap;
+  }
+}

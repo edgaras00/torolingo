@@ -19,3 +19,27 @@
 .text {
   font-size: 1.8rem;
 }
+
+@media (max-width: 1000px) {
+  .vocab-link {
+    width: 80%;
+  }
+
+  .vocab-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 535px) {
+  .vocab-link {
+    width: 90%;
+  }
+
+  .vocab-content {
+    width: 100%;
+  }
+
+  .text {
+    font-size: 1.6rem;
+  }
+}

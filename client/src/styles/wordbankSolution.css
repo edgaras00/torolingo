@@ -45,3 +45,20 @@
   width: 100%;
   flex-wrap: nowrap;
 }
+
+@media (max-width: 535px) {
+  .wordbank-solution {
+    align-items: center;
+    height: 40vh;
+  }
+
+  .solution-container {
+    width: 100%;
+    height: 60%;
+  }
+
+  .bubbles {
+    width: 80%;
+    margin-top: 2rem;
+  }
+}

@@ -14,3 +14,9 @@
   color: #afafaf;
   border-color: #afafaf;
 }
+
+@media (max-width: 535px) {
+  .word-bubble {
+    font-size: 0.9rem;
+  }
+}

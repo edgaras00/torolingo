@@ -10,6 +10,10 @@
   margin-left: 3rem;
 }
 
+.mascot img {
+  width: 120px;
+}
+
 .mascot-speech-bubble {
   position: relative;
   background-color: #f1f1f1;
@@ -34,9 +38,8 @@
   border-color: transparent #f1f1f1 transparent transparent;
 }
 
-/* .problem-sentence {
-  height: 70px;
-  width: 200px;
-  position: absolute;
-  border-radius: 10%;
-} */
+@media (max-width: 535px) {
+  .mascot img {
+    width: 100px;
+  }
+}

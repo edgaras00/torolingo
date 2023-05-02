@@ -21,6 +21,7 @@
   color: #afafaf;
   cursor: pointer;
   margin-top: 1.5rem;
+  margin-left: 1.4rem;
 }
 
 .exit-button:hover {
@@ -34,4 +35,21 @@
 .question-heading {
   margin-top: 0.1rem;
   font-size: 1.3rem;
+}
+
+@media (max-width: 535px) {
+  .question-header {
+    height: 12vh;
+  }
+
+  .exit-button {
+    font-size: 1.5rem;
+    margin-top: 1.3rem;
+    margin-left: 1rem;
+  }
+
+  .question-heading {
+    font-size: 1.1rem;
+    margin-left: 1rem;
+  }
 }

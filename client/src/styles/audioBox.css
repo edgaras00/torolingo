@@ -5,6 +5,7 @@
   align-items: flex-end;
   width: 52%;
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .audio-box {
@@ -37,4 +38,24 @@
 
 .slow-audio img {
   width: 70px;
+}
+
+@media (max-width: 535px) {
+  .normal-audio {
+    height: 80px;
+    width: 80px;
+  }
+
+  .normal-audio img {
+    width: 70px;
+  }
+
+  .slow-audio {
+    height: 60px;
+    width: 60px;
+  }
+
+  .slow-audio img {
+    width: 46px;
+  }
 }

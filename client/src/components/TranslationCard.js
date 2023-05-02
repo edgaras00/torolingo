@@ -48,7 +48,7 @@ const TranslationCard = ({
       <QuestionHeader text={header} locationState={locationState} />
       <div className="problem-wrapper">
         <div className="mascot">
-          <img src={mascot} width="120px" alt="mascot" />
+          <img src={mascot} alt="mascot" />
         </div>
         <div className="mascot-speech-bubble">
           <p>{text}</p>

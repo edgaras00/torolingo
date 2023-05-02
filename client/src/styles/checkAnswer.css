@@ -3,9 +3,10 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 1rem;
-  padding-top: 0.6rem;
-  padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1.2rem;
 }
 
 .solution {
@@ -61,4 +62,20 @@
 
 .wrong-answer-button:hover {
   background-color: #f85555;
+}
+
+@media (max-width: 535px) {
+  .card-bottom,
+  .check-answer-wrapper {
+    padding: 1.2rem 0;
+    align-items: center;
+    padding-bottom: 80px;
+  }
+
+  .check-answer-btn {
+    font-size: 0.8rem;
+    margin-right: 1rem;
+    width: 6.2rem;
+    height: 2.8rem;
+  }
 }

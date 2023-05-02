@@ -55,3 +55,29 @@
 .edit-profile-btn:hover {
   background-color: #3f7ccc;
 }
+
+@media (max-width: 860px) {
+  .name-circle {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 570px) {
+  .name-circle {
+    width: 100px;
+    height: 100px;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 535px) {
+  .user-profile {
+    width: 100%;
+    height: 80vh;
+  }
+
+  .edit-profile-btn {
+    padding: 20px 25px;
+  }
+}

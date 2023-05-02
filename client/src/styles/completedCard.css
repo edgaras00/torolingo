@@ -63,3 +63,42 @@
   margin-top: 1.5rem;
   text-align: center;
 }
+
+@media (max-width: 850px) {
+  .completed-card {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .completed-picture img {
+    width: 190px;
+  }
+}
+
+@media (max-width: 735px) {
+  .completed-middle {
+    width: 45%;
+  }
+}
+
+@media (max-width: 535px) {
+  .completed-top {
+    margin-top: 0;
+  }
+
+  .completed-picture img {
+    width: 170px;
+  }
+
+  .completed-middle {
+    width: 50%;
+  }
+
+  .completed-bottom button {
+    padding: 0;
+  }
+
+  .result-wrapper {
+    font-size: 1.3rem;
+  }
+}

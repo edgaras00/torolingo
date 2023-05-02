@@ -50,6 +50,12 @@
   font-weight: 420;
 }
 
+@media (max-width: 900px) {
+  .unit-vocab {
+    width: 90%;
+  }
+}
+
 @media (max-width: 535px) {
   .unit-vocab {
     width: 100%;

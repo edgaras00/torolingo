@@ -82,16 +82,23 @@
 }
 
 @media (max-width: 535px) {
+  .completed-card {
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+  }
+
   .completed-top {
-    margin-top: 0;
+    margin: 0;
   }
 
   .completed-picture img {
-    width: 170px;
+    width: 200px;
   }
 
   .completed-middle {
     width: 50%;
+    margin: 0;
   }
 
   .completed-bottom button {
@@ -100,5 +107,11 @@
 
   .result-wrapper {
     font-size: 1.3rem;
+  }
+
+  .completed-continue {
+    width: 8.2rem;
+    height: 4rem;
+    font-size: 1.2rem;
   }
 }

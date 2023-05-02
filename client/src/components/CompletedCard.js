@@ -109,7 +109,9 @@ const CompleteCard = ({ mistakeCount, questionCount, unit, lesson }) => {
       </div>
       <div className="completed-bottom">
         <Link to="/">
-          <button className="check-answer-btn">CONTINUE</button>
+          <button className="check-answer-btn completed-continue">
+            CONTINUE
+          </button>
         </Link>
       </div>
     </div>

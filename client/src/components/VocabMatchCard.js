@@ -162,7 +162,10 @@ const VocabMatchCard = ({
       </div>
       <div className="card-bottom match-bottom">
         {match.every((pair) => pair.matched) ? (
-          <button className="check-answer-btn" onClick={onNextQuestion}>
+          <button
+            className="check-answer-btn match-check"
+            onClick={onNextQuestion}
+          >
             CONTINUE
           </button>
         ) : null}

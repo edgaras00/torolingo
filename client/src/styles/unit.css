@@ -59,11 +59,55 @@
     width: 95%;
   }
 
-  .top-left-mascot {
-    right: 320px;
+  #left-mascot-1 {
+    width: 170px;
+    right: 290px;
+  }
+
+  #right-mascot-1 {
+    width: 145px;
+  }
+
+  #left-mascot-2 {
+    width: 110px;
+    right: 325px;
+  }
+
+  #right-mascot-2 {
+    width: 170px;
+  }
+
+  #left-mascot-3 {
+    width: 170px;
+    right: 290px;
+  }
+
+  #right-mascot-3 {
+    width: 180px;
+    left: 290px;
+  }
+
+  #left-mascot-4 {
+    width: 155px;
+    right: 290px;
+  }
+
+  #right-mascot-4 {
+    width: 160px;
+    left: 300px;
+  }
+
+  #left-mascot-5 {
+    width: 180px;
+    right: 280px;
+  }
+
+  #right-mascot-5 {
+    width: 126px;
+    left: 305px;
   }
 
   .bottom-right-mascot {
-    left: 330px;
+    left: 300px;
   }
 }

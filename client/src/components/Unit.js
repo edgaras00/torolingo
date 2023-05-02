@@ -25,6 +25,8 @@ const Unit = ({
   leftMascotSize,
   rightMascotSize,
   hoverColor,
+  leftMascotID,
+  rightMascotID,
 }) => {
   const { user } = useContext(AuthContext);
 
@@ -86,6 +88,7 @@ const Unit = ({
           alt="mascot"
           className="top-left-mascot"
           width={`${leftMascotSize}px`}
+          id={leftMascotID}
         />
         <Link to={unlockCircle(user, number, 2) ? `/u${number}l3` : ""}>
           <Circle
@@ -112,6 +115,7 @@ const Unit = ({
           alt="mascot"
           className="bottom-right-mascot"
           width={`${rightMascotSize}px`}
+          id={rightMascotID}
         />
         <Link to={unlockCircle(user, number, 4) ? `/u${number}l5` : ""}>
           <Circle

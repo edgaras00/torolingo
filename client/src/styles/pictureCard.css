@@ -38,7 +38,7 @@
 
 .pic-blank {
   border-bottom: 2px solid black;
-  width: 20%;
+  width: 27%;
   height: 20px;
   text-align: center;
   padding-bottom: 0.4rem;
@@ -51,4 +51,38 @@
 
 .word-elements {
   margin-left: 5px;
+}
+
+@media (max-width: 930px) {
+  .pic-sentence-container {
+    width: 48%;
+  }
+}
+
+@media (max-width: 580px) {
+  .pic-sentence-container {
+    width: 56%;
+  }
+  .image img {
+    width: 70px;
+  }
+
+  .pic-blank {
+    margin-right: 1rem;
+    margin-left: 0.7rem;
+  }
+}
+
+@media (max-width: 535px) {
+  .image img {
+    width: 86px;
+  }
+  .pic-sentence-container {
+    width: 54%;
+  }
+
+  .pic-blank {
+    margin-right: 0.1rem;
+    margin-left: 0.7rem;
+  }
 }

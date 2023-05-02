@@ -67,7 +67,7 @@
 @media (max-width: 535px) {
   .card-bottom,
   .check-answer-wrapper {
-    padding: 1.2rem 0;
+    padding: 0.9rem 0;
     align-items: center;
     padding-bottom: 80px;
   }

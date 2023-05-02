@@ -53,3 +53,9 @@
 .match-bottom {
   justify-content: flex-end;
 }
+
+@media (max-width: 535px) {
+  .match-check {
+    margin-right: 3rem;
+  }
+}

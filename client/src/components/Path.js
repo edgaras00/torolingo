@@ -27,6 +27,8 @@ const Path = () => {
         rightMascot={dancingMascot}
         leftMascotSize="190"
         rightMascotSize="160"
+        leftMascotID="left-mascot-1"
+        rightMascotID="right-mascot-1"
       />
       <Unit
         number="2"
@@ -38,6 +40,8 @@ const Path = () => {
         leftMascotSize="120"
         rightMascot={mascotPhone}
         rightMascotSize="190"
+        leftMascotID="left-mascot-2"
+        rightMascotID="right-mascot-2"
       />
       <Unit
         number="3"
@@ -49,6 +53,8 @@ const Path = () => {
         leftMascotSize="190"
         rightMascot={mascotPaper2}
         rightMascotSize="210"
+        leftMascotID="left-mascot-3"
+        rightMascotID="right-mascot-3"
       />
       <Unit
         number="4"
@@ -60,6 +66,8 @@ const Path = () => {
         rightMascot={mascotStanding2}
         rightMascotSize="190"
         leftMascotSize="190"
+        leftMascotID="left-mascot-4"
+        rightMascotID="right-mascot-4"
       />
       <Unit
         number="5"
@@ -71,6 +79,8 @@ const Path = () => {
         leftMascotSize="210"
         rightMascot={bullTongue}
         rightMascotSize="150"
+        leftMascotID="left-mascot-5"
+        rightMascotID="right-mascot-5"
       />
     </div>
   );

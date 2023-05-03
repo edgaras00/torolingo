@@ -1,4 +1,4 @@
-import WordBubble from "./components/WordBubble";
+import WordBubble from "./components/lessons/WordBubble";
 
 export const setRequestOptions = (method, body) => {
   return {

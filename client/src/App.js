@@ -2,29 +2,43 @@ import { useContext } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 import { unlockRoute } from "./utils";
-import Path from "./components/Path";
-import Lesson from "./components/Lesson";
+
 import Sidebar from "./components/Sidebar";
-import Guidebook from "./components/Guidebook";
-import UnitOneTips from "./components/UnitOneTips";
-import UnitOnePhrases from "./components/UnitOnePhrases";
-import UnitTwoTips from "./components/UnitTwoTips";
-import UnitTwoPhrases from "./components/UnitTwoPhrases";
-import UnitThreePhrases from "./components/UnitThreePhrases";
-import UnitThreeTips from "./components/UnitThreeTips";
-import UnitFourPhrases from "./components/UnitFourPhrases";
-import UnitFourTips from "./components/UnitFourTips";
-import UnitFivePhrases from "./components/UnitFivePhrases";
-import UnitFiveTips from "./components/UnitFiveTips";
-import Vocabulary from "./components/Vocabulary";
-import UnitVocabulary from "./components/UnitVocabulary";
-import Practice from "./components/Practice";
-import UserProfile from "./components/UserProfile";
-import Account from "./components/Account";
-import Home from "./components/Home";
-import Register from "./components/Register";
-import Login from "./components/Login";
-import NotFound from "./components/NotFound";
+
+import Path from "./components/path/Path";
+
+// Lesson component
+import Lesson from "./components/lessons/Lesson";
+import Practice from "./components/lessons/Practice";
+
+// Guidebook components
+import Guidebook from "./components/guidebooks/Guidebook";
+import UnitOneTips from "./components/guidebooks/tips/UnitOneTips";
+import UnitOnePhrases from "./components/guidebooks/phrases/UnitOnePhrases";
+import UnitTwoTips from "./components/guidebooks/tips/UnitTwoTips";
+import UnitTwoPhrases from "./components/guidebooks/phrases/UnitTwoPhrases";
+import UnitThreePhrases from "./components/guidebooks/phrases/UnitThreePhrases";
+import UnitThreeTips from "./components/guidebooks/tips/UnitThreeTips";
+import UnitFourPhrases from "./components/guidebooks/phrases/UnitFourPhrases";
+import UnitFourTips from "./components/guidebooks/tips/UnitFourTips";
+import UnitFivePhrases from "./components/guidebooks/phrases/UnitFivePhrases";
+import UnitFiveTips from "./components/guidebooks/tips/UnitFiveTips";
+
+// Vocab components
+import Vocabulary from "./components/vocab/Vocabulary";
+import UnitVocabulary from "./components/vocab/UnitVocabulary";
+
+// Profile components
+import UserProfile from "./components/profile/UserProfile";
+import Account from "./components/profile/Account";
+
+// Home components
+import Home from "./components/home/Home";
+import Register from "./components/home/Register";
+import Login from "./components/home/Login";
+
+// Error component
+import NotFound from "./components/errors/NotFound";
 
 import "./styles/app.css";
 const App = () => {

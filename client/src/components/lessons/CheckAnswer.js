@@ -76,7 +76,13 @@ const CheckAnswer = ({
 
   const renderSolution = (result) => {
     if (result === "success") return solution;
-    if (result === "failure") return "Wrong answer. Try again.";
+    if (result === "failure")
+      return (
+        <div>
+          <div className="wrong-answer-message">Wrong answer. Try again</div>
+          <div>{solution}</div>
+        </div>
+      );
     return null;
   };
 
@@ -89,7 +95,13 @@ const CheckAnswer = ({
         </div>
       );
     }
-    if (result === "failure") return "Wrong answer. Try again.";
+    if (result === "failure")
+      return (
+        <div>
+          <div className="wrong-answer-message">Wrong answer. Try again</div>
+          <div>{solution}</div>
+        </div>
+      );
     return null;
   };
 

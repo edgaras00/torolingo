@@ -64,6 +64,10 @@
   background-color: #f85555;
 }
 
+.wrong-answer-message {
+  margin-bottom: 0.6rem;
+}
+
 @media (max-width: 535px) {
   .card-bottom,
   .check-answer-wrapper {

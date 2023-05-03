@@ -224,7 +224,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
   return (
     <div className="lesson-container">
       {!isError ? (
-        questionCards.slice(10).map((question, index) => {
+        questionCards.map((question, index) => {
           if (index + 1 === currentQuestion) {
             return question;
           } else {

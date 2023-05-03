@@ -1,9 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 const mongoose = require("mongoose");
-const Problem = require("./api/models/problemModel");
-const Vocabulary = require("./api/models/vocabularyModel");
-require("dotenv").config({ path: "./.env" });
+const Problem = require("../api/models/problemModel");
+const Vocabulary = require("../api/models/vocabularyModel");
+require("dotenv").config({ path: "../.env" });
 
 const readData = (path) => JSON.parse(fs.readFileSync(path, "utf-8"));
 

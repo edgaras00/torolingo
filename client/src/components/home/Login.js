@@ -8,7 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
-  const { setUser } = useContext(AuthContext);
+  const { setUser, setToken } = useContext(AuthContext);
 
   const handleSubmit = async (event, email, password) => {
     event.preventDefault();
@@ -23,7 +23,11 @@ const Login = () => {
       const requestOptions = setRequestOptions("POST", { email, password });
 
       // Send request
-      const response = await fetch("/api/user/login", requestOptions);
+      let url = "https://torolingo-api.onrender.com/api/user/login";
+      if (process.env.REACT_APP_ENV === "development") {
+        url = "/api/user/login";
+      }
+      const response = await fetch(url, requestOptions);
 
       const data = await response.json();
 
@@ -31,7 +35,9 @@ const Login = () => {
         throw new AppError(data.message, response.status);
       }
       setUser(data.data.user);
+      setToken(data.token);
       localStorage.setItem("user", JSON.stringify(data.data.user));
+      localStorage.setItem("token", data.token);
     } catch (error) {
       console.error(error);
       setLoginError(error.message);

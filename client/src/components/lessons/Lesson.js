@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 // Components
 import TranslationCard from "./TranslationCard";
@@ -27,6 +28,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
   const [mistakeCount, setMistakeCount] = useState(0);
   const [isError, setIsError] = useState(false);
 
+  const { token } = useContext(AuthContext);
   const { pathname } = useLocation();
   const location = useLocation();
   const locationState = location.state;
@@ -51,6 +53,11 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
 
     const fetchProblemdata = async (unit, lesson) => {
       try {
+        let baseUrl = "https://torolingo-api.onrender.com";
+        if (process.env.REACT_APP_ENV === "development") {
+          baseUrl = "";
+        }
+
         let url = `/api/problems?unit=${unit}&lesson=${lesson}`;
 
         if (matchingOnly) {
@@ -62,7 +69,9 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
             "/api/problems?problemType=listening&problemType=listeningWriting";
         }
 
-        const response = await fetch(url);
+        const response = await fetch(baseUrl + url, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         const data = await response.json();
 
         if (response.status !== 200) {
@@ -77,7 +86,7 @@ const Lesson = ({ matchingOnly, listeningOnly }) => {
       }
     };
     fetchProblemdata(unit, lesson);
-  }, [pathname, matchingOnly, listeningOnly]);
+  }, [pathname, matchingOnly, listeningOnly, token]);
 
   const handleNextQuestion = () =>
     setCurrentQuestion((prevQuestion) => prevQuestion + 1);

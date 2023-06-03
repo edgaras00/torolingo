@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 import ErrorPage from "../errors/ErrorPage";
 
@@ -9,6 +10,7 @@ import "../../styles/unitVocabulary.css";
 const UnitVocabulary = () => {
   const [vocabData, setVocabData] = useState([]);
   const [isError, setIsError] = useState(false);
+  const { token } = useContext(AuthContext);
 
   // Get unit number
   const { vocabID } = useParams();
@@ -20,7 +22,13 @@ const UnitVocabulary = () => {
   useEffect(() => {
     const getVocabData = async () => {
       try {
-        const response = await fetch(`/api/vocab?unit=${unit}`);
+        let url = `https://torolingo-api.onrender.com/api/vocab?unit=${unit}`;
+        if (process.env.REACT_APP_ENV === "development") {
+          url = `/api/vocab?unit=${unit}`;
+        }
+        const response = await fetch(url, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         const data = await response.json();
 
         if (response.status !== 200) {
@@ -34,10 +42,10 @@ const UnitVocabulary = () => {
       }
     };
     getVocabData();
-  }, [unit]);
+  }, [unit, token]);
 
   const tableRows = vocabData.map((pair, index) => (
-    <tr className={index % 2 === 0 ? "row-even" : "row-odd"}>
+    <tr className={index % 2 === 0 ? "row-even" : "row-odd"} key={index}>
       <td>{pair.spanish}</td>
       <td>{pair.english}</td>
     </tr>

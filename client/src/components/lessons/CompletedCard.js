@@ -15,7 +15,7 @@ const CompleteCard = ({
   const [displayScore, setDisplayScore] = useState(0);
   const [displayMistakes, setDisplayMistakes] = useState(0);
   const [isError, setIsError] = useState(false);
-  const { setUser } = useContext(AuthContext);
+  const { setUser, token } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -40,12 +40,20 @@ const CompleteCard = ({
   useEffect(() => {
     const updateProgress = async (unit, lesson, score) => {
       try {
-        const requestOptions = setRequestOptions("PATCH", {
-          unit,
-          lesson,
-          score,
-        });
-        const response = await fetch("/api/user/updateScore", requestOptions);
+        const requestOptions = setRequestOptions(
+          "PATCH",
+          {
+            unit,
+            lesson,
+            score,
+          },
+          token
+        );
+        let url = "https://torolingo-api.onrender.com/api/user/updateScore";
+        if (process.env.REACT_APP_ENV === "development") {
+          url = "/api/user/updateScore";
+        }
+        const response = await fetch(url, requestOptions);
         const data = await response.json();
 
         if (response.status !== 200) {
@@ -86,6 +94,7 @@ const CompleteCard = ({
     lesson,
     unit,
     isPractice,
+    token,
   ]);
 
   return (

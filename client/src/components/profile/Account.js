@@ -15,7 +15,7 @@ const Account = () => {
   const [dataStatusMessage, setDataStatusMessage] = useState("");
   const [passwordStatusMessage, setPasswordStatusMessage] = useState("");
 
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, token } = useContext(AuthContext);
 
   const resetStatusMessages = () => {
     setIsError(false);
@@ -31,10 +31,14 @@ const Account = () => {
     const updateData = {};
     if (username && user.name !== username) updateData.name = username;
     if (email && user.email !== email) updateData.email = email;
-    const requestOptions = setRequestOptions("PATCH", updateData);
+    const requestOptions = setRequestOptions("PATCH", updateData, token);
 
     try {
-      const response = await fetch("/api/user/updateUser", requestOptions);
+      let url = "https://torolingo-api.onrender.com/api/user/updateUser";
+      if (process.env.REACT_APP_ENV === "development") {
+        url = "/api/user/updatedUser";
+      }
+      const response = await fetch(url, requestOptions);
       const data = await response.json();
 
       if (response.status !== 200) {
@@ -64,10 +68,14 @@ const Account = () => {
     resetStatusMessages();
 
     const passwordData = { currentPassword, password: newPassword };
-    const requestOptions = setRequestOptions("PATCH", passwordData);
+    const requestOptions = setRequestOptions("PATCH", passwordData, token);
 
     try {
-      const response = await fetch("/api/user/changePassword", requestOptions);
+      let url = "https://torolingo-api.onrender.com/api/user/changePassword";
+      if (process.env.REACT_APP_ENV === "development") {
+        url = "/api/user/changePassword";
+      }
+      const response = await fetch(url, requestOptions);
       const data = await response.json();
 
       if (response.status !== 200) {

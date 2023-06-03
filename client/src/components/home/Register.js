@@ -39,8 +39,11 @@ const Register = () => {
         email,
         password,
       });
-
-      const response = await fetch("/api/user/signup", requestOptions);
+      let url = "https://torolingo-api.onrender.com/api/user/signup";
+      if (process.env.REACT_APP_ENV === "development") {
+        url = "/api/user/signup";
+      }
+      const response = await fetch(url, requestOptions);
       const data = await response.json();
 
       if (response.status !== 201) {
@@ -48,7 +51,9 @@ const Register = () => {
       }
       // Log in user
       setUser(data.data.user);
+      setUser(data.token);
       localStorage.setItem("user", JSON.stringify(data.data.user));
+      localStorage.setItem("token", data.token);
     } catch (error) {
       console.error(error);
       if (error.statusCode === 500) {

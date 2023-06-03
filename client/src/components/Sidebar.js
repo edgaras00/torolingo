@@ -15,7 +15,7 @@ const Sidebar = () => {
     more: false,
   });
 
-  const { setUser } = useContext(AuthContext);
+  const { setUser, setToken } = useContext(AuthContext);
   const navigate = useNavigate();
   const currentPath = useLocation().pathname;
   const isFirstRender = useRef(true);
@@ -45,12 +45,18 @@ const Sidebar = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("/api/user/logout");
+      let url = "https://torolingo-api.onrender.com/api/user/logout";
+      if (process.env.REACT_APP_ENV === "development") {
+        url = "/api/user/logout";
+      }
+      const response = await fetch(url);
       const data = await response.json();
       console.log(data);
 
       setUser(null);
-      localStorage.setItem("user", null);
+      setToken(null);
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
       navigate("/");
     } catch (error) {
       console.error(error);

@@ -42,7 +42,7 @@ import NotFound from "./components/errors/NotFound";
 
 import "./styles/app.css";
 const App = () => {
-  const { user } = useContext(AuthContext);
+  const { user, token } = useContext(AuthContext);
   const lessons = [];
 
   for (let unit = 1; unit < 6; unit++) {
@@ -81,7 +81,9 @@ const App = () => {
         />
         <Route
           path="/signup"
-          element={user ? <Navigate to="/path" replace /> : <Register />}
+          element={
+            user && token ? <Navigate to="/path" replace /> : <Register />
+          }
         />
         <Route
           path="login"

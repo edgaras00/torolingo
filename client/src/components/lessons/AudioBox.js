@@ -19,7 +19,9 @@ const AudioBox = ({ audio, slowAudio }) => {
 
   useEffect(() => {
     // Have the audio only play once during initial render
-    playAudioOnMount(hasPlayedAudioRef, audio);
+    if (audio) {
+      playAudioOnMount(hasPlayedAudioRef, audio);
+    }
   }, [audio, hasPlayedAudioRef]);
 
   const handleAudioClick = () => audioElement.play();

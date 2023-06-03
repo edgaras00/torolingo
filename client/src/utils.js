@@ -49,7 +49,7 @@ export const getUnitAndLesson = (pathString) => {
 
 export const unlockCircle = (user, unit, lesson) => {
   if (
-    user.progress[unit] !== undefined &&
+    user.progress[unit] !== undefined ||
     user.progress[unit][lesson] !== undefined
   ) {
     return user.progress[unit][lesson] >= 60;

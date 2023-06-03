@@ -51,7 +51,7 @@ const Register = () => {
       }
       // Log in user
       setUser(data.data.user);
-      setUser(data.token);
+      setToken(data.token);
       localStorage.setItem("user", JSON.stringify(data.data.user));
       localStorage.setItem("token", data.token);
     } catch (error) {

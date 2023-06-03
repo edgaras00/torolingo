@@ -10,7 +10,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [signupError, setSignupError] = useState("");
-  const { setUser } = useContext(AuthContext);
+  const { setUser, setToken } = useContext(AuthContext);
 
   const handleSubmit = async (
     event,

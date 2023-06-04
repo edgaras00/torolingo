@@ -5,7 +5,7 @@ https://torolingo.onrender.com/
 <img src="docs/main.png" width="800px">
 <br/>
 <br/>
-<img src="docs/path.png" width="700px">
+<img src="docs/path.png" width="750px">
 <img src="docs/practice.png" width="700px">
 <img src="docs/tip.png" width="700px">
 <img src="docs/translation.png" width="700px">

@@ -18,6 +18,8 @@ require("dotenv").config();
 const app = express();
 
 // Global middlewares
+// Handle CORS
+app.use(cors());
 
 // Security HTTP headers
 app.use(helmet());
@@ -30,8 +32,6 @@ const limiter = rateLimit({
     "Too many requests from this IP address. Please try again in an hour.",
 });
 app.use("/api/user", limiter);
-// Handle CORS
-app.use(cors());
 // Body parser (body --> req.body)
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));

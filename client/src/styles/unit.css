@@ -106,3 +106,17 @@
     left: 300px;
   }
 }
+
+@media (max-width: 420px) {
+  .unit {
+    width: 100%;
+  }
+
+  #left-mascot-1 {
+    width: 150px;
+    right: 265px;
+  }
+
+  #right-mascot-1 {
+  }
+}

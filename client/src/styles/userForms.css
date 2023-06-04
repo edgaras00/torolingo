@@ -127,4 +127,8 @@
   .link-to-form {
     font-size: 1.2rem;
   }
+
+  .form-exit-button {
+    font-size: 2.5rem;
+  }
 }

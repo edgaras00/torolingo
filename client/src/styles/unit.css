@@ -113,10 +113,52 @@
   }
 
   #left-mascot-1 {
-    width: 150px;
+    width: 148px;
     right: 265px;
   }
 
   #right-mascot-1 {
+    width: 128px;
+    left: 280px;
+  }
+
+  #left-mascot-2 {
+    width: 100px;
+    right: 280px;
+  }
+
+  #right-mascot-2 {
+    width: 148px;
+    left: 260px;
+  }
+
+  #left-mascot-3 {
+    width: 150px;
+    right: 260px;
+  }
+
+  #right-mascot-3 {
+    width: 160px;
+    left: 260px;
+  }
+
+  #left-mascot-4 {
+    width: 145px;
+    right: 260px;
+  }
+
+  #right-mascot-4 {
+    width: 142px;
+    left: 270px;
+  }
+
+  #left-mascot-5 {
+    width: 170px;
+    right: 250px;
+  }
+
+  #right-mascot-5 {
+    width: 120px;
+    left: 274px;
   }
 }

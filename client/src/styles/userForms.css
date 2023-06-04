@@ -84,3 +84,47 @@
 .link-to-form a:hover {
   color: #51bff1;
 }
+
+@media (max-width: 900px) {
+  .user-form {
+    width: 40%;
+  }
+  .login-header-container h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .user-form {
+    width: 50%;
+  }
+}
+
+@media (max-width: 420px) {
+  .user-form {
+    width: 70%;
+  }
+
+  .login-header-container h3,
+  .header-container h3 {
+    font-size: 1.8rem;
+  }
+
+  .login-form {
+    margin-top: 4rem;
+  }
+
+  .user-form input {
+    height: 3rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .user-form button {
+    height: 3.8rem;
+    font-size: 1.35rem;
+  }
+  .link-to-form {
+    font-size: 1.2rem;
+  }
+}

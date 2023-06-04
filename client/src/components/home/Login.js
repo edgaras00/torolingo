@@ -51,7 +51,7 @@ const Login = () => {
           <div className="form-exit-button">X</div>
         </Link>
       </div>
-      <div className="form-content">
+      <div className="form-content login-form">
         <div className="login-header-container">
           <h3>Log in</h3>
         </div>

@@ -75,7 +75,7 @@ const Register = () => {
           <div className="form-exit-button">X</div>
         </Link>
       </div>
-      <div className="form-content">
+      <div className="form-content register-form">
         <div className="header-container">
           <h3>Create your profile</h3>
         </div>

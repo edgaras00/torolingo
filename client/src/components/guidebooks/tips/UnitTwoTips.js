@@ -6,12 +6,12 @@ import "../../../styles/tips.css";
 const UnitTwoTips = () => {
   return (
     <div className="tips">
-      <TipTop header="Esta vs es" />
+      <TipTop header="Está vs es" />
       <div className="tip-content unit-two-content">
         <p>
           <span>Está</span> and <span>es</span> both mean is. So what's the
           difference? If you want to say where someone or something is located,
-          use <span>está</span> .
+          use <span>está</span>.
         </p>
         <TipCard
           img={`${process.env.PUBLIC_URL}/images/woman_taxi.svg`}

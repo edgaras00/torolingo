@@ -11,7 +11,7 @@ const UserProfile = () => {
       <div className="profile-card">
         <div className="name-circle">{user ? user.name[0] : "A"}</div>
         <div className="name-card">
-          <div className="username">Name</div>
+          <div className="username">{user.name}</div>
           <div className="joined">Joined April 10th 2022</div>
         </div>
       </div>

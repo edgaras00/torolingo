@@ -17,7 +17,7 @@ const VocabLink = ({ unit, color, image, hoverColor }) => {
         style={{ backgroundColor: hovered ? hoverColor : color }}
       >
         <div className="text">UNIT {unit}</div>
-        <img src={image} width="50px" alt="mascot" />
+        <img src={image} alt="mascot" />
       </div>
     </Link>
   );

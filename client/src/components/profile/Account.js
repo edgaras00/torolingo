@@ -103,7 +103,7 @@ const Account = () => {
       </div>
       <form
         onSubmit={(event) => handleSubmitProfile(event)}
-        className="account-form"
+        className="account-form profile-form"
       >
         <div className="input-wrapper">
           <label htmlFor="username">Name</label>
@@ -133,7 +133,10 @@ const Account = () => {
         <button>Save Changes</button>
       </form>
       <br />
-      <form onSubmit={handleSubmitPassword} className="account-form">
+      <form
+        onSubmit={handleSubmitPassword}
+        className="account-form password-form"
+      >
         <div className="input-wrapper">
           <label htmlFor="currentPassword">Current Password</label>
           <input

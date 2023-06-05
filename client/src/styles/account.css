@@ -126,3 +126,25 @@
     width: 40%;
   }
 }
+
+@media (max-width: 420px) {
+  .input-wrapper {
+    width: 100%;
+  }
+
+  .header-wrapper {
+    margin-top: 1.6rem;
+  }
+
+  .account-form button {
+    margin-top: 0.2rem;
+  }
+
+  .profile-form {
+    margin-top: 3rem;
+  }
+
+  .password-form {
+    margin-top: 2.5rem;
+  }
+}

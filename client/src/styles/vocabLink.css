@@ -16,6 +16,10 @@
   margin-bottom: 10px;
 }
 
+.vocab-content img {
+  width: 50px;
+}
+
 .text {
   font-size: 1.8rem;
 }
@@ -41,5 +45,16 @@
 
   .text {
     font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .vocab-link {
+    margin-bottom: 0.6rem;
+  }
+
+  .vocab-content img {
+    margin-left: 14px;
+    width: 55px;
   }
 }

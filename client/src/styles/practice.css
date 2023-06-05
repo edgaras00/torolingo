@@ -103,3 +103,10 @@
     padding-left: 2rem;
   }
 }
+
+@media (max-width: 420px) {
+  .practice-card {
+    height: 158px;
+    width: 158px;
+  }
+}

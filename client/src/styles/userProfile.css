@@ -81,3 +81,28 @@
     padding: 20px 25px;
   }
 }
+
+@media (max-width: 420px) {
+  .profile-card {
+    flex-direction: column;
+  }
+
+  .name-circle {
+    width: 150px;
+    height: 150px;
+    font-size: 5rem;
+  }
+
+  .username {
+    font-size: 1.8rem;
+  }
+
+  .joined {
+    font-size: 1.3rem;
+  }
+
+  .edit-profile-btn {
+    height: 5.4rem;
+    font-size: 1.3rem;
+  }
+}

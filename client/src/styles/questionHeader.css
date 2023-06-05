@@ -56,12 +56,13 @@
 
 @media (max-width: 420px) {
   .exit-button {
-    font-size: 2.3rem;
+    font-size: 1.6rem;
+    margin-left: 0.5rem;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
   }
   .question-heading {
     font-size: 1.4rem;
-    margin-left: 0.2rem;
+    margin-left: 0.5rem;
   }
 }

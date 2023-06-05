@@ -80,6 +80,17 @@
     font-size: 0.8rem;
     margin-right: 1rem;
     width: 6.2rem;
-    height: 2.8rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .check-answer-btn {
+    width: 7rem;
+    height: 4rem;
+  }
+
+  .card-bottom,
+  .check-answer-wrapper {
+    margin-top: 0;
   }
 }

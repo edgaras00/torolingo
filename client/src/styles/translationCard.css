@@ -48,4 +48,8 @@
   .problem-wrapper {
     width: 84%;
   }
+
+  .mascot-speech-bubble p {
+    font-size: 1.18rem;
+  }
 }

@@ -85,12 +85,12 @@
 
 @media (max-width: 420px) {
   .check-answer-btn {
-    width: 7rem;
-    height: 4rem;
+    height: 3.5rem;
   }
 
   .card-bottom,
   .check-answer-wrapper {
-    margin-top: 0;
+    padding-top: 0.8rem;
+    padding-bottom: 1rem;
   }
 }

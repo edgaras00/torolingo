@@ -20,3 +20,10 @@
     font-size: 0.9rem;
   }
 }
+
+@media (max-width: 420px) {
+  .word-bubble {
+    font-size: 1.05rem;
+    padding: 7px 13px;
+  }
+}

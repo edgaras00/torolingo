@@ -66,3 +66,10 @@
     width: 94%;
   }
 }
+
+@media (max-width: 420px) {
+  .unit-vocab-header {
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+}

@@ -23,7 +23,7 @@
 
 @media (max-width: 420px) {
   .word-bubble {
-    /* font-size: 1.05rem;
-    padding: 6px 12px; */
+    font-size: 1.06rem;
+    padding: 6px 13px;
   }
 }

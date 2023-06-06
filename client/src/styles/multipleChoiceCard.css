@@ -9,3 +9,15 @@
 .mc-card-middle {
   margin-top: 3rem;
 }
+
+@media (max-width: 420px) {
+  .multiple-choice-card {
+    height: 90vh;
+    justify-content: space-between;
+  }
+
+  .mc-card-middle {
+    margin-top: 0;
+    margin-bottom: 3rem;
+  }
+}

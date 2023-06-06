@@ -62,3 +62,14 @@
     margin-right: 3rem;
   }
 }
+
+@media (max-width: 420px) {
+  .vocab-match {
+    border: 1px solid red;
+    height: 90vh;
+  }
+
+  .match-card {
+    height: 40px;
+  }
+}

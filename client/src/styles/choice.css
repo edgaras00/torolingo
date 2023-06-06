@@ -54,3 +54,12 @@
     width: 70px;
   }
 }
+
+@media (max-width: 420px) {
+  .picture-mc {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

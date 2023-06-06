@@ -49,7 +49,7 @@ const CheckAnswer = ({
   const renderButtons = (result) => {
     if (result === "success") {
       return (
-        <button className="check-answer-btn" onClick={onNextQuestion}>
+        <button className={`check-answer-btn`} onClick={onNextQuestion}>
           CONTINUE
         </button>
       );
@@ -58,7 +58,7 @@ const CheckAnswer = ({
       <button
         className={`check-answer-btn ${
           result === "failure" ? "wrong-answer-button" : null
-        }`}
+        } ${listening ? "listening-check" : null}`}
         onClick={() =>
           onCheckAnswer(
             normalizedSolution,

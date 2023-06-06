@@ -22,7 +22,6 @@
 
 @media (max-width: 420px) {
   .vocabulary {
-    padding-bottom: 0;
-    margin-top: 2rem;
+    padding-top: 2rem;
   }
 }

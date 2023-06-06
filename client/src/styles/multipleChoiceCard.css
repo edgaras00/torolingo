@@ -12,8 +12,9 @@
 
 @media (max-width: 420px) {
   .multiple-choice-card {
-    height: 90vh;
+    height: 82vh;
     justify-content: space-between;
+    align-items: center;
   }
 
   .mc-card-middle {

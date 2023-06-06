@@ -69,6 +69,7 @@ const TranslationCard = ({
         altSolution={altSolution}
         setResult={setResult}
         addMistake={addMistake}
+        translationType={true}
       />
     </div>
   );

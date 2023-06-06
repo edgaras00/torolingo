@@ -13,6 +13,7 @@ const CheckAnswer = ({
   translation,
   addMistake,
   setResult,
+  translationType,
 }) => {
   useEffect(() => {
     const handleKeyPress = (event) => {
@@ -113,7 +114,7 @@ const CheckAnswer = ({
           : result === "failure"
           ? "wrong-answer"
           : null
-      }`}
+      } ${translationType ? "check-translation-wrapper" : null}`}
     >
       <div
         className={`solution ${result === "failure" ? "wrong-solution" : null}`}

@@ -105,6 +105,9 @@
 }
 
 @media (max-width: 420px) {
+  .practice-cards {
+    margin-bottom: 6rem;
+  }
   .practice-card {
     height: 158px;
     width: 158px;

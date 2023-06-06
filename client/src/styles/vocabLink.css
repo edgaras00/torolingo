@@ -49,10 +49,6 @@
 }
 
 @media (max-width: 420px) {
-  .vocab-link {
-    margin-bottom: 0.6rem;
-  }
-
   .vocab-content img {
     margin-left: 14px;
     width: 55px;

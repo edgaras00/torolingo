@@ -59,3 +59,15 @@
     width: 46px;
   }
 }
+
+@media (max-width: 420px) {
+  .normal-audio {
+    height: 86px;
+    width: 86px;
+  }
+
+  .slow-audio {
+    height: 66px;
+    width: 66px;
+  }
+}

@@ -90,7 +90,17 @@
     padding-bottom: 2rem;
   }
 
+  .check-translation-wrapper {
+    padding-bottom: 6rem;
+  }
+
   .listening-check {
     margin-right: 2.4rem;
+  }
+
+  .check-answer-btn {
+    font-size: 1rem;
+    height: 3.5rem;
+    width: 8.4rem;
   }
 }

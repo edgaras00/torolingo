@@ -66,10 +66,14 @@
 @media (max-width: 420px) {
   .vocab-match {
     border: 1px solid red;
-    height: 90vh;
+    height: 93vh;
   }
 
   .match-card {
     height: 40px;
+  }
+
+  .match-check {
+    margin-bottom: 1rem;
   }
 }

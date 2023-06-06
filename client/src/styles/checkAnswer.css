@@ -84,12 +84,7 @@
 }
 
 @media (max-width: 420px) {
-  /* .check-answer-btn {
-    height: 3.8rem;
-  }
-
-  .card-bottom,
   .check-answer-wrapper {
-    padding-bottom: 1rem;
-  } */
+    margin-bottom: 1rem;
+  }
 }

@@ -70,6 +70,7 @@
 .user-submit-error {
   color: rgb(243, 0, 0);
   font-size: 0.95rem;
+  text-align: center;
 }
 
 .link-to-form {

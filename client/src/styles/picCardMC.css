@@ -38,7 +38,7 @@
   justify-content: center;
 }
 
-@media (max-width: 535px) {
+@media (max-width: 815px) {
   .mc-pic-form {
     flex-wrap: wrap;
   }

@@ -99,3 +99,9 @@
     width: 90%;
   }
 }
+
+@-moz-document url-prefix() {
+  table {
+    width: 90%;
+  }
+}

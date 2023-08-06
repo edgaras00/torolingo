@@ -9,7 +9,7 @@ const Path = () => {
         primaryColor="#ff4b4b"
         secondaryColor="#c23e39"
         hoverColor="#c45551"
-        description="Form basic sentences, greet people"
+        description="Form basic sentences"
         leftMascot={`${process.env.PUBLIC_URL}/images/mascots/mascot-1l.png`}
         rightMascot={`${process.env.PUBLIC_URL}/images/mascots/mascot-1r.jpg`}
         leftMascotSize="190"

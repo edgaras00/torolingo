@@ -70,7 +70,7 @@ const Sidebar = () => {
           className="resource"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/edgaras00"
+          href="https://github.com/edgaras00/torolingo"
         >
           <div className="resource-img-wrapper">
             <img
@@ -83,7 +83,7 @@ const Sidebar = () => {
         </a>
         <a
           className="resource"
-          href="https://github.com/edgaras00"
+          href="https://github.com/edgaras00/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -100,7 +100,7 @@ const Sidebar = () => {
           className="resource"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/edgaras00"
+          href="https://edgaras00.github.io"
         >
           <div className="resource-img-wrapper">
             <img

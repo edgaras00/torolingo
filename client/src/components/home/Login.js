@@ -27,6 +27,7 @@ const Login = () => {
       if (process.env.REACT_APP_ENV === "development") {
         url = "/api/user/login";
       }
+      console.log(url);
       const response = await fetch(url, requestOptions);
 
       const data = await response.json();

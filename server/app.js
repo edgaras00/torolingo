@@ -43,6 +43,7 @@ app.use(mongoSanitize());
 // Data sanitization against XSS-attacks
 app.use(xss());
 
+app.use("/", (req, res) => res.status(200).send("Welcome"));
 app.use("/api/problems", problemRouter);
 app.use("/api/vocab", vocabularyRouter);
 app.use("/api/user", userRouter);

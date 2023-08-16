@@ -46,7 +46,7 @@ app.use(xss());
 app.use("/api/problems", problemRouter);
 app.use("/api/vocab", vocabularyRouter);
 app.use("/api/user", userRouter);
-app.use("/", (req, res) => res.status(200).send("Welcome"));
+app.use("/ping", (req, res) => res.status(200).send("Welcome"));
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));

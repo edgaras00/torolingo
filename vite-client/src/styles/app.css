@@ -1,0 +1,11 @@
+#app {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+@media (max-width: 535px) {
+  #app {
+    /* flex-direction: column-reverse; */
+  }
+}

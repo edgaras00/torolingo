@@ -1,0 +1,48 @@
+.tip-card-one {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+  margin-top: 1.8rem;
+}
+
+.tip-card-one img {
+  width: 84%;
+}
+
+.tip-card-text {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tip-card-two {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px 0;
+  background-color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.tip-card-two-text {
+  margin-left: 30px;
+}
+
+.tip-card-two img {
+  margin-right: 20px;
+}
+
+.spanish-text {
+  margin-bottom: 10px;
+  border-bottom: 2px dashed grey;
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+
+.spanish-text:hover {
+  color: #2b70c9;
+}

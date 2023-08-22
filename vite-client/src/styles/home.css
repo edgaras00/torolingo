@@ -1,0 +1,138 @@
+.home {
+  width: 100%;
+  height: 100vh;
+  background-color: #235390;
+  display: flex;
+  flex-direction: column;
+  background-image: url("https://d35aaqx5ub95lt.cloudfront.net/images/4986531ca822d48e57b4a18f40ff5172.svg");
+}
+
+.home-top {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+}
+
+.home-logo {
+  font-size: 1.95rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.home-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5.5rem;
+  width: 80%;
+  align-self: center;
+}
+
+.home-img-container img {
+  width: 300px;
+}
+
+.signup-links-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.learn-text {
+  color: #ffffff;
+  font-size: 1.2rem;
+  width: 80%;
+  text-align: center;
+}
+
+.signup-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.link-button {
+  font-size: 0.8rem;
+  padding: 1rem 0;
+  border-radius: 15px;
+  border: none;
+  width: 250px;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #58cc02;
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.link-button:hover {
+  background-color: #6ef00b;
+}
+
+.login-button {
+  border: 1px solid black;
+  background-color: #235390;
+}
+
+.login-button:hover {
+  background-color: #1b3e6d;
+}
+
+@media (max-width: 615px) {
+  .home-top {
+    margin-top: 0.2rem;
+  }
+  .home-middle {
+    width: 94%;
+  }
+}
+
+@media (max-width: 606px) {
+  .home-img-container img {
+    width: 200px;
+  }
+
+  .learn-text {
+    font-size: 1.05rem;
+  }
+  .link-button {
+    font-size: 0.75rem;
+    width: 220px;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-top {
+    margin-bottom: 0;
+  }
+
+  .home-logo {
+    margin-top: 1.5rem;
+  }
+
+  .home-middle {
+    flex-direction: column;
+    margin-top: 6rem;
+  }
+
+  .home-img-container img {
+    width: 210px;
+  }
+
+  .learn-text {
+    font-size: 1.3rem;
+  }
+  .link-button {
+    font-size: 0.8rem;
+    width: 250px;
+    margin-top: 1.2rem;
+  }
+  .login-button {
+    margin-top: 0;
+  }
+}

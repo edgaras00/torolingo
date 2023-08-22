@@ -1,0 +1,56 @@
+.vocab-link {
+  width: 76%;
+  color: #000000;
+  text-decoration: none;
+}
+
+.vocab-content {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.vocab-content img {
+  width: 50px;
+}
+
+.text {
+  font-size: 1.8rem;
+}
+
+@media (max-width: 1000px) {
+  .vocab-link {
+    width: 80%;
+  }
+
+  .vocab-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 535px) {
+  .vocab-link {
+    width: 90%;
+  }
+
+  .vocab-content {
+    width: 100%;
+  }
+
+  .text {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .vocab-content img {
+    margin-left: 14px;
+    width: 55px;
+  }
+}

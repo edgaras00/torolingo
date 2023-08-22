@@ -1,0 +1,9 @@
+.notebook-lines {
+  width: 80%;
+}
+
+.line {
+  border-bottom: 2px solid black;
+  height: 40px;
+  width: 100%;
+}

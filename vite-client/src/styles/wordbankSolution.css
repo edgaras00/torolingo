@@ -1,0 +1,64 @@
+.wordbank-solution {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.solution-container {
+  position: relative;
+}
+
+.selected-words {
+  background-color: transparent;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.aligned-words {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.line-container {
+  display: flex;
+  justify-content: center;
+}
+
+.bubble-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bubbles {
+  width: 46%;
+  padding: 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.picture-bubbles {
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 535px) {
+  .wordbank-solution {
+    align-items: center;
+    height: 40vh;
+  }
+
+  .solution-container {
+    width: 100%;
+    height: 60%;
+  }
+
+  .bubbles {
+    width: 80%;
+    margin-top: 1rem;
+  }
+}

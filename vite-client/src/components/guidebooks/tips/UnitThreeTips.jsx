@@ -1,0 +1,39 @@
+import TipCard from "../TipCard";
+import TipTop from "../TipTop";
+
+import waiterImage from "../../../images/waiter.svg";
+
+import "../../../styles/tips.css";
+
+const UnitThreeTips = () => {
+  return (
+    <div className="tips">
+      <TipTop header="A sandwich of fish" />
+      <div className="tip-content">
+        <p>
+          In English, we might ask for <span>a cup of coffee</span>. In Spanish,
+          you do the same thing.
+        </p>
+        <TipCard
+          type={1}
+          img={waiterImage}
+          spanishText="Una taza de café."
+          englishText="A cup of coffee."
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase26.mp3"
+        />
+        <p>
+          You also use de when you're describing what type of food something is.
+        </p>
+        <TipCard
+          type={1}
+          img={waiterImage}
+          spanishText="Un jugo de naranja."
+          englishText="An orange juice."
+          audio="https://tlingobucket.s3.amazonaws.com/phrases/phrase27.mp3"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default UnitThreeTips;

@@ -1,0 +1,164 @@
+.unit {
+  width: 60%;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.unit-path {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.top-left-mascot,
+.bottom-right-mascot {
+  position: absolute;
+  right: 390px;
+  bottom: 250px;
+}
+
+.bottom-right-mascot {
+  left: 420px;
+  top: 250px;
+}
+
+@media (max-width: 1000px) {
+  .unit {
+    width: 80%;
+  }
+
+  .bottom-right-mascot {
+    left: 410px;
+  }
+}
+
+@media (max-width: 755px) {
+  .unit {
+    width: 90%;
+  }
+
+  .top-left-mascot {
+    right: 340px;
+  }
+
+  .bottom-right-mascot {
+    left: 380px;
+  }
+}
+
+@media (max-width: 670px) {
+  .unit {
+    width: 95%;
+  }
+
+  #left-mascot-1 {
+    width: 170px;
+    right: 290px;
+  }
+
+  #right-mascot-1 {
+    width: 145px;
+  }
+
+  #left-mascot-2 {
+    width: 110px;
+    right: 325px;
+  }
+
+  #right-mascot-2 {
+    width: 170px;
+  }
+
+  #left-mascot-3 {
+    width: 170px;
+    right: 290px;
+  }
+
+  #right-mascot-3 {
+    width: 180px;
+    left: 290px;
+  }
+
+  #left-mascot-4 {
+    width: 155px;
+    right: 290px;
+  }
+
+  #right-mascot-4 {
+    width: 160px;
+    left: 300px;
+  }
+
+  #left-mascot-5 {
+    width: 180px;
+    right: 280px;
+  }
+
+  #right-mascot-5 {
+    width: 126px;
+    left: 305px;
+  }
+
+  .bottom-right-mascot {
+    left: 300px;
+  }
+}
+
+@media (max-width: 420px) {
+  .unit {
+    width: 100%;
+  }
+
+  #left-mascot-1 {
+    width: 148px;
+    right: 265px;
+  }
+
+  #right-mascot-1 {
+    width: 128px;
+    left: 280px;
+  }
+
+  #left-mascot-2 {
+    width: 100px;
+    right: 280px;
+  }
+
+  #right-mascot-2 {
+    width: 148px;
+    left: 260px;
+  }
+
+  #left-mascot-3 {
+    width: 150px;
+    right: 260px;
+  }
+
+  #right-mascot-3 {
+    width: 160px;
+    left: 260px;
+  }
+
+  #left-mascot-4 {
+    width: 145px;
+    right: 260px;
+  }
+
+  #right-mascot-4 {
+    width: 142px;
+    left: 270px;
+  }
+
+  #left-mascot-5 {
+    width: 170px;
+    right: 250px;
+  }
+
+  #right-mascot-5 {
+    width: 120px;
+    left: 274px;
+  }
+}

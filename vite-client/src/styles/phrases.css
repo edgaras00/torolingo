@@ -1,0 +1,11 @@
+.phrases {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+@media (max-width: 420px) {
+  .phrases {
+    width: 100%;
+  }
+}

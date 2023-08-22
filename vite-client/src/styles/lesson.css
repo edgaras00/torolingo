@@ -1,0 +1,9 @@
+.lesson-container {
+  width: 78%;
+}
+
+@media (max-width: 535px) {
+  .lesson-container {
+    width: 100%;
+  }
+}

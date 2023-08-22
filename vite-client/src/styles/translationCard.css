@@ -1,0 +1,55 @@
+.problem-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 74%;
+  margin-top: 1.6rem;
+}
+
+.mascot {
+  margin-left: 3rem;
+}
+
+.mascot img {
+  width: 120px;
+}
+
+.mascot-speech-bubble {
+  position: relative;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+.mascot-speech-bubble::after {
+  content: "";
+  position: absolute;
+  top: 48%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent #f1f1f1 transparent transparent;
+}
+
+@media (max-width: 535px) {
+  .mascot img {
+    width: 100px;
+  }
+}
+
+@media (max-width: 420px) {
+  .problem-wrapper {
+    width: 84%;
+  }
+
+  .mascot-speech-bubble p {
+    font-size: 1.18rem;
+  }
+}
